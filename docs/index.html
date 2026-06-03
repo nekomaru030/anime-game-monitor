@@ -195,9 +195,9 @@
 
         <div class="tabs-container">
             <button class="tab-btn active" onclick="switchTab(0, this)">🎮 二次元重点游戏版更</button>
-            <button class="tab-btn" onclick="switchTab(1, this)">📊 NGA吃瓜播报</button>
+            <button class="tab-btn" onclick="switchTab(1, this)">💬 B站游戏舆情</button>
             <button class="tab-btn" onclick="switchTab(2, this)">🔴 B站直播日报</button>
-            <button class="tab-btn" onclick="switchTab(3, this)">💬 B站游戏舆情</button>
+            <button class="tab-btn" onclick="switchTab(3, this)">📊 NGA吃瓜播报</button>
             <button class="tab-btn" onclick="switchTab(4, this)">📄 贴吧舆情日报</button>
         </div>
 
@@ -234,12 +234,12 @@
     </div>
 
     <script>
-        // 来源 ID → tab index 映射（顺序：速报→NGA→B直播→B游戏→贴吧）
+        // 来源 ID → tab index 映射（顺序：速报→B游戏→B直播→NGA→贴吧）
         const SOURCE_TABS = {
             'game_speed':    0,
-            'nga':           1,
+            'bilibili_game': 1,
             'bilibili_live': 2,
-            'bilibili_game': 3,
+            'nga':           3,
             'tieba':         4,
         };
 
