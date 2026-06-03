@@ -201,71 +201,122 @@
             <button class="tab-btn" onclick="switchTab(4, this)">📄 贴吧舆情日报</button>
         </div>
 
+        <!-- 数据日期选择器 -->
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <span style="color:#94a3b8; font-size:13px;">📅 数据日期：</span>
+            <select id="date-select" onchange="onDateChange()" style="background:#1e293b; color:#e2e8f0; border:1px solid #334155; border-radius:6px; padding:6px 12px; font-size:13px; cursor:pointer;">
+                <option value="">加载中...</option>
+            </select>
+            <span id="update-time" style="color:#64748b; font-size:12px;"></span>
+        </div>
+
         <div class="content-area">
-            <!-- NGA 吃瓜播报 -->
             <div class="content-section active" id="section-0">
-                <iframe src="docs/reports/latest/nga_report.html"></iframe>
+                <iframe id="iframe-0" src="about:blank"></iframe>
             </div>
-
-            <!-- B站直播日报 -->
             <div class="content-section" id="section-1">
-                <iframe src="docs/reports/latest/bilibili_live_report.html"></iframe>
+                <iframe id="iframe-1" src="about:blank"></iframe>
             </div>
-
-            <!-- B站游戏舆情 -->
             <div class="content-section" id="section-2">
-                <iframe src="docs/reports/latest/bilibili_game_report.html"></iframe>
+                <iframe id="iframe-2" src="about:blank"></iframe>
             </div>
-
-            <!-- 二次元游戏速报 -->
             <div class="content-section" id="section-3">
-                <iframe src="docs/reports/latest/game_speed_report.html"></iframe>
+                <iframe id="iframe-3" src="about:blank"></iframe>
             </div>
-
-            <!-- 贴吧舆情日报 -->
             <div class="content-section" id="section-4">
-                <iframe src="docs/reports/latest/tieba_report.html"></iframe>
+                <iframe id="iframe-4" src="about:blank"></iframe>
             </div>
         </div>
 
         <div class="footer">
-            <p>💾 所有报告每日自动生成并更新 | 📈 最后同步：<span id="update-time">加载中...</span></p>
+            <p>💾 所有报告每日自动生成并更新 | 数据来源：NGA / B站直播 / B站游戏 / 贴吧</p>
         </div>
     </div>
 
     <script>
+        // 来源 ID → tab index 映射
+        const SOURCE_TABS = {
+            'nga':           0,
+            'bilibili_live': 1,
+            'bilibili_game': 2,
+            'game_speed':    3,
+            'tieba':         4,
+        };
+
+        // 来源 ID → docs 子文件夹名
+        const SOURCE_DIRS = {
+            'nga':           'nga',
+            'bilibili_live': 'bilibili_live',
+            'bilibili_game': 'bilibili_game',
+            'game_speed':    'game_speed',
+            'tieba':         'tieba',
+        };
+
+        let currentDate = '';
+        let summaryData = null;
+
+        // 已知日期列表（从最新到最旧），可由推送脚本自动追加
+        const KNOWN_DATES = [
+            '2026-06-03',
+            '2026-06-02',
+        ];
+
+        async function init() {
+            // 填充日期选择器
+            const sel = document.getElementById('date-select');
+            sel.innerHTML = '';
+            KNOWN_DATES.forEach((d, i) => {
+                const opt = document.createElement('option');
+                opt.value = d;
+                opt.textContent = d + (i === 0 ? '（最新）' : '');
+                sel.appendChild(opt);
+            });
+
+            // 加载最新日期的数据
+            await loadDate(KNOWN_DATES[0]);
+        }
+
+        async function loadDate(date) {
+            currentDate = date;
+            document.getElementById('update-time').textContent = '加载中...';
+
+            try {
+                const res = await fetch(`docs/summary/${date}.json?t=${Date.now()}`);
+                summaryData = await res.json();
+
+                // 更新所有 iframe 路径
+                summaryData.tasks.forEach(task => {
+                    const tabIdx = SOURCE_TABS[task.id];
+                    if (tabIdx !== undefined) {
+                        const dir = SOURCE_DIRS[task.id];
+                        const url = `docs/${dir}/${date}/report.html`;
+                        document.getElementById(`iframe-${tabIdx}`).src = url;
+                    }
+                });
+
+                const updatedAt = summaryData.updated_at
+                    ? new Date(summaryData.updated_at).toLocaleString('zh-CN')
+                    : '';
+                document.getElementById('update-time').textContent = `更新于 ${updatedAt}`;
+            } catch (e) {
+                document.getElementById('update-time').textContent = `加载失败: ${e.message}`;
+            }
+        }
+
+        function onDateChange() {
+            const date = document.getElementById('date-select').value;
+            if (date) loadDate(date);
+        }
+
         function switchTab(index, element) {
-            // 隐藏所有内容区域
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
-
-            // 移除所有按钮的 active 类
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            // 激活当前选项卡
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(`section-${index}`).classList.add('active');
             element.classList.add('active');
-
-            // 平滑滚动到选项卡
             element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
         }
 
-        // 初始化更新时间
-        function updateTime() {
-            const now = new Date();
-            const timeStr = now.toLocaleString('zh-CN', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            document.getElementById('update-time').textContent = timeStr;
-        }
-
-        updateTime();
-        setInterval(updateTime, 60000); // 每分钟更新一次
+        init();
     </script>
 </body>
 </html>
