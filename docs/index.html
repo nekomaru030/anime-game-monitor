@@ -16,11 +16,11 @@
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #e2e8f0;
             line-height: 1.6;
-            padding: 20px;
+            padding: 16px 24px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -83,8 +83,7 @@
             background: rgba(15, 23, 42, 0.4);
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 20px;
-            min-height: 600px;
+            padding: 12px;
             overflow: hidden;
         }
 
@@ -110,7 +109,8 @@
 
         iframe {
             width: 100%;
-            height: 800px;
+            height: calc(100vh - 220px);
+            min-height: 800px;
             border: none;
             border-radius: 8px;
             background: #0f172a;
@@ -194,10 +194,10 @@
         </header>
 
         <div class="tabs-container">
-            <button class="tab-btn active" onclick="switchTab(0, this)">📊 NGA吃瓜播报</button>
-            <button class="tab-btn" onclick="switchTab(1, this)">🔴 B站直播日报</button>
-            <button class="tab-btn" onclick="switchTab(2, this)">💬 B站游戏舆情</button>
-            <button class="tab-btn" onclick="switchTab(3, this)">🎮 二次元重点游戏版更</button>
+            <button class="tab-btn active" onclick="switchTab(0, this)">🎮 二次元重点游戏版更</button>
+            <button class="tab-btn" onclick="switchTab(1, this)">📊 NGA吃瓜播报</button>
+            <button class="tab-btn" onclick="switchTab(2, this)">🔴 B站直播日报</button>
+            <button class="tab-btn" onclick="switchTab(3, this)">💬 B站游戏舆情</button>
             <button class="tab-btn" onclick="switchTab(4, this)">📄 贴吧舆情日报</button>
         </div>
 
@@ -234,12 +234,12 @@
     </div>
 
     <script>
-        // 来源 ID → tab index 映射
+        // 来源 ID → tab index 映射（顺序：速报→NGA→B直播→B游戏→贴吧）
         const SOURCE_TABS = {
-            'nga':           0,
-            'bilibili_live': 1,
-            'bilibili_game': 2,
-            'game_speed':    3,
+            'game_speed':    0,
+            'nga':           1,
+            'bilibili_live': 2,
+            'bilibili_game': 3,
             'tieba':         4,
         };
 
