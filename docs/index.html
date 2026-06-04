@@ -15,6 +15,8 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            font-size: 14px;
+            -webkit-text-size-adjust: 100%;
         }
 
         /* ========== 顶部标题栏 ========== */
@@ -303,6 +305,74 @@
             font-size: 11px;
             color: #475569;
         }
+
+        /* 移动端切换按钮（仅窄屏可见） */
+        .view-switch {
+            display: none;
+            gap: 4px;
+            margin-right: 8px;
+        }
+        .vs-btn {
+            padding: 4px 10px;
+            border: 1px solid #334155;
+            border-radius: 5px;
+            background: transparent;
+            color: #64748b;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .vs-btn.on {
+            background: #1e293b;
+            color: #cbd5e1;
+            border-color: #475569;
+        }
+
+        /* ========== 响应式：平板（≤1100px）：缩窄左侧 ========== */
+        @media (max-width: 1100px) {
+            .left-panel { width: 280px; }
+        }
+
+        /* ========== 响应式：手机/小屏（≤900px）：上下堆叠 + 视图切换 ========== */
+        @media (max-width: 900px) {
+            body { font-size: 13px; }
+            .topbar { padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
+            .topbar-title { font-size: 14px; }
+            .topbar-right { gap: 8px; }
+            .topbar-right label { display: none; }
+            #update-time { display: none; }
+
+            .view-switch { display: flex; }
+
+            .main { flex-direction: column; }
+            .left-panel,
+            .right-panel {
+                width: 100%;
+                flex: none;
+                border-right: none;
+                display: none;
+            }
+            .left-panel { border-bottom: 1px solid #1e293b; }
+            .left-panel.active,
+            .right-panel.active { display: flex; flex: 1; min-height: 0; }
+
+            .left-header { padding: 10px 12px 8px; }
+            .left-subtabs { padding: 6px 12px; gap: 6px; }
+            .stab { padding: 5px 0; font-size: 12px; }
+            .left-body { padding: 10px 12px 14px; }
+
+            .dyn-name { font-size: 14px; }
+            .dyn-desc { font-size: 13px; }
+            .banner-title { font-size: 14px; }
+            .banner-desc { font-size: 13px; }
+            .code-val { font-size: 14px; }
+            .code-reward { font-size: 12px; }
+
+            .right-header { padding: 8px 12px 0; }
+            .rh-title { display: none; }
+            .right-tabs { gap: 0; }
+            .rtab { padding: 8px 12px; font-size: 13px; }
+            .rtab-meta-bar { padding: 4px 12px 6px; }
+        }
     </style>
 </head>
 <body>
@@ -311,6 +381,10 @@
     <div class="topbar">
         <span class="topbar-title">二游舆情监控看板</span>
         <div class="topbar-right">
+            <div class="view-switch" id="view-switch">
+                <button class="vs-btn on" onclick="vs('left',this)">情报</button>
+                <button class="vs-btn" onclick="vs('right',this)">舆情</button>
+            </div>
             <label>舆情数据日期</label>
             <select id="date-select" onchange="onDateChange()">
                 <option value="">加载中...</option>
@@ -323,7 +397,7 @@
     <div class="main">
 
         <!-- 左侧：今日版本情报 -->
-        <div class="left-panel">
+        <div class="left-panel active" id="left-panel">
             <div class="left-header">
                 <div class="left-header-top">
                     <span class="lh-title">今日版本情报</span>
@@ -343,7 +417,7 @@
         </div>
 
         <!-- 右侧：社区热度报告 -->
-        <div class="right-panel">
+        <div class="right-panel" id="right-panel">
             <div class="right-header">
                 <div class="right-header-top">
                     <span class="rh-title">社区热度报告</span>
@@ -417,12 +491,15 @@
 
                     RIGHT_SOURCES.forEach((src, i) => {
                         const task = taskMap[src.id];
+                        const iframe = document.getElementById('rframe-' + i);
                         if (task) {
-                            document.getElementById('rframe-' + i).src = src.dir + '/' + date + '/report.html';
+                            iframe.src = src.dir + '/' + date + '/report.html';
+                            // iframe 加载完后注入 viewport 让内部响应式生效
+                            iframe.onload = () => injectViewport(iframe);
                             const metric = task.metric_value + ' ' + task.metric_label;
                             rtabMetas[i] = '昨日数据 · ' + date + ' · ' + metric;
                         } else {
-                            document.getElementById('rframe-' + i).src = 'about:blank';
+                            iframe.src = 'about:blank';
                             rtabMetas[i] = '暂无数据 · ' + date;
                         }
                     });
@@ -572,6 +649,43 @@
             navigator.clipboard.writeText(code).catch(() => {});
             btn.textContent = '已复制';
             setTimeout(() => btn.textContent = '复制', 1500);
+        }
+
+        // 注入 viewport meta 到同源 iframe，让内部 CSS @media 能匹配 iframe 实际宽度
+        function injectViewport(iframe) {
+            try {
+                const doc = iframe.contentDocument;
+                if (!doc) return;
+                let meta = doc.querySelector('meta[name="viewport"]');
+                if (!meta) {
+                    meta = doc.createElement('meta');
+                    meta.name = 'viewport';
+                    doc.head.appendChild(meta);
+                }
+                meta.content = 'width=device-width, initial-scale=1';
+                // 同时强制让根元素字号在窄屏放大点
+                const w = iframe.clientWidth;
+                if (w < 600) {
+                    doc.documentElement.style.fontSize = '15px';
+                } else {
+                    doc.documentElement.style.fontSize = '';
+                }
+            } catch (e) { /* 跨域时静默失败 */ }
+        }
+
+        // 移动端：左右视图切换（仅 ≤900px 生效）
+        function vs(which, el) {
+            document.querySelectorAll('.vs-btn').forEach(b => b.classList.remove('on'));
+            el.classList.add('on');
+            const left  = document.getElementById('left-panel');
+            const right = document.getElementById('right-panel');
+            if (which === 'left') {
+                left.classList.add('active');
+                right.classList.remove('active');
+            } else {
+                right.classList.add('active');
+                left.classList.remove('active');
+            }
         }
 
         // ========== 初始化 ==========
