@@ -334,7 +334,8 @@
             <div class="left-subtabs">
                 <button class="stab on" onclick="sw(0,this)">重点动态</button>
                 <button class="stab" onclick="sw(1,this)">卡池时间</button>
-                <button class="stab" onclick="sw(2,this)">兑换码</button>
+                <button class="stab" onclick="sw(2,this)">直播</button>
+                <button class="stab" onclick="sw(3,this)">兑换码</button>
             </div>
             <div class="left-body" id="left-body">
                 <div class="left-loading">加载中...</div>
@@ -465,6 +466,15 @@
             const highlights = data.highlights || [];
             const banners    = data.banners    || [];
             const codes      = (data.codes || []).filter(c => c.status !== 'EXPIRED');
+            const calendar   = data.calendar   || [];
+            const broadcasts = calendar.filter(c => c.type === 'broadcast');
+
+            // gameId → 中文名映射，用于直播tab的友好显示
+            const games = data.games || [];
+            const gameNameMap = {};
+            (Array.isArray(games) ? games : Object.values(games)).forEach(g => {
+                if (g && g.gameId) gameNameMap[g.gameId] = g.name || g.gameId;
+            });
 
             // --- 重点动态 ---
             let h0 = '';
@@ -492,7 +502,7 @@
                 h1 = '<div class="left-loading">暂无卡池信息</div>';
             } else {
                 banners.forEach(b => {
-                    const d = b.date ? b.date.slice(5).replace('-', '-') : '';
+                    const d = b.date ? b.date.slice(5) : '';
                     h1 += `<div class="banner-item">
                         <div class="banner-date">${d}</div>
                         <div class="banner-title">${b.title}</div>
@@ -501,16 +511,38 @@
                 });
             }
 
-            // --- 兑换码 ---
+            // --- 直播 ---
             let h2 = '';
+            if (broadcasts.length === 0) {
+                h2 = '<div class="left-loading">暂无直播预告</div>';
+            } else {
+                // 按日期排序
+                broadcasts.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+                broadcasts.forEach(b => {
+                    const d = b.date ? b.date.slice(5) : '';
+                    const game = gameNameMap[b.gameId] || b.gameId || '';
+                    const importantBadge = b.important
+                        ? '<span class="pri pri-h" style="margin-left:6px;">重点</span>'
+                        : '';
+                    h2 += `<div class="banner-item">
+                        <div class="banner-date">${d}${importantBadge}</div>
+                        <div class="banner-title">${b.event || ''}</div>
+                        <div class="banner-desc">${game}</div>
+                    </div>`;
+                });
+            }
+
+            // --- 兑换码 ---
+            let h3 = '';
             if (codes.length === 0) {
-                h2 = '<div class="left-loading">暂无有效兑换码</div>';
+                h3 = '<div class="left-loading">暂无有效兑换码</div>';
             } else {
                 codes.forEach(c => {
-                    const exp = c.expireDate ? c.expireDate.slice(5).replace('-', '-') : '';
-                    h2 += `<div class="code-row">
+                    const exp = c.expireDate ? c.expireDate.slice(5) : '';
+                    const gname = gameNameMap[c.gameId] || c.gameId;
+                    h3 += `<div class="code-row">
                         <div>
-                            <div class="code-gname">${c.gameId}</div>
+                            <div class="code-gname">${gname}</div>
                             <div class="code-val">${c.code}</div>
                             <div class="code-reward">${c.reward || ''} · 至 ${exp}</div>
                         </div>
@@ -523,6 +555,7 @@
                 <div class="section on" id="ls-0">${h0}</div>
                 <div class="section"     id="ls-1">${h1}</div>
                 <div class="section"     id="ls-2">${h2}</div>
+                <div class="section"     id="ls-3">${h3}</div>
             `;
 
             // 恢复当前激活的子 tab
