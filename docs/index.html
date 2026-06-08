@@ -198,6 +198,13 @@
             border-bottom: 1px solid #1e293b;
         }
         .banner-item:last-child { border-bottom: none; }
+        .banner-game {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+            letter-spacing: 0.2px;
+        }
         .banner-date {
             font-size: 12px;
             font-weight: 600;
@@ -626,9 +633,10 @@
                     const dateRange = startD && endD ? `${startD} ~ ${endD}` : (startD || endD || '');
                     const gname = b.gameName || gameNameMap[b.gameId] || '';
                     h1 += `<div class="banner-item">
+                        ${gname ? `<div class="banner-game">${gname}</div>` : ''}
                         <div class="banner-date">${dateRange}</div>
                         <div class="banner-title">${b.title}</div>
-                        <div class="banner-desc">${gname ? gname + ' · ' : ''}${b.desc || ''}</div>
+                        <div class="banner-desc">${b.desc || ''}</div>
                     </div>`;
                 });
             }
@@ -645,9 +653,9 @@
                         ? '<span class="pri pri-h" style="margin-left:6px;">重点</span>'
                         : '';
                     h2 += `<div class="banner-item">
+                        ${game ? `<div class="banner-game">${game}</div>` : ''}
                         <div class="banner-date">${fmtDate(e.date)}${importantBadge}</div>
                         <div class="banner-title">${e.event || ''}</div>
-                        <div class="banner-desc">${game}</div>
                     </div>`;
                 });
             }
