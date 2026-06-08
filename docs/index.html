@@ -421,7 +421,7 @@
             <div class="left-subtabs">
                 <button class="stab on" onclick="sw(0,this)">重点动态</button>
                 <button class="stab" onclick="sw(1,this)">卡池时间</button>
-                <button class="stab" onclick="sw(2,this)">直播</button>
+                <button class="stab" onclick="sw(2,this)">日程</button>
                 <button class="stab" onclick="sw(3,this)">兑换码</button>
             </div>
             <div class="left-body" id="left-body">
@@ -560,15 +560,37 @@
         function renderLeft(data) {
             const highlights = data.highlights || [];
             const banners    = data.banners    || [];
-            const codes      = (data.codes || []).filter(c => c.status !== 'EXPIRED');
+            const codesRaw   = data.codes      || [];
             const calendar   = data.calendar   || [];
-            const broadcasts = calendar.filter(c => c.type === 'broadcast');
+            const games      = data.games      || [];
 
-            // gameId → 中文名映射，用于直播tab的友好显示
-            const games = data.games || [];
+            // gameId → 中文名映射
             const gameNameMap = {};
             (Array.isArray(games) ? games : Object.values(games)).forEach(g => {
-                if (g && g.gameId) gameNameMap[g.gameId] = g.name || g.gameId;
+                if (g && g.gameId) gameNameMap[g.gameId] = g.gameName || g.name || g.gameId;
+            });
+
+            // ISO 日期格式化（保留 UTC 时间，避免本地时区偏移）
+            function fmtDate(iso) {
+                if (!iso) return '';
+                // YYYY-MM-DD 格式直接返回
+                if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
+                // ISO 格式：2026-06-09T18:00:00Z → 提取并组装
+                const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+                if (!m) return iso;
+                const [, y, mo, d, h, mi] = m;
+                if (h === '00' && mi === '00') {
+                    return `${y}-${mo}-${d}`;
+                }
+                return `${y}-${mo}-${d} ${h}:${mi}`;
+            }
+
+            // 把 calendar 的 events 平铺出来（用于"日程"tab）
+            const calendarEvents = [];
+            calendar.forEach(day => {
+                (day.events || []).forEach(e => {
+                    calendarEvents.push(Object.assign({}, e, { date: day.date }));
+                });
             });
 
             // --- 重点动态 ---
@@ -576,18 +598,18 @@
             if (highlights.length === 0) {
                 h0 = '<div class="left-loading">暂无重点动态</div>';
             } else {
-                const reportDate = (data.meta && data.meta.reportDate) || date;
+                const reportDate = (data.meta && data.meta.reportDate) || '';
                 highlights.forEach(item => {
                     const priCls = item.priority === 'HIGH' ? 'pri-h' : 'pri-m';
                     const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
-                    const games  = (item.gameList || []).map(g => `<span class="game-tag">${g}</span>`).join('');
+                    const gameTags = (item.gameList || []).map(g => `<span class="game-tag">${g}</span>`).join('');
                     h0 += `<div class="dyn-item">
-                        <div class="dyn-date">${reportDate}</div>
+                        ${reportDate ? `<div class="dyn-date">${reportDate}</div>` : ''}
                         <div class="dyn-top">
                             <span class="dyn-name">${item.title}</span>
                             <span class="pri ${priCls}">${priTxt}</span>
                         </div>
-                        <div>${games}</div>
+                        <div>${gameTags}</div>
                         <div class="dyn-desc">${item.description || ''}</div>
                     </div>`;
                 });
@@ -599,49 +621,63 @@
                 h1 = '<div class="left-loading">暂无卡池信息</div>';
             } else {
                 banners.forEach(b => {
-                    const d = b.date ? b.date : '';
+                    const startD = fmtDate(b.date);
+                    const endD = fmtDate(b.endDate);
+                    const dateRange = startD && endD ? `${startD} ~ ${endD}` : (startD || endD || '');
+                    const gname = b.gameName || gameNameMap[b.gameId] || '';
                     h1 += `<div class="banner-item">
-                        <div class="banner-date">${d}</div>
+                        <div class="banner-date">${dateRange}</div>
                         <div class="banner-title">${b.title}</div>
-                        <div class="banner-desc">${b.desc || ''}</div>
+                        <div class="banner-desc">${gname ? gname + ' · ' : ''}${b.desc || ''}</div>
                     </div>`;
                 });
             }
 
-            // --- 直播 ---
+            // --- 日程（版本更新/卡池/活动事件） ---
             let h2 = '';
-            if (broadcasts.length === 0) {
-                h2 = '<div class="left-loading">暂无直播预告</div>';
+            if (calendarEvents.length === 0) {
+                h2 = '<div class="left-loading">暂无近期日程</div>';
             } else {
-                // 按日期排序
-                broadcasts.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-                broadcasts.forEach(b => {
-                    const d = b.date ? b.date : '';
-                    const game = gameNameMap[b.gameId] || b.gameId || '';
-                    const importantBadge = b.important
+                calendarEvents.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+                calendarEvents.forEach(e => {
+                    const game = e.gameName || gameNameMap[e.gameId] || e.gameId || '';
+                    const importantBadge = e.important
                         ? '<span class="pri pri-h" style="margin-left:6px;">重点</span>'
                         : '';
                     h2 += `<div class="banner-item">
-                        <div class="banner-date">${d}${importantBadge}</div>
-                        <div class="banner-title">${b.event || ''}</div>
+                        <div class="banner-date">${fmtDate(e.date)}${importantBadge}</div>
+                        <div class="banner-title">${e.event || ''}</div>
                         <div class="banner-desc">${game}</div>
                     </div>`;
                 });
             }
 
-            // --- 兑换码 ---
+            // --- 兑换码：扁平化嵌套结构 ---
+            const codes = [];
+            codesRaw.forEach(group => {
+                (group.codes || []).forEach(c => {
+                    if (c.status === 'EXPIRED') return;
+                    codes.push({
+                        gameId: group.gameId,
+                        gameName: group.gameName,
+                        code: c.code,
+                        reward: c.reward,
+                        expireDate: c.expireDate || c.endDate || ''
+                    });
+                });
+            });
             let h3 = '';
             if (codes.length === 0) {
                 h3 = '<div class="left-loading">暂无有效兑换码</div>';
             } else {
                 codes.forEach(c => {
-                    const exp = c.expireDate ? c.expireDate.slice(5) : '';
-                    const gname = gameNameMap[c.gameId] || c.gameId;
+                    const exp = c.expireDate ? fmtDate(c.expireDate) : '';
+                    const gname = c.gameName || gameNameMap[c.gameId] || c.gameId || '';
                     h3 += `<div class="code-row">
                         <div>
                             <div class="code-gname">${gname}</div>
                             <div class="code-val">${c.code}</div>
-                            <div class="code-reward">${c.reward || ''} · 至 ${exp}</div>
+                            <div class="code-reward">${c.reward || ''}${exp ? ' · 至 ' + exp : ''}</div>
                         </div>
                         <button class="copy-btn" onclick="cp(this,'${c.code}')">复制</button>
                     </div>`;
