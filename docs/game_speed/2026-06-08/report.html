@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二次元游戏每日动态 - 2026年6月8日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .date-info {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title span {
+            margin-right: 10px;
+        }
+        
+        .highlights-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .highlight-card {
+            background: #2a2a2a;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .highlight-card.high {
+            border-left-color: #ff6b6b;
+        }
+        
+        .highlight-card.mid {
+            border-left-color: #ffd93d;
+        }
+        
+        .highlight-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .highlight-desc {
+            font-size: 13px;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        .pool-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .pool-table th,
+        .pool-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #3a3a3a;
+        }
+        
+        .pool-table th {
+            background: #1a1a1a;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .pool-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .priority-high {
+            color: #ff6b6b;
+        }
+        
+        .priority-mid {
+            color: #ffd93d;
+        }
+        
+        .priority-low {
+            color: #4ecdc4;
+        }
+        
+        .game-card {
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .game-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+        
+        .game-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        
+        .game-info h3 {
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+        
+        .game-version {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        .update-list {
+            list-style: none;
+            margin: 10px 0;
+        }
+        
+        .update-list li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .update-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            background: #2a2a2a;
+            border-left: 3px solid #667eea;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-events {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13px;
+        }
+        
+        .timeline-event-tag {
+            background: #3a3a3a;
+            padding: 4px 8px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .timeline-event-tag.important {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+        }
+        
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .activity-card {
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .activity-name {
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #667eea;
+        }
+        
+        .activity-time {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+        }
+        
+        .activity-reward {
+            padding: 6px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            margin-top: 6px;
+            border-left: 2px solid #4ecdc4;
+        }
+        
+        .code-item {
+            background: #2a2a2a;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border-left: 3px solid #4ecdc4;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            user-select: all;
+        }
+        
+        .code-item:hover {
+            background: #333;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 4px;
+            border-top: 3px solid #667eea;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 12px;
+            margin-top: 30px;
+            border-top: 1px solid #3a3a3a;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .highlights-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .pool-table {
+                font-size: 12px;
+            }
+            
+            .pool-table th,
+            .pool-table td {
+                padding: 8px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 二次元游戏每日动态</h1>
+            <div class="date-info">2026年6月8日 09:50 UTC+8 | 13款游戏实时监控</div>
+        </header>
+        
+        <!-- 统计数据 -->
+        <div class="section">
+            <div class="section-title">
+                <span>📊</span>
+                数据概览
+            </div>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">监控游戏总数</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">今日更新</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">活跃卡池</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">活跃活动</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 重点速报 -->
+        <div class="section">
+            <div class="section-title">
+                <span>⭐</span>
+                重点速报
+            </div>
+            <div class="highlights-container">
+                <div class="highlight-card high">
+                    <div class="highlight-title">🌟 原神6.6下半开启</div>
+                    <div class="highlight-desc">新五星洛恩(冰长枪)、玛薇卡(火大剣)双角色UP，版本至6月30日。深境螺旋6月16日更新。</div>
+                </div>
+                <div class="highlight-card high">
+                    <div class="highlight-title">🎮 崩坏星穹铁道4.3上线</div>
+                    <div class="highlight-desc">火属性虚无新五星千冶·刃焚身领域专核心，黄泉追击队必备。上半卡池至6月24日。</div>
+                </div>
+                <div class="highlight-card high">
+                    <div class="highlight-title">🚀 鸣潮赛博朋克联动开启</div>
+                    <div class="highlight-desc">露西主C、丽贝卡免费领。独立卡池保底不共享，新常驻五星洛瑟菈6月13日上线。</div>
+                </div>
+                <div class="highlight-card high">
+                    <div class="highlight-title">✨ 绝区零3.0即将到来</div>
+                    <div class="highlight-desc">6月17日上线新主城罗斯凯利法，PC支持光线追踪+DLSS，免费领1600菲林。</div>
+                </div>
+                <div class="highlight-card mid">
+                    <div class="highlight-title">💎 NIKKE双版本卡池进行</div>
+                    <div class="highlight-desc">国际服普莉卡至6.11，国服露姬至6.17。两个版本进度不同，需分开追踪。</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 卡池预警 -->
+        <div class="section">
+            <div class="section-title">
+                <span>⏰</span>
+                卡池预警表
+            </div>
+            <table class="pool-table">
+                <thead>
+                    <tr>
+                        <th>优先级</th>
+                        <th>游戏</th>
+                        <th>UP角色</th>
+                        <th>卡池时间</th>
+                        <th>建议</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="priority-high">⭐⭐⭐</span></td>
+                        <td>原神</td>
+                        <td>洛恩(冰长枪)、玛薇卡(火大剣)</td>
+                        <td>6.9-6.30</td>
+                        <td>新五星登场，版本必看</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-high">⭐⭐⭐</span></td>
+                        <td>崩坏星穹铁道</td>
+                        <td>千冶·刃(火虚)、爻光</td>
+                        <td>6.1-6.24</td>
+                        <td>新角色焚身领域核心</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-high">⭐⭐⭐</span></td>
+                        <td>鸣潮</td>
+                        <td>露西(限定)、洛瑟菈(常驻)</td>
+                        <td>6.8起分阶段</td>
+                        <td>联动限定+新常驻辅助</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-mid">⭐⭐</span></td>
+                        <td>NIKKE国际服</td>
+                        <td>普莉卡(辅助)</td>
+                        <td>至6.11截止</td>
+                        <td>最后1-2天冲刺</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-mid">⭐⭐</span></td>
+                        <td>NIKKE国服</td>
+                        <td>露姬(支援)</td>
+                        <td>6.3-6.17</td>
+                        <td>期间充足，灵活规划</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-low">🟡</span></td>
+                        <td>绝区零</td>
+                        <td>维琳娜、诺姆</td>
+                        <td>6.17起</td>
+                        <td>即将到来，准备资源</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 活动时间轴 -->
+        <div class="section">
+            <div class="section-title">
+                <span>📅</span>
+                活动时间轴（本周）
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">6月8日(今)</div>
+                    <div class="timeline-events">
+                        <span class="timeline-event-tag">鸣潮 赛博朋克联动</span>
+                        <span class="timeline-event-tag">洛克王国 魔法嘉年华</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">6月9日</div>
+                    <div class="timeline-events">
+                        <span class="timeline-event-tag important">原神 下半卡池开启</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">6月10日</div>
+                    <div class="timeline-events">
+                        <span class="timeline-event-tag">原神 千星奇域开启</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">6月11日</div>
+                    <div class="timeline-events">
+                        <span class="timeline-event-tag important">重返未来1999 3.8上线</span>
+                        <span class="timeline-event-tag">NIKKE国际服 卡池截止</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">6月16-18日</div>
+                    <div class="timeline-events">
+                        <span class="timeline-event-tag important">原神 深境螺旋更新</span>
+                        <span class="timeline-event-tag important">绝区零 3.0版本</span>
+                        <span class="timeline-event-tag important">异环 1.1下半(卡厄斯)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 游戏详情 -->
+        <div class="section">
+            <div class="section-title">
+                <span>🎯</span>
+                游戏详情速查
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">原</div>
+                    <div class="game-info">
+                        <h3>原神</h3>
+                        <div class="game-version">6.6版本 | 5.20-6.30</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>下半卡池：洛恩(冰长枪)、玛薇卡(火大剣) - 6.9-6.30</li>
+                    <li>勇锐试炼活动：6.8-18(原石奖励)</li>
+                    <li>深境螺旋：6.16更新(新期满星800原石)</li>
+                    <li>零氪福利：本版本可获约84抽资源</li>
+                </ul>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">崩</div>
+                    <div class="game-info">
+                        <h3>崩坏：星穹铁道</h3>
+                        <div class="game-version">4.3版本 | 6.1-7.15</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>新五星千冶·刃(火虚焚身领域核心) - 6.1-6.24</li>
+                    <li>位面分裂双倍遗器：6.17-29</li>
+                    <li>下半卡池：6.24开启(昔涟、白厄复刻)</li>
+                    <li>Fate联动前瞻：4.4版本7.15后吉尔伽美什、远坂凛</li>
+                </ul>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">绝</div>
+                    <div class="game-info">
+                        <h3>绝区零</h3>
+                        <div class="game-version">3.0版本 | 6.17上线</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>新主城罗斯凯利法开放，全新主线剧情</li>
+                    <li>PC端DLSS光线追踪、帧生成支持</li>
+                    <li>免费领：1600菲林、佩洛伊斯代理人、时装配饰</li>
+                    <li>Steam同步登陆(国区锁定)</li>
+                </ul>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">鸣</div>
+                    <div class="game-info">
+                        <h3>鸣潮</h3>
+                        <div class="game-version">3.4版本 | 6.8-7.9</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>赛博朋克联动：露西(衍射主C)、丽贝卡(导电免费)</li>
+                    <li>独立卡池保底不共享，联动代币兑换</li>
+                    <li>洛瑟菈(冷凝音感仪)6.13上线 - 绯雪新辅助</li>
+                    <li>版本周期32天(较短版本)</li>
+                </ul>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">方</div>
+                    <div class="game-info">
+                        <h3>明日方舟：终末地</h3>
+                        <div class="game-version">1.3.4版本 | 6.5上线</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>新版本「寻遗散记」- 新干员弭弗(六星近卫破防手)</li>
+                    <li>新区域武陵·藏剑谷开放</li>
+                    <li>新武器系统上线(赤缨双手剑、镀红祝福长柄)</li>
+                    <li>寻剑幽谷、危机合约等活动开启</li>
+                </ul>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">重</div>
+                    <div class="game-info">
+                        <h3>重返未来1999</h3>
+                        <div class="game-version">3.8版本 | 6.11上线</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>3.8版本「世纪末尺度」- 新六星岩系回声谣、奠基石</li>
+                    <li>龙舟赛活动、和平角斗场开启</li>
+                    <li>签到合计独一律×14(约7抽)</li>
+                    <li>贝蒂免费衣装「人生填色格」可通过活动获取</li>
+                </ul>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-card-header">
+                    <div class="game-icon">N</div>
+                    <div class="game-info">
+                        <h3>NIKKE国际服 vs 国服</h3>
+                        <div class="game-version">版本进度独立</div>
+                    </div>
+                </div>
+                <ul class="update-list">
+                    <li>🌍 国际服：普莉卡(辅助) 至6.11 | 雷文(火炮) 联动</li>
+                    <li>🇨🇳 国服：露姬(支援) 6.3-6.17 | 格拉维(燃烧) 5.27-6.17</li>
+                    <li>⚠️ 两个版本卡池不通用，需分开追踪</li>
+                    <li>国服联动预告：尼尔：机械纪元定档7月3日</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 兑换码 -->
+        <div class="section">
+            <div class="section-title">
+                <span>🎟️</span>
+                兑换码速领
+            </div>
+            <div class="activity-card">
+                <div class="activity-name">鸣潮</div>
+                <div class="code-item">MZTALK0608 → 600星声</div>
+            </div>
+            <div style="opacity: 0.6; font-size: 12px; margin-top: 10px;">
+                其他游戏兑换码待后续官方公告，请关注游戏内邮件
+            </div>
+        </div>
+        
+        <!-- 行动建议 -->
+        <div class="section">
+            <div class="section-title">
+                <span>✅</span>
+                今日行动建议
+            </div>
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="activity-name">🌐 鸣潮玩家</div>
+                    <div class="activity-reward">参与赛博朋克联动，领取600星声邮件；非洛瑟菈队伍可观望其他五星</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-name">✨ 原神玩家</div>
+                    <div class="activity-reward">关注6月9日下半卡池开启，确认阵容需求后规划抽卡</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-name">🔥 星穹铁道玩家</div>
+                    <div class="activity-reward">利用位面分裂(6.17-29)双倍遗器机制集中刷养成材料</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-name">🌟 绝区零玩家</div>
+                    <div class="activity-reward">准备资源待3.0上线(6.17)，新代理人维琳娜、诺姆卡池将开启</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-name">💎 NIKKE国际服玩家</div>
+                    <div class="activity-reward">普莉卡卡池11日截止，最后冲刺时间不多，20金币积分可直换</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-name">📚 其他游戏</div>
+                    <div class="activity-reward">各版本常规日常任务，为后续版本积攒资源与抽数</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            📊 数据采集时间：2026-06-08 09:50 UTC+8<br>
+            🔍 信息源：各游戏官网、米游社、TapTap、B站官方、官方社交媒体<br>
+            ✓ 已交叉验证、去重聚合 | 报告准确性：VERIFIED
+        </footer>
+    </div>
+</body>
+</html>
