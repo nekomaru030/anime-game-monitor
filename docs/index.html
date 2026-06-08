@@ -142,10 +142,17 @@
 
         /* 重点动态 */
         .dyn-item {
-            padding: 9px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #1e293b;
         }
         .dyn-item:last-child { border-bottom: none; }
+        .dyn-date {
+            font-size: 12px;
+            font-weight: 600;
+            color: #7dd3fc;
+            margin-bottom: 5px;
+            letter-spacing: 0.3px;
+        }
         .dyn-top {
             display: flex;
             align-items: flex-start;
@@ -187,11 +194,17 @@
 
         /* 卡池时间 */
         .banner-item {
-            padding: 9px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #1e293b;
         }
         .banner-item:last-child { border-bottom: none; }
-        .banner-date { font-size: 11px; color: #475569; margin-bottom: 2px; }
+        .banner-date {
+            font-size: 12px;
+            font-weight: 600;
+            color: #7dd3fc;
+            margin-bottom: 5px;
+            letter-spacing: 0.3px;
+        }
         .banner-title { font-size: 13px; font-weight: 500; color: #e2e8f0; margin-bottom: 2px; }
         .banner-desc { font-size: 12px; color: #64748b; }
 
@@ -563,11 +576,13 @@
             if (highlights.length === 0) {
                 h0 = '<div class="left-loading">暂无重点动态</div>';
             } else {
+                const reportDate = (data.meta && data.meta.reportDate) || date;
                 highlights.forEach(item => {
                     const priCls = item.priority === 'HIGH' ? 'pri-h' : 'pri-m';
                     const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
                     const games  = (item.gameList || []).map(g => `<span class="game-tag">${g}</span>`).join('');
                     h0 += `<div class="dyn-item">
+                        <div class="dyn-date">${reportDate}</div>
                         <div class="dyn-top">
                             <span class="dyn-name">${item.title}</span>
                             <span class="pri ${priCls}">${priTxt}</span>
@@ -584,7 +599,7 @@
                 h1 = '<div class="left-loading">暂无卡池信息</div>';
             } else {
                 banners.forEach(b => {
-                    const d = b.date ? b.date.slice(5) : '';
+                    const d = b.date ? b.date : '';
                     h1 += `<div class="banner-item">
                         <div class="banner-date">${d}</div>
                         <div class="banner-title">${b.title}</div>
@@ -601,7 +616,7 @@
                 // 按日期排序
                 broadcasts.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
                 broadcasts.forEach(b => {
-                    const d = b.date ? b.date.slice(5) : '';
+                    const d = b.date ? b.date : '';
                     const game = gameNameMap[b.gameId] || b.gameId || '';
                     const importantBadge = b.important
                         ? '<span class="pri pri-h" style="margin-left:6px;">重点</span>'
