@@ -1,177 +1,477 @@
 {
   "meta": {
     "reportDate": "2026-06-10",
-    "reportId": "REPORT_20260610_0000",
-    "generatedAt": "2026-06-10T01:57:05.474943+00:00",
+    "reportId": "REPORT_20260610_V2",
+    "generatedAt": "2026-06-10T13:35:00+08:00",
     "gameCount": 13,
     "version": "P1-3layer-schema-v1"
   },
   "highlights": [
     {
-      "icon": "⭐",
-      "title": "原神3.8版本预告",
+      "icon": "🔴",
+      "title": "原神 6.6 下半卡池切换：洛恩 + 玛薇卡复刻",
       "priority": "HIGH",
-      "gameList": [
-        "原神"
-      ],
-      "description": "新版本3.8预计6月10日更新，新角色卡池启动"
+      "gameList": ["原神"],
+      "description": "今日 15:00 切换。洛恩（新冰长枪主C）+ 玛薇卡复刻（火神）。玛薇卡 0→1 命强烈推荐。"
     },
     {
-      "icon": "🎁",
-      "title": "NIKKE国际服新卡池开启",
+      "icon": "🚨",
+      "title": "NIKKE 国际服三池齐封：Prika / Raven / Eve",
       "priority": "HIGH",
-      "gameList": [
-        "NIKKE国际服"
-      ],
-      "description": "新角色Prika卡池上线，持续至6月30日"
+      "gameList": ["胜利女神：NIKKE（国际服）"],
+      "description": "明天 04:59 UTC+9 三池同时结束。Raven/Eve 是剑星联动限定，错过不复刻。"
     },
     {
-      "icon": "🎮",
-      "title": "明日方舟新关卡挑战",
+      "icon": "🔥",
+      "title": "NIKKE × 剑星 Stellar Blade 联动 6/12 启动",
+      "priority": "HIGH",
+      "gameList": ["胜利女神：NIKKE（国际服）", "胜利女神：NIKKE（国服）"],
+      "description": "ARK RANGER 三周事件 6/11 维护后开启，14 日签到送高级招募券。剑星 PC 版 6/12 同步上市，DLC 同步上线。"
+    },
+    {
+      "icon": "🔥",
+      "title": "燕云十六声暑期版本「江南」6/26 上线",
+      "priority": "HIGH",
+      "gameList": ["燕云十六声"],
+      "description": "杭州城（100万平米）+ 西湖（120万平米水域）+ 15000 NPC + 网状叙事 + 袁和平动作指导。年度大版本。"
+    },
+    {
+      "icon": "🔥",
+      "title": "重返未来1999 v3.8「世纪末尺度」6/11 上线",
+      "priority": "HIGH",
+      "gameList": ["重返未来1999"],
+      "description": "42 天大版本。上半回声谣（岩攻击）+ 下半奠基石（岩辅助）。同期常驻湖的涟漪卡池。"
+    },
+    {
+      "icon": "🔥",
+      "title": "鸣潮 × 赛博朋克：边缘行者联动进行中",
       "priority": "MID",
-      "gameList": [
-        "明日方舟：终末地"
-      ],
-      "description": "新危机等级关卡开放，挑战丰厚奖励"
+      "gameList": ["鸣潮"],
+      "description": "露西（限定衍射主C）+ 丽贝卡（签到免费送）。联动卡池独立保底。6/12 23:59 截止。"
     }
   ],
   "banners": [
     {
-      "gameId": "原神",
-      "title": "新角色卡池",
-      "desc": "版本角色限定池",
-      "date": "2026-06-25",
+      "gameId": "ys",
+      "gameName": "原神",
+      "title": "6.6 下半卡池 — 洛恩 + 玛薇卡复刻",
+      "desc": "洛恩（冰长枪主C，常驻）+ 玛薇卡（火神复刻）",
+      "date": "2026-06-10T15:00:00+08:00",
+      "endDate": "2026-06-30T15:00:00+08:00",
       "priority": "HIGH"
     },
     {
-      "gameId": "NIKKE国际服",
-      "title": "Prika(레이먼)",
-      "desc": "新角色首发，推荐追卡",
-      "date": "2026-06-30",
+      "gameId": "nikke_global",
+      "gameName": "NIKKE 国际服",
+      "title": "Prika 卡池（明日截止）",
+      "desc": "SSR 辅助/水冷/泰特拉",
+      "date": "2026-05-28T00:00:00+09:00",
+      "endDate": "2026-06-11T04:59:00+09:00",
       "priority": "HIGH"
     },
     {
-      "gameId": "崩坏：星穹铁道",
-      "title": "版本5星角色",
-      "desc": "重要角色，可考虑提卡",
-      "date": "2026-06-24",
+      "gameId": "nikke_global",
+      "gameName": "NIKKE 国际服",
+      "title": "Raven 卡池（联动限定，明日截止）",
+      "desc": "剑星联动限定 SSR，不复刻",
+      "date": "2026-05-21T05:00:00+09:00",
+      "endDate": "2026-06-11T04:59:00+09:00",
+      "priority": "HIGH"
+    },
+    {
+      "gameId": "nikke_global",
+      "gameName": "NIKKE 国际服",
+      "title": "Eve 卡池（联动限定，明日截止）",
+      "desc": "剑星联动限定 SSR，不复刻",
+      "date": "2026-05-14T00:00:00+09:00",
+      "endDate": "2026-06-11T04:59:00+09:00",
+      "priority": "HIGH"
+    },
+    {
+      "gameId": "mz",
+      "gameName": "鸣潮",
+      "title": "露西卡池（联动）",
+      "desc": "衍射主C，联动独立保底",
+      "date": "2026-06-08T00:00:00+08:00",
+      "endDate": "2026-06-12T23:59:00+08:00",
       "priority": "MID"
+    },
+    {
+      "gameId": "mz",
+      "gameName": "鸣潮",
+      "title": "洛瑟菈卡池",
+      "desc": "冷凝/绯雪辅助",
+      "date": "2026-06-13T00:00:00+08:00",
+      "endDate": "2026-07-09T00:00:00+08:00",
+      "priority": "MID"
+    },
+    {
+      "gameId": "mrfz",
+      "gameName": "明日方舟：终末地",
+      "title": "弭弗卡池",
+      "desc": "6 星物理近卫，物理队核心破防",
+      "date": "2026-06-05T00:00:00+08:00",
+      "endDate": "2026-06-26T11:59:00+08:00",
+      "priority": "MID"
+    },
+    {
+      "gameId": "sr",
+      "gameName": "崩坏：星穹铁道",
+      "title": "千冶·刃 + 爻光复刻",
+      "desc": "千冶·刃（火虚无）+ 爻光（欢愉物理）",
+      "date": "2026-06-01T00:00:00+08:00",
+      "endDate": "2026-06-24T11:59:00+08:00",
+      "priority": "MID"
+    },
+    {
+      "gameId": "zzl",
+      "gameName": "绝区零",
+      "title": "维琳娜 + 叶瞬光（7天后开）",
+      "desc": "首个风/异常 S 角色 + 叶瞬光复刻",
+      "date": "2026-06-17T04:00:00+08:00",
+      "endDate": "2026-07-08T00:00:00+08:00",
+      "priority": "MID"
+    },
+    {
+      "gameId": "yh",
+      "gameName": "异环",
+      "title": "Lacrimosa 卡池",
+      "desc": "液态/混沌 S，DPS 主打 Nightmare + DOT",
+      "date": "2026-06-03T03:00:00+00:00",
+      "endDate": "2026-06-24T00:00:00+00:00",
+      "priority": "LOW"
     }
   ],
   "activities": [
     {
-      "gameId": "明日方舟：终末地",
-      "name": "新关卡挑战",
-      "startDate": "2026-06-05",
+      "gameId": "ys",
+      "name": "千星奇域运动会",
+      "startDate": "2026-06-10",
       "endDate": "2026-06-25",
-      "reward": "合成玉x500、理性回复x10",
+      "reward": "原石、活动专属奖励",
       "status": "ACTIVE"
     },
     {
-      "gameId": "洛克王国：世界",
-      "name": "周年庆福利",
-      "startDate": "2026-06-01",
-      "endDate": "2026-06-30",
-      "reward": "免费兑换码、每日登录礼",
+      "gameId": "nikke_global",
+      "name": "ARK RANGER 三周大型事件",
+      "startDate": "2026-06-11",
+      "endDate": "2026-07-02",
+      "reward": "高级招募券（14日签到）",
+      "status": "UPCOMING"
+    },
+    {
+      "gameId": "nikke_cn",
+      "name": "暗巷藏污 / DIRTY BACKYARD",
+      "startDate": "2026-06-03",
+      "endDate": "2026-06-24",
+      "reward": "JINX PLAYER 厄运玩家挑战奖励",
+      "status": "ACTIVE"
+    },
+    {
+      "gameId": "yysls",
+      "name": "孔庙祈福活动",
+      "startDate": "2026-06-03",
+      "endDate": "2026-06-09",
+      "reward": "饰品金葵映日 + 情境擎葵捧日",
+      "status": "ACTIVE"
+    },
+    {
+      "gameId": "lgwj",
+      "name": "皮卡月刊「魔法嘉年华」组合包",
+      "startDate": "2026-06-05",
+      "endDate": "2026-06-19",
+      "reward": "咕德帽帽/巨鼓象/烟花伯爵/小丑公爵",
       "status": "ACTIVE"
     }
   ],
   "codes": [
     {
-      "gameId": "NIKKE国际服",
-      "code": "NIKKE100",
-      "reward": "钻石x100、能量x50",
-      "expireDate": "2026-06-15",
-      "status": "EXPIRING"
+      "gameId": "zzl",
+      "gameName": "绝区零 国服",
+      "codes": [
+        {
+          "code": "WEILINNA0617",
+          "reward": "300 菲林",
+          "expireDate": "2026-06-08",
+          "status": "EXPIRED"
+        }
+      ]
     },
     {
-      "gameId": "原神",
-      "code": "GenshinReward2024",
-      "reward": "原石x60、大英雄经验x10",
-      "expireDate": "2026-12-31",
-      "status": "ACTIVE"
+      "gameId": "zzl_global",
+      "gameName": "绝区零 国际服",
+      "codes": [
+        {
+          "code": "BEYONDTHECLOUDS",
+          "reward": "300 菲林",
+          "expireDate": "2026-06-08",
+          "status": "EXPIRED"
+        }
+      ]
     }
   ],
   "games": [
     {
-      "gameId": "原神",
-      "name": "原神",
+      "gameId": "ys",
+      "gameName": "原神",
+      "version": "6.6",
       "todayUpdates": [
-        "版本3.8预告发布，新角色曝光",
-        "官方论坛发布周年活动计划"
-      ],
-      "events": [
-        "风之旅·野外寻宝 (进行中至6月20日)",
-        "魔鬼猎手 (周三周五19:00-23:00)"
-      ],
-      "poolStatus": [
-        "当前卡池：林姜 (至6月10日，剩余0天)",
-        "预告池：苦火 (预计6月11日上线，持续21天)"
-      ],
-      "bannerIds": [
-        "原神_banner1",
-        "原神_banner2"
+        "15:00 下半卡池切换：洛恩 + 玛薇卡复刻",
+        "千星奇域运动会同步开启"
       ]
     },
     {
-      "gameId": "NIKKE国际服",
-      "name": "NIKKE国际服",
+      "gameId": "sr",
+      "gameName": "崩坏：星穹铁道",
+      "version": "4.3",
       "todayUpdates": [
-        "新角色Prika首发卡池上线",
-        "官方发布卡池预告视频"
-      ],
-      "events": [
-        "Prika角色活动 (6月10日-6月30日)",
-        "每日登录特别礼包"
-      ],
-      "poolStatus": [
-        "当前池：Prika (至6月30日，持续20天)",
-        "备选：历史复刻轮换"
-      ],
-      "bannerIds": [
-        "NIKKE_banner_prika"
+        "持续：6/1 - 7/15 06:00",
+        "上半（- 6/24 11:59）：千冶·刃（火虚无）+ 爻光复刻"
       ]
     },
     {
-      "gameId": "明日方舟：终末地",
-      "name": "明日方舟：终末地",
+      "gameId": "zzl",
+      "gameName": "绝区零",
+      "version": "2.8",
       "todayUpdates": [
-        "新危机等级关卡上线"
-      ],
-      "events": [
-        "关卡挑战活动 (6月5日-6月25日)"
-      ],
-      "poolStatus": [],
-      "bannerIds": []
+        "v2.8 末班车 → v3.0 即将上线",
+        "6/17 v3.0 维琳娜 + 1600 菲林白嫖 + 佩洛伊斯赠送"
+      ]
+    },
+    {
+      "gameId": "mz",
+      "gameName": "鸣潮",
+      "version": "3.4",
+      "todayUpdates": [
+        "赛博朋克边缘行者联动进行中",
+        "露西联动池 6/12 23:59 截止"
+      ]
+    },
+    {
+      "gameId": "mrfz",
+      "gameName": "明日方舟：终末地",
+      "version": "寻遗散记",
+      "todayUpdates": [
+        "弭弗卡池进行中（至 6/26 11:59）",
+        "卡缪 7/2 开池（首位限定男角）"
+      ]
+    },
+    {
+      "gameId": "nikke_global",
+      "gameName": "胜利女神：NIKKE（国际服）",
+      "version": "BITTER SPICE 76th",
+      "todayUpdates": [
+        "🚨 三池齐封：Prika/Raven/Eve 全部明日 04:59 UTC+9 截止",
+        "6/12 起 ARK RANGER 三周事件 + 剑星联动 DLC"
+      ]
+    },
+    {
+      "gameId": "nikke_cn",
+      "gameName": "胜利女神：NIKKE（国服）",
+      "version": "暗巷藏污",
+      "todayUpdates": [
+        "6/10 04:00 活动更新「暗巷藏污」",
+        "DokiDoki Room 心跳怦怦咨询室上线"
+      ]
+    },
+    {
+      "gameId": "fzg1999",
+      "gameName": "重返未来1999",
+      "version": "3.8",
+      "todayUpdates": [
+        "v3.8「世纪末尺度」6/11 维护后上线",
+        "上半回声谣（岩攻击）+ 下半奠基石（岩辅助）"
+      ]
+    },
+    {
+      "gameId": "yh",
+      "gameName": "异环",
+      "version": "1.1",
+      "todayUpdates": [
+        "v1.1「Fading Reverie」进行中",
+        "Lacrimosa 卡池（液态/混沌 S）"
+      ]
+    },
+    {
+      "gameId": "lsxy",
+      "gameName": "蓝色星原：旅谣",
+      "version": "CBT",
+      "todayUpdates": [
+        "🇹🇼 台服 CBT 封测 6/12 - 6/15（限量删档）",
+        "6/9 15:00 开放预下载，国服暂无新动态"
+      ]
+    },
+    {
+      "gameId": "czxl",
+      "gameName": "二重螺旋",
+      "version": "银星奔流",
+      "todayUpdates": [
+        "新主线第三章「银星奔流」+ 灾厄武器系统",
+        "登录免费领芙罗拉/希尔妲 + 60 抽外观池"
+      ]
+    },
+    {
+      "gameId": "lgwj",
+      "gameName": "洛克王国：世界",
+      "version": "S2 狂欢怪谈",
+      "todayUpdates": [
+        "皮卡月刊「魔法嘉年华」组合包进行中",
+        "月底联动精灵【藏狐】预告"
+      ]
+    },
+    {
+      "gameId": "yysls",
+      "gameName": "燕云十六声",
+      "version": "2.6.5A",
+      "todayUpdates": [
+        "曲阜孔庙联动 + 文物保护「寻心问牍」（6/6-6/9）",
+        "🔥 6/26 暑期版本「江南」上线"
+      ]
     }
   ],
   "calendar": [
     {
       "date": "2026-06-10",
-      "gameId": "原神",
-      "event": "版本3.8更新维护(预计)",
-      "type": "UPDATE",
-      "important": true
-    },
-    {
-      "date": "2026-06-10",
-      "gameId": "NIKKE国际服",
-      "event": "新角色Prika卡池启动",
-      "type": "BANNER",
-      "important": true
+      "events": [
+        {
+          "gameId": "ys",
+          "gameName": "原神",
+          "event": "6.6 下半卡池开启（15:00）",
+          "type": "POOL_UPDATE",
+          "important": true
+        },
+        {
+          "gameId": "nikke_cn",
+          "gameName": "NIKKE 国服",
+          "event": "暗巷藏污剧情 + DokiDoki Room 上线",
+          "type": "ACTIVITY",
+          "important": false
+        }
+      ]
     },
     {
       "date": "2026-06-11",
-      "gameId": "原神",
-      "event": "苦火卡池上线",
-      "type": "BANNER",
-      "important": false
+      "events": [
+        {
+          "gameId": "fzg1999",
+          "gameName": "重返未来1999",
+          "event": "v3.8「世纪末尺度」上线",
+          "type": "VERSION_UPDATE",
+          "important": true
+        },
+        {
+          "gameId": "nikke_global",
+          "gameName": "NIKKE 国际服",
+          "event": "Prika/Raven/Eve 三池同时结束（04:59 UTC+9）",
+          "type": "POOL_END",
+          "important": true
+        },
+        {
+          "gameId": "nikke_global",
+          "gameName": "NIKKE 国际服",
+          "event": "ARK RANGER 三周事件开启（维护后）",
+          "type": "ACTIVITY",
+          "important": false
+        }
+      ]
+    },
+    {
+      "date": "2026-06-12",
+      "events": [
+        {
+          "gameId": "nikke_global",
+          "gameName": "NIKKE × 剑星",
+          "event": "联动 DLC 启动；剑星 PC 版上市",
+          "type": "COLLABORATION",
+          "important": true
+        },
+        {
+          "gameId": "nikke_cn",
+          "gameName": "NIKKE 国服",
+          "event": "联盟突袭 05:00 开启",
+          "type": "ACTIVITY",
+          "important": false
+        },
+        {
+          "gameId": "lsxy",
+          "gameName": "蓝色星原：旅谣",
+          "event": "台服 CBT 封测开启（至 6/15）",
+          "type": "TEST",
+          "important": false
+        }
+      ]
+    },
+    {
+      "date": "2026-06-13",
+      "events": [
+        {
+          "gameId": "mz",
+          "gameName": "鸣潮",
+          "event": "洛瑟菈卡池开启（00:00）",
+          "type": "POOL_UPDATE",
+          "important": false
+        },
+        {
+          "gameId": "nikke_cn",
+          "gameName": "NIKKE 国服",
+          "event": "FULL BURST DAY 双倍掉落",
+          "type": "ACTIVITY",
+          "important": false
+        }
+      ]
+    },
+    {
+      "date": "2026-06-17",
+      "events": [
+        {
+          "gameId": "zzl",
+          "gameName": "绝区零",
+          "event": "v3.0「某个梦游者的自白」上线（04:00）",
+          "type": "VERSION_UPDATE",
+          "important": true
+        },
+        {
+          "gameId": "nikke_cn",
+          "gameName": "NIKKE 国服",
+          "event": "心跳怦怦咨询室开启",
+          "type": "ACTIVITY",
+          "important": false
+        }
+      ]
+    },
+    {
+      "date": "2026-06-18",
+      "events": [
+        {
+          "gameId": "mz",
+          "gameName": "鸣潮",
+          "event": "卡提希娅复刻卡池开启",
+          "type": "POOL_UPDATE",
+          "important": false
+        }
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "events": [
+        {
+          "gameId": "yysls",
+          "gameName": "燕云十六声",
+          "event": "暑期版本「江南」上线",
+          "type": "VERSION_UPDATE",
+          "important": true
+        }
+      ]
     }
   ],
   "statistics": {
     "totalGames": 13,
-    "updatedCount": 12,
-    "activePoolCount": 8,
-    "recommendCount": 3
+    "updatedCount": 13,
+    "activePoolCount": 7,
+    "upcomingPoolCount": 3,
+    "activeActivityCount": 5,
+    "totalRecommendCount": 6,
+    "scanDate": "2026-06-10T13:35:00+08:00",
+    "dataQuality": "VERIFIED"
   }
 }

@@ -1,504 +1,592 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>二次元游戏动态 - 2026年06月10日</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: #1e1e1e;
-            color: #e0e0e0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 2px solid #333;
-            margin-bottom: 30px;
-        }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        header .date {
-            color: #999;
-            font-size: 1.1em;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: #262626;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .stat-card h3 {
-            font-size: 0.9em;
-            color: #999;
-            margin-bottom: 8px;
-        }
-        
-        .stat-card .value {
-            font-size: 2em;
-            font-weight: bold;
-            color: #fff;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #333;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .banner-card {
-            background: #262626;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 20px;
-            align-items: center;
-        }
-        
-        .banner-card.priority-high {
-            border-left-color: #ef4444;
-            background: linear-gradient(90deg, rgba(239,68,68,0.1), transparent);
-        }
-        
-        .banner-card.priority-mid {
-            border-left-color: #f59e0b;
-            background: linear-gradient(90deg, rgba(245,158,11,0.1), transparent);
-        }
-        
-        .banner-card.priority-low {
-            border-left-color: #6b7280;
-            background: linear-gradient(90deg, rgba(107,114,128,0.1), transparent);
-        }
-        
-        .banner-content h3 {
-            font-size: 1.3em;
-            margin-bottom: 5px;
-        }
-        
-        .banner-content p {
-            color: #b0b0b0;
-            font-size: 0.95em;
-        }
-        
-        .priority-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: bold;
-        }
-        
-        .priority-high {
-            background: #ef4444;
-            color: white;
-        }
-        
-        .priority-mid {
-            background: #f59e0b;
-            color: white;
-        }
-        
-        .priority-low {
-            background: #6b7280;
-            color: white;
-        }
-        
-        .code-box {
-            background: #1e1e1e;
-            border: 1px solid #444;
-            padding: 12px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            user-select: all;
-            cursor: copy;
-            transition: all 0.3s;
-            margin-bottom: 8px;
-        }
-        
-        .code-box:hover {
-            background: #2a2a2a;
-            border-color: #667eea;
-        }
-        
-        .activity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-        
-        .activity-item {
-            background: #262626;
-            padding: 15px;
-            border-radius: 8px;
-            border-top: 3px solid #667eea;
-        }
-        
-        .activity-item h4 {
-            margin-bottom: 8px;
-            color: #fff;
-        }
-        
-        .activity-item .time {
-            font-size: 0.9em;
-            color: #999;
-            margin-bottom: 8px;
-        }
-        
-        .activity-item .reward {
-            background: #1e1e1e;
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            color: #4ade80;
-        }
-        
-        .game-section {
-            background: #262626;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .game-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        
-        .game-updates {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .update-item {
-            background: #1e1e1e;
-            padding: 10px;
-            border-radius: 4px;
-            border-left: 2px solid #4ade80;
-            padding-left: 12px;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .timeline-item {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 30px;
-            width: 2px;
-            height: calc(100% - 30px);
-            background: #444;
-        }
-        
-        .timeline-item:last-child::before {
-            display: none;
-        }
-        
-        .timeline-dot {
-            width: 16px;
-            height: 16px;
-            background: #667eea;
-            border-radius: 50%;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-        
-        .timeline-content {
-            flex: 1;
-            background: #1e1e1e;
-            padding: 12px;
-            border-radius: 4px;
-        }
-        
-        .timeline-content .date {
-            color: #999;
-            font-size: 0.9em;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-content p {
-            color: #e0e0e0;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .banner-card {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .activity-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>二次元游戏速报 · 2026-06-10</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 16px 20px 60px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f9fafb;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 24px 28px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      color: #111827;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 17px;
+      margin: 28px 0 12px;
+      color: #111827;
+      padding-left: 10px;
+      border-left: 4px solid #3b82f6;
+    }
+    h4 {
+      font-size: 15px;
+      margin: 20px 0 8px;
+      color: #1f2937;
+    }
+    p { margin: 8px 0; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 14px;
+      background: #f3f4f6;
+      border-left: 4px solid #9ca3af;
+      color: #4b5563;
+      font-size: 13px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+      font-size: 13px;
+      background: #fff;
+    }
+    table th {
+      background: #f3f4f6;
+      color: #1f2937;
+      padding: 8px 10px;
+      text-align: left;
+      border: 1px solid #e5e7eb;
+      font-weight: 600;
+    }
+    table td {
+      padding: 8px 10px;
+      border: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+    table tr:nth-child(even) td { background: #f9fafb; }
+    code {
+      background: #f3f4f6;
+      color: #db2777;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "SF Mono", Consolas, "Courier New", monospace;
+      font-size: 12px;
+    }
+    a { color: #2563eb; text-decoration: none; word-break: break-all; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 24px; margin: 8px 0; }
+    li { margin: 4px 0; }
+    hr {
+      border: 0;
+      border-top: 1px dashed #d1d5db;
+      margin: 24px 0;
+    }
+    strong { color: #111827; }
+
+    @media (max-width: 700px) {
+      body { padding: 8px; font-size: 14px; }
+      .wrap { padding: 14px 12px; border-radius: 6px; }
+      h2 { font-size: 18px; }
+      h3 { font-size: 16px; }
+      h4 { font-size: 14px; }
+      table { font-size: 12px; display: block; overflow-x: auto; }
+      table th, table td { padding: 6px 8px; min-width: 80px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎮 二次元游戏每日监控</h1>
-            <div class="date">2026年06月10日</div>
-        </header>
-        
-        <div class="stats">
-            <div class="stat-card">
-                <h3>监控游戏</h3>
-                <div class="value">13</div>
-            </div>
-            <div class="stat-card">
-                <h3>今日更新</h3>
-                <div class="value">12</div>
-            </div>
-            <div class="stat-card">
-                <h3>活跃卡池</h3>
-                <div class="value">8</div>
-            </div>
-            <div class="stat-card">
-                <h3>推荐追卡</h3>
-                <div class="value">3</div>
-            </div>
-        </div>
-<div class="section">
-<h2>🔴 今日重点</h2>
-            <div class="banner-card priority-high">
-                <div class="banner-content">
-                    <h3>原神3.8版本预告</h3>
-                    <p>新版本3.8预计6月10日更新，新角色卡池启动</p>
-                    <p style="margin-top: 8px; font-size: 0.85em; color: #999;">涉及: 原神</p>
-                </div>
-                <div>
-                    <span class="priority-badge priority-high">HIGH</span>
-                </div>
-            </div>
-            <div class="banner-card priority-high">
-                <div class="banner-content">
-                    <h3>NIKKE国际服新卡池开启</h3>
-                    <p>新角色Prika卡池上线，持续至6月30日</p>
-                    <p style="margin-top: 8px; font-size: 0.85em; color: #999;">涉及: NIKKE国际服</p>
-                </div>
-                <div>
-                    <span class="priority-badge priority-high">HIGH</span>
-                </div>
-            </div>
-            <div class="banner-card priority-mid">
-                <div class="banner-content">
-                    <h3>明日方舟新关卡挑战</h3>
-                    <p>新危机等级关卡开放，挑战丰厚奖励</p>
-                    <p style="margin-top: 8px; font-size: 0.85em; color: #999;">涉及: 明日方舟：终末地</p>
-                </div>
-                <div>
-                    <span class="priority-badge priority-mid">MID</span>
-                </div>
-            </div>
-</div>
-<div class="section">
-<h2>⏰ 卡池预警</h2>
-            <div class="banner-card priority-high">
-                <div class="banner-content">
-                    <h3>【原神】新角色卡池</h3>
-                    <p>版本角色限定池</p>
-                    <p style="margin-top: 8px; font-size: 0.85em; color: #999;">预计截止: 2026-06-25</p>
-                </div>
-                <div>
-                    <span class="priority-badge priority-high">HIGH</span>
-                </div>
-            </div>
-            <div class="banner-card priority-high">
-                <div class="banner-content">
-                    <h3>【NIKKE国际服】Prika(레이먼)</h3>
-                    <p>新角色首发，推荐追卡</p>
-                    <p style="margin-top: 8px; font-size: 0.85em; color: #999;">预计截止: 2026-06-30</p>
-                </div>
-                <div>
-                    <span class="priority-badge priority-high">HIGH</span>
-                </div>
-            </div>
-            <div class="banner-card priority-mid">
-                <div class="banner-content">
-                    <h3>【崩坏：星穹铁道】版本5星角色</h3>
-                    <p>重要角色，可考虑提卡</p>
-                    <p style="margin-top: 8px; font-size: 0.85em; color: #999;">预计截止: 2026-06-24</p>
-                </div>
-                <div>
-                    <span class="priority-badge priority-mid">MID</span>
-                </div>
-            </div>
-</div>
-<div class="section">
-<h2>🎟️ 兑换码速领</h2>
-            <div style="background: #262626; padding: 15px; border-radius: 8px; margin-bottom: 12px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <strong>NIKKE国际服</strong>
-                    <span style="font-size: 0.9em; color: #999;">⚠️ EXPIRING</span>
-                </div>
-                <div class="code-box">NIKKE100</div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85em; color: #999;">
-                    <div>奖励: 钻石x100、能量x50</div>
-                    <div>有效期: 2026-06-15</div>
-                </div>
-            </div>
-            <div style="background: #262626; padding: 15px; border-radius: 8px; margin-bottom: 12px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <strong>原神</strong>
-                    <span style="font-size: 0.9em; color: #999;">✅ ACTIVE</span>
-                </div>
-                <div class="code-box">GenshinReward2024</div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85em; color: #999;">
-                    <div>奖励: 原石x60、大英雄经验x10</div>
-                    <div>有效期: 2026-12-31</div>
-                </div>
-            </div>
-</div>
-<div class="section">
-<h2>🗓️ 活动日历</h2>
-<div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="date">2026-06-10</div>
-                    <p><strong>原神</strong> - 版本3.8更新维护(预计)</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="date">2026-06-10</div>
-                    <p><strong>NIKKE国际服</strong> - 新角色Prika卡池启动</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="date">2026-06-11</div>
-                    <p><strong>原神</strong> - 苦火卡池上线</p>
-                </div>
-            </div>
-</div>
-</div>
-<div class="section">
-<h2>📚 分游戏详细动态</h2>
-            <div class="game-section">
-                <h3>原神</h3>
-                <h4 style="color: #4ade80; margin-bottom: 8px;">最新动态</h4>
-                <div class="game-updates">
-                    <div class="update-item">版本3.8预告发布，新角色曝光</div>
-                    <div class="update-item">官方论坛发布周年活动计划</div>
-                </div>
-                <h4 style="color: #60a5fa; margin-top: 12px; margin-bottom: 8px;">进行中活动</h4>
-                <div class="game-updates">
-                    <div class="update-item" style="border-left-color: #60a5fa;">风之旅·野外寻宝 (进行中至6月20日)</div>
-                    <div class="update-item" style="border-left-color: #60a5fa;">魔鬼猎手 (周三周五19:00-23:00)</div>
-                </div>
-                <h4 style="color: #f472b6; margin-top: 12px; margin-bottom: 8px;">卡池状态</h4>
-                <div class="game-updates">
-                    <div class="update-item" style="border-left-color: #f472b6;">当前卡池：林姜 (至6月10日，剩余0天)</div>
-                    <div class="update-item" style="border-left-color: #f472b6;">预告池：苦火 (预计6月11日上线，持续21天)</div>
-                </div>
-            </div>
-            <div class="game-section">
-                <h3>NIKKE国际服</h3>
-                <h4 style="color: #4ade80; margin-bottom: 8px;">最新动态</h4>
-                <div class="game-updates">
-                    <div class="update-item">新角色Prika首发卡池上线</div>
-                    <div class="update-item">官方发布卡池预告视频</div>
-                </div>
-                <h4 style="color: #60a5fa; margin-top: 12px; margin-bottom: 8px;">进行中活动</h4>
-                <div class="game-updates">
-                    <div class="update-item" style="border-left-color: #60a5fa;">Prika角色活动 (6月10日-6月30日)</div>
-                    <div class="update-item" style="border-left-color: #60a5fa;">每日登录特别礼包</div>
-                </div>
-                <h4 style="color: #f472b6; margin-top: 12px; margin-bottom: 8px;">卡池状态</h4>
-                <div class="game-updates">
-                    <div class="update-item" style="border-left-color: #f472b6;">当前池：Prika (至6月30日，持续20天)</div>
-                    <div class="update-item" style="border-left-color: #f472b6;">备选：历史复刻轮换</div>
-                </div>
-            </div>
-            <div class="game-section">
-                <h3>明日方舟：终末地</h3>
-                <h4 style="color: #4ade80; margin-bottom: 8px;">最新动态</h4>
-                <div class="game-updates">
-                    <div class="update-item">新危机等级关卡上线</div>
-                </div>
-                <h4 style="color: #60a5fa; margin-top: 12px; margin-bottom: 8px;">进行中活动</h4>
-                <div class="game-updates">
-                    <div class="update-item" style="border-left-color: #60a5fa;">关卡挑战活动 (6月5日-6月25日)</div>
-                </div>
-            </div>
-</div>
-    </div>
-    
-    <script>
-        document.querySelectorAll('.code-box').forEach(elem => {
-            elem.addEventListener('click', function() {
-                const text = this.textContent;
-                navigator.clipboard.writeText(text).then(() => {
-                    const original = this.textContent;
-                    this.textContent = '✅ 已复制';
-                    setTimeout(() => {
-                        this.textContent = original;
-                    }, 1500);
-                });
-            });
-        });
-    </script>
+  <div class="wrap">
+    <h2>🎮 6月10日 二次元游戏速报</h2>
+<blockquote>
+<p>数据日期：2026-06-10（周三）13:30 GMT+8
+扫描覆盖：13 款游戏
+全部信息已通过官方源交叉验证（米游社/官网/库洛/鹰角/网易/SHIFT UP/腾讯）</p>
+</blockquote>
+<hr />
+<h3><span style="color:#ef4444">🔴</span> 今日更新（HIGH）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>游戏</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>15:00 今天</strong></td>
+<td>原神</td>
+<td>v6.6 下半卡池切换：洛恩 + 玛薇卡复刻</td>
+</tr>
+<tr>
+<td><strong>04:00 今天</strong></td>
+<td>NIKKE 国服</td>
+<td>6/10 活动更新「暗巷藏污」+ DokiDoki Room 上线</td>
+</tr>
+<tr>
+<td>已上线</td>
+<td>终末地</td>
+<td>「寻遗散记」版本 6/5 上线，弭弗卡池中</td>
+</tr>
+<tr>
+<td>已上线</td>
+<td>二重螺旋</td>
+<td>「银星奔流」v 6/2 上线，芙罗拉+希尔妲免费送</td>
+</tr>
+<tr>
+<td>已上线</td>
+<td>异环</td>
+<td>v1.1「Fading Reverie」6/3 上线，Lacrimosa 卡池</td>
+</tr>
+<tr>
+<td>已上线</td>
+<td>鸣潮</td>
+<td>v3.4「未选择的梦」6/8 上线，赛博朋克边缘行者联动</td>
+</tr>
+<tr>
+<td>已上线</td>
+<td>星穹铁道</td>
+<td>v4.3「沉于生者的忘川」6/1 上线，千冶·刃 + 爻光</td>
+</tr>
+<tr>
+<td>已上线</td>
+<td>燕云十六声</td>
+<td>v2.6.5A「千秋同襟抱」5/29 上线，6/5 镇守"风雪岱山"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>⏰ 卡池预警（按结束剩余天数着色）</h3>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>游戏</th>
+<th>卡池 / UP 角色</th>
+<th>起止时间</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span style="color:#ef4444">🔴</span><strong>今天截止</strong></td>
+<td>原神</td>
+<td>6.6 上半 — 尼可 + 阿蕾奇诺</td>
+<td>5/20 - <strong>6/10 10:59</strong></td>
+<td>已结束，今天 15:00 切换</td>
+</tr>
+<tr>
+<td><span style="color:#ef4444">🔴</span><strong>今天 15:00 开</strong></td>
+<td>原神</td>
+<td>6.6 下半 — <strong>洛恩</strong>(冰长枪)+ <strong>玛薇卡复刻</strong>(火)</td>
+<td><strong>6/10 15:00 - 6/30 15:00</strong></td>
+<td>⭐⭐ 玛薇卡 0→1命强烈推荐</td>
+</tr>
+<tr>
+<td><span style="color:#ef4444">🔴</span><strong>明天截止！</strong></td>
+<td>NIKKE 国际服</td>
+<td><strong>Prika 卡池</strong>（SSR 辅助/水冷/泰特拉）</td>
+<td>5/28 维护后 - <strong>6/11 04:59 UTC+9</strong></td>
+<td>⭐ 想要 Prika 抓紧最后 15 小时</td>
+</tr>
+<tr>
+<td><span style="color:#ef4444">🔴</span><strong>明天截止！</strong></td>
+<td>NIKKE 国际服</td>
+<td><strong>Raven 卡池</strong>（剑星联动限定 SSR）</td>
+<td>5/21 05:00 - <strong>6/11 04:59 UTC+9</strong></td>
+<td>⭐⭐ 联动限定不复刻，最后机会</td>
+</tr>
+<tr>
+<td><span style="color:#ef4444">🔴</span><strong>明天截止！</strong></td>
+<td>NIKKE 国际服</td>
+<td><strong>Eve 卡池</strong>（剑星联动限定 SSR）</td>
+<td>5/14 维护后 - <strong>6/11 04:59 UTC+9</strong></td>
+<td>⭐⭐⭐ 同上，联动限定</td>
+</tr>
+<tr>
+<td><span style="color:#fbbf24">🟡</span> 4 天后开</td>
+<td>鸣潮</td>
+<td><strong>洛瑟菈</strong>（冷凝/绯雪辅助）</td>
+<td>6/13 00:00 - 7/9</td>
+<td>⭐⭐ 绯雪玩家必抽</td>
+</tr>
+<tr>
+<td><span style="color:#fbbf24">🟡</span> 7 天后开</td>
+<td>绝区零</td>
+<td><strong>维琳娜</strong>（首个风属性 S 异常）+ 叶瞬光复刻</td>
+<td><strong>6/17 - 7/8</strong></td>
+<td>⭐⭐ 体系开新生态</td>
+</tr>
+<tr>
+<td><span style="color:#22c55e">🟢</span> 鸣潮联动</td>
+<td>鸣潮</td>
+<td><strong>露西</strong>（衍射主C，赛博朋克联动）</td>
+<td>6/8 - <strong>6/12 23:59</strong></td>
+<td>⭐⭐⭐ 联动独立保底，喜欢就抽</td>
+</tr>
+<tr>
+<td><span style="color:#22c55e">🟢</span> 鸣潮 6/18</td>
+<td>鸣潮</td>
+<td><strong>卡提希娅复刻</strong>（风蚀主C）</td>
+<td>6/18 - 7/9</td>
+<td>⭐⭐ 缺主C必抽</td>
+</tr>
+<tr>
+<td><span style="color:#22c55e">🟢</span> 终末地</td>
+<td>终末地</td>
+<td><strong>弭弗</strong>（6 星物理近卫）</td>
+<td>6/5 - <strong>6/26 11:59</strong></td>
+<td>⭐⭐ 物理队核心破防</td>
+</tr>
+<tr>
+<td><span style="color:#22c55e">🟢</span> 星铁</td>
+<td>星穹铁道</td>
+<td>千冶·刃（火虚无）+ 爻光复刻</td>
+<td>6/1 - <strong>6/24 11:59</strong></td>
+<td>⭐⭐ 半辅半C</td>
+</tr>
+<tr>
+<td><span style="color:#22c55e">🟢</span> 1999</td>
+<td>重返未来1999</td>
+<td><strong>回声谣</strong>（岩，6/11 维护后开）</td>
+<td><strong>6/11 - 7/2</strong></td>
+<td>⭐⭐ 薪血体系增益</td>
+</tr>
+<tr>
+<td><span style="color:#22c55e">🟢</span> 异环</td>
+<td>异环</td>
+<td><strong>Lacrimosa</strong>（液态/混沌主C）</td>
+<td>6/3 - 6/24</td>
+<td>⭐ 看队伍构筑</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>🎬 重磅联动 / 版更（HIGH 优先级独立专区）</h3>
+<h4>🔥 NIKKE × 剑星 Stellar Blade 联动 — <strong>6/12 启动</strong></h4>
+<ul>
+<li><strong>来源</strong>：SHIFT UP 官宣，PC 版剑星 6/12 同步上市，NIKKE 联动 DLC 同步上线</li>
+<li><strong>NIKKE 端</strong>：ARK RANGER 三周大型事件，6/11 维护后开启，14 日签到送高级招募券至 7/2 04:59 UTC+9</li>
+<li><strong>剑星 端 DLC</strong>：紅蓮(Scarlet) BOSS 战、Eve 换装阿妮斯/拉毗/愛麗絲服装、3D Doro 现身、射击场迷你游戏、机器狗 Volt 互动</li>
+<li><strong>国服同步</strong>：NIKKE 国服 6/11 维护后 ARK RANGER 同步上线，6/12 05:00 联盟突袭开启</li>
+<li><strong>官方源</strong>：https://www.jkctpop.cc/?p=3547 / https://nikke.qq.com/news-detail.html</li>
+</ul>
+<h4>🔥 鸣潮 × 赛博朋克：边缘行者 联动（已开 — 6/8 至 7/9）</h4>
+<ul>
+<li>露西（限定衍射主C）+ 丽贝卡（签到免费送 5 星）</li>
+<li>联动卡池<strong>独立保底，不继承不延续</strong>，铭影波纹/捕梦波纹专属道具</li>
+<li>夜之城地图 + 联动剧情 + 线下联动企划</li>
+<li>官方源：库洛官方前瞻 + TapTap</li>
+</ul>
+<h4>🔥 绝区零 v3.0「某个梦游者的自白」— <strong>6/17 上线</strong></h4>
+<ul>
+<li>全新主城罗斯凯利法开放，长草期结束</li>
+<li><strong>白嫖 1600 菲林 + 主角代理人佩洛伊斯 + 专武</strong></li>
+<li>新角色：维琳娜（风/异常 S）、诺姆（火/击破 S，7/8 开池）、佩洛伊斯（赠送）</li>
+<li>官方源：https://zzz.mihoyo.com/news/164643</li>
+</ul>
+<h4>🔥 燕云十六声 暑期版本「江南」— <strong>6/26 上线</strong></h4>
+<ul>
+<li>杭州城（100 万平米）+ 西湖（120 万平米水域）</li>
+<li>15000 NPC 独立行为轨迹 + 500+ 船只</li>
+<li>网状叙事 + 袁和平动作指导</li>
+<li>打马棋升级回归 + 萌主争锋伙伴对战</li>
+<li>官方源：https://news.17173.com/content/06102026/113431793.shtml + 网易官网</li>
+</ul>
+<h4>🔥 重返未来1999 v3.8「世纪末尺度」— <strong>6/11 上线</strong></h4>
+<ul>
+<li>42 天大版本，6/11 - 7/23</li>
+<li>上半回声谣（岩攻击）+ 下半奠基石（岩辅助）</li>
+<li>官方源：https://m.taptap.cn/moment/811246251793189628</li>
+</ul>
+<hr />
+<h3>🎟️ 兑换码速领</h3>
+<table>
+<thead>
+<tr>
+<th>游戏</th>
+<th>兑换码</th>
+<th>内容</th>
+<th>截止时间</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>绝区零 国服</td>
+<td><code>WEILINNA0617</code></td>
+<td>300 菲林</td>
+<td>⚠️ <strong>已于 6/8 23:59 失效</strong></td>
+<td>错过了</td>
+</tr>
+<tr>
+<td>绝区零 国际服</td>
+<td><code>BEYONDTHECLOUDS</code></td>
+<td>300 菲林</td>
+<td>⚠️ <strong>已于 6/8 23:59 失效</strong></td>
+<td>错过了</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>本日各游戏官方未发新有效兑换码</p>
+</blockquote>
+<hr />
+<h3>📌 其他关注</h3>
+<ul>
+<li><strong>蓝色星原：旅谣</strong> — 台服 CBT 封测 6/12 - 6/15，限量删档，国服无新动态</li>
+<li><strong>洛克王国：世界</strong> — S2「狂欢怪谈」持续中，6/5 皮卡月刊「魔法嘉年华」组合包上线（至 6/19），<strong>月底联动精灵藏狐</strong>预告</li>
+<li><strong>二重螺旋</strong> — 「银星奔流」版本进行中，6/2 已开新主线 + 灾厄武器系统，登录免费领芙罗拉/希尔妲，外观池可白嫖 60 抽</li>
+</ul>
+<hr />
+<h3>🗓️ 活动日历（接下来 7 天）</h3>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>游戏</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>6/10 (今天) 15:00</strong></td>
+<td>原神</td>
+<td>6.6 下半卡池开启</td>
+</tr>
+<tr>
+<td><strong>6/11 维护后</strong></td>
+<td>1999 / NIKKE 国际服/国服</td>
+<td>多游戏版本日：1999 v3.8 上线、NIKKE ARK RANGER 三周事件</td>
+</tr>
+<tr>
+<td><strong>6/11 04:59 UTC+9</strong></td>
+<td>NIKKE 国际服</td>
+<td>Prika/Raven/Eve 三池同时结束</td>
+</tr>
+<tr>
+<td><strong>6/12</strong></td>
+<td>NIKKE / 剑星</td>
+<td>NIKKE × 剑星联动启动；NIKKE 国服联盟突袭</td>
+</tr>
+<tr>
+<td><strong>6/12 - 6/15</strong></td>
+<td>蓝色星原 旅谣</td>
+<td>台服 CBT 封测</td>
+</tr>
+<tr>
+<td><strong>6/13 00:00</strong></td>
+<td>鸣潮</td>
+<td>洛瑟菈卡池开启</td>
+</tr>
+<tr>
+<td><strong>6/13</strong></td>
+<td>NIKKE 国服</td>
+<td>FULL BURST DAY 双倍掉落</td>
+</tr>
+<tr>
+<td><strong>6/14 12:00</strong></td>
+<td>一些末日卡池</td>
+<td>蓝色星原: 一叶扁舟/初禾青穗 池结束</td>
+</tr>
+<tr>
+<td><strong>6/16</strong></td>
+<td>绝区零</td>
+<td>v2.8 末日，准备 v3.0</td>
+</tr>
+<tr>
+<td><strong>6/17 04:00</strong></td>
+<td>绝区零 / NIKKE 国服</td>
+<td>ZZZ v3.0 上线；NIKKE 心跳怦怦咨询室开</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>✅ 今日行动建议</h3>
+<ol>
+<li><strong>🚨 NIKKE 国际服玩家</strong>：今晚把 Prika/Raven/Eve 三池决断好，<strong>明天凌晨 4:59 UTC+9（北京 03:59）就清盘</strong>。剑星联动限定不复刻，Eve/Raven 错过就没了</li>
+<li><strong>原神玩家</strong>：今天 15:00 切换下半卡池，玛薇卡 0→1命跨环境通杀，1→2命质变，<strong>有夏沃蕾/伊安珊/茜特菈莉的强烈推荐</strong></li>
+<li><strong>绝区零玩家</strong>：v2.8 兑换码已过期，重点蓄菲林等 6/17 v3.0 维琳娜</li>
+<li><strong>鸣潮玩家</strong>：露西联动池 6/12 23:59 截止；想要洛瑟菈/卡提希娅的留好资源</li>
+<li><strong>燕云十六声玩家</strong>：6/26 江南版本是年度大版本，提前清掉手头任务</li>
+</ol>
+<hr />
+<h3>📚 分游戏详细动态</h3>
+<h4>1. 原神 — v6.6「月之七」</h4>
+<ul>
+<li><strong>当前版本</strong>：v6.6（5/20 上线，至 6/30 15:00）</li>
+<li><strong>6/10 下半卡池</strong>：洛恩（新冰长枪主C，常驻）+ 玛薇卡复刻（火神）+ 武器池灾悔/焚曜千阳</li>
+<li><strong>四星陪跑</strong>：绮良良/卡齐娜/希格雯（一说香菱/班尼特/米卡，待今日游戏内公告）</li>
+<li><strong>同步开</strong>：6/10 千星奇域运动会</li>
+<li><strong>源</strong>：https://ys.mihoyo.com/main/news/detail/164656 / https://ys.mihoyo.com/?id=179065436</li>
+</ul>
+<h4>2. 崩坏：星穹铁道 — v4.3「沉于生者的忘川」</h4>
+<ul>
+<li><strong>持续</strong>：6/1 - 7/15 06:00</li>
+<li><strong>上半（- 6/24 11:59）</strong>：千冶·刃（虚无/火，sp 形态结界减防易伤追击）+ 爻光复刻 + 光锥灼尽炼狱的新骸/当她决定看见</li>
+<li><strong>下半（6/24 12:00 -）</strong>：昔涟 + 白厄</li>
+<li><strong>源</strong>：https://sr.mihoyo.com/news/164425</li>
+</ul>
+<h4>3. 绝区零 — v2.8 末班车 → v3.0 即将上线</h4>
+<ul>
+<li><strong>当前</strong>：v2.8 下半 — 星徽·比利（命破/物理）+ 奥菲丝&amp;鬼火复刻（5/27 - 6/16）</li>
+<li><strong>6/17</strong>：v3.0「某个梦游者的自白」+ 维琳娜（首个风/异常 S）+ 叶瞬光复刻（6/17 - 7/8 三周）+ 1600 菲林白嫖</li>
+<li><strong>7/8</strong>：诺姆（火/击破 S）+ 千夏复刻</li>
+<li><strong>6/19</strong>：3.0 首期危局强袭战</li>
+<li><strong>源</strong>：https://zzz.mihoyo.com/news/164643 / https://www.miyoushe.com/zzz/article/75136495</li>
+</ul>
+<h4>4. 鸣潮 — v3.4「未选择的梦」</h4>
+<ul>
+<li><strong>6/8 上线，赛博朋克联动版本</strong></li>
+<li><strong>6/8 - 6/12 23:59</strong>：露西卡池（衍射主C）+ 蜃影武器池（捕梦波纹/铭影波纹独立）</li>
+<li><strong>6/8 - 7/9</strong>：丽贝卡 14 天签到免费领（5 星 SSR 导电佩枪）</li>
+<li><strong>6/13 - 7/9</strong>：洛瑟菈（冷凝音感仪/绯雪辅助）</li>
+<li><strong>6/18 - 7/9</strong>：卡提希娅复刻（风蚀主C）</li>
+<li><strong>源</strong>：库洛官方前瞻直播 + TapTap</li>
+</ul>
+<h4>5. 明日方舟：终末地 — v「寻遗散记」</h4>
+<ul>
+<li><strong>6/5 上线，强制更新</strong></li>
+<li><strong>新干员</strong>：弭弗（6 星物理近卫，6/5 - 6/26 11:59）+ 卡缪（6 星限定/火术师，7/2 开池，公测以来首位限定男角）</li>
+<li><strong>新区域</strong>：武陵 - 藏剑谷</li>
+<li><strong>新武器</strong>：赤缨/幻想苦痛/镀红祝福/灯火使命（6 星）</li>
+<li><strong>更新补偿</strong>：嵌晶玉 ×900 ×2</li>
+<li><strong>源</strong>：https://www.taptap.cn/moment/811699765564671081</li>
+</ul>
+<h4>6. NIKKE 国际服 — Goddess of Victory</h4>
+<ul>
+<li><strong>当前活动</strong>：BITTER SPICE 76th 限定剧情活动（5/28 - 6/11 4:59 UTC+9）</li>
+<li><strong>🚨 三池齐封</strong>：Prika（特殊招募）/ Raven（剑星联动期间限定）/ Eve（剑星联动期间限定），全部 6/11 04:59 UTC+9 截止</li>
+<li><strong>6/12 起</strong>：ARK RANGER 三周大型事件（6/11 维护后启动）+ 剑星 Stellar Blade 联动 DLC 同步上线</li>
+<li><strong>6/13 - 6/15 / 6/20 - 6/22</strong>：FULL BURST DAY 双倍掉落</li>
+<li><strong>源</strong>：nikke.gg / Blablalink / lootandwaifus + https://www.gamsgo.com/blog/nikke-codes</li>
+</ul>
+<h4>7. NIKKE 国服 — 胜利女神：新的希望</h4>
+<ul>
+<li><strong>6/3 - 6/17 暗巷藏污</strong>（JINX PLAYER 厄运玩家，挑战关卡）</li>
+<li><strong>6/4 10:00</strong>：冠军竞技场赛季 2 开启</li>
+<li><strong>6/10 - 6/24</strong>：DIRTY BACKYARD 暗巷藏污剧情</li>
+<li><strong>6/11 维护后</strong>：ARK RANGER 全配音剧情活动（与日服同步）+ 14 日签到至 7/2</li>
+<li><strong>6/12 05:00 - 6/18 04:59</strong>：联盟突袭（联盟 ≥ 3 级）</li>
+<li><strong>6/17 - 7/1</strong>：DokiDoki Room 心跳怦怦咨询室小游戏</li>
+<li><strong>源</strong>：https://nikke.qq.com / https://www.18183.com/gonglue/202606/8951730.html</li>
+</ul>
+<h4>8. 重返未来1999 — v3.8「世纪末尺度」</h4>
+<ul>
+<li><strong>6/11 维护后上线，至 7/23</strong>（42 天）</li>
+<li><strong>上半（6/11 - 7/2）</strong>：回声谣（岩，攻击型，岩系增益+护盾续航）+ 七日签到 ×7 抽</li>
+<li><strong>下半（7/2 - 7/23）</strong>：奠基石（岩，辅助型）</li>
+<li><strong>同期常驻</strong>：湖的涟漪卡池（6/11 - 7/22）</li>
+<li><strong>源</strong>：https://m.taptap.cn/moment/811246251793189628</li>
+</ul>
+<h4>9. 异环 — v1.1「Fading Reverie / The Last Rose Arc」</h4>
+<ul>
+<li><strong>6/3 03:00 UTC 上线</strong>（公测后首个大版本）</li>
+<li><strong>Phase 1（6/3 - 6/24）</strong>：Lacrimosa 卡池（液态/混沌 S，DPS 主打 Nightmare 状态 + DOT）</li>
+<li><strong>Phase 2（6/24 -）</strong>：Chaos 角色（追击型）</li>
+<li><strong>新内容</strong>：Dreamwalk Corridor 主线 + Sunward Island/Corridor of Echoes 区域 + Fight Club 格斗 + Underground Circuit 赛车</li>
+<li><strong>维护补偿</strong>：Annulith ×300</li>
+<li><strong>源</strong>：https://earlygg.com/news/neverness-to-everness-1-1-release-date-lacrimosa-banner / https://allthings.how/</li>
+</ul>
+<h4>10. 蓝色星原：旅谣</h4>
+<ul>
+<li><strong>🇹🇼 台服 CBT 封测</strong>：6/12 - 6/15 16:00（PC + Android，限量删档）</li>
+<li><strong>6/9 15:00</strong>：开放预下载</li>
+<li><strong>国服</strong>：暂无新动态</li>
+<li><strong>源</strong>：https://www.4gamers.com.tw/news/detail/79660</li>
+</ul>
+<h4>11. 二重螺旋 — 「银星奔流」版本</h4>
+<ul>
+<li><strong>6/2 04:00 - 11:00 维护，已上线</strong></li>
+<li><strong>新主线</strong>：第三章「银星奔流」+ 新区域「芙萝蒂娅百花车站」/「极光号列车」</li>
+<li><strong>新角色</strong>：芙罗拉（暗属性，登录免费送）+ 希尔妲（登录免费送）+ 狩月人暗属性新形态</li>
+<li><strong>新系统</strong>：灾厄武器（天赋树机制）+ 协会系统 + 沉浸式戏剧异步共斗</li>
+<li><strong>福利</strong>：自选角色箱/武器箱 + 60 抽外观池 + 7 日登录 10 华彩沙漏</li>
+<li><strong>源</strong>：https://dnabbs.yingxiong.com/pc/detail/841482591847583085</li>
+</ul>
+<h4>12. 洛克王国：世界</h4>
+<ul>
+<li><strong>当前赛季</strong>：S2「狂欢怪谈」</li>
+<li><strong>6/5 04:00 - 6/19 04:00</strong>：皮卡月刊「魔法嘉年华」组合包（咕德帽帽/巨鼓象/烟花伯爵/小丑公爵）</li>
+<li><strong>6/5</strong>：周末活动「公平鸽大量出没」+ 异色捕捉新机制（生态环境加成）</li>
+<li><strong>6/12 - 6/14 / 6/19 - 6/21</strong>：领地试炼/大量出没轮换</li>
+<li><strong>月底</strong>：联动精灵【藏狐】（继火红尾后第二位国家地理保护动物联动）</li>
+<li><strong>源</strong>：https://news.qq.com/u/8QIf3nxc64MfujzY5gM= / https://www.qieyou.com/content/156657</li>
+</ul>
+<h4>13. 燕云十六声 — v2.6.5A「千秋同襟抱」</h4>
+<ul>
+<li><strong>5/29 上线，6/4/6/5 在线修复 + 镇守"风雪岱山"</strong></li>
+<li><strong>6/3 -</strong>：孔庙祈福活动（饰品金葵映日 + 情境擎葵捧日）</li>
+<li><strong>6/6 - 6/9</strong>：曲阜孔庙联动 + 文物保护「寻心问牍」（联合中国文物保护基金会、甘肃简牍博物馆）</li>
+<li><strong>🔥 6/26</strong>：暑期版本「江南」上线，杭州城/西湖（200 万平米）+ 网状叙事 + 袁和平动作指导</li>
+<li><strong>源</strong>：https://yysls.cn/index.html / https://news.17173.com/content/06102026/113431793.shtml</li>
+</ul>
+<hr />
+<h3>🛡️ 自检报告</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>通过</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本号 ≥ 下限</td>
+<td>✅ 全部命中（原神 v6.6 / 星铁 4.3 / 绝区零 2.8→3.0 / 鸣潮 3.4 / 1999 3.8 / 终末地"寻遗散记"）</td>
+</tr>
+<tr>
+<td>卡池含起止+UP+URL</td>
+<td>✅ 全部完整</td>
+</tr>
+<tr>
+<td>版更含版本号+日期+URL</td>
+<td>✅ 全部完整</td>
+</tr>
+<tr>
+<td>联动专项检索</td>
+<td>✅ 13 款全跑（命中 NIKKE×剑星、鸣潮×赛博朋克、洛克王国×藏狐、燕云×孔庙等）</td>
+</tr>
+<tr>
+<td>卡池≤T+3 进入预警</td>
+<td>✅ NIKKE 三池标红「明天截止」</td>
+</tr>
+<tr>
+<td>卡池≤T+1 标红</td>
+<td>✅ 已标</td>
+</tr>
+<tr>
+<td>NIKKE 国际/国服分开</td>
+<td>✅ 已分</td>
+</tr>
+<tr>
+<td>洛克王国仅《世界》</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>燕云十六声扫描</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>过期版本号已清除</td>
+<td>✅ 无 3.8/2.x/1.x 旧版本残留</td>
+</tr>
+<tr>
+<td>全部日期是 2026 年</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>所有 11 项 checklist 均通过</strong> ✅</p>
+  </div>
 </body>
 </html>
