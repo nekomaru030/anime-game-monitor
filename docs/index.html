@@ -18,7 +18,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            font-size: 14px;
+            font-size: 15px;
             -webkit-text-size-adjust: 100%;
         }
 
@@ -63,14 +63,39 @@
         /* ===== 布局 ===== */
         .main { display: flex; flex: 1; overflow: hidden; }
 
+        /* ===== 拖动分割线 ===== */
+        .resizer {
+            width: 5px;
+            flex-shrink: 0;
+            background: #dddbd7;
+            cursor: col-resize;
+            position: relative;
+            z-index: 10;
+            transition: background 0.15s;
+        }
+        .resizer:hover, .resizer.dragging { background: #aaa8a4; }
+        .resizer::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1px;
+            height: 32px;
+            background: #c8c6c2;
+            border-radius: 1px;
+        }
+
         /* ===== 左侧面板 ===== */
         .left-panel {
             width: 360px;
+            min-width: 260px;
+            max-width: 600px;
             flex-shrink: 0;
-            border-right: 1px solid #dddbd7;
             display: flex;
             flex-direction: column;
             background: #f5f4f2;
+            user-select: none;
         }
         .left-head { padding: 14px 20px 0; }
         .panel-label {
@@ -81,7 +106,7 @@
             text-transform: uppercase;
             margin-bottom: 10px;
         }
-        .panel-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 10px; }
+        .panel-meta { font-family: 'DM Mono', monospace; font-size: 12px; color: #888884; margin-bottom: 10px; }
 
         /* 子 tab */
         .ltabs { display: flex; border-bottom: 1px solid #dddbd7; }
@@ -149,7 +174,7 @@
         .game-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .hi-body { flex: 1; min-width: 0; }
         .hi-row1 { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; }
-        .hi-game { font-weight: 500; font-size: 14px; color: #1a1a18; line-height: 1.2; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .hi-game { font-weight: 500; font-size: 15px; color: #1a1a18; line-height: 1.2; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .badge {
             font-family: 'DM Mono', monospace;
             font-size: 10px;
@@ -162,10 +187,10 @@
         .badge-red { background: rgba(208,48,48,.1); color: #c03030; border: 1px solid rgba(208,48,48,.2); }
         .badge-amber { background: rgba(210,138,0,.1); color: #9a6800; border: 1px solid rgba(210,138,0,.2); }
         .badge-gray { background: #f0eeea; color: #888884; border: 1px solid #e8e6e2; }
-        .hi-time { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 3px; letter-spacing: 0.02em; }
-        .hi-title { font-size: 13px; color: #1a1a18; line-height: 1.4; font-weight: 500; margin-bottom: 3px; }
-        .hi-desc { font-size: 12px; color: #666663; line-height: 1.55; }
-        .hi-src { font-family: 'DM Mono', monospace; font-size: 10px; color: #c8c6c2; text-decoration: none; margin-top: 2px; display: inline-block; }
+        .hi-time { font-family: 'DM Mono', monospace; font-size: 12px; color: #888884; margin-bottom: 3px; letter-spacing: 0.02em; }
+        .hi-title { font-size: 14px; color: #1a1a18; line-height: 1.4; font-weight: 500; margin-bottom: 3px; }
+        .hi-desc { font-size: 13px; color: #666663; line-height: 1.55; }
+        .hi-src { font-family: 'DM Mono', monospace; font-size: 11px; color: #c8c6c2; text-decoration: none; margin-top: 2px; display: inline-block; }
         .hi-src:hover { color: #888884; }
 
         /* ===== 当前卡池 条目 ===== */
@@ -185,13 +210,13 @@
             overflow: hidden;
         }
         .bn-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .bn-game { font-weight: 500; font-size: 14px; color: #1a1a18; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .bn-game { font-weight: 500; font-size: 15px; color: #1a1a18; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .days-red { background: rgba(208,48,48,.1); color: #c03030; border: 1px solid rgba(208,48,48,.2); font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
         .days-amber { background: rgba(210,138,0,.1); color: #9a6800; border: 1px solid rgba(210,138,0,.2); font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
         .days-gray { background: #f0eeea; color: #888884; border: 1px solid #e8e6e2; font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
-        .bn-period { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 2px; letter-spacing: 0.02em; }
-        .bn-title { font-size: 13px; color: #4a4a48; margin-bottom: 2px; }
-        .bn-sugg { font-size: 11px; color: #888884; line-height: 1.4; }
+        .bn-period { font-family: 'DM Mono', monospace; font-size: 12px; color: #888884; margin-bottom: 2px; letter-spacing: 0.02em; }
+        .bn-title { font-size: 14px; color: #4a4a48; margin-bottom: 2px; }
+        .bn-sugg { font-size: 12px; color: #888884; line-height: 1.4; }
 
         /* ===== 版本排期 时间线 ===== */
         .tl-row {
@@ -213,7 +238,7 @@
             overflow: hidden;
         }
         .tl-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .tl-game { font-size: 12px; font-weight: 500; color: #1a1a18; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tl-game { font-size: 13px; font-weight: 500; color: #1a1a18; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .tl-right {
             flex: 1;
             display: flex;
@@ -228,8 +253,8 @@
         .dot-amber { background: #9a6800; }
         .dot-gray { background: #dddbd7; }
         .tl-evt-body { flex: 1; }
-        .tl-date { font-family: 'DM Mono', monospace; font-size: 10px; color: #888884; letter-spacing: 0.02em; }
-        .tl-title { font-size: 12px; color: #1a1a18; line-height: 1.4; }
+        .tl-date { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; letter-spacing: 0.02em; }
+        .tl-title { font-size: 13px; color: #1a1a18; line-height: 1.4; }
 
         /* ===== 兑换码 ===== */
         .code-row {
@@ -241,9 +266,9 @@
             border-bottom: 1px solid #e8e6e2;
         }
         .code-row:last-child { border-bottom: none; }
-        .code-gname { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 2px; }
-        .code-val { font-family: 'DM Mono', monospace; font-size: 13px; color: #1a1a18; font-weight: 500; letter-spacing: 0.04em; }
-        .code-reward { font-size: 11px; color: #888884; margin-top: 2px; }
+        .code-gname { font-family: 'DM Mono', monospace; font-size: 12px; color: #888884; margin-bottom: 2px; }
+        .code-val { font-family: 'DM Mono', monospace; font-size: 14px; color: #1a1a18; font-weight: 500; letter-spacing: 0.04em; }
+        .code-reward { font-size: 12px; color: #888884; margin-top: 2px; }
         .copy-btn {
             flex-shrink: 0;
             padding: 4px 10px;
@@ -364,6 +389,9 @@
             <div class="empty-state">加载中...</div>
         </div>
     </div>
+
+    <!-- 拖动分割线 -->
+    <div class="resizer" id="resizer"></div>
 
     <!-- 右侧：社区热度 -->
     <div class="right-panel" id="right-panel">
@@ -820,6 +848,62 @@
                     });
             });
     }
+
+    // ===== 可拖动分割线 =====
+    (function(){
+        const resizer  = document.getElementById('resizer');
+        const leftPane = document.getElementById('left-panel');
+        if (!resizer || !leftPane) return;
+
+        // 恢复上次保存的宽度
+        const saved = localStorage.getItem('leftPanelWidth');
+        if (saved) leftPane.style.width = saved + 'px';
+
+        let startX, startW;
+
+        function onMove(e) {
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const delta = clientX - startX;
+            const newW = Math.min(600, Math.max(260, startW + delta));
+            leftPane.style.width = newW + 'px';
+        }
+
+        function onUp(e) {
+            resizer.classList.remove('dragging');
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+            const w = parseInt(leftPane.style.width);
+            if (w) localStorage.setItem('leftPanelWidth', w);
+            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mouseup', onUp);
+            window.removeEventListener('touchmove', onMove);
+            window.removeEventListener('touchend', onUp);
+        }
+
+        resizer.addEventListener('mousedown', e => {
+            startX = e.clientX;
+            startW = leftPane.offsetWidth;
+            resizer.classList.add('dragging');
+            document.body.style.cursor = 'col-resize';
+            document.body.style.userSelect = 'none';
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('mouseup', onUp);
+        });
+
+        resizer.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            startW = leftPane.offsetWidth;
+            resizer.classList.add('dragging');
+            window.addEventListener('touchmove', onMove, { passive: true });
+            window.addEventListener('touchend', onUp);
+        });
+
+        // 双击重置为默认宽度
+        resizer.addEventListener('dblclick', () => {
+            leftPane.style.width = '360px';
+            localStorage.setItem('leftPanelWidth', 360);
+        });
+    })();
 
     init();
 </script>
