@@ -2,15 +2,18 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>二游舆情监控看板</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f4f2;
+            color: #1a1a18;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -19,867 +22,806 @@
             -webkit-text-size-adjust: 100%;
         }
 
-        /* ========== 顶部标题栏 ========== */
+        /* ===== 顶部标题栏 ===== */
         .topbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-            border-bottom: 1px solid #1e293b;
+            background: #1a1a18;
+            border-bottom: 1px solid #2c2c2a;
             flex-shrink: 0;
         }
+        .topbar-left { display: flex; align-items: baseline; gap: 12px; }
         .topbar-title {
+            font-family: 'DM Sans', sans-serif;
             font-size: 15px;
-            font-weight: 600;
-            color: #f1f5f9;
-            letter-spacing: 0.3px;
+            font-weight: 500;
+            color: #f0eeea;
+            letter-spacing: -0.01em;
         }
-        .topbar-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .topbar-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: #4a4a48;
+            letter-spacing: 0.05em;
         }
-        .topbar-right label { font-size: 12px; color: #64748b; }
+        .topbar-right { display: flex; align-items: center; gap: 16px; }
+        .topbar-right label { font-family: 'DM Mono', monospace; font-size: 11px; color: #4a4a48; }
         #date-select {
-            background: #1e293b;
-            color: #cbd5e1;
-            border: 1px solid #334155;
-            border-radius: 5px;
-            padding: 4px 10px;
-            font-size: 12px;
+            background: #2c2c2a;
+            color: #a0a09c;
+            border: 1px solid #3a3a38;
+            border-radius: 3px;
+            padding: 3px 8px;
+            font-size: 11px;
+            font-family: 'DM Mono', monospace;
             cursor: pointer;
         }
-        #update-time { font-size: 11px; color: #475569; }
+        #update-time { font-family: 'DM Mono', monospace; font-size: 10px; color: #3a3a38; }
 
-        /* ========== 主体布局 ========== */
-        .main {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-        }
+        /* ===== 布局 ===== */
+        .main { display: flex; flex: 1; overflow: hidden; }
 
-        /* ========== 左侧面板 ========== */
+        /* ===== 左侧面板 ===== */
         .left-panel {
-            width: 320px;
+            width: 360px;
             flex-shrink: 0;
-            border-right: 1px solid #1e293b;
+            border-right: 1px solid #dddbd7;
             display: flex;
             flex-direction: column;
-            background: #0f172a;
+            background: #f5f4f2;
         }
-        .left-header {
-            padding: 12px 16px 10px;
-            border-bottom: 1px solid #1e293b;
-            flex-shrink: 0;
+        .left-head { padding: 14px 20px 0; }
+        .panel-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #888884;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
-        .left-header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-        .left-header-top .lh-title {
+        .panel-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 10px; }
+
+        /* 子 tab */
+        .ltabs { display: flex; border-bottom: 1px solid #dddbd7; }
+        .ltab {
+            padding: 7px 14px;
             font-size: 13px;
-            font-weight: 600;
-            color: #f1f5f9;
-        }
-        .badge-live {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 8px;
-            background: rgba(34,197,94,0.12);
-            color: #4ade80;
-            font-size: 11px;
-            border-radius: 4px;
-            border: 1px solid rgba(34,197,94,0.25);
-        }
-        .badge-live::before {
-            content: '';
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: #4ade80;
-            display: block;
-        }
-        .left-header .lh-meta { font-size: 11px; color: #475569; }
-
-        /* 左侧子 tab */
-        .left-subtabs {
-            display: flex;
-            gap: 4px;
-            padding: 8px 16px;
-            border-bottom: 1px solid #1e293b;
-            flex-shrink: 0;
-        }
-        .stab {
-            flex: 1;
-            padding: 4px 0;
-            border: 1px solid #334155;
-            border-radius: 5px;
-            font-size: 11px;
+            color: #888884;
+            border-bottom: 2px solid transparent;
             cursor: pointer;
+            white-space: nowrap;
             background: transparent;
-            color: #64748b;
-            text-align: center;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: -1px;
         }
-        .stab.on {
-            background: #1e293b;
-            color: #94a3b8;
-            border-color: #475569;
-        }
+        .ltab:hover { color: #4a4a48; }
+        .ltab.on { color: #1a1a18; border-bottom-color: #1a1a18; font-weight: 500; }
 
-        /* 左侧内容区 */
+        /* 左侧滚动区 */
         .left-body {
             flex: 1;
             overflow-y: auto;
-            padding: 10px 16px 16px;
+            padding: 14px 20px 20px;
         }
-        .left-body::-webkit-scrollbar { width: 3px; }
-        .left-body::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+        .left-body::-webkit-scrollbar { width: 2px; }
+        .left-body::-webkit-scrollbar-thumb { background: #dddbd7; border-radius: 2px; }
 
         .section { display: none; }
         .section.on { display: block; }
 
-        /* 重点动态 */
-        .dyn-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #1e293b;
-        }
-        .dyn-item:last-child { border-bottom: none; }
-        .dyn-date {
+        .empty-state {
+            padding: 32px 0;
+            text-align: center;
+            font-family: 'DM Mono', monospace;
             font-size: 12px;
-            font-weight: 600;
-            color: #7dd3fc;
-            margin-bottom: 5px;
-            letter-spacing: 0.3px;
+            color: #c8c6c2;
         }
-        .dyn-top {
+
+        /* ===== 重点动态 条目 ===== */
+        .hi-row {
             display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 6px;
-            margin-bottom: 3px;
-        }
-        .dyn-name {
-            font-size: 13px;
-            font-weight: 500;
-            color: #e2e8f0;
-            line-height: 1.4;
-            flex: 1;
-        }
-        .pri {
-            flex-shrink: 0;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-            margin-top: 2px;
-        }
-        .pri-h { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
-        .pri-m { background: rgba(234,179,8,0.12); color: #fbbf24; border: 1px solid rgba(234,179,8,0.2); }
-        .game-tag {
-            display: inline-block;
-            padding: 0 5px;
-            background: #1e293b;
-            color: #64748b;
-            font-size: 10px;
-            border-radius: 3px;
-            margin-right: 4px;
-            margin-bottom: 3px;
-        }
-        .dyn-desc {
-            font-size: 12px;
-            color: #64748b;
-            line-height: 1.5;
-        }
-
-        /* 卡池时间 */
-        .banner-item {
+            gap: 12px;
             padding: 10px 0;
-            border-bottom: 1px solid #1e293b;
+            border-bottom: 1px solid #e8e6e2;
+            align-items: flex-start;
         }
-        .banner-item:last-child { border-bottom: none; }
-        .banner-game {
-            font-size: 15px;
-            font-weight: 600;
-            color: #f1f5f9;
-            margin-bottom: 4px;
-            letter-spacing: 0.2px;
+        .hi-row:last-child { border-bottom: none; }
+        .game-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 5px;
+            flex-shrink: 0;
+            background: #e0deda;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #888884;
+            overflow: hidden;
+            margin-top: 1px;
         }
-        .banner-date {
-            font-size: 12px;
-            font-weight: 600;
-            color: #7dd3fc;
-            margin-bottom: 5px;
-            letter-spacing: 0.3px;
+        .game-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hi-body { flex: 1; min-width: 0; }
+        .hi-row1 { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; }
+        .hi-game { font-weight: 500; font-size: 14px; color: #1a1a18; line-height: 1.2; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 2px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            letter-spacing: 0.04em;
         }
-        .banner-title { font-size: 13px; font-weight: 500; color: #e2e8f0; margin-bottom: 2px; }
-        .banner-desc { font-size: 12px; color: #64748b; }
+        .badge-red { background: rgba(208,48,48,.1); color: #c03030; border: 1px solid rgba(208,48,48,.2); }
+        .badge-amber { background: rgba(210,138,0,.1); color: #9a6800; border: 1px solid rgba(210,138,0,.2); }
+        .badge-gray { background: #f0eeea; color: #888884; border: 1px solid #e8e6e2; }
+        .hi-time { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 3px; letter-spacing: 0.02em; }
+        .hi-title { font-size: 13px; color: #1a1a18; line-height: 1.4; font-weight: 500; margin-bottom: 3px; }
+        .hi-desc { font-size: 12px; color: #666663; line-height: 1.55; }
+        .hi-src { font-family: 'DM Mono', monospace; font-size: 10px; color: #c8c6c2; text-decoration: none; margin-top: 2px; display: inline-block; }
+        .hi-src:hover { color: #888884; }
 
-        /* 兑换码 */
+        /* ===== 当前卡池 条目 ===== */
+        .bn-row {
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e6e2;
+        }
+        .bn-row:last-child { border-bottom: none; }
+        .bn-head { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+        .bn-icon {
+            width: 24px; height: 24px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            background: #e0deda;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'DM Mono', monospace; font-size: 9px; color: #888884;
+            overflow: hidden;
+        }
+        .bn-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .bn-game { font-weight: 500; font-size: 14px; color: #1a1a18; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .days-red { background: rgba(208,48,48,.1); color: #c03030; border: 1px solid rgba(208,48,48,.2); font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+        .days-amber { background: rgba(210,138,0,.1); color: #9a6800; border: 1px solid rgba(210,138,0,.2); font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+        .days-gray { background: #f0eeea; color: #888884; border: 1px solid #e8e6e2; font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+        .bn-period { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 2px; letter-spacing: 0.02em; }
+        .bn-title { font-size: 13px; color: #4a4a48; margin-bottom: 2px; }
+        .bn-sugg { font-size: 11px; color: #888884; line-height: 1.4; }
+
+        /* ===== 版本排期 时间线 ===== */
+        .tl-row {
+            display: flex;
+            gap: 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e8e6e2;
+            align-items: stretch;
+        }
+        .tl-row:last-child { border-bottom: none; }
+        .tl-left { width: 120px; flex-shrink: 0; display: flex; align-items: flex-start; gap: 8px; padding-top: 2px; }
+        .tl-icon {
+            width: 22px; height: 22px;
+            border-radius: 4px;
+            background: #e0deda;
+            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'DM Mono', monospace; font-size: 9px; color: #888884;
+            overflow: hidden;
+        }
+        .tl-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .tl-game { font-size: 12px; font-weight: 500; color: #1a1a18; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tl-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-left: 12px;
+            border-left: 1px solid #dddbd7;
+        }
+        .tl-event { display: flex; align-items: flex-start; gap: 8px; }
+        .tl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+        .dot-red { background: #c03030; }
+        .dot-amber { background: #9a6800; }
+        .dot-gray { background: #dddbd7; }
+        .tl-evt-body { flex: 1; }
+        .tl-date { font-family: 'DM Mono', monospace; font-size: 10px; color: #888884; letter-spacing: 0.02em; }
+        .tl-title { font-size: 12px; color: #1a1a18; line-height: 1.4; }
+
+        /* ===== 兑换码 ===== */
         .code-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 8px;
             padding: 9px 0;
-            border-bottom: 1px solid #1e293b;
+            border-bottom: 1px solid #e8e6e2;
         }
         .code-row:last-child { border-bottom: none; }
-        .code-gname { font-size: 11px; color: #475569; margin-bottom: 2px; }
-        .code-val {
-            font-family: "SF Mono", "Fira Code", "Consolas", monospace;
-            font-size: 13px;
-            color: #7dd3fc;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-        .code-reward { font-size: 11px; color: #64748b; margin-top: 2px; }
+        .code-gname { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; margin-bottom: 2px; }
+        .code-val { font-family: 'DM Mono', monospace; font-size: 13px; color: #1a1a18; font-weight: 500; letter-spacing: 0.04em; }
+        .code-reward { font-size: 11px; color: #888884; margin-top: 2px; }
         .copy-btn {
             flex-shrink: 0;
             padding: 4px 10px;
-            border: 1px solid #334155;
-            border-radius: 4px;
+            border: 1px solid #dddbd7;
+            border-radius: 3px;
             font-size: 11px;
             cursor: pointer;
             background: transparent;
-            color: #64748b;
+            color: #888884;
+            font-family: 'DM Sans', sans-serif;
             white-space: nowrap;
         }
-        .copy-btn:hover { border-color: #475569; color: #94a3b8; }
+        .copy-btn:hover { border-color: #aaa8a4; color: #4a4a48; }
 
-        /* 左侧加载/空态 */
-        .left-loading {
-            padding: 32px 0;
-            text-align: center;
-            color: #334155;
-            font-size: 13px;
-        }
-
-        /* ========== 右侧面板 ========== */
+        /* ===== 右侧面板 ===== */
         .right-panel {
             flex: 1;
             display: flex;
             flex-direction: column;
             min-width: 0;
+            background: #f0eeea;
         }
-        .right-header {
-            padding: 10px 16px 0;
-            border-bottom: 1px solid #1e293b;
+        .right-head {
+            padding: 12px 20px 0;
+            border-bottom: 1px solid #dddbd7;
             flex-shrink: 0;
         }
-        .right-header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        .rh-title { font-size: 12px; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; }
-        .rh-meta { font-size: 11px; color: #475569; }
-
-        /* 右侧 tab */
-        .right-tabs {
-            display: flex;
-            gap: 0;
-            overflow-x: auto;
-        }
-        .right-tabs::-webkit-scrollbar { height: 2px; }
-        .right-tabs::-webkit-scrollbar-thumb { background: #334155; }
+        .right-head-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; }
+        .right-label { font-family: 'DM Mono', monospace; font-size: 10px; color: #888884; letter-spacing: 0.14em; text-transform: uppercase; }
+        .right-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; }
+        .rtabs { display: flex; }
         .rtab {
-            flex-shrink: 0;
-            padding: 8px 18px;
+            padding: 7px 18px;
+            font-size: 13px;
+            color: #888884;
             border: none;
             border-bottom: 2px solid transparent;
             background: transparent;
-            color: #64748b;
-            font-size: 13px;
             cursor: pointer;
             white-space: nowrap;
+            font-family: 'DM Sans', sans-serif;
             margin-bottom: -1px;
         }
-        .rtab:hover { color: #94a3b8; }
-        .rtab.on {
-            color: #7dd3fc;
-            border-bottom-color: #7dd3fc;
-            font-weight: 500;
-        }
+        .rtab:hover { color: #4a4a48; }
+        .rtab.on { color: #1a1a18; border-bottom-color: #1a1a18; font-weight: 500; }
+        .rtab-meta { padding: 3px 20px 7px; font-family: 'DM Mono', monospace; font-size: 11px; color: #888884; }
 
-        /* 右侧内容 */
+        /* 右侧 iframe 区 */
         .right-body { flex: 1; overflow: hidden; position: relative; }
         .rpane { position: absolute; inset: 0; display: none; }
         .rpane.on { display: block; }
-        .rpane iframe {
-            width: 100%; height: 100%;
-            border: none;
-            background: #0f172a;
-        }
-        .rpane-empty {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #334155;
-            font-size: 13px;
-        }
-        .rtab-meta-bar {
-            padding: 4px 16px 8px;
-            font-size: 11px;
-            color: #475569;
-        }
+        .rpane iframe { width: 100%; height: 100%; border: none; background: #f0eeea; }
+        .rpane-empty { display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'DM Mono', monospace; font-size: 12px; color: #c8c6c2; }
 
-        /* 移动端切换按钮（仅窄屏可见） */
-        .view-switch {
-            display: none;
-            gap: 4px;
-            margin-right: 8px;
-        }
+        /* ===== 移动端 ===== */
+        .view-switch { display: none; gap: 4px; margin-right: 8px; }
         .vs-btn {
             padding: 4px 10px;
-            border: 1px solid #334155;
-            border-radius: 5px;
+            border: 1px solid #3a3a38;
+            border-radius: 3px;
             background: transparent;
-            color: #64748b;
+            color: #4a4a48;
             font-size: 12px;
             cursor: pointer;
         }
-        .vs-btn.on {
-            background: #1e293b;
-            color: #cbd5e1;
-            border-color: #475569;
-        }
+        .vs-btn.on { background: #2c2c2a; color: #a0a09c; border-color: #4a4a48; }
 
-        /* ========== 响应式：平板（≤1100px）：缩窄左侧 ========== */
-        @media (max-width: 1100px) {
-            .left-panel { width: 280px; }
-        }
+        @media (max-width: 1100px) { .left-panel { width: 320px; } }
 
-        /* ========== 响应式：手机/小屏（≤900px）：上下堆叠 + 视图切换 ========== */
         @media (max-width: 900px) {
             body { font-size: 13px; }
             .topbar { padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
-            .topbar-title { font-size: 14px; }
-            .topbar-right { gap: 8px; }
-            .topbar-right label { display: none; }
+            .topbar-date { display: none; }
             #update-time { display: none; }
-
             .view-switch { display: flex; }
-
             .main { flex-direction: column; }
-            .left-panel,
-            .right-panel {
-                width: 100%;
-                flex: none;
-                border-right: none;
-                display: none;
-            }
-            .left-panel { border-bottom: 1px solid #1e293b; }
-            .left-panel.active,
-            .right-panel.active { display: flex; flex: 1; min-height: 0; }
-
-            .left-header { padding: 10px 12px 8px; }
-            .left-subtabs { padding: 6px 12px; gap: 6px; }
-            .stab { padding: 5px 0; font-size: 12px; }
-            .left-body { padding: 10px 12px 14px; }
-
-            .dyn-name { font-size: 14px; }
-            .dyn-desc { font-size: 13px; }
-            .banner-title { font-size: 14px; }
-            .banner-desc { font-size: 13px; }
-            .code-val { font-size: 14px; }
-            .code-reward { font-size: 12px; }
-
-            .right-header { padding: 8px 12px 0; }
-            .rh-title { display: none; }
-            .right-tabs { gap: 0; }
-            .rtab { padding: 8px 12px; font-size: 13px; }
-            .rtab-meta-bar { padding: 4px 12px 6px; }
+            .left-panel, .right-panel { width: 100%; flex: none; border-right: none; display: none; }
+            .left-panel.active, .right-panel.active { display: flex; flex: 1; min-height: 0; }
+            .left-panel { border-bottom: 1px solid #dddbd7; }
+            .left-head { padding: 10px 14px 0; }
+            .left-body { padding: 10px 14px 16px; }
+            .right-head { padding: 10px 14px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部标题栏 -->
-    <div class="topbar">
-        <span class="topbar-title">二游舆情监控看板</span>
-        <div class="topbar-right">
-            <div class="view-switch" id="view-switch">
-                <button class="vs-btn on" onclick="vs('left',this)">情报</button>
-                <button class="vs-btn" onclick="vs('right',this)">舆情</button>
+<div class="topbar">
+    <div class="topbar-left">
+        <span class="topbar-title">二游舆情监控</span>
+        <span class="topbar-date" id="today-date"></span>
+    </div>
+    <div class="topbar-right">
+        <div class="view-switch" id="view-switch">
+            <button class="vs-btn on" onclick="vs('left',this)">情报</button>
+            <button class="vs-btn" onclick="vs('right',this)">舆情</button>
+        </div>
+        <label for="date-select">舆情日期</label>
+        <select id="date-select" onchange="onDateChange()"><option>加载中...</option></select>
+        <span id="update-time"></span>
+    </div>
+</div>
+
+<div class="main">
+    <!-- 左侧：版本情报 -->
+    <div class="left-panel active" id="left-panel">
+        <div class="left-head">
+            <div class="panel-label">版本情报</div>
+            <div class="panel-meta" id="left-meta">加载中...</div>
+            <div class="ltabs">
+                <button class="ltab on" onclick="sw(0,this)">重点动态</button>
+                <button class="ltab" onclick="sw(1,this)">当前卡池</button>
+                <button class="ltab" onclick="sw(2,this)">版本排期</button>
+                <button class="ltab" onclick="sw(3,this)">兑换码</button>
             </div>
-            <label>舆情数据日期</label>
-            <select id="date-select" onchange="onDateChange()">
-                <option value="">加载中...</option>
-            </select>
-            <span id="update-time"></span>
+        </div>
+        <div class="left-body" id="left-body">
+            <div class="empty-state">加载中...</div>
         </div>
     </div>
 
-    <!-- 主体 -->
-    <div class="main">
-
-        <!-- 左侧：今日版本情报 -->
-        <div class="left-panel active" id="left-panel">
-            <div class="left-header">
-                <div class="left-header-top">
-                    <span class="lh-title">今日版本情报</span>
-                    <span class="badge-live">实时</span>
-                </div>
-                <div class="lh-meta" id="left-meta">加载中...</div>
+    <!-- 右侧：社区热度 -->
+    <div class="right-panel" id="right-panel">
+        <div class="right-head">
+            <div class="right-head-top">
+                <span class="right-label">社区热度报告</span>
+                <span class="right-meta" id="right-meta"></span>
             </div>
-            <div class="left-subtabs">
-                <button class="stab on" onclick="sw(0,this)">重点动态</button>
-                <button class="stab" onclick="sw(1,this)">当前卡池</button>
-                <button class="stab" onclick="sw(2,this)">版本排期</button>
-                <button class="stab" onclick="sw(3,this)">兑换码</button>
+            <div class="rtabs" id="rtabs-container">
+                <button class="rtab on" onclick="rt(0,this)">NGA 吃瓜</button>
+                <button class="rtab" onclick="rt(1,this)">B 站游戏</button>
+                <button class="rtab" onclick="rt(2,this)">B 站直播</button>
+                <button class="rtab" onclick="rt(3,this)">贴吧</button>
             </div>
-            <div class="left-body" id="left-body">
-                <div class="left-loading">加载中...</div>
-            </div>
+            <div class="rtab-meta" id="rtab-meta"></div>
         </div>
-
-        <!-- 右侧：社区热度报告 -->
-        <div class="right-panel" id="right-panel">
-            <div class="right-header">
-                <div class="right-header-top">
-                    <span class="rh-title">社区热度报告</span>
-                </div>
-                <div class="right-tabs" id="right-tabs">
-                    <button class="rtab on" onclick="rt(0,this)">NGA 吃瓜</button>
-                    <button class="rtab" onclick="rt(1,this)">B 站游戏</button>
-                    <button class="rtab" onclick="rt(2,this)">B 站直播</button>
-                    <button class="rtab" onclick="rt(3,this)">贴吧</button>
-                </div>
-                <div class="rtab-meta-bar" id="rtab-meta">昨日数据</div>
-            </div>
-            <div class="right-body">
-                <div class="rpane on" id="rpane-0"><iframe id="rframe-0" src="about:blank"></iframe></div>
-                <div class="rpane" id="rpane-1"><iframe id="rframe-1" src="about:blank"></iframe></div>
-                <div class="rpane" id="rpane-2"><iframe id="rframe-2" src="about:blank"></iframe></div>
-                <div class="rpane" id="rpane-3"><iframe id="rframe-3" src="about:blank"></iframe></div>
-            </div>
+        <div class="right-body">
+            <div class="rpane on" id="rpane-0"><div class="rpane-empty" id="rempty-0">暂无数据</div><iframe id="rframe-0" src="about:blank" style="display:none"></iframe></div>
+            <div class="rpane" id="rpane-1"><div class="rpane-empty" id="rempty-1">暂无数据</div><iframe id="rframe-1" src="about:blank" style="display:none"></iframe></div>
+            <div class="rpane" id="rpane-2"><div class="rpane-empty" id="rempty-2">暂无数据</div><iframe id="rframe-2" src="about:blank" style="display:none"></iframe></div>
+            <div class="rpane" id="rpane-3"><div class="rpane-empty" id="rempty-3">暂无数据</div><iframe id="rframe-3" src="about:blank" style="display:none"></iframe></div>
         </div>
-
     </div>
+</div>
 
-    <script>
-        // ========== 配置 ==========
-        // 右侧 tab 对应的 source id 和目录
-        const RIGHT_SOURCES = [
-            { id: 'nga',           dir: 'nga',           label: 'NGA 吃瓜' },
-            { id: 'bilibili_game', dir: 'bilibili_game', label: 'B 站游戏' },
-            { id: 'bilibili_live', dir: 'bilibili_live', label: 'B 站直播' },
-            { id: 'tieba',         dir: 'tieba',         label: '贴吧' },
-        ];
+<script>
+    // ===== 配置 =====
+    const RIGHT_SOURCES = [
+        { id: 'nga',           dir: 'nga',           label: 'NGA 吃瓜' },
+        { id: 'bilibili_game', dir: 'bilibili_game', label: 'B 站游戏' },
+        { id: 'bilibili_live', dir: 'bilibili_live', label: 'B 站直播' },
+        { id: 'tieba',         dir: 'tieba',         label: '贴吧' },
+    ];
 
-        // ========== 工具函数 ==========
+    let rtabMetas = ['','','',''];
+    let GAME_ICON_MAP = {};  // gameName → local file (from icons/index.json _gameNames)
 
-        // ISO 日期格式化：提取字符串中的日期时间，不做时区转换
-        function fmtDate(iso) {
-            if (!iso) return '';
-            if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
-            const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
-            if (!m) return iso;
-            const [, y, mo, d, h, mi] = m;
-            return (h === '00' && mi === '00') ? `${y}-${mo}-${d}` : `${y}-${mo}-${d} ${h}:${mi}`;
+    // ===== 今日日期 =====
+    (function(){
+        const d = new Date();
+        const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+        const s = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} · ${days[d.getDay()]}`;
+        document.getElementById('today-date').textContent = s;
+    })();
+
+    // ===== 工具 =====
+    function fmtDate(iso) {
+        if (!iso) return '';
+        if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
+        const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+        if (!m) return iso.substring(0,10);
+        const [,y,mo,d,h,mi] = m;
+        return (h==='00'&&mi==='00') ? `${y}-${mo}-${d}` : `${y}-${mo}-${d} ${h}:${mi}`;
+    }
+
+    function calcDaysLeft(item) {
+        if (typeof item.daysLeft === 'number') return item.daysLeft;
+        const end = item.endDate || item.date || '';
+        if (!end) return null;
+        const e = new Date(end);
+        if (isNaN(e)) return null;
+        return Math.ceil((e - Date.now()) / 86400000);
+    }
+
+    function daysBadge(n, cls='') {
+        if (n === null || n === undefined) return '';
+        if (n <= 0) return `<span class="badge badge-red ${cls}">已截止</span>`;
+        if (n <= 4) return `<span class="days-red ${cls}">${n}天</span>`;
+        if (n <= 7) return `<span class="days-amber ${cls}">${n}天</span>`;
+        return `<span class="days-gray ${cls}">${n}天</span>`;
+    }
+
+    function dotClass(days) {
+        if (days !== null && days <= 4) return 'dot-red';
+        if (days !== null && days <= 14) return 'dot-amber';
+        return 'dot-gray';
+    }
+
+    // 游戏 icon：优先 _gameNames 精确匹配，再模糊匹配，再首字降级
+    function gameIconHTML(gameName, size=28) {
+        const fname = resolveIcon(gameName);
+        const fallback = (gameName||'?').replace(/[：:（(【]/g,'').substring(0,2);
+        const br = Math.round(size * 0.18);
+        const style = `width:${size}px;height:${size}px;border-radius:${br}px;`;
+        if (fname) {
+            return `<div class="game-icon" style="${style}">` +
+                `<img src="icons/${fname}" alt="${gameName}" ` +
+                `onerror="this.style.display='none';this.nextSibling.style.display='flex'" loading="lazy">` +
+                `<span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:${Math.round(size*0.38)}px;color:#888884">${fallback}</span>` +
+                `</div>`;
         }
+        return `<div class="game-icon" style="${style};display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:${Math.round(size*0.38)}px;color:#888884">${fallback}</div>`;
+    }
 
-        // 计算距离 endDate 的剩余天数（若 JSON 已有 daysLeft 则直接用）
-        function calcDaysLeft(item) {
-            if (typeof item.daysLeft === 'number') return item.daysLeft;
-            if (!item.endDate) return null;
-            const end = new Date(item.endDate);
-            if (isNaN(end)) return null;
-            const diff = Math.ceil((end - Date.now()) / 86400000);
-            return diff;
+    function resolveIcon(name) {
+        if (!name) return null;
+        if (GAME_ICON_MAP[name]) return GAME_ICON_MAP[name];
+        // 模糊匹配：忽略括号/标点/空格
+        const norm = s => s.replace(/[：:（()）【】\s·\.·]/g,'').toLowerCase();
+        const n = norm(name);
+        for (const [k, v] of Object.entries(GAME_ICON_MAP)) {
+            if (norm(k) === n) return v;
         }
-
-        // 渲染 daysLeft 徽标：≤4天红色，≤7天黄色
-        function daysLeftBadge(n) {
-            if (n === null || n === undefined) return '';
-            if (n <= 0) return '<span class="pri pri-h" style="margin-left:5px;">已截止</span>';
-            if (n <= 4) return `<span class="pri pri-h" style="margin-left:5px;">${n}天</span>`;
-            if (n <= 7) return `<span class="pri pri-m" style="margin-left:5px;">${n}天</span>`;
-            return `<span style="margin-left:5px;font-size:10px;color:#475569;">${n}天</span>`;
+        // 包含匹配
+        for (const [k, v] of Object.entries(GAME_ICON_MAP)) {
+            if (n.includes(norm(k)) || norm(k).includes(n)) return v;
         }
+        return null;
+    }
 
-        // ========== A · 版本事实 + B · 卡池：从 data.json 提取 ==========
+    // ===== 提取 banners（兼容 v1/v3）=====
+    function extractBanners(data) {
+        const top = data.banners || [];
+        if (top.length > 0) return top;
+        const games = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
+        const result = [];
+        games.forEach(g => {
+            (g.banners || []).forEach(b => result.push(Object.assign({}, b, {
+                gameName: b.gameName || g.gameName || g.gameId || '',
+                gameId:   b.gameId   || g.gameId  || ''
+            })));
+        });
+        return result;
+    }
 
-        // 提取 banners：优先取顶层 data.banners[]；若为空则从 games[].banners[] 拼装
-        function extractBanners(data) {
-            const top = data.banners || [];
-            if (top.length > 0) return top;
-            // fallback：从 games[] 内各游戏 banners 汇总
-            const games = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
-            const result = [];
-            games.forEach(g => {
-                (g.banners || []).forEach(b => {
-                    result.push(Object.assign({}, b, {
-                        gameName: b.gameName || g.gameName || g.gameId || '',
-                        gameId:   b.gameId   || g.gameId  || ''
-                    }));
-                });
-            });
-            return result;
-        }
-
-        // 提取版本排期：calendar events + activities[status=UPCOMING] 合并去重
-        function extractSchedule(data) {
-            const events = [];
-            const seen = new Set();
-
-            // calendar 按天平铺
-            (data.calendar || []).forEach(day => {
-                (day.events || []).forEach(e => {
-                    const key = `${day.date}|${e.gameId || e.gameName}|${e.event || e.title || ''}`;
-                    if (!seen.has(key)) {
-                        seen.add(key);
-                        events.push({
-                            date: day.date,
-                            gameName: e.gameName || '',
-                            gameId: e.gameId || '',
-                            title: e.event || e.title || '',
-                            important: !!e.important,
-                            type: e.type || ''
-                        });
-                    }
-                });
-            });
-
-            // activities 中 UPCOMING 状态：startDate 作为节点日期
-            (data.activities || []).forEach(a => {
-                if (a.status !== 'UPCOMING') return;
-                const date = (a.startDate || '').substring(0, 10);
-                if (!date) return;
-                const key = `${date}|${a.gameId || a.gameName}|${a.title || ''}`;
+    // ===== 提取版本排期 =====
+    function extractSchedule(data) {
+        const events = [];
+        const seen = new Set();
+        (data.calendar || []).forEach(day => {
+            (day.events || []).forEach(e => {
+                const key = `${day.date}|${e.gameId||e.gameName}|${e.event||e.title||''}`;
                 if (!seen.has(key)) {
                     seen.add(key);
-                    events.push({
-                        date,
-                        gameName: a.gameName || a.gameId || '',
-                        gameId: a.gameId || '',
-                        title: a.title || '',
-                        important: a.priority === 'HIGH',
-                        type: a.type || ''
-                    });
+                    events.push({ date: day.date, gameName: e.gameName||'', gameId: e.gameId||'', title: e.event||e.title||'', important: !!e.important, type: e.type||'' });
                 }
             });
-
-            events.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-            return events;
-        }
-
-        // ========== F · 重点动态渲染 ==========
-        function renderHighlights(highlights, reportDate) {
-            if (!highlights || highlights.length === 0)
-                return '<div class="left-loading">暂无重点动态</div>';
-            return highlights.map(item => {
-                const priCls = item.priority === 'HIGH' ? 'pri-h' : 'pri-m';
-                const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
-                const gameTags = (item.gameList || []).map(g => `<span class="game-tag">${g}</span>`).join('');
-                const srcLink = item.sourceUrl
-                    ? `<a href="${item.sourceUrl}" target="_blank" class="dyn-desc" style="color:#475569;font-size:10px;">来源</a>`
-                    : '';
-                return `<div class="dyn-item">
-                    <div class="dyn-top">
-                        <span class="dyn-name">${item.icon ? item.icon + ' ' : ''}${item.title}</span>
-                        <span class="pri ${priCls}">${priTxt}</span>
-                    </div>
-                    <div style="margin-bottom:3px;">${gameTags}</div>
-                    <div class="dyn-desc">${item.description || ''}</div>
-                    ${srcLink}
-                </div>`;
-            }).join('');
-        }
-
-        // ========== B · 当前卡池渲染 ==========
-        function renderBanners(banners, gameNameMap) {
-            if (!banners || banners.length === 0)
-                return '<div class="left-loading">暂无卡池信息</div>';
-
-            // 按 daysLeft 升序（越快截止越靠前），无截止日的放最后
-            const sorted = [...banners].sort((a, b) => {
-                const da = calcDaysLeft(a); const db = calcDaysLeft(b);
-                if (da === null && db === null) return 0;
-                if (da === null) return 1;
-                if (db === null) return -1;
-                return da - db;
-            });
-
-            return sorted.map(b => {
-                const gname = b.gameName || gameNameMap[b.gameId] || b.gameId || '';
-                const startD = fmtDate(b.startDate || b.date || '');
-                const endD   = fmtDate(b.endDate || '');
-                const range  = startD && endD ? `${startD} ~ ${endD}` : (endD || startD || '');
-                const days   = calcDaysLeft(b);
-                const badge  = daysLeftBadge(days);
-                const phase  = b.phase ? `<span style="font-size:10px;color:#475569;margin-left:4px;">${b.phase}</span>` : '';
-                const sugg   = b.suggestion
-                    ? `<div class="dyn-desc" style="margin-top:2px;">${b.suggestion}</div>` : '';
-                const srcLink = b.sourceUrl
-                    ? `<a href="${b.sourceUrl}" target="_blank" style="color:#334155;font-size:10px;">来源</a>` : '';
-                return `<div class="banner-item">
-                    <div class="banner-game">${gname}${badge}</div>
-                    <div class="banner-date">${range}</div>
-                    <div class="banner-title">${b.title}${phase}</div>
-                    ${sugg}
-                    ${srcLink}
-                </div>`;
-            }).join('');
-        }
-
-        // ========== A+C · 版本排期渲染 ==========
-        function renderSchedule(scheduleEvents, gameNameMap) {
-            if (!scheduleEvents || scheduleEvents.length === 0)
-                return '<div class="left-loading">暂无近期日程</div>';
-
-            // 按日期分组显示
-            const byDate = {};
-            scheduleEvents.forEach(e => {
-                const d = e.date || '?';
-                if (!byDate[d]) byDate[d] = [];
-                byDate[d].push(e);
-            });
-
-            return Object.keys(byDate).sort().map(date => {
-                const rows = byDate[date].map(e => {
-                    const game = e.gameName || gameNameMap[e.gameId] || e.gameId || '';
-                    const impBadge = e.important
-                        ? '<span class="pri pri-h" style="margin-left:5px;font-size:10px;">重点</span>' : '';
-                    return `<div style="padding:4px 0;border-bottom:1px solid #1e293b;">
-                        <div style="font-size:11px;color:#475569;margin-bottom:1px;">${game}</div>
-                        <div class="banner-title">${e.title}${impBadge}</div>
-                    </div>`;
-                }).join('');
-                return `<div style="margin-bottom:8px;">
-                    <div class="banner-date" style="margin-bottom:4px;padding-top:6px;">${fmtDate(date)}</div>
-                    ${rows}
-                </div>`;
-            }).join('');
-        }
-
-        // ========== 兑换码渲染 ==========
-        function renderCodes(codesRaw, gameNameMap) {
-            const codes = [];
-            (codesRaw || []).forEach(group => {
-                // 兼容两种格式：嵌套 group.codes[] 或平铺 group.code
-                const list = group.codes || (group.code ? [group] : []);
-                list.forEach(c => {
-                    if (c.status === 'EXPIRED') return;
-                    if (!c.code) return;
-                    codes.push({
-                        gameName: group.gameName || gameNameMap[group.gameId] || group.gameId || '',
-                        code: c.code,
-                        reward: c.reward || '',
-                        expireDate: c.expireDate || c.endDate || ''
-                    });
-                });
-            });
-
-            if (codes.length === 0)
-                return '<div class="left-loading">暂无有效兑换码</div>';
-
-            return codes.map(c => {
-                const exp = c.expireDate ? '至 ' + fmtDate(c.expireDate) : '';
-                return `<div class="code-row">
-                    <div>
-                        <div class="code-gname">${c.gameName}</div>
-                        <div class="code-val">${c.code}</div>
-                        <div class="code-reward">${c.reward}${exp ? ' · ' + exp : ''}</div>
-                    </div>
-                    <button class="copy-btn" onclick="cp(this,'${c.code}')">复制</button>
-                </div>`;
-            }).join('');
-        }
-
-        // ========== 左侧主渲染入口 ==========
-        function renderLeft(data) {
-            const gamesList = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
-
-            // gameId → 中文名映射（兼容顶层中文 gameId 写法）
-            const gameNameMap = {};
-            gamesList.forEach(g => {
-                if (!g) return;
-                const id = g.gameId || '';
-                const name = g.gameName || g.name || id;
-                if (id) gameNameMap[id] = name;
-                // 如果 gameId 本身就是中文游戏名（v3 schema）也建立映射
-                if (id && id !== name) gameNameMap[name] = name;
-            });
-
-            const banners  = extractBanners(data);
-            const schedule = extractSchedule(data);
-            const reportDate = (data.meta && data.meta.reportDate) || '';
-
-            const h0 = renderHighlights(data.highlights, reportDate);
-            const h1 = renderBanners(banners, gameNameMap);
-            const h2 = renderSchedule(schedule, gameNameMap);
-            const h3 = renderCodes(data.codes, gameNameMap);
-
-            document.getElementById('left-body').innerHTML = `
-                <div class="section on" id="ls-0">${h0}</div>
-                <div class="section"     id="ls-1">${h1}</div>
-                <div class="section"     id="ls-2">${h2}</div>
-                <div class="section"     id="ls-3">${h3}</div>
-            `;
-
-            // 恢复当前激活的子 tab
-            const activeStab = document.querySelector('.stab.on');
-            if (activeStab) {
-                const idx = [...document.querySelectorAll('.stab')].indexOf(activeStab);
-                document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
-                const el = document.getElementById('ls-' + idx);
-                if (el) el.classList.add('on');
+        });
+        (data.activities || []).forEach(a => {
+            if (a.status !== 'UPCOMING') return;
+            const date = (a.startDate||'').substring(0,10);
+            if (!date) return;
+            const key = `${date}|${a.gameId||a.gameName}|${a.title||''}`;
+            if (!seen.has(key)) {
+                seen.add(key);
+                events.push({ date, gameName: a.gameName||a.gameId||'', gameId: a.gameId||'', title: a.title||'', important: a.priority==='HIGH', type: a.type||'' });
             }
-        }
+        });
+        events.sort((a,b) => (a.date||'').localeCompare(b.date||''));
+        return events;
+    }
 
-        // ========== 右侧 tab 切换 ==========
-        const rtabMetas = [];
+    // ===== 重点动态渲染（每游戏一条）=====
+    function renderHighlights(highlights) {
+        if (!highlights || highlights.length === 0) return '<div class="empty-state">暂无重点动态</div>';
 
-        function rt(i, el) {
-            document.querySelectorAll('.rtab').forEach(t => t.classList.remove('on'));
-            document.querySelectorAll('.rpane').forEach(p => p.classList.remove('on'));
-            el.classList.add('on');
-            document.getElementById('rpane-' + i).classList.add('on');
-            document.getElementById('rtab-meta').textContent = rtabMetas[i] || '';
-        }
+        // 每个游戏只取优先级最高的一条
+        const seen = new Set();
+        const deduped = [];
+        highlights.forEach(item => {
+            const games = (item.gameList && item.gameList.length > 0) ? item.gameList : [item.title];
+            const key = games[0];
+            if (!seen.has(key)) {
+                seen.add(key);
+                deduped.push(Object.assign({}, item, { _primaryGame: games[0] }));
+            }
+        });
 
-        // ========== 左侧子 tab 切换 ==========
-        function sw(i, el) {
-            document.querySelectorAll('.stab').forEach(t => t.classList.remove('on'));
+        return deduped.map(item => {
+            const gname = item._primaryGame || '';
+            const priCls = item.priority === 'HIGH' ? 'badge-red' : 'badge-amber';
+            const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
+            const timeStr = item.time || item.eventDate || '';
+            const srcLink = item.sourceUrl ? `<a class="hi-src" href="${item.sourceUrl}" target="_blank" rel="noopener">来源↗</a>` : '';
+            return `<div class="hi-row">
+                ${gameIconHTML(gname, 28)}
+                <div class="hi-body">
+                    <div class="hi-row1">
+                        <span class="hi-game">${gname}</span>
+                        <span class="badge ${priCls}">${priTxt}</span>
+                    </div>
+                    ${timeStr ? `<div class="hi-time">${fmtDate(timeStr)}</div>` : ''}
+                    <div class="hi-title">${item.title||''}</div>
+                    <div class="hi-desc">${item.description||''}</div>
+                    ${srcLink}
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 当前卡池渲染 =====
+    function renderBanners(banners) {
+        if (!banners || banners.length === 0) return '<div class="empty-state">暂无卡池信息</div>';
+        const sorted = [...banners].sort((a,b) => {
+            const da = calcDaysLeft(a), db = calcDaysLeft(b);
+            if (da===null&&db===null) return 0;
+            if (da===null) return 1; if (db===null) return -1;
+            return da - db;
+        });
+        return sorted.map(b => {
+            const gname = b.gameName || b.gameId || '';
+            const startD = fmtDate(b.startDate || b.date || '');
+            const endD   = fmtDate(b.endDate || '');
+            const range  = startD && endD ? `${startD} — ${endD}` : (endD || startD || '');
+            const days   = calcDaysLeft(b);
+            let daysEl = '';
+            if (days !== null && days <= 0) daysEl = '<span class="days-red">已截止</span>';
+            else if (days !== null && days <= 4) daysEl = `<span class="days-red">${days}天</span>`;
+            else if (days !== null && days <= 7) daysEl = `<span class="days-amber">${days}天</span>`;
+            else if (days !== null) daysEl = `<span class="days-gray">${days}天</span>`;
+            const phase = b.phase ? `<span style="font-size:10px;color:#888884;margin-left:4px;font-family:'DM Mono',monospace">${b.phase}</span>` : '';
+            const sugg = b.suggestion ? `<div class="bn-sugg">${b.suggestion}</div>` : '';
+            return `<div class="bn-row">
+                <div class="bn-head">
+                    ${gameIconHTML(gname, 24).replace('class="game-icon"','class="bn-icon"')}
+                    <span class="bn-game">${gname}</span>
+                    ${daysEl}
+                </div>
+                ${range ? `<div class="bn-period">${range}</div>` : ''}
+                <div class="bn-title">${b.title||''}${phase}</div>
+                ${sugg}
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 版本排期渲染（每游戏一行时间线）=====
+    function renderSchedule(events) {
+        if (!events || events.length === 0) return '<div class="empty-state">暂无近期日程</div>';
+        const today = new Date().toISOString().substring(0,10);
+
+        // 按游戏分组
+        const byGame = {};
+        const gameOrder = [];
+        events.forEach(e => {
+            const key = e.gameName || e.gameId || '?';
+            if (!byGame[key]) { byGame[key] = []; gameOrder.push(key); }
+            byGame[key].push(e);
+        });
+
+        return gameOrder.map(gname => {
+            const evts = byGame[gname].slice(0, 3);
+            const rows = evts.map(e => {
+                const days = e.date ? Math.ceil((new Date(e.date) - Date.now()) / 86400000) : null;
+                const dc = dotClass(days);
+                const isToday = e.date === today;
+                const dateTxt = isToday ? `${fmtDate(e.date)} · 今天` : fmtDate(e.date);
+                const impMark = e.important ? ' <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#c03030;margin-left:3px;vertical-align:middle"></span>' : '';
+                return `<div class="tl-event">
+                    <div class="tl-dot ${dc}"></div>
+                    <div class="tl-evt-body">
+                        <div class="tl-date">${dateTxt}</div>
+                        <div class="tl-title">${e.title}${impMark}</div>
+                    </div>
+                </div>`;
+            }).join('');
+            return `<div class="tl-row">
+                <div class="tl-left">
+                    ${gameIconHTML(gname, 22).replace('class="game-icon"','class="tl-icon"')}
+                    <span class="tl-game">${gname}</span>
+                </div>
+                <div class="tl-right">${rows}</div>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 兑换码渲染 =====
+    function renderCodes(codesRaw) {
+        const codes = [];
+        (codesRaw || []).forEach(group => {
+            const list = group.codes || (group.code ? [group] : []);
+            list.forEach(c => {
+                if (c.status === 'EXPIRED' || !c.code) return;
+                codes.push({ gameName: group.gameName || group.gameId || '', code: c.code, reward: c.reward||'', expireDate: c.expireDate||c.endDate||'' });
+            });
+        });
+        if (codes.length === 0) return '<div class="empty-state">暂无有效兑换码</div>';
+        return codes.map(c => {
+            const exp = c.expireDate ? ` · 至 ${fmtDate(c.expireDate)}` : '';
+            const safeCode = c.code.replace(/'/g, "\\'");
+            return `<div class="code-row">
+                <div>
+                    <div class="code-gname">${c.gameName}</div>
+                    <div class="code-val">${c.code}</div>
+                    <div class="code-reward">${c.reward}${exp}</div>
+                </div>
+                <button class="copy-btn" onclick="cp(this,'${safeCode}')">复制</button>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 左侧主渲染 =====
+    function renderLeft(data) {
+        const banners  = extractBanners(data);
+        const schedule = extractSchedule(data);
+
+        const meta = data.meta || {};
+        const gameCount = meta.gameCount || meta.reportedGameCount || meta.configuredGameCount || '?';
+        const reportDate = meta.reportDate || '';
+        document.getElementById('left-meta').textContent = `${reportDate} · ${gameCount} 款游戏`;
+
+        const h0 = renderHighlights(data.highlights);
+        const h1 = renderBanners(banners);
+        const h2 = renderSchedule(schedule);
+        const h3 = renderCodes(data.codes);
+
+        document.getElementById('left-body').innerHTML = `
+            <div class="section on" id="ls-0">${h0}</div>
+            <div class="section"     id="ls-1">${h1}</div>
+            <div class="section"     id="ls-2">${h2}</div>
+            <div class="section"     id="ls-3">${h3}</div>`;
+
+        // 恢复当前激活 tab
+        const activeStab = document.querySelector('.ltab.on');
+        if (activeStab) {
+            const idx = [...document.querySelectorAll('.ltab')].indexOf(activeStab);
             document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
-            el.classList.add('on');
-            const s = document.getElementById('ls-' + i);
-            if (s) s.classList.add('on');
+            const el = document.getElementById('ls-' + idx);
+            if (el) el.classList.add('on');
         }
+    }
 
-        // ========== 右侧：加载舆情报告（依赖 summary/{date}.json）==========
-        function loadSentiment(date) {
-            fetch('summary/' + date + '.json?t=' + Date.now())
-                .then(r => r.json())
-                .then(data => {
-                    const taskMap = {};
-                    (data.tasks || []).forEach(t => { taskMap[t.id] = t; });
+    // ===== 左侧 tab 切换 =====
+    function sw(i, el) {
+        document.querySelectorAll('.ltab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+        el.classList.add('on');
+        const s = document.getElementById('ls-' + i);
+        if (s) s.classList.add('on');
+    }
 
-                    RIGHT_SOURCES.forEach((src, i) => {
-                        const task = taskMap[src.id];
-                        const iframe = document.getElementById('rframe-' + i);
-                        if (task && task.metric_value !== '?') {
-                            iframe.src = src.dir + '/' + date + '/report.html';
-                            iframe.onload = () => injectViewport(iframe);
-                            const metric = task.metric_value + ' ' + task.metric_label;
-                            rtabMetas[i] = date + ' · ' + metric;
-                        } else if (task) {
-                            iframe.src = src.dir + '/' + date + '/report.html';
-                            iframe.onload = () => injectViewport(iframe);
-                            rtabMetas[i] = date;
-                        } else {
-                            iframe.src = 'about:blank';
-                            rtabMetas[i] = '暂无数据 · ' + date;
-                        }
-                    });
+    // ===== 右侧：加载舆情 =====
+    function loadSentiment(date) {
+        fetch('summary/' + date + '.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(data => {
+                const taskMap = {};
+                (data.tasks || []).forEach(t => { taskMap[t.id] = t; });
 
-                    const activeIdx = [...document.querySelectorAll('.rtab')].findIndex(t => t.classList.contains('on'));
-                    document.getElementById('rtab-meta').textContent = rtabMetas[activeIdx] || '';
-
-                    const upd = data.updated_at ? new Date(data.updated_at).toLocaleString('zh-CN') : '';
-                    document.getElementById('update-time').textContent = upd ? '更新于 ' + upd : '';
-                })
-                .catch(() => {
-                    document.getElementById('update-time').textContent = '加载失败';
+                RIGHT_SOURCES.forEach((src, i) => {
+                    const task = taskMap[src.id];
+                    const iframe = document.getElementById('rframe-' + i);
+                    const empty  = document.getElementById('rempty-' + i);
+                    if (task) {
+                        iframe.src = src.dir + '/' + date + '/report.html';
+                        iframe.style.display = 'block';
+                        if (empty) empty.style.display = 'none';
+                        iframe.onload = () => injectViewport(iframe);
+                        const mv = task.metric_value !== '?' ? `${task.metric_value} ${task.metric_label}` : '';
+                        rtabMetas[i] = `${date}${mv ? ' · ' + mv : ''}`;
+                    } else {
+                        iframe.src = 'about:blank';
+                        iframe.style.display = 'none';
+                        if (empty) { empty.style.display = 'flex'; empty.textContent = '暂无数据 · ' + date; }
+                        rtabMetas[i] = '暂无数据 · ' + date;
+                    }
                 });
-        }
 
-        function onDateChange() {
-            const date = document.getElementById('date-select').value;
-            if (date) loadSentiment(date);
-        }
+                const activeIdx = [...document.querySelectorAll('.rtab')].findIndex(t => t.classList.contains('on'));
+                document.getElementById('rtab-meta').textContent = rtabMetas[activeIdx] || '';
+                const upd = data.updated_at ? new Date(data.updated_at).toLocaleString('zh-CN') : '';
+                document.getElementById('update-time').textContent = upd ? '更新 ' + upd : '';
+            })
+            .catch(() => { document.getElementById('update-time').textContent = '加载失败'; });
+    }
 
-        // ========== 左侧：加载速报（从 summary/index.json 自动获取最新日期）==========
-        function loadSpeedReport(date) {
-            document.getElementById('left-meta').textContent = '加载中...';
-            fetch('game_speed/' + date + '/data.json?t=' + Date.now())
-                .then(r => r.json())
-                .then(data => {
-                    const meta = data.meta || {};
-                    const gameCount = meta.gameCount || meta.reportedGameCount || meta.configuredGameCount || '?';
-                    document.getElementById('left-meta').textContent =
-                        date + ' · ' + gameCount + ' 款游戏 · 自动更新';
-                    renderLeft(data);
-                })
-                .catch(() => {
-                    document.getElementById('left-meta').textContent = '暂无数据';
-                    document.getElementById('left-body').innerHTML =
-                        '<div class="left-loading">今日速报尚未生成</div>';
-                });
-        }
+    function onDateChange() {
+        const date = document.getElementById('date-select').value;
+        if (date) loadSentiment(date);
+    }
 
-        function cp(btn, code) {
-            navigator.clipboard.writeText(code).catch(() => {});
-            btn.textContent = '已复制';
-            setTimeout(() => btn.textContent = '复制', 1500);
-        }
+    // ===== 右侧 tab 切换 =====
+    function rt(i, el) {
+        document.querySelectorAll('.rtab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.rpane').forEach(p => p.classList.remove('on'));
+        el.classList.add('on');
+        document.getElementById('rpane-' + i).classList.add('on');
+        document.getElementById('rtab-meta').textContent = rtabMetas[i] || '';
+    }
 
-        function injectViewport(iframe) {
-            try {
-                const doc = iframe.contentDocument;
-                if (!doc) return;
-                let meta = doc.querySelector('meta[name="viewport"]');
-                if (!meta) {
-                    meta = doc.createElement('meta');
-                    meta.name = 'viewport';
-                    doc.head.appendChild(meta);
-                }
-                meta.content = 'width=device-width, initial-scale=1';
-                const w = iframe.clientWidth;
-                doc.documentElement.style.fontSize = w < 600 ? '15px' : '';
-            } catch (e) {}
-        }
-
-        function vs(which, el) {
-            document.querySelectorAll('.vs-btn').forEach(b => b.classList.remove('on'));
-            el.classList.add('on');
-            const left  = document.getElementById('left-panel');
-            const right = document.getElementById('right-panel');
-            if (which === 'left') {
-                left.classList.add('active'); right.classList.remove('active');
-            } else {
-                right.classList.add('active'); left.classList.remove('active');
-            }
-        }
-
-        // ========== 初始化：从 summary/index.json 动态加载日期列表 ==========
-        function init() {
-            fetch('summary/index.json?t=' + Date.now())
-                .then(r => r.json())
-                .then(idx => {
-                    const dates = (idx.dates || []).filter(Boolean);
-                    if (dates.length === 0) throw new Error('empty');
-                    buildDateSelect(dates);
-                    loadSentiment(dates[0]);
-                    // 左侧速报取最新日期（index.json 里第一条）
-                    const speedDate = idx.speedDate || idx.dates[0];
-                    loadSpeedReport(speedDate);
-                })
-                .catch(() => {
-                    // fallback：index.json 不存在时用 summary 目录扫不到，直接读最新已知日期
-                    const fallbackDate = '2026-06-12';
-                    buildDateSelect([fallbackDate]);
-                    loadSentiment(fallbackDate);
-                    loadSpeedReport(fallbackDate);
-                });
-        }
-
-        function buildDateSelect(dates) {
-            const sel = document.getElementById('date-select');
-            sel.innerHTML = '';
-            dates.forEach((d, i) => {
-                const opt = document.createElement('option');
-                opt.value = d;
-                opt.textContent = d + (i === 0 ? '（最新）' : '');
-                sel.appendChild(opt);
+    // ===== 加载速报 =====
+    function loadSpeedReport(date) {
+        document.getElementById('left-meta').textContent = '加载中...';
+        fetch('game_speed/' + date + '/data.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(data => renderLeft(data))
+            .catch(() => {
+                document.getElementById('left-meta').textContent = '暂无版本情报';
+                document.getElementById('left-body').innerHTML = '<div class="empty-state">今日速报尚未生成</div>';
             });
-        }
+    }
 
-        init();
-    </script>
+    // ===== 复制兑换码 =====
+    function cp(btn, code) {
+        navigator.clipboard.writeText(code).catch(() => {});
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+    }
+
+    // ===== iframe viewport 注入 =====
+    function injectViewport(iframe) {
+        try {
+            const doc = iframe.contentDocument;
+            if (!doc) return;
+            let meta = doc.querySelector('meta[name="viewport"]');
+            if (!meta) { meta = doc.createElement('meta'); meta.name = 'viewport'; doc.head.appendChild(meta); }
+            meta.content = 'width=device-width, initial-scale=1';
+            doc.documentElement.style.fontSize = iframe.clientWidth < 600 ? '15px' : '';
+        } catch(e) {}
+    }
+
+    // ===== 移动端面板切换 =====
+    function vs(which, el) {
+        document.querySelectorAll('.vs-btn').forEach(b => b.classList.remove('on'));
+        el.classList.add('on');
+        const left  = document.getElementById('left-panel');
+        const right = document.getElementById('right-panel');
+        if (which === 'left') { left.classList.add('active'); right.classList.remove('active'); }
+        else { right.classList.add('active'); left.classList.remove('active'); }
+    }
+
+    // ===== 初始化 =====
+    function buildDateSelect(dates) {
+        const sel = document.getElementById('date-select');
+        sel.innerHTML = '';
+        dates.forEach((d, i) => {
+            const opt = document.createElement('option');
+            opt.value = d; opt.textContent = d + (i===0 ? '（最新）' : '');
+            sel.appendChild(opt);
+        });
+    }
+
+    function init() {
+        // 1. 先加载 icon 映射
+        fetch('icons/index.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(idx => { GAME_ICON_MAP = idx._gameNames || {}; })
+            .catch(() => {})
+            .finally(() => {
+                // 2. 加载日期列表
+                fetch('summary/index.json?t=' + Date.now())
+                    .then(r => r.json())
+                    .then(idx => {
+                        const dates = (idx.dates || []).filter(Boolean);
+                        if (!dates.length) throw new Error('empty');
+                        buildDateSelect(dates);
+                        loadSentiment(dates[0]);
+                        loadSpeedReport(idx.speedDate || dates[0]);
+                    })
+                    .catch(() => {
+                        const fallback = '2026-06-12';
+                        buildDateSelect([fallback]);
+                        loadSentiment(fallback);
+                        loadSpeedReport(fallback);
+                    });
+            });
+    }
+
+    init();
+</script>
 </body>
 </html>
