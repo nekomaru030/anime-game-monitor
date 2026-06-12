@@ -470,22 +470,266 @@
             { id: 'tieba',         dir: 'tieba',         label: '贴吧' },
         ];
 
-        // 已知舆情数据日期（从新到旧），推送脚本自动追加
-        const SENTIMENT_DATES = [
-            '2026-06-11',
-            '2026-06-10',
-            '2026-06-09',
-            '2026-06-08',
-            '2026-06-07',
-            '2026-06-06',
-            '2026-06-05',
-            '2026-06-04',
-            '2026-06-03',
-            '2026-06-02',
-        ];
+        // ========== 工具函数 ==========
 
-        // 今日速报 JSON 路径（总是最新一期）
-        const SPEED_DATE = '2026-06-12';
+        // ISO 日期格式化：提取字符串中的日期时间，不做时区转换
+        function fmtDate(iso) {
+            if (!iso) return '';
+            if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
+            const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+            if (!m) return iso;
+            const [, y, mo, d, h, mi] = m;
+            return (h === '00' && mi === '00') ? `${y}-${mo}-${d}` : `${y}-${mo}-${d} ${h}:${mi}`;
+        }
+
+        // 计算距离 endDate 的剩余天数（若 JSON 已有 daysLeft 则直接用）
+        function calcDaysLeft(item) {
+            if (typeof item.daysLeft === 'number') return item.daysLeft;
+            if (!item.endDate) return null;
+            const end = new Date(item.endDate);
+            if (isNaN(end)) return null;
+            const diff = Math.ceil((end - Date.now()) / 86400000);
+            return diff;
+        }
+
+        // 渲染 daysLeft 徽标：≤4天红色，≤7天黄色
+        function daysLeftBadge(n) {
+            if (n === null || n === undefined) return '';
+            if (n <= 0) return '<span class="pri pri-h" style="margin-left:5px;">已截止</span>';
+            if (n <= 4) return `<span class="pri pri-h" style="margin-left:5px;">${n}天</span>`;
+            if (n <= 7) return `<span class="pri pri-m" style="margin-left:5px;">${n}天</span>`;
+            return `<span style="margin-left:5px;font-size:10px;color:#475569;">${n}天</span>`;
+        }
+
+        // ========== A · 版本事实 + B · 卡池：从 data.json 提取 ==========
+
+        // 提取 banners：优先取顶层 data.banners[]；若为空则从 games[].banners[] 拼装
+        function extractBanners(data) {
+            const top = data.banners || [];
+            if (top.length > 0) return top;
+            // fallback：从 games[] 内各游戏 banners 汇总
+            const games = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
+            const result = [];
+            games.forEach(g => {
+                (g.banners || []).forEach(b => {
+                    result.push(Object.assign({}, b, {
+                        gameName: b.gameName || g.gameName || g.gameId || '',
+                        gameId:   b.gameId   || g.gameId  || ''
+                    }));
+                });
+            });
+            return result;
+        }
+
+        // 提取版本排期：calendar events + activities[status=UPCOMING] 合并去重
+        function extractSchedule(data) {
+            const events = [];
+            const seen = new Set();
+
+            // calendar 按天平铺
+            (data.calendar || []).forEach(day => {
+                (day.events || []).forEach(e => {
+                    const key = `${day.date}|${e.gameId || e.gameName}|${e.event || e.title || ''}`;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        events.push({
+                            date: day.date,
+                            gameName: e.gameName || '',
+                            gameId: e.gameId || '',
+                            title: e.event || e.title || '',
+                            important: !!e.important,
+                            type: e.type || ''
+                        });
+                    }
+                });
+            });
+
+            // activities 中 UPCOMING 状态：startDate 作为节点日期
+            (data.activities || []).forEach(a => {
+                if (a.status !== 'UPCOMING') return;
+                const date = (a.startDate || '').substring(0, 10);
+                if (!date) return;
+                const key = `${date}|${a.gameId || a.gameName}|${a.title || ''}`;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    events.push({
+                        date,
+                        gameName: a.gameName || a.gameId || '',
+                        gameId: a.gameId || '',
+                        title: a.title || '',
+                        important: a.priority === 'HIGH',
+                        type: a.type || ''
+                    });
+                }
+            });
+
+            events.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+            return events;
+        }
+
+        // ========== F · 重点动态渲染 ==========
+        function renderHighlights(highlights, reportDate) {
+            if (!highlights || highlights.length === 0)
+                return '<div class="left-loading">暂无重点动态</div>';
+            return highlights.map(item => {
+                const priCls = item.priority === 'HIGH' ? 'pri-h' : 'pri-m';
+                const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
+                const gameTags = (item.gameList || []).map(g => `<span class="game-tag">${g}</span>`).join('');
+                const srcLink = item.sourceUrl
+                    ? `<a href="${item.sourceUrl}" target="_blank" class="dyn-desc" style="color:#475569;font-size:10px;">来源</a>`
+                    : '';
+                return `<div class="dyn-item">
+                    <div class="dyn-top">
+                        <span class="dyn-name">${item.icon ? item.icon + ' ' : ''}${item.title}</span>
+                        <span class="pri ${priCls}">${priTxt}</span>
+                    </div>
+                    <div style="margin-bottom:3px;">${gameTags}</div>
+                    <div class="dyn-desc">${item.description || ''}</div>
+                    ${srcLink}
+                </div>`;
+            }).join('');
+        }
+
+        // ========== B · 当前卡池渲染 ==========
+        function renderBanners(banners, gameNameMap) {
+            if (!banners || banners.length === 0)
+                return '<div class="left-loading">暂无卡池信息</div>';
+
+            // 按 daysLeft 升序（越快截止越靠前），无截止日的放最后
+            const sorted = [...banners].sort((a, b) => {
+                const da = calcDaysLeft(a); const db = calcDaysLeft(b);
+                if (da === null && db === null) return 0;
+                if (da === null) return 1;
+                if (db === null) return -1;
+                return da - db;
+            });
+
+            return sorted.map(b => {
+                const gname = b.gameName || gameNameMap[b.gameId] || b.gameId || '';
+                const startD = fmtDate(b.startDate || b.date || '');
+                const endD   = fmtDate(b.endDate || '');
+                const range  = startD && endD ? `${startD} ~ ${endD}` : (endD || startD || '');
+                const days   = calcDaysLeft(b);
+                const badge  = daysLeftBadge(days);
+                const phase  = b.phase ? `<span style="font-size:10px;color:#475569;margin-left:4px;">${b.phase}</span>` : '';
+                const sugg   = b.suggestion
+                    ? `<div class="dyn-desc" style="margin-top:2px;">${b.suggestion}</div>` : '';
+                const srcLink = b.sourceUrl
+                    ? `<a href="${b.sourceUrl}" target="_blank" style="color:#334155;font-size:10px;">来源</a>` : '';
+                return `<div class="banner-item">
+                    <div class="banner-game">${gname}${badge}</div>
+                    <div class="banner-date">${range}</div>
+                    <div class="banner-title">${b.title}${phase}</div>
+                    ${sugg}
+                    ${srcLink}
+                </div>`;
+            }).join('');
+        }
+
+        // ========== A+C · 版本排期渲染 ==========
+        function renderSchedule(scheduleEvents, gameNameMap) {
+            if (!scheduleEvents || scheduleEvents.length === 0)
+                return '<div class="left-loading">暂无近期日程</div>';
+
+            // 按日期分组显示
+            const byDate = {};
+            scheduleEvents.forEach(e => {
+                const d = e.date || '?';
+                if (!byDate[d]) byDate[d] = [];
+                byDate[d].push(e);
+            });
+
+            return Object.keys(byDate).sort().map(date => {
+                const rows = byDate[date].map(e => {
+                    const game = e.gameName || gameNameMap[e.gameId] || e.gameId || '';
+                    const impBadge = e.important
+                        ? '<span class="pri pri-h" style="margin-left:5px;font-size:10px;">重点</span>' : '';
+                    return `<div style="padding:4px 0;border-bottom:1px solid #1e293b;">
+                        <div style="font-size:11px;color:#475569;margin-bottom:1px;">${game}</div>
+                        <div class="banner-title">${e.title}${impBadge}</div>
+                    </div>`;
+                }).join('');
+                return `<div style="margin-bottom:8px;">
+                    <div class="banner-date" style="margin-bottom:4px;padding-top:6px;">${fmtDate(date)}</div>
+                    ${rows}
+                </div>`;
+            }).join('');
+        }
+
+        // ========== 兑换码渲染 ==========
+        function renderCodes(codesRaw, gameNameMap) {
+            const codes = [];
+            (codesRaw || []).forEach(group => {
+                // 兼容两种格式：嵌套 group.codes[] 或平铺 group.code
+                const list = group.codes || (group.code ? [group] : []);
+                list.forEach(c => {
+                    if (c.status === 'EXPIRED') return;
+                    if (!c.code) return;
+                    codes.push({
+                        gameName: group.gameName || gameNameMap[group.gameId] || group.gameId || '',
+                        code: c.code,
+                        reward: c.reward || '',
+                        expireDate: c.expireDate || c.endDate || ''
+                    });
+                });
+            });
+
+            if (codes.length === 0)
+                return '<div class="left-loading">暂无有效兑换码</div>';
+
+            return codes.map(c => {
+                const exp = c.expireDate ? '至 ' + fmtDate(c.expireDate) : '';
+                return `<div class="code-row">
+                    <div>
+                        <div class="code-gname">${c.gameName}</div>
+                        <div class="code-val">${c.code}</div>
+                        <div class="code-reward">${c.reward}${exp ? ' · ' + exp : ''}</div>
+                    </div>
+                    <button class="copy-btn" onclick="cp(this,'${c.code}')">复制</button>
+                </div>`;
+            }).join('');
+        }
+
+        // ========== 左侧主渲染入口 ==========
+        function renderLeft(data) {
+            const gamesList = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
+
+            // gameId → 中文名映射（兼容顶层中文 gameId 写法）
+            const gameNameMap = {};
+            gamesList.forEach(g => {
+                if (!g) return;
+                const id = g.gameId || '';
+                const name = g.gameName || g.name || id;
+                if (id) gameNameMap[id] = name;
+                // 如果 gameId 本身就是中文游戏名（v3 schema）也建立映射
+                if (id && id !== name) gameNameMap[name] = name;
+            });
+
+            const banners  = extractBanners(data);
+            const schedule = extractSchedule(data);
+            const reportDate = (data.meta && data.meta.reportDate) || '';
+
+            const h0 = renderHighlights(data.highlights, reportDate);
+            const h1 = renderBanners(banners, gameNameMap);
+            const h2 = renderSchedule(schedule, gameNameMap);
+            const h3 = renderCodes(data.codes, gameNameMap);
+
+            document.getElementById('left-body').innerHTML = `
+                <div class="section on" id="ls-0">${h0}</div>
+                <div class="section"     id="ls-1">${h1}</div>
+                <div class="section"     id="ls-2">${h2}</div>
+                <div class="section"     id="ls-3">${h3}</div>
+            `;
+
+            // 恢复当前激活的子 tab
+            const activeStab = document.querySelector('.stab.on');
+            if (activeStab) {
+                const idx = [...document.querySelectorAll('.stab')].indexOf(activeStab);
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+                const el = document.getElementById('ls-' + idx);
+                if (el) el.classList.add('on');
+            }
+        }
 
         // ========== 右侧 tab 切换 ==========
         const rtabMetas = [];
@@ -507,11 +751,8 @@
             if (s) s.classList.add('on');
         }
 
-        // ========== 右侧：加载舆情报告 ==========
+        // ========== 右侧：加载舆情报告（依赖 summary/{date}.json）==========
         function loadSentiment(date) {
-            const sel = document.getElementById('date-select');
-
-            // 加载 summary JSON 获取各来源 metric
             fetch('summary/' + date + '.json?t=' + Date.now())
                 .then(r => r.json())
                 .then(data => {
@@ -521,19 +762,21 @@
                     RIGHT_SOURCES.forEach((src, i) => {
                         const task = taskMap[src.id];
                         const iframe = document.getElementById('rframe-' + i);
-                        if (task) {
+                        if (task && task.metric_value !== '?') {
                             iframe.src = src.dir + '/' + date + '/report.html';
-                            // iframe 加载完后注入 viewport 让内部响应式生效
                             iframe.onload = () => injectViewport(iframe);
                             const metric = task.metric_value + ' ' + task.metric_label;
-                            rtabMetas[i] = '昨日数据 · ' + date + ' · ' + metric;
+                            rtabMetas[i] = date + ' · ' + metric;
+                        } else if (task) {
+                            iframe.src = src.dir + '/' + date + '/report.html';
+                            iframe.onload = () => injectViewport(iframe);
+                            rtabMetas[i] = date;
                         } else {
                             iframe.src = 'about:blank';
                             rtabMetas[i] = '暂无数据 · ' + date;
                         }
                     });
 
-                    // 更新当前激活 tab 的 meta
                     const activeIdx = [...document.querySelectorAll('.rtab')].findIndex(t => t.classList.contains('on'));
                     document.getElementById('rtab-meta').textContent = rtabMetas[activeIdx] || '';
 
@@ -550,15 +793,16 @@
             if (date) loadSentiment(date);
         }
 
-        // ========== 左侧：渲染速报 JSON ==========
+        // ========== 左侧：加载速报（从 summary/index.json 自动获取最新日期）==========
         function loadSpeedReport(date) {
             document.getElementById('left-meta').textContent = '加载中...';
             fetch('game_speed/' + date + '/data.json?t=' + Date.now())
                 .then(r => r.json())
                 .then(data => {
                     const meta = data.meta || {};
+                    const gameCount = meta.gameCount || meta.reportedGameCount || meta.configuredGameCount || '?';
                     document.getElementById('left-meta').textContent =
-                        date + ' · ' + (meta.gameCount || '?') + ' 款游戏 · 自动更新';
+                        date + ' · ' + gameCount + ' 款游戏 · 自动更新';
                     renderLeft(data);
                 })
                 .catch(() => {
@@ -568,158 +812,12 @@
                 });
         }
 
-        function renderLeft(data) {
-            const highlights = data.highlights || [];
-            const banners    = data.banners    || [];
-            const codesRaw   = data.codes      || [];
-            const calendar   = data.calendar   || [];
-            const games      = data.games      || [];
-
-            // gameId → 中文名映射
-            const gameNameMap = {};
-            (Array.isArray(games) ? games : Object.values(games)).forEach(g => {
-                if (g && g.gameId) gameNameMap[g.gameId] = g.gameName || g.name || g.gameId;
-            });
-
-            // ISO 日期格式化（保留 UTC 时间，避免本地时区偏移）
-            function fmtDate(iso) {
-                if (!iso) return '';
-                // YYYY-MM-DD 格式直接返回
-                if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
-                // ISO 格式：2026-06-09T18:00:00Z → 提取并组装
-                const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
-                if (!m) return iso;
-                const [, y, mo, d, h, mi] = m;
-                if (h === '00' && mi === '00') {
-                    return `${y}-${mo}-${d}`;
-                }
-                return `${y}-${mo}-${d} ${h}:${mi}`;
-            }
-
-            // 把 calendar 的 events 平铺出来（用于"日程"tab）
-            const calendarEvents = [];
-            calendar.forEach(day => {
-                (day.events || []).forEach(e => {
-                    calendarEvents.push(Object.assign({}, e, { date: day.date }));
-                });
-            });
-
-            // --- 重点动态 ---
-            let h0 = '';
-            if (highlights.length === 0) {
-                h0 = '<div class="left-loading">暂无重点动态</div>';
-            } else {
-                const reportDate = (data.meta && data.meta.reportDate) || '';
-                highlights.forEach(item => {
-                    const priCls = item.priority === 'HIGH' ? 'pri-h' : 'pri-m';
-                    const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
-                    const gameTags = (item.gameList || []).map(g => `<span class="game-tag">${g}</span>`).join('');
-                    h0 += `<div class="dyn-item">
-                        ${reportDate ? `<div class="dyn-date">${reportDate}</div>` : ''}
-                        <div class="dyn-top">
-                            <span class="dyn-name">${item.title}</span>
-                            <span class="pri ${priCls}">${priTxt}</span>
-                        </div>
-                        <div>${gameTags}</div>
-                        <div class="dyn-desc">${item.description || ''}</div>
-                    </div>`;
-                });
-            }
-
-            // --- 卡池时间 ---
-            let h1 = '';
-            if (banners.length === 0) {
-                h1 = '<div class="left-loading">暂无卡池信息</div>';
-            } else {
-                banners.forEach(b => {
-                    const startD = fmtDate(b.date);
-                    const endD = fmtDate(b.endDate);
-                    const dateRange = startD && endD ? `${startD} ~ ${endD}` : (startD || endD || '');
-                    const gname = b.gameName || gameNameMap[b.gameId] || '';
-                    h1 += `<div class="banner-item">
-                        ${gname ? `<div class="banner-game">${gname}</div>` : ''}
-                        <div class="banner-date">${dateRange}</div>
-                        <div class="banner-title">${b.title}</div>
-                        <div class="banner-desc">${b.desc || ''}</div>
-                    </div>`;
-                });
-            }
-
-            // --- 日程（版本更新/卡池/活动事件） ---
-            let h2 = '';
-            if (calendarEvents.length === 0) {
-                h2 = '<div class="left-loading">暂无近期日程</div>';
-            } else {
-                calendarEvents.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-                calendarEvents.forEach(e => {
-                    const game = e.gameName || gameNameMap[e.gameId] || e.gameId || '';
-                    const importantBadge = e.important
-                        ? '<span class="pri pri-h" style="margin-left:6px;">重点</span>'
-                        : '';
-                    h2 += `<div class="banner-item">
-                        ${game ? `<div class="banner-game">${game}</div>` : ''}
-                        <div class="banner-date">${fmtDate(e.date)}${importantBadge}</div>
-                        <div class="banner-title">${e.event || ''}</div>
-                    </div>`;
-                });
-            }
-
-            // --- 兑换码：扁平化嵌套结构 ---
-            const codes = [];
-            codesRaw.forEach(group => {
-                (group.codes || []).forEach(c => {
-                    if (c.status === 'EXPIRED') return;
-                    codes.push({
-                        gameId: group.gameId,
-                        gameName: group.gameName,
-                        code: c.code,
-                        reward: c.reward,
-                        expireDate: c.expireDate || c.endDate || ''
-                    });
-                });
-            });
-            let h3 = '';
-            if (codes.length === 0) {
-                h3 = '<div class="left-loading">暂无有效兑换码</div>';
-            } else {
-                codes.forEach(c => {
-                    const exp = c.expireDate ? fmtDate(c.expireDate) : '';
-                    const gname = c.gameName || gameNameMap[c.gameId] || c.gameId || '';
-                    h3 += `<div class="code-row">
-                        <div>
-                            <div class="code-gname">${gname}</div>
-                            <div class="code-val">${c.code}</div>
-                            <div class="code-reward">${c.reward || ''}${exp ? ' · 至 ' + exp : ''}</div>
-                        </div>
-                        <button class="copy-btn" onclick="cp(this,'${c.code}')">复制</button>
-                    </div>`;
-                });
-            }
-
-            document.getElementById('left-body').innerHTML = `
-                <div class="section on" id="ls-0">${h0}</div>
-                <div class="section"     id="ls-1">${h1}</div>
-                <div class="section"     id="ls-2">${h2}</div>
-                <div class="section"     id="ls-3">${h3}</div>
-            `;
-
-            // 恢复当前激活的子 tab
-            const activeStab = document.querySelector('.stab.on');
-            if (activeStab) {
-                const idx = [...document.querySelectorAll('.stab')].indexOf(activeStab);
-                document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
-                const target = document.getElementById('ls-' + idx);
-                if (target) target.classList.add('on');
-            }
-        }
-
         function cp(btn, code) {
             navigator.clipboard.writeText(code).catch(() => {});
             btn.textContent = '已复制';
             setTimeout(() => btn.textContent = '复制', 1500);
         }
 
-        // 注入 viewport meta 到同源 iframe，让内部 CSS @media 能匹配 iframe 实际宽度
         function injectViewport(iframe) {
             try {
                 const doc = iframe.contentDocument;
@@ -731,47 +829,54 @@
                     doc.head.appendChild(meta);
                 }
                 meta.content = 'width=device-width, initial-scale=1';
-                // 同时强制让根元素字号在窄屏放大点
                 const w = iframe.clientWidth;
-                if (w < 600) {
-                    doc.documentElement.style.fontSize = '15px';
-                } else {
-                    doc.documentElement.style.fontSize = '';
-                }
-            } catch (e) { /* 跨域时静默失败 */ }
+                doc.documentElement.style.fontSize = w < 600 ? '15px' : '';
+            } catch (e) {}
         }
 
-        // 移动端：左右视图切换（仅 ≤900px 生效）
         function vs(which, el) {
             document.querySelectorAll('.vs-btn').forEach(b => b.classList.remove('on'));
             el.classList.add('on');
             const left  = document.getElementById('left-panel');
             const right = document.getElementById('right-panel');
             if (which === 'left') {
-                left.classList.add('active');
-                right.classList.remove('active');
+                left.classList.add('active'); right.classList.remove('active');
             } else {
-                right.classList.add('active');
-                left.classList.remove('active');
+                right.classList.add('active'); left.classList.remove('active');
             }
         }
 
-        // ========== 初始化 ==========
+        // ========== 初始化：从 summary/index.json 动态加载日期列表 ==========
         function init() {
-            // 填充日期选择器（舆情日期）
+            fetch('summary/index.json?t=' + Date.now())
+                .then(r => r.json())
+                .then(idx => {
+                    const dates = (idx.dates || []).filter(Boolean);
+                    if (dates.length === 0) throw new Error('empty');
+                    buildDateSelect(dates);
+                    loadSentiment(dates[0]);
+                    // 左侧速报取最新日期（index.json 里第一条）
+                    const speedDate = idx.speedDate || idx.dates[0];
+                    loadSpeedReport(speedDate);
+                })
+                .catch(() => {
+                    // fallback：index.json 不存在时用 summary 目录扫不到，直接读最新已知日期
+                    const fallbackDate = '2026-06-12';
+                    buildDateSelect([fallbackDate]);
+                    loadSentiment(fallbackDate);
+                    loadSpeedReport(fallbackDate);
+                });
+        }
+
+        function buildDateSelect(dates) {
             const sel = document.getElementById('date-select');
             sel.innerHTML = '';
-            SENTIMENT_DATES.forEach((d, i) => {
+            dates.forEach((d, i) => {
                 const opt = document.createElement('option');
                 opt.value = d;
                 opt.textContent = d + (i === 0 ? '（最新）' : '');
                 sel.appendChild(opt);
             });
-
-            // 加载右侧舆情
-            loadSentiment(SENTIMENT_DATES[0]);
-            // 加载左侧速报
-            loadSpeedReport(SPEED_DATE);
         }
 
         init();
