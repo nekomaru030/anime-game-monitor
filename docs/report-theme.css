@@ -1,0 +1,51 @@
+/* =====================================================================
+   子报告统一主题层 (report-theme.css)
+   由门户 index.html 在 iframe onload 时注入，把 NGA / B站游戏 /
+   B站直播 / 贴吧 四类报告统一到「暖灰 + 墨绿强调」基调。
+   仅做表层视觉对齐：底色、字体、滚动条、链接、卡片杂色收敛；
+   不改各报告的结构与数据。
+===================================================================== */
+:root {
+    --t-ink:       oklch(22% 0.006 70);
+    --t-ink-2:     oklch(34% 0.006 70);
+    --t-ink-3:     oklch(52% 0.006 70);
+    --t-line:      oklch(89% 0.006 70);
+    --t-surface-0: oklch(96.5% 0.006 70);
+    --t-surface-1: oklch(99% 0.004 70);
+    --t-brand:     oklch(48% 0.085 158);
+    --t-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 页面底色统一为暖灰（覆盖各报告冷白 #fff/#f5f7fa/#fafafa 等） */
+html, body {
+    background: var(--t-surface-0) !important;
+    color: var(--t-ink) !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* 正文字体统一（保留各报告自己的等宽字体用于数字/代码） */
+body, p, div, span, td, th, li, a, h1, h2, h3, h4, h5, h6, button, label {
+    font-family: var(--t-sans);
+}
+
+/* 顶部主标题区若用冷色深底，收敛到墨水黑 */
+[class*="header"], [class*="hero"], [class*="banner-top"] {
+    /* 仅在其本身是深底时由各报告决定，这里不强制，避免误伤 */
+}
+
+/* 链接统一墨绿 */
+a { color: var(--t-brand); }
+a:hover { opacity: 0.82; }
+
+/* 滚动条统一细窄暖灰 */
+* { scrollbar-width: thin; scrollbar-color: var(--t-line) transparent; }
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-thumb { background: var(--t-line); border-radius: 6px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--t-ink-3); }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* 卡片类容器：统一圆角与边框语言（温和，不破坏布局） */
+[class*="card"], [class*="panel"], [class*="box"], [class*="section"] {
+    border-color: var(--t-line);
+}
