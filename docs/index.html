@@ -41,6 +41,7 @@
             /* — 字体 — */
             --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
             --mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+            --serif: Georgia, 'Songti SC', 'STSong', 'SimSun', serif;
 
             /* — 间距节奏（4pt 基）— */
             --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
@@ -66,28 +67,37 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* ===== 顶部标题栏 ===== */
+        /* ===== 顶部标题栏（纯黑，与内容区黑白灰统一）===== */
         .topbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: var(--sp-3) var(--sp-5);
+            padding: 0 var(--sp-5);
+            height: 52px;
             background: var(--ink);
             flex-shrink: 0;
         }
         .topbar-left { display: flex; align-items: center; gap: var(--sp-3); }
-        /* 顶栏左侧竖条（灰色，无彩色） */
         .brand-mark {
-            width: 3px; height: 16px; border-radius: 2px;
-            background: oklch(60% 0.006 70);
+            font-family: var(--serif, Georgia, 'Songti SC', serif);
+            font-size: 20px;
+            line-height: 1;
+            color: var(--surface-0);
             flex-shrink: 0;
+            transform: translateY(-1px);
+            user-select: none;
         }
         .topbar-title {
             font-family: var(--sans);
             font-size: 15px;
             font-weight: 500;
             color: var(--surface-0);
-            letter-spacing: -0.01em;
+            letter-spacing: 0.01em;
+        }
+        .topbar-sep {
+            width: 3px; height: 3px; border-radius: 50%;
+            background: oklch(55% 0.006 70);
+            flex-shrink: 0;
         }
         .topbar-date {
             font-family: var(--mono);
@@ -103,21 +113,21 @@
         }
         #date-select {
             background: oklch(30% 0.006 70);
-            color: oklch(82% 0.006 70);
-            border: 1px solid oklch(38% 0.006 70);
-            border-radius: 5px;
-            padding: 4px 10px;
+            color: oklch(85% 0.006 70);
+            border: 1px solid oklch(40% 0.006 70);
+            border-radius: 6px;
+            padding: 5px 11px;
             font-size: 11px;
             font-family: var(--mono);
             cursor: pointer;
             transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
             font-variant-numeric: tabular-nums;
         }
-        #date-select:hover { border-color: oklch(60% 0.006 70); background: oklch(33% 0.006 70); }
-        #date-select:focus-visible { outline: 2px solid oklch(60% 0.006 70); outline-offset: 2px; }
+        #date-select:hover { border-color: oklch(62% 0.006 70); background: oklch(34% 0.006 70); }
+        #date-select:focus-visible { outline: 2px solid oklch(62% 0.006 70); outline-offset: 2px; }
         #update-time {
             font-family: var(--mono); font-size: 10px;
-            color: oklch(46% 0.006 70); letter-spacing: 0.02em;
+            color: oklch(48% 0.006 70); letter-spacing: 0.02em;
             font-variant-numeric: tabular-nums;
         }
 
@@ -437,16 +447,16 @@
         .view-switch { display: none; gap: 4px; margin-right: var(--sp-2); }
         .vs-btn {
             padding: 5px 12px;
-            border: 1px solid oklch(38% 0.006 70);
-            border-radius: 5px;
+            border: 1px solid oklch(40% 0.006 70);
+            border-radius: 6px;
             background: transparent;
-            color: oklch(70% 0.006 70);
+            color: oklch(72% 0.006 70);
             font-size: 12px;
             cursor: pointer;
             font-family: var(--sans);
-            transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+            transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
         }
-        .vs-btn.on { background: oklch(46% 0.006 70); color: oklch(92% 0.006 70); border-color: oklch(46% 0.006 70); }
+        .vs-btn.on { background: oklch(48% 0.006 70); color: var(--surface-0); border-color: oklch(48% 0.006 70); }
 
         @media (max-width: 1100px) { .left-panel { width: 320px; } }
 
@@ -472,8 +482,9 @@
 
 <div class="topbar">
     <div class="topbar-left">
-        <span class="brand-mark"></span>
+        <span class="brand-mark">《</span>
         <span class="topbar-title">二游舆情监控</span>
+        <span class="topbar-sep"></span>
         <span class="topbar-date" id="today-date"></span>
     </div>
     <div class="topbar-right">
