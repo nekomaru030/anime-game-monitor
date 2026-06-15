@@ -10,7 +10,7 @@
     <style>
         /* =====================================================================
            二游舆情监控 · 统一设计令牌 (Design Tokens)
-           暖灰基调 + 墨绿品牌强调色，OKLCH 感知均匀，子报告共享同一套变量
+           纯灰无彩色基调，只有红/琥珀作语义警告色
         ===================================================================== */
         :root {
             /* — 暖灰中性阶（neutral，统一带极微暖色 hue 70）— */
@@ -25,10 +25,10 @@
             --surface-2:  oklch(91% 0.007 70);   /* icon 占位底 */
             --surface-up: oklch(99% 0.004 70);   /* 抬升表面 hover */
 
-            /* — 墨绿品牌强调色（brand，hue 158）— */
-            --brand:      oklch(48% 0.085 158);
-            --brand-soft: oklch(48% 0.085 158 / 0.10);
-            --brand-line: oklch(48% 0.085 158 / 0.22);
+            /* — 灰色强调（原墨绿位置，统一改为中灰）— */
+            --brand:      oklch(52% 0.006 70);   /* = ink-3，无彩色 */
+            --brand-soft: oklch(52% 0.006 70 / 0.08);
+            --brand-line: oklch(52% 0.006 70 / 0.20);
 
             /* — 语义色：红=重要/紧迫，琥珀=关注 — */
             --red:        oklch(52% 0.17 27);
@@ -76,10 +76,10 @@
             flex-shrink: 0;
         }
         .topbar-left { display: flex; align-items: center; gap: var(--sp-3); }
-        /* 品牌墨绿小竖条作为 logo 标记 */
+        /* 顶栏左侧竖条（灰色，无彩色） */
         .brand-mark {
             width: 3px; height: 16px; border-radius: 2px;
-            background: var(--brand);
+            background: oklch(60% 0.006 70);
             flex-shrink: 0;
         }
         .topbar-title {
@@ -113,8 +113,8 @@
             transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
             font-variant-numeric: tabular-nums;
         }
-        #date-select:hover { border-color: var(--brand); background: oklch(33% 0.006 70); }
-        #date-select:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+        #date-select:hover { border-color: oklch(60% 0.006 70); background: oklch(33% 0.006 70); }
+        #date-select:focus-visible { outline: 2px solid oklch(60% 0.006 70); outline-offset: 2px; }
         #update-time {
             font-family: var(--mono); font-size: 10px;
             color: oklch(46% 0.006 70); letter-spacing: 0.02em;
@@ -134,7 +134,7 @@
             z-index: 10;
             transition: background 0.15s var(--ease);
         }
-        .resizer:hover, .resizer.dragging { background: var(--brand); }
+        .resizer:hover, .resizer.dragging { background: var(--ink-4); }
         .resizer::after {
             content: '';
             position: absolute;
@@ -145,7 +145,7 @@
             border-radius: 1px;
             transition: background 0.15s var(--ease);
         }
-        .resizer:hover::after, .resizer.dragging::after { background: var(--surface-0); }
+        .resizer:hover::after, .resizer.dragging::after { background: var(--ink-3); }
 
         /* ===== 左侧面板 ===== */
         .left-panel {
@@ -158,29 +158,36 @@
             background: var(--surface-0);
             user-select: none;
         }
-        .left-head { padding: var(--sp-4) var(--sp-5) 0; }
-        .panel-label {
-            font-family: var(--mono);
-            font-size: 10px;
-            color: var(--ink-3);
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            margin-bottom: var(--sp-2);
-            display: flex; align-items: center; gap: var(--sp-2);
+        .left-head {
+            padding: 0;
+            border-bottom: 1px solid var(--line);
         }
-        /* 标签前的墨绿点 */
-        .panel-label::before {
-            content: ''; width: 5px; height: 5px; border-radius: 50%;
-            background: var(--brand); flex-shrink: 0;
+        /* 区域标题行：横贯整个宽度，有背景色区分 */
+        .panel-title-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: var(--sp-3) var(--sp-5) var(--sp-2);
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--line);
+            gap: var(--sp-3);
+        }
+        .panel-label {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.01em;
         }
         .panel-meta {
-            font-family: var(--mono); font-size: 12px;
-            color: var(--ink-3); margin-bottom: var(--sp-3);
+            font-family: var(--mono); font-size: 11px;
+            color: var(--ink-4);
             font-variant-numeric: tabular-nums;
+            white-space: nowrap;
         }
 
         /* 子 tab */
-        .ltabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); }
+        .ltabs { display: flex; gap: 2px; }
         .ltab {
             padding: 8px 13px;
             font-size: 13px;
@@ -195,8 +202,8 @@
             transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
         }
         .ltab:hover { color: var(--ink-2); }
-        .ltab.on { color: var(--ink); border-bottom-color: var(--brand); font-weight: 500; }
-        .ltab:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; border-radius: 3px; }
+        .ltab.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+        .ltab:focus-visible { outline: 2px solid var(--ink-3); outline-offset: -2px; border-radius: 3px; }
 
         /* 左侧滚动区 */
         .left-body {
@@ -362,7 +369,7 @@
             white-space: nowrap;
             transition: border-color 0.15s var(--ease), color 0.15s var(--ease), background 0.15s var(--ease);
         }
-        .copy-btn:hover { border-color: var(--brand-line); color: var(--brand); background: var(--brand-soft); }
+        .copy-btn:hover { border-color: var(--ink-3); color: var(--ink-2); background: var(--surface-2); }
         .copy-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
         /* ===== 右侧面板 ===== */
@@ -374,21 +381,28 @@
             background: var(--surface-1);
         }
         .right-head {
-            padding: var(--sp-3) var(--sp-5) 0;
+            padding: 0;
             border-bottom: 1px solid var(--line);
             flex-shrink: 0;
         }
-        .right-head-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-2); }
+        /* 右侧区域标题行，与左侧风格统一 */
+        .right-head-top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: var(--sp-3) var(--sp-5) var(--sp-2);
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--line);
+            gap: var(--sp-3);
+        }
         .right-label {
-            font-family: var(--mono); font-size: 10px; color: var(--ink-3);
-            letter-spacing: 0.16em; text-transform: uppercase;
-            display: flex; align-items: center; gap: var(--sp-2);
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.01em;
         }
-        .right-label::before {
-            content: ''; width: 5px; height: 5px; border-radius: 50%;
-            background: var(--brand); flex-shrink: 0;
-        }
-        .right-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+        .right-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-4); font-variant-numeric: tabular-nums; white-space: nowrap; }
         .rtabs { display: flex; gap: 2px; }
         .rtab {
             padding: 8px 16px;
@@ -404,8 +418,8 @@
             transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
         }
         .rtab:hover { color: var(--ink-2); }
-        .rtab.on { color: var(--ink); border-bottom-color: var(--brand); font-weight: 500; }
-        .rtab:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; border-radius: 3px; }
+        .rtab.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+        .rtab:focus-visible { outline: 2px solid var(--ink-3); outline-offset: -2px; border-radius: 3px; }
         .rtab-meta { padding: var(--sp-1) var(--sp-5) var(--sp-2); font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
         /* 右侧 iframe 区 */
@@ -432,7 +446,7 @@
             font-family: var(--sans);
             transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
         }
-        .vs-btn.on { background: var(--brand); color: var(--surface-0); border-color: var(--brand); }
+        .vs-btn.on { background: oklch(46% 0.006 70); color: oklch(92% 0.006 70); border-color: oklch(46% 0.006 70); }
 
         @media (max-width: 1100px) { .left-panel { width: 320px; } }
 
@@ -447,9 +461,9 @@
             .left-panel, .right-panel { width: 100%; flex: none; border-right: none; display: none; }
             .left-panel.active, .right-panel.active { display: flex; flex: 1; min-height: 0; }
             .left-panel { border-bottom: 1px solid var(--line); }
-            .left-head { padding: var(--sp-3) var(--sp-3) 0; }
+            .panel-title-row { padding: var(--sp-2) var(--sp-3); }
             .left-body { padding: var(--sp-3) var(--sp-3) var(--sp-4); }
-            .right-head { padding: var(--sp-3) var(--sp-3) 0; }
+            .right-head-top { padding: var(--sp-2) var(--sp-3); }
             .rtab-meta { padding-left: var(--sp-3); padding-right: var(--sp-3); }
         }
     </style>
@@ -477,8 +491,10 @@
     <!-- 左侧：版本情报 -->
     <div class="left-panel active" id="left-panel">
         <div class="left-head">
-            <div class="panel-label">版本情报</div>
-            <div class="panel-meta" id="left-meta">加载中...</div>
+            <div class="panel-title-row">
+                <span class="panel-label">版本情报</span>
+                <span class="panel-meta" id="left-meta">加载中...</span>
+            </div>
             <div class="ltabs">
                 <button class="ltab on" onclick="sw(0,this)">重点动态</button>
                 <button class="ltab" onclick="sw(1,this)">当前卡池</button>
@@ -498,7 +514,7 @@
     <div class="right-panel" id="right-panel">
         <div class="right-head">
             <div class="right-head-top">
-                <span class="right-label">社区热度报告</span>
+                <span class="right-label">舆情内容</span>
                 <span class="right-meta" id="right-meta"></span>
             </div>
             <div class="rtabs" id="rtabs-container">
