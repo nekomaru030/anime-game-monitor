@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>二游舆情监控看板</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* =====================================================================
+           二游舆情监控 · 统一设计令牌 (Design Tokens)
+           纯灰无彩色基调，只有红/琥珀作语义警告色
+        ===================================================================== */
+        :root {
+            /* — 暖灰中性阶（neutral，统一带极微暖色 hue 70）— */
+            --ink:        oklch(22% 0.006 70);   /* 主文字 / 顶栏底 */
+            --ink-2:      oklch(34% 0.006 70);   /* 次级文字 */
+            --ink-3:      oklch(52% 0.006 70);   /* 弱化文字 / 元信息 */
+            --ink-4:      oklch(66% 0.006 70);   /* 占位 / 提示 */
+            --line:       oklch(89% 0.006 70);   /* 主分隔线 */
+            --line-soft:  oklch(92.5% 0.005 70); /* 条目分隔线 */
+            --surface-0:  oklch(96.5% 0.006 70); /* 页面底 / 左栏 */
+            --surface-1:  oklch(94.5% 0.006 70); /* 右栏底 */
+            --surface-2:  oklch(91% 0.007 70);   /* icon 占位底 */
+            --surface-up: oklch(99% 0.004 70);   /* 抬升表面 hover */
+
+            /* — 灰色强调（原墨绿位置，统一改为中灰）— */
+            --brand:      oklch(52% 0.006 70);   /* = ink-3，无彩色 */
+            --brand-soft: oklch(52% 0.006 70 / 0.08);
+            --brand-line: oklch(52% 0.006 70 / 0.20);
+
+            /* — 语义色：红=重要/紧迫，琥珀=关注 — */
+            --red:        oklch(52% 0.17 27);
+            --red-soft:   oklch(52% 0.17 27 / 0.10);
+            --red-line:   oklch(52% 0.17 27 / 0.22);
+            --amber:      oklch(56% 0.11 75);
+            --amber-soft: oklch(56% 0.11 75 / 0.12);
+            --amber-line: oklch(56% 0.11 75 / 0.22);
+
+            /* — 字体 — */
+            --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            --mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+
+            /* — 间距节奏（4pt 基）— */
+            --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
+
+            /* — 动效 — */
+            --ease: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--surface-0);
+            color: var(--ink);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* ===== 顶部标题栏 ===== */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sp-3) var(--sp-5);
+            background: var(--ink);
+            flex-shrink: 0;
+        }
+        .topbar-left { display: flex; align-items: center; gap: var(--sp-3); }
+        /* 顶栏左侧竖条（灰色，无彩色） */
+        .brand-mark {
+            width: 3px; height: 16px; border-radius: 2px;
+            background: oklch(60% 0.006 70);
+            flex-shrink: 0;
+        }
+        .topbar-title {
+            font-family: var(--sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--surface-0);
+            letter-spacing: -0.01em;
+        }
+        .topbar-date {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: oklch(60% 0.006 70);
+            letter-spacing: 0.05em;
+            font-variant-numeric: tabular-nums;
+        }
+        .topbar-right { display: flex; align-items: center; gap: var(--sp-4); }
+        .topbar-right label {
+            font-family: var(--mono); font-size: 11px;
+            color: oklch(60% 0.006 70); letter-spacing: 0.02em;
+        }
+        #date-select {
+            background: oklch(30% 0.006 70);
+            color: oklch(82% 0.006 70);
+            border: 1px solid oklch(38% 0.006 70);
+            border-radius: 5px;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-family: var(--mono);
+            cursor: pointer;
+            transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+            font-variant-numeric: tabular-nums;
+        }
+        #date-select:hover { border-color: oklch(60% 0.006 70); background: oklch(33% 0.006 70); }
+        #date-select:focus-visible { outline: 2px solid oklch(60% 0.006 70); outline-offset: 2px; }
+        #update-time {
+            font-family: var(--mono); font-size: 10px;
+            color: oklch(46% 0.006 70); letter-spacing: 0.02em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ===== 布局 ===== */
+        .main { display: flex; flex: 1; overflow: hidden; }
+
+        /* ===== 拖动分割线 ===== */
+        .resizer {
+            width: 5px;
+            flex-shrink: 0;
+            background: var(--line);
+            cursor: col-resize;
+            position: relative;
+            z-index: 10;
+            transition: background 0.15s var(--ease);
+        }
+        .resizer:hover, .resizer.dragging { background: var(--ink-4); }
+        .resizer::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1px; height: 28px;
+            background: oklch(78% 0.006 70);
+            border-radius: 1px;
+            transition: background 0.15s var(--ease);
+        }
+        .resizer:hover::after, .resizer.dragging::after { background: var(--ink-3); }
+
+        /* ===== 左侧面板 ===== */
+        .left-panel {
+            width: 360px;
+            min-width: 260px;
+            max-width: 600px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            background: var(--surface-0);
+            user-select: none;
+        }
+        .left-head {
+            padding: 0;
+            border-bottom: 1px solid var(--line);
+        }
+        /* 区域标题行：横贯整个宽度，有背景色区分 */
+        .panel-title-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: var(--sp-3) var(--sp-5) var(--sp-2);
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--line);
+            gap: var(--sp-3);
+        }
+        .panel-label {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .panel-meta {
+            font-family: var(--mono); font-size: 11px;
+            color: var(--ink-4);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        /* 子 tab */
+        .ltabs { display: flex; gap: 2px; }
+        .ltab {
+            padding: 8px 13px;
+            font-size: 13px;
+            color: var(--ink-3);
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            background: transparent;
+            border-top: none; border-left: none; border-right: none;
+            font-family: var(--sans);
+            margin-bottom: -1px;
+            transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
+        }
+        .ltab:hover { color: var(--ink-2); }
+        .ltab.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+        .ltab:focus-visible { outline: 2px solid var(--ink-3); outline-offset: -2px; border-radius: 3px; }
+
+        /* 左侧滚动区 */
+        .left-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--sp-3) var(--sp-5) var(--sp-5);
+            scrollbar-width: thin;
+            scrollbar-color: var(--line) transparent;
+        }
+        .left-body::-webkit-scrollbar { width: 3px; }
+        .left-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+        .left-body::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
+
+        .section { display: none; animation: fade 0.28s var(--ease); }
+        .section.on { display: block; }
+        @keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+        @media (prefers-reduced-motion: reduce) {
+            .section { animation: none; }
+        }
+
+        .empty-state {
+            padding: 40px 0;
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-4);
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== 重点动态 条目 ===== */
+        .hi-row {
+            display: flex;
+            gap: var(--sp-3);
+            padding: var(--sp-3) 0;
+            border-bottom: 1px solid var(--line-soft);
+            align-items: flex-start;
+        }
+        .hi-row:last-child { border-bottom: none; }
+        .game-icon {
+            width: 30px; height: 30px;
+            border-radius: 7px;
+            flex-shrink: 0;
+            background: var(--surface-2);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--ink-3);
+            overflow: hidden;
+            margin-top: 1px;
+        }
+        .game-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hi-body { flex: 1; min-width: 0; }
+        .hi-row1 { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-1); }
+        .hi-game { font-weight: 500; font-size: 15px; color: var(--ink); line-height: 1.25; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .badge {
+            font-family: var(--mono);
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            letter-spacing: 0.04em;
+            font-weight: 500;
+        }
+        .badge-red { background: var(--red-soft); color: var(--red); border: 1px solid var(--red-line); }
+        .badge-amber { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-line); }
+        .badge-gray { background: var(--surface-1); color: var(--ink-3); border: 1px solid var(--line); }
+        .hi-time { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: var(--sp-1); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+        .hi-title { font-size: 14px; color: var(--ink); line-height: 1.45; font-weight: 500; margin-bottom: var(--sp-1); }
+        .hi-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+        .hi-src { font-family: var(--mono); font-size: 11px; color: var(--ink-4); text-decoration: none; margin-top: var(--sp-1); display: inline-block; transition: color 0.15s var(--ease); }
+        .hi-src:hover { color: var(--brand); }
+
+        /* ===== 当前卡池 条目 ===== */
+        .bn-row {
+            padding: var(--sp-3) 0;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .bn-row:last-child { border-bottom: none; }
+        .bn-head { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-1); }
+        .bn-icon {
+            width: 24px; height: 24px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            background: var(--surface-2);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--mono); font-size: 9px; color: var(--ink-3);
+            overflow: hidden;
+        }
+        .bn-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .bn-game { font-weight: 500; font-size: 15px; color: var(--ink); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .days-red, .days-amber, .days-gray {
+            font-family: var(--mono); font-size: 10px; font-weight: 500;
+            padding: 2px 7px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+            font-variant-numeric: tabular-nums;
+        }
+        .days-red { background: var(--red-soft); color: var(--red); border: 1px solid var(--red-line); }
+        .days-amber { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-line); }
+        .days-gray { background: var(--surface-1); color: var(--ink-3); border: 1px solid var(--line); }
+        .bn-period { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: var(--sp-1); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+        .bn-title { font-size: 14px; color: var(--ink-2); margin-bottom: var(--sp-1); }
+        .bn-sugg { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+
+        /* ===== 版本排期 时间线 ===== */
+        .tl-row {
+            display: flex;
+            padding: var(--sp-2) 0;
+            border-bottom: 1px solid var(--line-soft);
+            align-items: stretch;
+        }
+        .tl-row:last-child { border-bottom: none; }
+        .tl-left { width: 120px; flex-shrink: 0; display: flex; align-items: flex-start; gap: var(--sp-2); padding-top: 2px; }
+        .tl-icon {
+            width: 22px; height: 22px;
+            border-radius: 6px;
+            background: var(--surface-2);
+            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--mono); font-size: 9px; color: var(--ink-3);
+            overflow: hidden;
+        }
+        .tl-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .tl-game { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tl-right {
+            flex: 1;
+            display: flex; flex-direction: column;
+            gap: var(--sp-1);
+            padding-left: var(--sp-3);
+            border-left: 1px solid var(--line);
+        }
+        .tl-event { display: flex; align-items: flex-start; gap: var(--sp-2); }
+        .tl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+        .dot-red { background: var(--red); }
+        .dot-amber { background: var(--amber); }
+        .dot-gray { background: var(--ink-4); }
+        .tl-evt-body { flex: 1; }
+        .tl-date { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+        .tl-title { font-size: 13px; color: var(--ink); line-height: 1.45; }
+
+        /* ===== 兑换码 ===== */
+        .code-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--sp-2);
+            padding: var(--sp-3) 0;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .code-row:last-child { border-bottom: none; }
+        .code-gname { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: 2px; }
+        .code-val { font-family: var(--mono); font-size: 14px; color: var(--ink); font-weight: 500; letter-spacing: 0.06em; }
+        .code-reward { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+        .copy-btn {
+            flex-shrink: 0;
+            padding: 5px 12px;
+            border: 1px solid var(--line);
+            border-radius: 5px;
+            font-size: 11px;
+            cursor: pointer;
+            background: transparent;
+            color: var(--ink-3);
+            font-family: var(--sans);
+            white-space: nowrap;
+            transition: border-color 0.15s var(--ease), color 0.15s var(--ease), background 0.15s var(--ease);
+        }
+        .copy-btn:hover { border-color: var(--ink-3); color: var(--ink-2); background: var(--surface-2); }
+        .copy-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+        /* ===== 右侧面板 ===== */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: var(--surface-1);
+        }
+        .right-head {
+            padding: 0;
+            border-bottom: 1px solid var(--line);
+            flex-shrink: 0;
+        }
+        /* 右侧区域标题行，与左侧风格统一 */
+        .right-head-top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: var(--sp-3) var(--sp-5) var(--sp-2);
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--line);
+            gap: var(--sp-3);
+        }
+        .right-label {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .right-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-4); font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .rtabs { display: flex; gap: 2px; }
+        .rtab {
+            padding: 8px 16px;
+            font-size: 13px;
+            color: var(--ink-3);
+            border: none;
+            border-bottom: 2px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: var(--sans);
+            margin-bottom: -1px;
+            transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
+        }
+        .rtab:hover { color: var(--ink-2); }
+        .rtab.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+        .rtab:focus-visible { outline: 2px solid var(--ink-3); outline-offset: -2px; border-radius: 3px; }
+        .rtab-meta { padding: var(--sp-1) var(--sp-5) var(--sp-2); font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+        /* 右侧 iframe 区 */
+        .right-body { flex: 1; overflow: hidden; position: relative; }
+        .rpane { position: absolute; inset: 0; display: none; }
+        .rpane.on { display: block; }
+        .rpane iframe { width: 100%; height: 100%; border: none; background: var(--surface-1); }
+        .rpane-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; font-family: var(--mono); font-size: 12px; color: var(--ink-4); gap: var(--sp-2); letter-spacing: 0.02em; }
+        .rpane-empty::before {
+            content: ''; width: 28px; height: 28px; border-radius: 8px;
+            border: 1.5px dashed var(--line); opacity: 0.8;
+        }
+
+        /* ===== 移动端 ===== */
+        .view-switch { display: none; gap: 4px; margin-right: var(--sp-2); }
+        .vs-btn {
+            padding: 5px 12px;
+            border: 1px solid oklch(38% 0.006 70);
+            border-radius: 5px;
+            background: transparent;
+            color: oklch(70% 0.006 70);
+            font-size: 12px;
+            cursor: pointer;
+            font-family: var(--sans);
+            transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+        }
+        .vs-btn.on { background: oklch(46% 0.006 70); color: oklch(92% 0.006 70); border-color: oklch(46% 0.006 70); }
+
+        @media (max-width: 1100px) { .left-panel { width: 320px; } }
+
+        @media (max-width: 900px) {
+            body { font-size: 13px; }
+            .topbar { padding: var(--sp-2) var(--sp-3); flex-wrap: wrap; gap: var(--sp-2); }
+            .topbar-date { display: none; }
+            #update-time { display: none; }
+            .view-switch { display: flex; }
+            .main { flex-direction: column; }
+            .resizer { display: none; }
+            .left-panel, .right-panel { width: 100%; flex: none; border-right: none; display: none; }
+            .left-panel.active, .right-panel.active { display: flex; flex: 1; min-height: 0; }
+            .left-panel { border-bottom: 1px solid var(--line); }
+            .panel-title-row { padding: var(--sp-2) var(--sp-3); }
+            .left-body { padding: var(--sp-3) var(--sp-3) var(--sp-4); }
+            .right-head-top { padding: var(--sp-2) var(--sp-3); }
+            .rtab-meta { padding-left: var(--sp-3); padding-right: var(--sp-3); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="topbar-left">
+        <span class="brand-mark"></span>
+        <span class="topbar-title">二游舆情监控</span>
+        <span class="topbar-date" id="today-date"></span>
+    </div>
+    <div class="topbar-right">
+        <div class="view-switch" id="view-switch">
+            <button class="vs-btn on" onclick="vs('left',this)">情报</button>
+            <button class="vs-btn" onclick="vs('right',this)">舆情</button>
+        </div>
+        <label for="date-select">舆情日期</label>
+        <select id="date-select" onchange="onDateChange()"><option>加载中...</option></select>
+        <span id="update-time"></span>
+    </div>
+</div>
+
+<div class="main">
+    <!-- 左侧：版本情报 -->
+    <div class="left-panel active" id="left-panel">
+        <div class="left-head">
+            <div class="panel-title-row">
+                <span class="panel-label">版本情报</span>
+                <span class="panel-meta" id="left-meta">加载中...</span>
+            </div>
+            <div class="ltabs">
+                <button class="ltab on" onclick="sw(0,this)">重点动态</button>
+                <button class="ltab" onclick="sw(1,this)">当前卡池</button>
+                <button class="ltab" onclick="sw(2,this)">版本排期</button>
+                <button class="ltab" onclick="sw(3,this)">兑换码</button>
+            </div>
+        </div>
+        <div class="left-body" id="left-body">
+            <div class="empty-state">加载中...</div>
+        </div>
+    </div>
+
+    <!-- 拖动分割线 -->
+    <div class="resizer" id="resizer"></div>
+
+    <!-- 右侧：社区热度 -->
+    <div class="right-panel" id="right-panel">
+        <div class="right-head">
+            <div class="right-head-top">
+                <span class="right-label">舆情内容</span>
+                <span class="right-meta" id="right-meta"></span>
+            </div>
+            <div class="rtabs" id="rtabs-container">
+                <button class="rtab on" onclick="rt(0,this)">NGA 吃瓜</button>
+                <button class="rtab" onclick="rt(1,this)">B 站游戏</button>
+                <button class="rtab" onclick="rt(2,this)">B 站直播</button>
+                <button class="rtab" onclick="rt(3,this)">贴吧</button>
+            </div>
+            <div class="rtab-meta" id="rtab-meta"></div>
+        </div>
+        <div class="right-body">
+            <div class="rpane on" id="rpane-0"><div class="rpane-empty" id="rempty-0">暂无数据</div><iframe id="rframe-0" src="about:blank" style="display:none"></iframe></div>
+            <div class="rpane" id="rpane-1"><div class="rpane-empty" id="rempty-1">暂无数据</div><iframe id="rframe-1" src="about:blank" style="display:none"></iframe></div>
+            <div class="rpane" id="rpane-2"><div class="rpane-empty" id="rempty-2">暂无数据</div><iframe id="rframe-2" src="about:blank" style="display:none"></iframe></div>
+            <div class="rpane" id="rpane-3"><div class="rpane-empty" id="rempty-3">暂无数据</div><iframe id="rframe-3" src="about:blank" style="display:none"></iframe></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ===== 配置 =====
+    const RIGHT_SOURCES = [
+        { id: 'nga',           dir: 'nga',           label: 'NGA 吃瓜' },
+        { id: 'bilibili_game', dir: 'bilibili_game', label: 'B 站游戏' },
+        { id: 'bilibili_live', dir: 'bilibili_live', label: 'B 站直播' },
+        { id: 'tieba',         dir: 'tieba',         label: '贴吧' },
+    ];
+
+    let rtabMetas = ['','','',''];
+    let GAME_ICON_MAP = {};  // gameName → local file (from icons/index.json _gameNames)
+
+    // ===== 今日日期 =====
+    (function(){
+        const d = new Date();
+        const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+        const s = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} · ${days[d.getDay()]}`;
+        document.getElementById('today-date').textContent = s;
+    })();
+
+    // ===== 工具 =====
+    function fmtDate(iso) {
+        if (!iso) return '';
+        if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
+        const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+        if (!m) return iso.substring(0,10);
+        const [,y,mo,d,h,mi] = m;
+        return (h==='00'&&mi==='00') ? `${y}-${mo}-${d}` : `${y}-${mo}-${d} ${h}:${mi}`;
+    }
+
+    function calcDaysLeft(item) {
+        if (typeof item.daysLeft === 'number') return item.daysLeft;
+        const end = item.endDate || item.date || '';
+        if (!end) return null;
+        const e = new Date(end);
+        if (isNaN(e)) return null;
+        return Math.ceil((e - Date.now()) / 86400000);
+    }
+
+    function daysBadge(n, cls='') {
+        if (n === null || n === undefined) return '';
+        if (n <= 0) return `<span class="badge badge-red ${cls}">已截止</span>`;
+        if (n <= 4) return `<span class="days-red ${cls}">${n}天</span>`;
+        if (n <= 7) return `<span class="days-amber ${cls}">${n}天</span>`;
+        return `<span class="days-gray ${cls}">${n}天</span>`;
+    }
+
+    function dotClass(days) {
+        if (days !== null && days <= 4) return 'dot-red';
+        if (days !== null && days <= 14) return 'dot-amber';
+        return 'dot-gray';
+    }
+
+    // 游戏 icon：优先 _gameNames 精确匹配，再模糊匹配，再首字降级
+    function gameIconHTML(gameName, size=28) {
+        const fname = resolveIcon(gameName);
+        const fallback = (gameName||'?').replace(/[：:（(【]/g,'').substring(0,2);
+        const br = Math.round(size * 0.18);
+        const style = `width:${size}px;height:${size}px;border-radius:${br}px;`;
+        if (fname) {
+            return `<div class="game-icon" style="${style}">` +
+                `<img src="icons/${fname}" alt="${gameName}" ` +
+                `onerror="this.style.display='none';this.nextSibling.style.display='flex'" loading="lazy">` +
+                `<span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:${Math.round(size*0.38)}px;color:#888884">${fallback}</span>` +
+                `</div>`;
+        }
+        return `<div class="game-icon" style="${style};display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:${Math.round(size*0.38)}px;color:#888884">${fallback}</div>`;
+    }
+
+    function resolveIcon(name) {
+        if (!name) return null;
+        if (GAME_ICON_MAP[name]) return GAME_ICON_MAP[name];
+        // 模糊匹配：忽略括号/标点/空格
+        const norm = s => s.replace(/[：:（()）【】\s·\.·]/g,'').toLowerCase();
+        const n = norm(name);
+        for (const [k, v] of Object.entries(GAME_ICON_MAP)) {
+            if (norm(k) === n) return v;
+        }
+        // 包含匹配
+        for (const [k, v] of Object.entries(GAME_ICON_MAP)) {
+            if (n.includes(norm(k)) || norm(k).includes(n)) return v;
+        }
+        return null;
+    }
+
+    // ===== 提取 banners（兼容 v1/v3）=====
+    function extractBanners(data) {
+        const top = data.banners || [];
+        if (top.length > 0) return top;
+        const games = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
+        const result = [];
+        games.forEach(g => {
+            (g.banners || []).forEach(b => result.push(Object.assign({}, b, {
+                gameName: b.gameName || g.gameName || g.gameId || '',
+                gameId:   b.gameId   || g.gameId  || ''
+            })));
+        });
+        return result;
+    }
+
+    // ===== 提取版本排期 =====
+    function extractSchedule(data) {
+        const events = [];
+        const seen = new Set();
+        (data.calendar || []).forEach(day => {
+            (day.events || []).forEach(e => {
+                const key = `${day.date}|${e.gameId||e.gameName}|${e.event||e.title||''}`;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    events.push({ date: day.date, gameName: e.gameName||'', gameId: e.gameId||'', title: e.event||e.title||'', important: !!e.important, type: e.type||'' });
+                }
+            });
+        });
+        (data.activities || []).forEach(a => {
+            if (a.status !== 'UPCOMING') return;
+            const date = (a.startDate||'').substring(0,10);
+            if (!date) return;
+            const key = `${date}|${a.gameId||a.gameName}|${a.title||''}`;
+            if (!seen.has(key)) {
+                seen.add(key);
+                events.push({ date, gameName: a.gameName||a.gameId||'', gameId: a.gameId||'', title: a.title||'', important: a.priority==='HIGH', type: a.type||'' });
+            }
+        });
+        events.sort((a,b) => (a.date||'').localeCompare(b.date||''));
+        return events;
+    }
+
+    // ===== 重点动态渲染（每游戏一条）=====
+    function renderHighlights(highlights) {
+        if (!highlights || highlights.length === 0) return '<div class="empty-state">暂无重点动态</div>';
+
+        // 每个游戏只取优先级最高的一条
+        const seen = new Set();
+        const deduped = [];
+        highlights.forEach(item => {
+            const games = (item.gameList && item.gameList.length > 0) ? item.gameList : [item.title];
+            const key = games[0];
+            if (!seen.has(key)) {
+                seen.add(key);
+                deduped.push(Object.assign({}, item, { _primaryGame: games[0] }));
+            }
+        });
+
+        return deduped.map(item => {
+            const gname = item._primaryGame || '';
+            const priCls = item.priority === 'HIGH' ? 'badge-red' : 'badge-amber';
+            const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
+            const timeStr = item.time || item.eventDate || '';
+            const srcLink = item.sourceUrl ? `<a class="hi-src" href="${item.sourceUrl}" target="_blank" rel="noopener">来源↗</a>` : '';
+            return `<div class="hi-row">
+                ${gameIconHTML(gname, 28)}
+                <div class="hi-body">
+                    <div class="hi-row1">
+                        <span class="hi-game">${gname}</span>
+                        <span class="badge ${priCls}">${priTxt}</span>
+                    </div>
+                    ${timeStr ? `<div class="hi-time">${fmtDate(timeStr)}</div>` : ''}
+                    <div class="hi-title">${item.title||''}</div>
+                    <div class="hi-desc">${item.description||''}</div>
+                    ${srcLink}
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 当前卡池渲染 =====
+    function renderBanners(banners) {
+        if (!banners || banners.length === 0) return '<div class="empty-state">暂无卡池信息</div>';
+        const sorted = [...banners].sort((a,b) => {
+            const da = calcDaysLeft(a), db = calcDaysLeft(b);
+            if (da===null&&db===null) return 0;
+            if (da===null) return 1; if (db===null) return -1;
+            return da - db;
+        });
+        return sorted.map(b => {
+            const gname = b.gameName || b.gameId || '';
+            const startD = fmtDate(b.startDate || b.date || '');
+            const endD   = fmtDate(b.endDate || '');
+            const range  = startD && endD ? `${startD} — ${endD}` : (endD || startD || '');
+            const days   = calcDaysLeft(b);
+            let daysEl = '';
+            if (days !== null && days <= 0) daysEl = '<span class="days-red">已截止</span>';
+            else if (days !== null && days <= 4) daysEl = `<span class="days-red">${days}天</span>`;
+            else if (days !== null && days <= 7) daysEl = `<span class="days-amber">${days}天</span>`;
+            else if (days !== null) daysEl = `<span class="days-gray">${days}天</span>`;
+            const phase = b.phase ? `<span style="font-size:10px;color:#888884;margin-left:4px;font-family:'DM Mono',monospace">${b.phase}</span>` : '';
+            const sugg = b.suggestion ? `<div class="bn-sugg">${b.suggestion}</div>` : '';
+            return `<div class="bn-row">
+                <div class="bn-head">
+                    ${gameIconHTML(gname, 24).replace('class="game-icon"','class="bn-icon"')}
+                    <span class="bn-game">${gname}</span>
+                    ${daysEl}
+                </div>
+                ${range ? `<div class="bn-period">${range}</div>` : ''}
+                <div class="bn-title">${b.title||''}${phase}</div>
+                ${sugg}
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 版本排期渲染（每游戏一行时间线）=====
+    function renderSchedule(events) {
+        if (!events || events.length === 0) return '<div class="empty-state">暂无近期日程</div>';
+        const today = new Date().toISOString().substring(0,10);
+
+        // 按游戏分组
+        const byGame = {};
+        const gameOrder = [];
+        events.forEach(e => {
+            const key = e.gameName || e.gameId || '?';
+            if (!byGame[key]) { byGame[key] = []; gameOrder.push(key); }
+            byGame[key].push(e);
+        });
+
+        return gameOrder.map(gname => {
+            const evts = byGame[gname].slice(0, 3);
+            const rows = evts.map(e => {
+                const days = e.date ? Math.ceil((new Date(e.date) - Date.now()) / 86400000) : null;
+                const dc = dotClass(days);
+                const isToday = e.date === today;
+                const dateTxt = isToday ? `${fmtDate(e.date)} · 今天` : fmtDate(e.date);
+                const impMark = e.important ? ' <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#c03030;margin-left:3px;vertical-align:middle"></span>' : '';
+                return `<div class="tl-event">
+                    <div class="tl-dot ${dc}"></div>
+                    <div class="tl-evt-body">
+                        <div class="tl-date">${dateTxt}</div>
+                        <div class="tl-title">${e.title}${impMark}</div>
+                    </div>
+                </div>`;
+            }).join('');
+            return `<div class="tl-row">
+                <div class="tl-left">
+                    ${gameIconHTML(gname, 22).replace('class="game-icon"','class="tl-icon"')}
+                    <span class="tl-game">${gname}</span>
+                </div>
+                <div class="tl-right">${rows}</div>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 兑换码渲染 =====
+    function renderCodes(codesRaw) {
+        const codes = [];
+        (codesRaw || []).forEach(group => {
+            const list = group.codes || (group.code ? [group] : []);
+            list.forEach(c => {
+                if (c.status === 'EXPIRED' || !c.code) return;
+                codes.push({ gameName: group.gameName || group.gameId || '', code: c.code, reward: c.reward||'', expireDate: c.expireDate||c.endDate||'' });
+            });
+        });
+        if (codes.length === 0) return '<div class="empty-state">暂无有效兑换码</div>';
+        return codes.map(c => {
+            const exp = c.expireDate ? ` · 至 ${fmtDate(c.expireDate)}` : '';
+            const safeCode = c.code.replace(/'/g, "\\'");
+            return `<div class="code-row">
+                <div>
+                    <div class="code-gname">${c.gameName}</div>
+                    <div class="code-val">${c.code}</div>
+                    <div class="code-reward">${c.reward}${exp}</div>
+                </div>
+                <button class="copy-btn" onclick="cp(this,'${safeCode}')">复制</button>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== 左侧主渲染 =====
+    function renderLeft(data) {
+        const banners  = extractBanners(data);
+        const schedule = extractSchedule(data);
+
+        const meta = data.meta || {};
+        const gameCount = meta.gameCount || meta.reportedGameCount || meta.configuredGameCount || '?';
+        const reportDate = meta.reportDate || '';
+        document.getElementById('left-meta').textContent = `${reportDate} · ${gameCount} 款游戏`;
+
+        const h0 = renderHighlights(data.highlights);
+        const h1 = renderBanners(banners);
+        const h2 = renderSchedule(schedule);
+        const h3 = renderCodes(data.codes);
+
+        document.getElementById('left-body').innerHTML = `
+            <div class="section on" id="ls-0">${h0}</div>
+            <div class="section"     id="ls-1">${h1}</div>
+            <div class="section"     id="ls-2">${h2}</div>
+            <div class="section"     id="ls-3">${h3}</div>`;
+
+        // 恢复当前激活 tab
+        const activeStab = document.querySelector('.ltab.on');
+        if (activeStab) {
+            const idx = [...document.querySelectorAll('.ltab')].indexOf(activeStab);
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+            const el = document.getElementById('ls-' + idx);
+            if (el) el.classList.add('on');
+        }
+    }
+
+    // ===== 左侧 tab 切换 =====
+    function sw(i, el) {
+        document.querySelectorAll('.ltab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+        el.classList.add('on');
+        const s = document.getElementById('ls-' + i);
+        if (s) s.classList.add('on');
+    }
+
+    // ===== 右侧：加载舆情 =====
+    function loadSentiment(date) {
+        fetch('summary/' + date + '.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(data => {
+                const taskMap = {};
+                (data.tasks || []).forEach(t => { taskMap[t.id] = t; });
+
+                RIGHT_SOURCES.forEach((src, i) => {
+                    const task = taskMap[src.id];
+                    const iframe = document.getElementById('rframe-' + i);
+                    const empty  = document.getElementById('rempty-' + i);
+                    if (task) {
+                        iframe.src = src.dir + '/' + date + '/report.html';
+                        iframe.style.display = 'block';
+                        if (empty) empty.style.display = 'none';
+                        iframe.onload = () => injectViewport(iframe);
+                        const mv = task.metric_value !== '?' ? `${task.metric_value} ${task.metric_label}` : '';
+                        rtabMetas[i] = `${date}${mv ? ' · ' + mv : ''}`;
+                    } else {
+                        iframe.src = 'about:blank';
+                        iframe.style.display = 'none';
+                        if (empty) { empty.style.display = 'flex'; empty.textContent = '暂无数据 · ' + date; }
+                        rtabMetas[i] = '暂无数据 · ' + date;
+                    }
+                });
+
+                const activeIdx = [...document.querySelectorAll('.rtab')].findIndex(t => t.classList.contains('on'));
+                document.getElementById('rtab-meta').textContent = rtabMetas[activeIdx] || '';
+                const upd = data.updated_at ? new Date(data.updated_at).toLocaleString('zh-CN') : '';
+                document.getElementById('update-time').textContent = upd ? '更新 ' + upd : '';
+            })
+            .catch(() => { document.getElementById('update-time').textContent = '加载失败'; });
+    }
+
+    function onDateChange() {
+        const date = document.getElementById('date-select').value;
+        if (date) loadSentiment(date);
+    }
+
+    // ===== 右侧 tab 切换 =====
+    function rt(i, el) {
+        document.querySelectorAll('.rtab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.rpane').forEach(p => p.classList.remove('on'));
+        el.classList.add('on');
+        document.getElementById('rpane-' + i).classList.add('on');
+        document.getElementById('rtab-meta').textContent = rtabMetas[i] || '';
+    }
+
+    // ===== 加载速报 =====
+    function loadSpeedReport(date) {
+        document.getElementById('left-meta').textContent = '加载中...';
+        fetch('game_speed/' + date + '/data.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(data => renderLeft(data))
+            .catch(() => {
+                document.getElementById('left-meta').textContent = '暂无版本情报';
+                document.getElementById('left-body').innerHTML = '<div class="empty-state">今日速报尚未生成</div>';
+            });
+    }
+
+    // ===== 复制兑换码 =====
+    function cp(btn, code) {
+        navigator.clipboard.writeText(code).catch(() => {});
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+    }
+
+    // ===== iframe viewport + 统一主题注入 =====
+    function injectViewport(iframe) {
+        try {
+            const doc = iframe.contentDocument;
+            if (!doc) return;
+            // 1. viewport
+            let meta = doc.querySelector('meta[name="viewport"]');
+            if (!meta) { meta = doc.createElement('meta'); meta.name = 'viewport'; doc.head.appendChild(meta); }
+            meta.content = 'width=device-width, initial-scale=1';
+            doc.documentElement.style.fontSize = iframe.clientWidth < 600 ? '15px' : '';
+            // 2. 统一主题层（暖灰+墨绿），同源 iframe 才可注入；只注一次
+            if (!doc.getElementById('__portal_theme__')) {
+                // 优先用 DM Sans 字体（与门户一致）
+                if (!doc.querySelector('link[href*="DM+Sans"]')) {
+                    const f = doc.createElement('link');
+                    f.rel = 'stylesheet';
+                    f.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap';
+                    doc.head.appendChild(f);
+                }
+                const link = doc.createElement('link');
+                link.id = '__portal_theme__';
+                link.rel = 'stylesheet';
+                link.href = '../../report-theme.css';  // report.html 在 {source}/{date}/ 下，回退两级到 docs/
+                doc.head.appendChild(link);
+            }
+        } catch(e) {}
+    }
+
+    // ===== 移动端面板切换 =====
+    function vs(which, el) {
+        document.querySelectorAll('.vs-btn').forEach(b => b.classList.remove('on'));
+        el.classList.add('on');
+        const left  = document.getElementById('left-panel');
+        const right = document.getElementById('right-panel');
+        if (which === 'left') { left.classList.add('active'); right.classList.remove('active'); }
+        else { right.classList.add('active'); left.classList.remove('active'); }
+    }
+
+    // ===== 初始化 =====
+    function buildDateSelect(dates) {
+        const sel = document.getElementById('date-select');
+        sel.innerHTML = '';
+        dates.forEach((d, i) => {
+            const opt = document.createElement('option');
+            opt.value = d; opt.textContent = d + (i===0 ? '（最新）' : '');
+            sel.appendChild(opt);
+        });
+    }
+
+    function init() {
+        // 1. 先加载 icon 映射
+        fetch('icons/index.json?t=' + Date.now())
+            .then(r => r.json())
+            .then(idx => { GAME_ICON_MAP = idx._gameNames || {}; })
+            .catch(() => {})
+            .finally(() => {
+                // 2. 加载日期列表
+                fetch('summary/index.json?t=' + Date.now())
+                    .then(r => r.json())
+                    .then(idx => {
+                        const dates = (idx.dates || []).filter(Boolean);
+                        if (!dates.length) throw new Error('empty');
+                        buildDateSelect(dates);
+                        loadSentiment(dates[0]);
+                        loadSpeedReport(idx.speedDate || dates[0]);
+                    })
+                    .catch(() => {
+                        const fallback = '2026-06-12';
+                        buildDateSelect([fallback]);
+                        loadSentiment(fallback);
+                        loadSpeedReport(fallback);
+                    });
+            });
+    }
+
+    // ===== 可拖动分割线 =====
+    (function(){
+        const resizer  = document.getElementById('resizer');
+        const leftPane = document.getElementById('left-panel');
+        if (!resizer || !leftPane) return;
+
+        // 恢复上次保存的宽度
+        const saved = localStorage.getItem('leftPanelWidth');
+        if (saved) leftPane.style.width = saved + 'px';
+
+        let startX, startW;
+
+        function onMove(e) {
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const delta = clientX - startX;
+            const newW = Math.min(600, Math.max(260, startW + delta));
+            leftPane.style.width = newW + 'px';
+        }
+
+        function onUp(e) {
+            resizer.classList.remove('dragging');
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+            const w = parseInt(leftPane.style.width);
+            if (w) localStorage.setItem('leftPanelWidth', w);
+            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mouseup', onUp);
+            window.removeEventListener('touchmove', onMove);
+            window.removeEventListener('touchend', onUp);
+        }
+
+        resizer.addEventListener('mousedown', e => {
+            startX = e.clientX;
+            startW = leftPane.offsetWidth;
+            resizer.classList.add('dragging');
+            document.body.style.cursor = 'col-resize';
+            document.body.style.userSelect = 'none';
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('mouseup', onUp);
+        });
+
+        resizer.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            startW = leftPane.offsetWidth;
+            resizer.classList.add('dragging');
+            window.addEventListener('touchmove', onMove, { passive: true });
+            window.addEventListener('touchend', onUp);
+        });
+
+        // 双击重置为默认宽度
+        resizer.addEventListener('dblclick', () => {
+            leftPane.style.width = '360px';
+            localStorage.setItem('leftPanelWidth', 360);
+        });
+    })();
+
+    init();
+</script>
+</body>
+</html>
