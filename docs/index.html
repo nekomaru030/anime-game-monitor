@@ -547,6 +547,8 @@
 
 <script>
     // ===== 配置 =====
+    // 缓存破坏戳：按小时变化，强制 iframe / CDN 每小时拉一次最新报告，避免一直看到旧版
+    const CACHE_BUST = Math.floor(Date.now() / 3600000);
     const RIGHT_SOURCES = [
         { id: 'nga',           dir: 'nga',           label: 'NGA 吃瓜' },
         { id: 'bilibili_game', dir: 'bilibili_game', label: 'B 站游戏' },
@@ -863,7 +865,8 @@
                     const iframe = document.getElementById('rframe-' + i);
                     const empty  = document.getElementById('rempty-' + i);
                     if (task) {
-                        iframe.src = src.dir + '/' + date + '/report.html';
+                        // 带版本戳绕过 iframe / CDN 缓存，避免一直看到旧报告
+                        iframe.src = src.dir + '/' + date + '/report.html?v=' + CACHE_BUST;
                         iframe.style.display = 'block';
                         if (empty) empty.style.display = 'none';
                         iframe.onload = () => injectViewport(iframe);
