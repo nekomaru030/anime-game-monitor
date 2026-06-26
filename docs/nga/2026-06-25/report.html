@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGA舆情日报 - 2026-06-25</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+:root {
+  --bg:    oklch(98% 0.004 60);
+  --card:  oklch(99.5% 0.002 60);
+  --text:  oklch(18% 0.01 60);
+  --muted: oklch(52% 0.01 60);
+  --line:  oklch(88% 0.008 60);
+  --brand: oklch(55% 0.13 55);
+  --brand-mid: oklch(70% 0.10 55);
+  --brand-pale: oklch(95% 0.04 60);
+  --code-bg: oklch(96% 0.005 60);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "DM Sans", -apple-system, "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Page shell ── */
+.page { max-width: 1160px; margin: 0 auto; padding: 32px 24px 72px; }
+
+/* ── Hero ── */
+.hero {
+  background: oklch(14% 0.015 250);
+  color: oklch(93% 0.008 250);
+  border-radius: 16px;
+  padding: 36px 44px;
+  margin-bottom: 24px;
+  border: 1px solid oklch(22% 0.02 250);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: oklch(96% 0.005 250);
+  border: 0;
+}
+.hero p { margin: 0; font-size: 13px; color: oklch(55% 0.01 250); font-weight: 400; white-space: nowrap; }
+
+/* ── Quick overview panel ── */
+.quick-overview {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.quick-overview-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.quick-overview-kicker { margin: 0 0 3px; color: var(--brand); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.quick-overview h2 { margin: 0; padding: 0; border: 0; background: none; color: var(--text); font-size: 22px; font-weight: 500; letter-spacing: -0.3px; }
+.quick-overview-desc { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.quick-overview-note { margin: 0; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.overview-section { margin-top: 20px; }
+.overview-section-title {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 12px; padding: 0;
+  color: var(--brand);
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  background: transparent; border: 0;
+}
+.overview-section-title::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+.overview-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.overview-card {
+  display: grid; grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px; padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  transition: border-color .15s, box-shadow .15s;
+}
+.overview-card:hover { border-color: var(--brand-mid); box-shadow: 0 4px 16px oklch(55% 0.13 55 / .08); text-decoration: none; }
+.overview-meta {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--brand-pale);
+}
+.game-icon { width: 44px; height: 44px; display: block; border-radius: 10px; background: var(--line); object-fit: cover; }
+.game-icon-fallback { display: flex; align-items: center; justify-content: center; color: var(--brand); font-size: 12px; font-weight: 600; }
+.game-name { color: var(--brand); font-size: 11px; font-weight: 600; line-height: 1.3; word-break: keep-all; text-align: center; }
+.heat-score { padding: 2px 7px; border-radius: 999px; background: var(--card); color: var(--brand); border: 1px solid var(--line); font-size: 11px; font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.overview-body { min-width: 0; align-self: center; }
+.overview-card-title { margin: 0 0 6px; color: var(--text); font-weight: 500; font-size: 14px; line-height: 1.4; }
+.overview-card-summary { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ── Layout ── */
+.layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: start; }
+.toc {
+  position: sticky; top: 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+.toc-title { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.toc a { display: block; padding: 5px 8px; color: var(--muted); border-radius: 6px; font-size: 13px; line-height: 1.4; }
+.toc a:hover { background: var(--brand-pale); color: var(--brand); text-decoration: none; }
+.content {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 32px 48px;
+  overflow: hidden;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 { line-height: 1.3; scroll-margin-top: 24px; }
+.content > h1 { display: none; }
+h2 {
+  margin: 36px -32px 16px;
+  padding: 12px 32px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  background: var(--brand-pale);
+  border-left: 3px solid var(--brand);
+}
+h3 {
+  margin-top: 28px;
+  padding: 10px 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand-mid);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+p { margin: 10px 0; }
+strong { font-weight: 600; color: var(--text); }
+code {
+  background: var(--code-bg);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-family: "DM Mono", "SFMono-Regular", monospace;
+  font-size: .88em;
+  border: 1px solid var(--line);
+}
+pre {
+  background: oklch(14% 0.01 250);
+  color: oklch(88% 0.005 250);
+  padding: 16px 18px;
+  border-radius: 10px;
+  overflow: auto;
+}
+pre code { background: transparent; color: inherit; padding: 0; border: 0; }
+ul { padding-left: 0; list-style: none; }
+li {
+  margin: 6px 0;
+  padding: 8px 12px 8px 28px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  position: relative;
+}
+li::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--brand-mid);
+  position: absolute;
+  left: 12px; top: 17px;
+}
+hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
+
+/* ── Tables ── */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin: 14px 0 20px; }
+table { border-collapse: collapse; width: 100%; min-width: 620px; background: var(--card); table-layout: fixed; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; word-break: normal; overflow-wrap: anywhere; font-size: 13.5px; }
+th { background: var(--brand-pale); color: var(--brand); font-weight: 600; font-size: 12px; letter-spacing: .04em; white-space: nowrap; }
+th:first-child, td:first-child { width: 140px; min-width: 140px; white-space: nowrap; word-break: keep-all; overflow-wrap: normal; color: var(--brand); font-weight: 600; }
+th:nth-child(2), td:nth-child(2) { width: auto; }
+tr:last-child td { border-bottom: 0; }
+
+/* ── Full post list ── */
+.full-post-list { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0 20px; }
+.post-list-card {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px; padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+.post-list-card:hover { border-color: var(--brand-mid); }
+.post-rank {
+  align-self: start; justify-self: center;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: var(--brand-pale);
+  color: var(--brand);
+  border: 1px solid var(--line);
+  font-size: 12px; font-weight: 600; line-height: 1.3;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.post-main { min-width: 0; }
+.post-title { margin: 0 0 7px; color: var(--text); font-size: 14px; font-weight: 500; line-height: 1.5; word-break: normal; overflow-wrap: anywhere; }
+.post-title a { color: var(--text); }
+.post-title a:hover { color: var(--brand); }
+.post-meta-row { display: flex; flex-wrap: wrap; gap: 5px; color: var(--muted); font-size: 12px; line-height: 1.2; }
+.post-meta-row span { padding: 3px 7px; border-radius: 5px; background: var(--bg); border: 1px solid var(--line); white-space: nowrap; }
+.post-meta-row .post-product { color: var(--brand); background: var(--brand-pale); border-color: var(--line); font-weight: 600; }
+.svg-card { margin: 12px 0 18px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); overflow-x: auto; }
+.svg-card svg { max-width: 100%; height: auto; display: block; }
+
+/* ── Ranking table ── */
+.ranking-table { table-layout: auto; min-width: 700px; }
+.ranking-table th {
+  background: var(--brand-pale);
+  padding: 8px 10px; text-align: left;
+  font-weight: 600; font-size: 11px; letter-spacing: .06em;
+  border-bottom: 1px solid var(--line); white-space: nowrap;
+  color: var(--brand);
+}
+.ranking-table td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; font-size: 13px; }
+.ranking-table tr:last-child td { border-bottom: 0; }
+.ranking-table tr:hover td { background: var(--brand-pale); }
+.rank-cell { color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; font-weight: 500; }
+.rank-change { font-weight: 600; font-variant-numeric: tabular-nums; text-align: center; }
+.rank-up { color: oklch(42% 0.15 25); }
+.rank-down { color: oklch(42% 0.12 155); }
+.rank-new { color: oklch(42% 0.14 280); }
+.rank-flat { color: var(--muted); }
+.tier-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 40px; padding: 2px 7px;
+  border-radius: 5px; font-size: 11px; font-weight: 600; letter-spacing: .03em;
+}
+.tier-s { background: oklch(92% 0.05 25); color: oklch(38% 0.14 25); }
+.tier-a { background: oklch(94% 0.04 55); color: oklch(40% 0.12 55); }
+.tier-b { background: oklch(93% 0.04 230); color: oklch(38% 0.12 230); }
+.tier-c { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+.heat-score { font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ── Game cards ── */
+.game-card {
+  margin: 18px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+}
+.game-card.misc-card { background: var(--bg); }
+.game-card.misc-card > .game-summary { color: var(--muted); }
+.game-card > .game-summary {
+  list-style: none; cursor: pointer;
+  padding: 12px 18px;
+  font-size: 15px; font-weight: 500;
+  color: var(--text);
+  background: var(--brand-pale);
+  display: flex; align-items: center; gap: 12px;
+  user-select: none;
+}
+.game-card > .game-summary::-webkit-details-marker { display: none; }
+.game-card > .game-summary::before {
+  content: "›";
+  color: var(--brand); font-size: 18px; line-height: 1;
+  transition: transform .2s cubic-bezier(.25,1,.5,1);
+  display: inline-block; width: 16px;
+}
+.game-card[open] > .game-summary::before { transform: rotate(90deg); }
+.game-summary-text { flex: 1; min-width: 0; }
+.game-card-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--line); object-fit: cover; flex-shrink: 0; }
+.game-card-icon-fallback { display: inline-flex; align-items: center; justify-content: center; color: var(--brand); font-size: 11px; font-weight: 600; }
+.game-card > blockquote {
+  margin: 0 18px 8px;
+  padding: 8px 12px;
+  background: var(--brand-pale);
+  border-left: 2px solid var(--brand-mid);
+  border-radius: 0 6px 6px 0;
+  color: var(--muted); font-size: 13px;
+}
+
+/* ── Post buckets ── */
+.post-bucket {
+  margin: 10px 16px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+.post-bucket > .bucket-summary {
+  list-style: none; cursor: pointer;
+  padding: 8px 14px;
+  font-size: 13px; font-weight: 600; color: var(--text);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px 10px 0 0;
+  user-select: none;
+}
+.post-bucket:not([open]) > .bucket-summary { border-bottom: 0; border-radius: 10px; }
+.post-bucket > .bucket-summary::-webkit-details-marker { display: none; }
+.post-bucket > .bucket-summary::before {
+  content: "› "; color: var(--muted); font-size: 14px;
+  transition: transform .2s; display: inline-block;
+}
+.post-bucket[open] > .bucket-summary::before { transform: rotate(90deg); }
+.post-bucket > .post-list { margin: 0; padding: 8px 12px 12px; }
+.post-bucket.water-bucket > .bucket-summary { color: var(--muted); }
+
+/* ── Individual posts ── */
+ol.post-list { list-style: none; counter-reset: post-counter; padding: 0; margin: 6px 0; }
+ol.post-list > li.post-item-li { counter-increment: post-counter; margin: 4px 0; padding: 0; background: transparent; border: 0; }
+ol.post-list > li.post-item-li::before { content: none; }
+.post-item {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.post-item[open] {
+  background: var(--card);
+  border-color: var(--brand-mid);
+}
+.post-item > .post-summary {
+  list-style: none; cursor: pointer;
+  padding: 7px 12px 7px 32px;
+  font-size: 13.5px; line-height: 1.5; color: var(--text);
+  position: relative; user-select: none;
+}
+.post-item > .post-summary::-webkit-details-marker { display: none; }
+.post-item > .post-summary::before {
+  content: counter(post-counter);
+  position: absolute; left: 10px; top: 8px;
+  font-weight: 600; color: var(--brand); font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  background: var(--brand-pale);
+  border-radius: 4px; padding: 1px 4px; line-height: 1.5;
+}
+.post-item > .post-detail {
+  padding: 6px 14px 12px 32px;
+  border-top: 1px solid var(--line);
+}
+.post-item > .post-detail blockquote {
+  margin: 6px 0;
+  padding: 8px 12px;
+  background: var(--brand-pale);
+  border-left: 2px solid var(--brand-mid);
+  border-radius: 0 6px 6px 0;
+  color: var(--muted); font-size: 13px; line-height: 1.65;
+}
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; }
+  .hero { padding: 24px 22px; flex-direction: column; gap: 4px; }
+  .quick-overview { padding: 18px; }
+  .quick-overview-head { display: block; }
+  .quick-overview-note { margin-top: 6px; white-space: normal; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .overview-card { grid-template-columns: 78px minmax(0, 1fr); }
+  .game-icon { width: 38px; height: 38px; }
+  .content { padding: 18px 20px 36px; }
+  h2 { margin-left: -20px; margin-right: -20px; padding-left: 20px; }
+  .post-list-card { grid-template-columns: 40px minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <h1>NGA 舆情日报</h1>
+    <p>2026-06-25 报告</p>
+  </header>
+  <section class="quick-overview" id="quick-overview"><div class="quick-overview-head"><div><p class="quick-overview-kicker">QUICK OVERVIEW</p><h2>今日舆情速览</h2><p class="quick-overview-desc">基于AI抓取二游核心社区生成，目前仅覆盖NGA、taptap，后续将持续优化。吃瓜怡情，谨慎当真，理性看待社区言论哦~</p></div></div><p class="quick-overview-note">报告主视角按游戏归类，下方分游戏卡片支持点击展开/收起；每条帖子默认收起，点击标题查看摘要。</p></section>
+  <div class="layout">
+    <nav class="toc"><div class="toc-title">目录</div><a href="#今日全局舆情概览">⚡ 今日全局舆情概览</a>
+<a href="#全部游戏热度排行">📊 全部游戏热度排行</a>
+<a href="#分游戏舆情详情">🎮 分游戏舆情详情</a>
+<a href="#全量帖子列表-按展示优先级排序">📋 全量帖子列表（按展示优先级排序）</a></nav>
+    <main class="content"><h1 id="中国二游每日吃瓜播报">🍉 中国二游每日吃瓜播报</h1>
+<p><strong>日期</strong>: 2026-06-25</p>
+<p><strong>生成时间</strong>: 2026-06-26 08:51</p>
+<p><strong>帖子总数</strong>: 187 条（🆕 新增 35 | 🔄 持续追踪 152）</p>
+<p>基于AI抓取二游核心社区生成，目前仅覆盖NGA、taptap，后续将持续优化。吃瓜怡情，谨慎当真，理性看待社区言论哦~</p>
+<hr>
+<h2 id="今日全局舆情概览">⚡ 今日全局舆情概览</h2>
+<ul>
+<li><strong>整体盘面</strong>：187 帖｜🆕 新增 35｜🔥 爆发 100｜🔄 持续追踪 152｜总回复 58,451</li>
+<li><strong>社区风向</strong>：😏 阴阳怪气 91 / 😐 中性 56 / 😡 负面 29 / 😊 正面 11</li>
+<li><strong>话题分布</strong>：游戏瓜 97 / 其他 50 / 主播瓜 17 / 厂商瓜 12 / 社区瓜 11</li>
+<li><strong>热度峰值</strong>：1650分｜[[评分]《少女前线2：追放》](https://bbs.nga.cn/read.php?tid=38757044)</li>
+<li><strong>覆盖板块</strong>：</li>
+<li><strong>二游核心论坛-瓜版</strong>：36 帖｜🆕 新增 6</li>
+<li><strong>测试阶段游戏讨论版</strong>：9 帖｜🆕 新增 0</li>
+<li><strong>上线游戏讨论版</strong>：23 帖｜🆕 新增 11</li>
+<li><strong>手综版</strong>：127 帖｜🆕 新增 18</li>
+</ul>
+<h2 id="全部游戏热度排行">📊 全部游戏热度排行</h2>
+<div class="table-wrap"><table class="ranking-table">
+<thead><tr>
+<th>排名</th>
+<th>变化</th>
+<th>游戏</th>
+<th>梯队</th>
+<th>热度分</th>
+<th>帖量</th>
+<th>新增</th>
+<th>爆发</th>
+<th>简报</th>
+</tr></thead>
+<tbody>
+<tr style="cursor:pointer" onclick="document.getElementById('明日方舟终末地')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#1</td><td class="rank-change rank-up">↑1</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/75772d5d.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#明日方舟终末地" style="color:#2c3e50;text-decoration:none;font-weight:500">明日方舟：终末地</a></span></td><td><span class="tier-badge tier-s">S档</span></td><td class="heat-score">100.0</td><td>7</td><td>1</td><td>4</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[新瓜]不知何故，近期终末地官号加速掉粉</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('少女前线2')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#2</td><td class="rank-change rank-up">↑1</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/248ed8cf.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#少女前线2" style="color:#2c3e50;text-decoration:none;font-weight:500">少女前线2</a></span></td><td><span class="tier-badge tier-s">S档</span></td><td class="heat-score">88.0</td><td>5</td><td>2</td><td>2</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[评分]《少女前线2：追放》</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('鸣潮')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#3</td><td class="rank-change rank-down">↓2</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/07d58cd6.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#鸣潮" style="color:#2c3e50;text-decoration:none;font-weight:500">鸣潮</a></span></td><td><span class="tier-badge tier-s">S档</span></td><td class="heat-score">80.1</td><td>5</td><td>3</td><td>1</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[破事氵]观鸣潮3.1有感</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('异环')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#4</td><td class="rank-change rank-flat">-</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/affd183b.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#异环" style="color:#2c3e50;text-decoration:none;font-weight:500">异环</a></span></td><td><span class="tier-badge tier-a">A档</span></td><td class="heat-score">42.4</td><td>5</td><td>1</td><td>3</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[破事氵][杂谈氵]看看小异环1.2谁变…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('原神')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#5</td><td class="rank-change rank-flat">-</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/9f24494e.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#原神" style="color:#2c3e50;text-decoration:none;font-weight:500">原神</a></span></td><td><span class="tier-badge tier-a">A档</span></td><td class="heat-score">35.9</td><td>3</td><td>0</td><td>3</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[厂商]EPIC：steam和v社永远接…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('崩坏3')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#6</td><td class="rank-change rank-new">🆕</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/0adb2500.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#崩坏3" style="color:#2c3e50;text-decoration:none;font-weight:500">崩坏3</a></span></td><td><span class="tier-badge tier-b">B档</span></td><td class="heat-score">13.3</td><td>1</td><td>0</td><td>1</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[米哈游]崩坏3第二部铺垫了很久的主线角…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('王者荣耀世界')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#7</td><td class="rank-change rank-up">↑1</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/73bb3505.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#王者荣耀世界" style="color:#2c3e50;text-decoration:none;font-weight:500">王者荣耀世界</a></span></td><td><span class="tier-badge tier-b">B档</span></td><td class="heat-score">11.4</td><td>3</td><td>0</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[杂谈氵]来展示一下下大家正在玩的手游吧</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('燕云十六声')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#8</td><td class="rank-change rank-up">↑3</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/f876be33.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#燕云十六声" style="color:#2c3e50;text-decoration:none;font-weight:500">燕云十六声</a></span></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">8.4</td><td>2</td><td>0</td><td>1</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[燕云十六声]梁山伯与祝英台变男同</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('尘白禁区')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#9</td><td class="rank-change rank-flat">-</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/158d6c49.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#尘白禁区" style="color:#2c3e50;text-decoration:none;font-weight:500">尘白禁区</a></span></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">6.8</td><td>1</td><td>0</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[新瓜]尘白禁区新版本至少延期至7月16…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('碧蓝航线')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#10</td><td class="rank-change rank-up">↑3</td><td><a href="#碧蓝航线" style="color:#2c3e50;text-decoration:none;font-weight:500">碧蓝航线</a></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">4.4</td><td>1</td><td>0</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[瓜小味甜]3DM专访碧蓝幻想relin…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('明日方舟')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#11</td><td class="rank-change rank-up">↑1</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/75772d5d.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#明日方舟" style="color:#2c3e50;text-decoration:none;font-weight:500">明日方舟</a></span></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">3.7</td><td>2</td><td>1</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[厂商]鹰角社区森空岛国服外服区别对待</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('1999')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#12</td><td class="rank-change rank-new">🆕</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/73095c3b.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#1999" style="color:#2c3e50;text-decoration:none;font-weight:500">1999</a></span></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">3.4</td><td>1</td><td>0</td><td>1</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[杂谈氵]有的时候“高级感”是一种懂的人…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('绝区零')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#13</td><td class="rank-change rank-down">↓6</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/bb4ea6c0.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#绝区零" style="color:#2c3e50;text-decoration:none;font-weight:500">绝区零</a></span></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">2.1</td><td>1</td><td>1</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[求推荐]燕云和绝区零二选一的话哪个好玩…</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('FGO')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#14</td><td class="rank-change rank-flat">-</td><td><a href="#FGO" style="color:#2c3e50;text-decoration:none;font-weight:500">FGO</a></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">0.6</td><td>1</td><td>1</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">[FGO]之前的积分商城终于要开放兑换了</td></tr>
+<tr style="cursor:pointer" onclick="document.getElementById('蓝色星原旅谣')?.scrollIntoView({behavior:'smooth'})"><td class="rank-cell">#15</td><td class="rank-change rank-up">↑3</td><td><span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap"><img src="../../icons/5052ff6d.jpg" style="width:24px;height:24px;min-width:24px;border-radius:6px;object-fit:cover;flex-shrink:0;display:block" alt="" onerror="this.style.visibility='hidden'"><a href="#蓝色星原旅谣" style="color:#2c3e50;text-decoration:none;font-weight:500">蓝色星原：旅谣</a></span></td><td><span class="tier-badge tier-c">C档</span></td><td class="heat-score">0.2</td><td>1</td><td>0</td><td>0</td><td style="font-size:12px;color:#666;white-space:normal;min-width:120px">蓝色星原：旅谣</td></tr>
+</tbody></table></div>
+<h2 id="分游戏舆情详情">🎮 分游戏舆情详情</h2>
+<details class="game-card" open id="明日方舟-终末地"><summary class="game-summary"><img class="game-card-icon" src="../../icons/75772d5d.jpg" alt="明日方舟：终末地" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 明日方舟：终末地</span></summary>
+<blockquote>7 帖｜🆕 新增 1｜🔥 爆发 4｜🔄 持续追踪 2｜🌡️ 热度合计 3958 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 6 / 😡 负面 1</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×4 / 二游核心论坛-瓜版×3</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[新瓜][鹰角][瓜小味甜]明日方舟终末地，森空岛危机合约[纪念]头像框，外服永久，国服限时30天](https://bbs.nga.cn/read.php?tid=47041941)</strong> — 84分 ｜ 😡 负面 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>基础设定:SKPORT是外服的森空岛。本次明日方舟终末地开启危机合约活动后，森空岛和外服森空岛也开启了挑战危机合约领取纪念头像框的活动，但被玩家发现国服与外服在头像框时限上存在着微妙不同外服:国服:被抢先一步了，可恶</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[评分]《明日方舟：终末地》](https://bbs.nga.cn/read.php?tid=46047326)</strong> — 1090分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔥 今日爆发 · 水楼/水帖（3，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]终末地地图产能真低吧？](https://bbs.nga.cn/read.php?tid=47048936)</strong> — 512分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>玩一会就没得玩了，最大的还得是清波开那阵子？箱庭产能都这样吗？园区和藏剑谷感觉都没啥乐子，不如首墩</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]每年库洛需要给腾讯多少分红啊](https://bbs.nga.cn/read.php?tid=47046438)</strong> — 188分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>楼主是小菜鸟，在终末地吧看到这样言论，好奇每年库洛得给腾讯多少分红啊。我看有说一半的，到这又变成2/3了</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]对终末地卡池的迷思始终百思不得其解](https://bbs.nga.cn/read.php?tid=47051527)</strong> — 28分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>为什么要把保底继承扣掉呢？这对拉旧真是无可比拟的打击吧。横竖你都赚那些口碑了，这个加上你不无敌了？现在给异环的池子夹击了吧，你不放有的是人放</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（2）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[新瓜]不知何故，近期终末地官号加速掉粉](https://bbs.nga.cn/read.php?tid=46913868)</strong> — 1628分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>照理来说新版本将要开启，各种宣发视频开始放出，因为长草期掉粉应该会减速才对。顺带一提，终末地已于2026年6月3日飞国服游戏榜(其他主要区服也已飞游戏榜，但仍有几个小国未飞游戏榜，因此未达成史无前例的全球飞游戏榜成就)用…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[鹰角][纯搬运][疑似内容]街霸6角色动作模组疑似借鉴明日方舟终末地新角色弭弗](https://bbs.nga.cn/read.php?tid=46926569)</strong> — 428分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>搬运自：[</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="少女前线2"><summary class="game-summary"><img class="game-card-icon" src="../../icons/248ed8cf.jpg" alt="少女前线2" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 少女前线2</span></summary>
+<blockquote>5 帖｜🆕 新增 2｜🔥 爆发 2｜🔄 持续追踪 1｜🌡️ 热度合计 3483 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 3 / 😊 正面 1 / 😐 中性 1</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×3 / 二游核心论坛-瓜版×2</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[少女前线]2026年了还有从上到下全是二手屎的顶级媒体](https://bbs.nga.cn/read.php?tid=47041073)</strong> — 310分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>然后我看了眼这位发的其他文章难道说羽中在嘉年华发的新作真的让某些人破防了?</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🆕 今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]当年少前也有类似的高难模式，可惜后来僵化了](https://bbs.nga.cn/read.php?tid=47044177)</strong> — 178分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>初代兔子洞出道基本就是方舟危机合约这类高难的挑战加全民解题的玩法。可惜翀觉得玩家只配玩弱保软，一来一去，到追放直接躺平了。海猫就厉害在，知道是哄小孩，就算被圈外狂骂也要硬着头皮做，氛围炒起来就行，别人骂是别人的事情，真听…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[评分]《少女前线2：追放》](https://bbs.nga.cn/read.php?tid=38757044)</strong> — 1650分 ｜ 😊 正面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔥 今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]少前2最近是有个忤逆小队相关的节奏吗](https://bbs.nga.cn/read.php?tid=47050274)</strong> — 245分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>有没有人切一下，没了解过剧情，玩少前2纯看建模</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[少女前线]腾讯采访羽中](https://bbs.nga.cn/read.php?tid=46997881)</strong> — 1100分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>视频地址</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="鸣潮"><summary class="game-summary"><img class="game-card-icon" src="../../icons/07d58cd6.jpg" alt="鸣潮" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 鸣潮</span></summary>
+<blockquote>5 帖｜🆕 新增 3｜🔥 爆发 1｜🔄 持续追踪 1｜🌡️ 热度合计 3170 分</blockquote>
+<blockquote>风向：😐 中性 3 / 😏 阴阳怪气 2</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×4 / 二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong><a href="https://bbs.nga.cn/read.php?tid=47044453" target="_blank" rel="noopener noreferrer">怎么感觉最近说鸣潮角色月抛的少了</a></strong> — 96分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>现在是半年抛了吗？</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🆕 今日新增 · 水楼/水帖（2，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]观鸣潮3.1有感](https://bbs.nga.cn/read.php?tid=47042195)</strong> — 314分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>你我之间，不过是一段不长不短的缘分家人也只能陪彼此走一段路我们迟早会分离，我不后悔</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]游戏反对者不愿意说游戏原名的习惯是什么时候开始的](https://bbs.nga.cn/read.php?tid=47044196)</strong> — 206分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>以前还说是拿各种黑称取而代之来显示羞辱现在感觉代称完全就是毫无意义什么12：3456跟什么1234：567，什么wuwa跟什么小X感觉游戏原名跟什么忌讳一样，只要你称呼其原名就不是同阵营的，要么两面派要么反方感觉就像被克…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[评分]《鸣潮》](https://bbs.nga.cn/read.php?tid=40272873)</strong> — 2452分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[疑似内容][新瓜]潜水员戴夫新dlc出现鸣潮相关彩蛋](https://bbs.nga.cn/read.php?tid=47009680)</strong> — 102分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>第一次切瓜不熟练，在群里看到的感觉挺乐的，搬过来大家一起看一下补充吐槽一下吧:好像目前就看到了漂泊者的彩蛋，这人气确实高啊</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="异环"><summary class="game-summary"><img class="game-card-icon" src="../../icons/affd183b.jpg" alt="异环" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 异环</span></summary>
+<blockquote>5 帖｜🆕 新增 1｜🔥 爆发 3｜🔄 持续追踪 1｜🌡️ 热度合计 1677 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 5</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×5</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🆕 今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵][杂谈氵]看看小异环1.2谁变成乐子](https://bbs.nga.cn/read.php?tid=47043822)</strong> — 142分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>留个档，应该能坚持到1.2开服吧？要不顺便开个1.2上半真红池子的预期吧</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong><a href="https://bbs.nga.cn/read.php?tid=47049627" target="_blank" rel="noopener noreferrer">异环这分镜太难绷了</a></strong> — 483分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>这里两波人在大厅并排走，男角色认识女主，朝着右边挥手打招呼，镜头切到女主，女主竟然还是朝右边挥手回应，笑死我了</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔥 今日爆发 · 水楼/水帖（2，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[杂谈氵]刚过完异环红字的研究主线，真情流露一下](https://bbs.nga.cn/read.php?tid=47051036)</strong> — 658分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>坦诚地说，我非常喜欢这章的故事以至于过完之后想来找人聊两句。即使说它台词有点啰嗦，有些演出显得有点呆，但它真的有把故事讲好——起承转合做得不错，也草蛇灰线地点缀伏笔；我在无剧透体验它的过程中，有被吊起好奇心一路往下看，最…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]异环赚钱了能不能反哺一下哥哥姐姐](https://bbs.nga.cn/read.php?tid=47050885)</strong> — 154分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>怎么p5x和幻塔的产能越来越垃了</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[评分]《异环》](https://bbs.nga.cn/read.php?tid=46635565)</strong> — 240分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="原神"><summary class="game-summary"><img class="game-card-icon" src="../../icons/9f24494e.jpg" alt="原神" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 原神</span></summary>
+<blockquote>3 帖｜🆕 新增 0｜🔥 爆发 3｜🔄 持续追踪 0｜🌡️ 热度合计 1421 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 2 / 😡 负面 1</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×2 / 二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[厂商]EPIC：steam和v社永远接触不到《原神》等顶级玩家群体](https://bbs.nga.cn/read.php?tid=47050588)</strong> — 623分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>从纯商业角度来说也没错啦</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔥 今日爆发 · 水楼/水帖（2，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[杂谈氵][破事氵]继续讨论原神是否达到了他的上限](https://bbs.nga.cn/read.php?tid=47050922)</strong> — 525分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>虽然我不喜欢米游，但我个人认为原神的上限就是二游的上限。我最近在思考，原神的上升趋势是否被自己打断了，如果没有一年全男这种狠活的话原神还会继续上升吗？原神的极限或者二游的极限会在哪里？二游的盘子会更大吗？吸引更多厂商，滋…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[杂谈氵]EPIC总裁评价原神玩家为“顶级玩家群体”](https://bbs.nga.cn/read.php?tid=47050153)</strong> — 273分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>还得是我米桑用户有钱，受资本家青睐</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="崩坏3"><summary class="game-summary"><img class="game-card-icon" src="../../icons/0adb2500.jpg" alt="崩坏3" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 崩坏3</span></summary>
+<blockquote>1 帖｜🆕 新增 0｜🔥 爆发 1｜🔄 持续追踪 0｜🌡️ 热度合计 525 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 1</blockquote>
+<blockquote>覆盖板块（溯源）：二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[米哈游]崩坏3第二部铺垫了很久的主线角色终于要进卡池了，但是不是自机角色](https://bbs.nga.cn/read.php?tid=47049624)</strong> — 525分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>神·希娜狄雅最终是以协同者身份进的卡池，绷不住要笑出来了PS:协同者类似宠物身份这么理解就好了</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="王者荣耀世界"><summary class="game-summary"><img class="game-card-icon" src="../../icons/73bb3505.jpg" alt="王者荣耀世界" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 王者荣耀世界</span></summary>
+<blockquote>3 帖｜🆕 新增 0｜🔥 爆发 0｜🔄 持续追踪 3｜🌡️ 热度合计 452 分</blockquote>
+<blockquote>风向：😐 中性 2 / 😡 负面 1</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×2 / 二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（2）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[王者荣耀世界]“侄”变“姪”](https://bbs.nga.cn/read.php?tid=46935308)</strong> — 158分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong><a href="https://bbs.nga.cn/read.php?tid=46921761" target="_blank" rel="noopener noreferrer">王者荣耀世界到底算一个什么价格的游戏</a></strong> — 80分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>本人是一个动作游戏爱好者，最初玩原，深渊满星后感觉没什么意思，又不喜欢肝地图就退坑了，之后尝试了鸣潮，但有种曾经沧海难为水的意思，没有玩下去。然后就是境界刀鸣200多小时，之后异环，最近被朋友带着玩燕云，倒是有点意思，但…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔄 持续追踪 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[杂谈氵]来展示一下下大家正在玩的手游吧](https://bbs.nga.cn/read.php?tid=47017471)</strong> — 214分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>崩铁鸣潮无限暖暖棕色尘埃王者荣耀王者荣耀世界尘白禁区天地劫坎公国际服少女回战日服烟雨江湖浮空秘境另一个伊甸主打一个白嫖，做做日常，话说我这算多的吗</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="燕云十六声"><summary class="game-summary"><img class="game-card-icon" src="../../icons/f876be33.jpg" alt="燕云十六声" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 燕云十六声</span></summary>
+<blockquote>2 帖｜🆕 新增 0｜🔥 爆发 1｜🔄 持续追踪 1｜🌡️ 热度合计 334 分</blockquote>
+<blockquote>风向：😐 中性 1 / 😡 负面 1</blockquote>
+<blockquote>覆盖板块（溯源）：二游核心论坛-瓜版×1 / 手综版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔥 今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[破事氵]燕云大版本更新预告三套新时装，两套男女同模](https://bbs.nga.cn/read.php?tid=47047969)</strong> — 104分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>这就是燕云对下江南的理解，来猜猜哪套是男装哪套是女装吧公告最初扫一眼还以为没放女号的图上版本的也是男女同模，难辨体型12</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[燕云十六声]梁山伯与祝英台变男同](https://bbs.nga.cn/read.php?tid=46933142)</strong> — 230分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="尘白禁区"><summary class="game-summary"><img class="game-card-icon" src="../../icons/158d6c49.jpg" alt="尘白禁区" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 尘白禁区</span></summary>
+<blockquote>1 帖｜🆕 新增 0｜🔥 爆发 0｜🔄 持续追踪 1｜🌡️ 热度合计 270 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 1</blockquote>
+<blockquote>覆盖板块（溯源）：二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[新瓜]尘白禁区新版本至少延期至7月16日，尘白禁区粉丝全面欢呼胜利](https://bbs.nga.cn/read.php?tid=47002622)</strong> — 270分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>尘白禁区最新游戏内通告，当前版本至少延期至7月16日。该通告彻底引爆尘白禁区社区，大家纷纷欢呼胜利和赢赢赢，主流论点：1. 尘白禁区蛰伏66天加两个半月，必将端上一盘顶级周年庆“饺子”；2. 新版本制作这么多天，质量肯定…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="碧蓝航线"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">碧蓝</span><span class="game-summary-text">🏷️ 碧蓝航线</span></summary>
+<blockquote>1 帖｜🆕 新增 0｜🔥 爆发 0｜🔄 持续追踪 1｜🌡️ 热度合计 176 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 1</blockquote>
+<blockquote>覆盖板块（溯源）：二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[瓜小味甜]3DM专访碧蓝幻想relink文章遭米U团建](https://bbs.nga.cn/read.php?tid=47011543)</strong> — 176分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>起因是之前有媒体采访碧蓝幻想relink制作人的文章提及了参考绝区零的内容前情提要然后眼尖的米U就发现了3DM的专访文章没有这一段内容，以为是“特地删除”简直太坏了！为什么都来针对我们米哈游遂开始团建3DM立刻进行了澄清…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="明日方舟"><summary class="game-summary"><img class="game-card-icon" src="../../icons/75772d5d.jpg" alt="明日方舟" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 明日方舟</span></summary>
+<blockquote>2 帖｜🆕 新增 1｜🔥 爆发 0｜🔄 持续追踪 1｜🌡️ 热度合计 146 分</blockquote>
+<blockquote>风向：😐 中性 1 / 😊 正面 1</blockquote>
+<blockquote>覆盖板块（溯源）：二游核心论坛-瓜版×2</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[厂商]鹰角社区森空岛国服外服区别对待](https://bbs.nga.cn/read.php?tid=47041801)</strong> — 102分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>包括且不仅限于头像框国服限时30天，外服为永久国服签到绑定app，外服可网页直接签到外服独占向角色提问活动如果说tnl是给洋大人献媚被冲，那干员只回答洋大人问题又是什么呢？以下为头像框相关图例国服外服参考资料与更多区别对…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[鹰角]潜水员戴夫新dlc出现泡姆泡姆彩蛋小游戏](https://bbs.nga.cn/read.php?tid=47034439)</strong> — 44分 ｜ 😊 正面 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>相关视频：▸双方最早的交集可追溯到2024年8月，《潜水员戴夫》游戏制作人黄载皓出席了鹰角网络旗下投资孵化品牌开拓芯举办的线下活动，并做游戏发布相关内容分享</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="1999"><summary class="game-summary"><img class="game-card-icon" src="../../icons/73095c3b.jpg" alt="1999" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 1999</span></summary>
+<blockquote>1 帖｜🆕 新增 0｜🔥 爆发 1｜🔄 持续追踪 0｜🌡️ 热度合计 133 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 1</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🔥 今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[杂谈氵]有的时候“高级感”是一种懂的人看了会感到无奈的东西](https://bbs.nga.cn/read.php?tid=47051486)</strong> — 133分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>1999的设定集开始陆续发货了，现阶段那些有着推广作用的主播会提前拿到书，并出视频展示。其中我在视频里看到了这样的内容：</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="绝区零"><summary class="game-summary"><img class="game-card-icon" src="../../icons/bb4ea6c0.jpg" alt="绝区零" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 绝区零</span></summary>
+<blockquote>1 帖｜🆕 新增 1｜🔥 爆发 0｜🔄 持续追踪 0｜🌡️ 热度合计 82 分</blockquote>
+<blockquote>风向：😏 阴阳怪气 1</blockquote>
+<blockquote>覆盖板块（溯源）：手综版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 🆕 今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[求推荐]燕云和绝区零二选一的话哪个好玩点啊？](https://bbs.nga.cn/read.php?tid=47044625)</strong> — 82分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"><blockquote>顺便问一下影之诗2好玩吗？如果加上这个三选一。如果需要认很多牌的话就算了。。。比较喜欢门槛低一些的，记忆成本小一些的游戏</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="fgo"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">FG</span><span class="game-summary-text">🏷️ FGO</span></summary>
+<blockquote>1 帖｜🆕 新增 1｜🔥 爆发 0｜🔄 持续追踪 0｜🌡️ 热度合计 24 分</blockquote>
+<blockquote>风向：😡 负面 1</blockquote>
+<blockquote>覆盖板块（溯源）：二游核心论坛-瓜版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong>[[FGO]之前的积分商城终于要开放兑换了](https://bbs.nga.cn/read.php?tid=47044652)</strong> — 24分 ｜ 😡 负面 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"><blockquote>前情提要可购买内容FGO这个游戏最高氪金档位是518，使用满减卷后就是506，并且还能获取5060积分，可以达成循环。506/518=0.9768339768，至少算真正的省钱了当然，不氪立省百分百</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="蓝色星原-旅谣"><summary class="game-summary"><img class="game-card-icon" src="../../icons/5052ff6d.jpg" alt="蓝色星原：旅谣" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text">🏷️ 蓝色星原：旅谣</span></summary>
+<blockquote>1 帖｜🆕 新增 0｜🔥 爆发 0｜🔄 持续追踪 1｜🌡️ 热度合计 8 分</blockquote>
+<blockquote>风向：😐 中性 1</blockquote>
+<blockquote>覆盖板块（溯源）：测试阶段游戏讨论版×1</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">🆕 今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔥 今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket" open><summary class="bucket-summary">🔄 持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><strong><a href="https://bbs.nga.cn/read.php?tid=39640915" target="_blank" rel="noopener noreferrer">蓝色星原：旅谣</a></strong> — 8分 ｜ 😐 中性 ｜ 来源：测试阶段游戏讨论版</summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card misc-card" id="综合-无明确游戏归属"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">综合</span><span class="game-summary-text">🧩 综合 / 无明确游戏归属</span></summary>
+<blockquote>148 帖｜🆕 新增 25｜🔥 爆发 84｜🔄 持续追踪 39</blockquote>
+<blockquote>风向：😏 阴阳怪气 68 / 😐 中性 47 / 😡 负面 24</blockquote>
+<blockquote>跨游戏讨论与水楼瓜帖；水楼/水帖区默认收起，点击展开。</blockquote>
+<details class="post-bucket" open><summary class="bucket-summary">💬 跨游戏讨论（69）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong><a href="https://bbs.nga.cn/read.php?tid=47043505" target="_blank" rel="noopener noreferrer">逆水寒手游微博再度喊话王者荣耀，并在天美楼下请卡车</a></strong> — 108分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI](https://bbs.nga.cn/read.php?tid=40536320)</strong> — 1101分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[米哈游][瓜小味甜]3DM每日新闻因AI互动软件是否锁国区再遭米U团建](https://bbs.nga.cn/read.php?tid=47042198)</strong> — 72分 ｜ 😡 负面 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong><a href="https://bbs.nga.cn/read.php?tid=47043780" target="_blank" rel="noopener noreferrer">rx也放了人设图 感觉被叛忍爆了啊</a></strong> — 54分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵][讨论][杂谈氵]小日子嘉豪哥也吃得下么](https://bbs.nga.cn/read.php?tid=47045475)</strong> — 26分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[提问]ios小丑牌建议玩国区吗](https://bbs.nga.cn/read.php?tid=47042966)</strong> — 10分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[公告][官方漫画]6/22日BOGO合集](https://bbs.nga.cn/read.php?tid=47044741)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[公告][更新公告]盛夏派对季开启！上船即领初心卡池500抽](https://bbs.nga.cn/read.php?tid=47043690)</strong> — 8分 ｜ 😡 负面 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[提问]求大佬们帮忙看看哪个好些？](https://bbs.nga.cn/read.php?tid=47043157)</strong> — 8分 ｜ 😡 负面 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[活动]协同作战，活跃玩家，找个回归玩家绑定。](https://bbs.nga.cn/read.php?tid=47042793)</strong> — 6分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[搬运]谁说不是呢](https://bbs.nga.cn/read.php?tid=47049750)</strong> — 736分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[安利]2026年买断制单机手游资讯集中贴](https://bbs.nga.cn/read.php?tid=45915465)</strong> — 720分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[新瓜]回旋镖:战舰少女联动南京舰疑似非官方机构联动](https://bbs.nga.cn/read.php?tid=46675781)</strong> — 598分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[讨论]SCP-CN-NGA-4047 ——'手游综合版的回声'](https://bbs.nga.cn/read.php?tid=47048638)</strong> — 502分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[讨论]什么时候狠狠出sp角色，想看本家和续作粉友好互动了。](https://bbs.nga.cn/read.php?tid=47049313)</strong> — 448分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[提问]边狱巴士这游戏好玩吗？看了视频完全看不懂](https://bbs.nga.cn/read.php?tid=47048291)</strong> — 402分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong><a href="https://bbs.nga.cn/read.php?tid=42632278" target="_blank" rel="noopener noreferrer">pjsk养老记录</a></strong> — 344分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong><a href="https://bbs.nga.cn/read.php?tid=47049782" target="_blank" rel="noopener noreferrer">夸夸567这款游戏好的内容</a></strong> — 308分 ｜ 😊 正面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[提问]有无公正评判，潮的水温和膨胀速度横向对比到底是什么水平](https://bbs.nga.cn/read.php?tid=47047453)</strong> — 298分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[新瓜]恋与深空上线第六位男主，但社区反响较差](https://bbs.nga.cn/read.php?tid=47033220)</strong> — 294分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong><a href="https://bbs.nga.cn/read.php?tid=47050634" target="_blank" rel="noopener noreferrer">万能的nga来找个游戏</a></strong> — 273分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[新瓜]恋与深空这个“不要在锅里洗澡”没人搬吗](https://bbs.nga.cn/read.php?tid=47051394)</strong> — 238分 ｜ 😡 负面 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[求瓜]B站推广的视频封面混乱](https://bbs.nga.cn/read.php?tid=47050398)</strong> — 238分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong><a href="https://bbs.nga.cn/read.php?tid=47048036" target="_blank" rel="noopener noreferrer">一时间不知道在说谁</a></strong> — 213分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[新瓜]雪松遭遇不明身份的DDos攻击，再再再直播天鹅湖](https://bbs.nga.cn/read.php?tid=47048829)</strong> — 209分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[新瓜]乙游乐子小瓜一则，恋与深空首次声明所有男主都是异性恋](https://bbs.nga.cn/read.php?tid=47033193)</strong> — 192分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[游戏综合讨论][闲聊杂谈]卡牌动态对战游戏《激战：大牌英雄》全球首曝！预约抽AirPod和京东卡奖品](https://bbs.nga.cn/read.php?tid=47000965)</strong> — 182分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[英雄互娱]二重螺旋新版本强推社交、强势回收掉率书，竞争型联机利好工作室与外挂，连续自刎归天](https://bbs.nga.cn/read.php?tid=47010345)</strong> — 152分 ｜ 😏 阴阳怪气 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[新瓜]中国企业全球影响力100强名单发布，游戏行业唯有一家上榜](https://bbs.nga.cn/read.php?tid=46977645)</strong> — 146分 ｜ 😐 中性 ｜ 来源：二游核心论坛-瓜版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[搬运]拂晓：胜利之刻丨舰灵生日楼](https://bbs.nga.cn/read.php?tid=45165790)</strong> — 144分 ｜ 😡 负面 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+</ol>
+<blockquote><em>…及其他 39 条跨游戏讨论，请参见底部全量表。</em></blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">🌊 水楼/水帖（79，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵]都提Wow了，说个暴论：MHY是极速版暴雪，有感觉么](https://bbs.nga.cn/read.php?tid=47041666)</strong> — 234分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵]完了，b萌要变成二游大战了](https://bbs.nga.cn/read.php?tid=47042557)</strong> — 86分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵]因缘精灵有点逆天了，别到时候这些角色跟刃和银枝一样建模改都不改就端上来](https://bbs.nga.cn/read.php?tid=47045783)</strong> — 80分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵]二游有没有出招的时候把技能名字喊出来的？](https://bbs.nga.cn/read.php?tid=47045573)</strong> — 80分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[杂谈氵]越凉的二游卖的皮肤就越清凉，有没有反例啊？](https://bbs.nga.cn/read.php?tid=47043160)</strong> — 58分 ｜ 😊 正面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[杂谈氵]收集下二游一些奇奇怪怪的名词](https://bbs.nga.cn/read.php?tid=47045605)</strong> — 56分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵]刚刚在b站看了个视频，原来现在二游社区还是有净土的啊](https://bbs.nga.cn/read.php?tid=47043659)</strong> — 54分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[杂谈氵]难怪有点乖啊，原来也不是第一次了。](https://bbs.nga.cn/read.php?tid=47045701)</strong> — 46分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[破事氵]诛仙世界都活了啊](https://bbs.nga.cn/read.php?tid=47043423)</strong> — 34分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]活跃玩家找回归，每天上线做完日常。](https://bbs.nga.cn/read.php?tid=47045641)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]每日活跃打满来个回归玩家](https://bbs.nga.cn/read.php?tid=47045443)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]协同求个回归玩家](https://bbs.nga.cn/read.php?tid=47044816)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]活跃求回归](https://bbs.nga.cn/read.php?tid=47044801)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]开服老登求个回归新人](https://bbs.nga.cn/read.php?tid=47043775)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]协同-活跃求回归玩家。](https://bbs.nga.cn/read.php?tid=47043177)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🆕 <strong>[[招募]开服老登来个回归协同](https://bbs.nga.cn/read.php?tid=47041067)</strong> — 8分 ｜ 😐 中性 ｜ 来源：上线游戏讨论版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]撞死西洛克的那个男人，人气是真的高吧](https://bbs.nga.cn/read.php?tid=47049140)</strong> — 693分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]库狗在手综已经一手遮天了有感觉吗](https://bbs.nga.cn/read.php?tid=47050251)</strong> — 658分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]手游知名制作人宣讲内容回忆节录](https://bbs.nga.cn/read.php?tid=47049577)</strong> — 651分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]渔白黑米被两拨人疯狂攻击造谣，你猜另一拨人是谁？](https://bbs.nga.cn/read.php?tid=47050082)</strong> — 623分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]相映成趣有感觉吗？](https://bbs.nga.cn/read.php?tid=47050048)</strong> — 623分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]吃血狼瓜再次被逗乐](https://bbs.nga.cn/read.php?tid=47049259)</strong> — 588分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]卡缪这角色看起来真的有够丑的](https://bbs.nga.cn/read.php?tid=47049424)</strong> — 581分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]论为什么我在社区大战中偏向kl](https://bbs.nga.cn/read.php?tid=47049268)</strong> — 567分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]如何评价卡缪干员叙事的点赞投币比例高于伊冯甚至庄方宜？](https://bbs.nga.cn/read.php?tid=47049382)</strong> — 567分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]为什么连“这简直就是我”都不能说啊？](https://bbs.nga.cn/read.php?tid=47050662)</strong> — 553分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]这合约确实是主心骨啊](https://bbs.nga.cn/read.php?tid=47049650)</strong> — 525分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]话说大家还记不记得籽岷](https://bbs.nga.cn/read.php?tid=47051048)</strong> — 518分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]kù gǒu现在怎么在手综风评这么低](https://bbs.nga.cn/read.php?tid=47050325)</strong> — 483分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]我真的想问？二游的凹分和竞速玩法到底有什么魔咒？](https://bbs.nga.cn/read.php?tid=47050552)</strong> — 483分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]说实话，挺震撼的](https://bbs.nga.cn/read.php?tid=47048641)</strong> — 454分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[求推荐]有没有金发大奶御姐的二游推荐](https://bbs.nga.cn/read.php?tid=47050045)</strong> — 413分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]木柜子乐队ip的新游内测了，各位怎么看](https://bbs.nga.cn/read.php?tid=47049744)</strong> — 413分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]最背刺黄牛的一集](https://bbs.nga.cn/read.php?tid=47049842)</strong> — 413分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]谈谈玩这么多年游戏第一次主动厌恶并想攻击一个社区](https://bbs.nga.cn/read.php?tid=47048567)</strong> — 412分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔄 <strong>[[国烤记录氵]也开个记录贴，主要是攒水](https://bbs.nga.cn/read.php?tid=45860778)</strong> — 372分 ｜ 😡 负面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]库洛终于出手打击3.5的内鬼搬运了](https://bbs.nga.cn/read.php?tid=47048820)</strong> — 366分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]到底什么是游戏高级感](https://bbs.nga.cn/read.php?tid=47049881)</strong> — 357分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]567这粉丝数到底是为何啊](https://bbs.nga.cn/read.php?tid=47048367)</strong> — 357分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]数据求证记录贴，关于几个主流3d游戏的队伍膨胀合水温](https://bbs.nga.cn/read.php?tid=47051478)</strong> — 343分 ｜ 😊 正面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]有个地方叫玄武国，那里面有令人闻风丧胆的暗影刺客](https://bbs.nga.cn/read.php?tid=47049852)</strong> — 343分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]别的二游玩家都想尽办法瑟瑟的同时某大尺度游戏反而没人瑟瑟](https://bbs.nga.cn/read.php?tid=47050182)</strong> — 329分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]舟本体怒潮凛冬的立绘没起过节奏吗？](https://bbs.nga.cn/read.php?tid=47049606)</strong> — 329分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]现在还有多坑玩家有勇气进专版吗](https://bbs.nga.cn/read.php?tid=47048482)</strong> — 303分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵][破事氵]怎么大家都在对着哈气，这还是我印象里的手综吗](https://bbs.nga.cn/read.php?tid=47051372)</strong> — 273分 ｜ 😊 正面 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]有点怀念某个小人物了](https://bbs.nga.cn/read.php?tid=47050399)</strong> — 273分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[杂谈氵]编辑了](https://bbs.nga.cn/read.php?tid=47050621)</strong> — 273分 ｜ 😐 中性 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]什么叫搜打撤游戏中开宝箱可以爆出角色的原味袜子](https://bbs.nga.cn/read.php?tid=47049817)</strong> — 273分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]是不是国内MineCraft的热度真不行了，头部主播都转二游了](https://bbs.nga.cn/read.php?tid=47048214)</strong> — 263分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary">🔥 <strong>[[破事氵]惹厕妹不高兴了怎么办](https://bbs.nga.cn/read.php?tid=47050400)</strong> — 238分 ｜ 😏 阴阳怪气 ｜ 来源：手综版</summary><div class="post-detail"></div></details></li>
+</ol>
+<blockquote><em>…及其他 29 条水楼/水帖，请参见底部全量表。</em></blockquote>
+</details>
+</details>
+<h2 id="全量帖子列表-按展示优先级排序">📋 全量帖子列表（按展示优先级排序）</h2>
+<div class="full-post-list">
+<article class="post-list-card"><div class="post-rank">#1</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=38757044" target="_blank" rel="noopener noreferrer">[评分]《少女前线2：追放》</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">少女前线2</span><span>热度 1650</span><span>游戏瓜</span><span>😊</span><span>820 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#2</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46913868" target="_blank" rel="noopener noreferrer">[新瓜]不知何故，近期终末地官号加速掉粉</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">明日方舟：终末地</span><span>热度 1628</span><span>游戏瓜</span><span>😏</span><span>814 回复</span><span>作者：zaladxixi</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#3</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47042195" target="_blank" rel="noopener noreferrer">[破事氵]观鸣潮3.1有感</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">鸣潮</span><span>热度 314</span><span>游戏瓜</span><span>😐</span><span>157 回复</span><span>作者：龙之ZERO</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#4</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47041073" target="_blank" rel="noopener noreferrer">[少女前线]2026年了还有从上到下全是二手屎的顶级媒体</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">少女前线2</span><span>热度 310</span><span>游戏瓜</span><span>😏</span><span>155 回复</span><span>作者：六院院长0411</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#5</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47041666" target="_blank" rel="noopener noreferrer">[破事氵]都提Wow了，说个暴论：MHY是极速版暴雪，有感觉…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 234</span><span>游戏瓜</span><span>😐</span><span>117 回复</span><span>作者：神之戾</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#6</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044196" target="_blank" rel="noopener noreferrer">[破事氵]游戏反对者不愿意说游戏原名的习惯是什么时候开始的</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">鸣潮</span><span>热度 206</span><span>其他</span><span>😐</span><span>103 回复</span><span>作者：不得不品鉴的一…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#7</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044177" target="_blank" rel="noopener noreferrer">[破事氵]当年少前也有类似的高难模式，可惜后来僵化了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">少女前线2</span><span>热度 178</span><span>游戏瓜</span><span>😏</span><span>89 回复</span><span>作者：弥撒亚选集</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#8</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043822" target="_blank" rel="noopener noreferrer">[破事氵][杂谈氵]看看小异环1.2谁变成乐子</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">异环</span><span>热度 142</span><span>游戏瓜</span><span>😏</span><span>71 回复</span><span>作者：JKFIOU452</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#9</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043505" target="_blank" rel="noopener noreferrer">逆水寒手游微博再度喊话王者荣耀，并在天美楼下请卡车</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 108</span><span>游戏瓜</span><span>😐</span><span>54 回复</span><span>作者：甘棠鸣乔</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#10</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47041801" target="_blank" rel="noopener noreferrer">[厂商]鹰角社区森空岛国服外服区别对待</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">明日方舟</span><span>热度 102</span><span>主播瓜</span><span>😐</span><span>51 回复</span><span>作者：糯鱼仔</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#11</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=40536320" target="_blank" rel="noopener noreferrer">[杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 1101</span><span>厂商瓜</span><span>😐</span><span>548 回复</span><span>作者：糖辛子</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#12</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46997881" target="_blank" rel="noopener noreferrer">[少女前线]腾讯采访羽中</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">少女前线2</span><span>热度 1100</span><span>游戏瓜</span><span>😐</span><span>550 回复</span><span>作者：六院院长0411</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#13</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044453" target="_blank" rel="noopener noreferrer">怎么感觉最近说鸣潮角色月抛的少了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">鸣潮</span><span>热度 96</span><span>游戏瓜</span><span>😐</span><span>48 回复</span><span>作者：月儿弯弯绕枝头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#14</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46047326" target="_blank" rel="noopener noreferrer">[评分]《明日方舟：终末地》</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">明日方舟：终末地</span><span>热度 1090</span><span>游戏瓜</span><span>😏</span><span>540 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#15</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47042557" target="_blank" rel="noopener noreferrer">[破事氵]完了，b萌要变成二游大战了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 86</span><span>社区瓜</span><span>😏</span><span>43 回复</span><span>作者：Moe_Chiya</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#16</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47041941" target="_blank" rel="noopener noreferrer">[新瓜][鹰角][瓜小味甜]明日方舟终末地，森空岛危机合约[…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">明日方舟：终末地</span><span>热度 84</span><span>游戏瓜</span><span>😡</span><span>42 回复</span><span>作者：大石碎胸口p</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#17</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044625" target="_blank" rel="noopener noreferrer">[求推荐]燕云和绝区零二选一的话哪个好玩点啊？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">绝区零</span><span>热度 82</span><span>游戏瓜</span><span>😏</span><span>41 回复</span><span>作者：sd5757908</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#18</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045783" target="_blank" rel="noopener noreferrer">[破事氵]因缘精灵有点逆天了，别到时候这些角色跟刃和银枝一样…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 80</span><span>游戏瓜</span><span>😏</span><span>40 回复</span><span>作者：Qq189622</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#19</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045573" target="_blank" rel="noopener noreferrer">[破事氵]二游有没有出招的时候把技能名字喊出来的？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 80</span><span>其他</span><span>😐</span><span>40 回复</span><span>作者：Moe_Chiya</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#20</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47042198" target="_blank" rel="noopener noreferrer">[米哈游][瓜小味甜]3DM每日新闻因AI互动软件是否锁国区…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 72</span><span>游戏瓜</span><span>😡</span><span>36 回复</span><span>作者：怼渊鏡</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#21</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043160" target="_blank" rel="noopener noreferrer">[杂谈氵]越凉的二游卖的皮肤就越清凉，有没有反例啊？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 58</span><span>游戏瓜</span><span>😊</span><span>29 回复</span><span>作者：卡特尔改刀王</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#22</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045605" target="_blank" rel="noopener noreferrer">[杂谈氵]收集下二游一些奇奇怪怪的名词</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 56</span><span>游戏瓜</span><span>😐</span><span>28 回复</span><span>作者：x77777771111i</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#23</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043780" target="_blank" rel="noopener noreferrer">rx也放了人设图 感觉被叛忍爆了啊</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 54</span><span>游戏瓜</span><span>😐</span><span>27 回复</span><span>作者：miyama</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#24</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043659" target="_blank" rel="noopener noreferrer">[破事氵]刚刚在b站看了个视频，原来现在二游社区还是有净土的…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 54</span><span>主播瓜</span><span>😡</span><span>27 回复</span><span>作者：charlie1998…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#25</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045701" target="_blank" rel="noopener noreferrer">[杂谈氵]难怪有点乖啊，原来也不是第一次了。</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 46</span><span>游戏瓜</span><span>😐</span><span>23 回复</span><span>作者：patron134340</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#26</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043423" target="_blank" rel="noopener noreferrer">[破事氵]诛仙世界都活了啊</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 34</span><span>其他</span><span>😐</span><span>17 回复</span><span>作者：tuqimaste…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#27</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045475" target="_blank" rel="noopener noreferrer">[破事氵][讨论][杂谈氵]小日子嘉豪哥也吃得下么</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 26</span><span>游戏瓜</span><span>😐</span><span>13 回复</span><span>作者：JKFIOU452</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#28</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044652" target="_blank" rel="noopener noreferrer">[FGO]之前的积分商城终于要开放兑换了</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">FGO</span><span>热度 24</span><span>游戏瓜</span><span>😡</span><span>12 回复</span><span>作者：洒在天空</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#29</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47042966" target="_blank" rel="noopener noreferrer">[提问]ios小丑牌建议玩国区吗</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 10</span><span>游戏瓜</span><span>😐</span><span>5 回复</span><span>作者：kylin2030</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#30</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045641" target="_blank" rel="noopener noreferrer">[招募]活跃玩家找回归，每天上线做完日常。</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：鸡肉卷大沙壁</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#31</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47045443" target="_blank" rel="noopener noreferrer">[招募]每日活跃打满来个回归玩家</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：Qi。</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#32</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044816" target="_blank" rel="noopener noreferrer">[招募]协同求个回归玩家</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：好吧。我真是kk</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#33</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044801" target="_blank" rel="noopener noreferrer">[招募]活跃求回归</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：龙宫笑三少</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#34</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47044741" target="_blank" rel="noopener noreferrer">[公告][官方漫画]6/22日BOGO合集</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：创世知火</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#35</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043775" target="_blank" rel="noopener noreferrer">[招募]开服老登求个回归新人</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>游戏瓜</span><span>😐</span><span>4 回复</span><span>作者：crimsonja…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#36</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043690" target="_blank" rel="noopener noreferrer">[公告][更新公告]盛夏派对季开启！上船即领初心卡池500抽</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>游戏瓜</span><span>😡</span><span>4 回复</span><span>作者：热血航线乔小巴</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#37</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043177" target="_blank" rel="noopener noreferrer">[招募]协同-活跃求回归玩家。</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：modias</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#38</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47043157" target="_blank" rel="noopener noreferrer">[提问]求大佬们帮忙看看哪个好些？</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😡</span><span>4 回复</span><span>作者：吉拉顿</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#39</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47041067" target="_blank" rel="noopener noreferrer">[招募]开服老登来个回归协同</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>游戏瓜</span><span>😐</span><span>4 回复</span><span>作者：KKsuccu</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#40</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47042793" target="_blank" rel="noopener noreferrer">[活动]协同作战，活跃玩家，找个回归玩家绑定。</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 6</span><span>游戏瓜</span><span>😐</span><span>3 回复</span><span>作者：ss1990131</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#41</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049750" target="_blank" rel="noopener noreferrer">[搬运]谁说不是呢</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 736</span><span>其他</span><span>😡</span><span>123 回复</span><span>作者：undrogu</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#42</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=45915465" target="_blank" rel="noopener noreferrer">[安利]2026年买断制单机手游资讯集中贴</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 720</span><span>厂商瓜</span><span>😏</span><span>360 回复</span><span>作者：seabigtig…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#43</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049140" target="_blank" rel="noopener noreferrer">[破事氵]撞死西洛克的那个男人，人气是真的高吧</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 693</span><span>游戏瓜</span><span>😏</span><span>99 回复</span><span>作者：五言长</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#44</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051036" target="_blank" rel="noopener noreferrer">[杂谈氵]刚过完异环红字的研究主线，真情流露一下</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">异环</span><span>热度 658</span><span>社区瓜</span><span>😏</span><span>94 回复</span><span>作者：白金回旋</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#45</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050251" target="_blank" rel="noopener noreferrer">[破事氵]库狗在手综已经一手遮天了有感觉吗</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 658</span><span>游戏瓜</span><span>😏</span><span>94 回复</span><span>作者：莲与茉</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#46</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049577" target="_blank" rel="noopener noreferrer">[杂谈氵]手游知名制作人宣讲内容回忆节录</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 651</span><span>厂商瓜</span><span>😏</span><span>93 回复</span><span>作者：一吃就胖小和平</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#47</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050588" target="_blank" rel="noopener noreferrer">[厂商]EPIC：steam和v社永远接触不到《原神》等顶级…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">原神</span><span>热度 623</span><span>游戏瓜</span><span>😏</span><span>89 回复</span><span>作者：烙印融合</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#48</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050082" target="_blank" rel="noopener noreferrer">[杂谈氵]渔白黑米被两拨人疯狂攻击造谣，你猜另一拨人是谁？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 623</span><span>厂商瓜</span><span>😏</span><span>89 回复</span><span>作者：蓝软黄鹤楼</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#49</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050048" target="_blank" rel="noopener noreferrer">[破事氵]相映成趣有感觉吗？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 623</span><span>其他</span><span>😏</span><span>89 回复</span><span>作者：大石碎胸口p</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#50</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46675781" target="_blank" rel="noopener noreferrer">[新瓜]回旋镖:战舰少女联动南京舰疑似非官方机构联动</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 598</span><span>游戏瓜</span><span>😏</span><span>299 回复</span><span>作者：混沌霊使い妮芙</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#51</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049259" target="_blank" rel="noopener noreferrer">[破事氵]吃血狼瓜再次被逗乐</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 588</span><span>主播瓜</span><span>😏</span><span>84 回复</span><span>作者：Carglio</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#52</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049424" target="_blank" rel="noopener noreferrer">[杂谈氵]卡缪这角色看起来真的有够丑的</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 581</span><span>厂商瓜</span><span>😏</span><span>83 回复</span><span>作者：Mafluon</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#53</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049268" target="_blank" rel="noopener noreferrer">[破事氵]论为什么我在社区大战中偏向kl</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 567</span><span>游戏瓜</span><span>😏</span><span>81 回复</span><span>作者：KC0v0</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#54</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049382" target="_blank" rel="noopener noreferrer">[杂谈氵]如何评价卡缪干员叙事的点赞投币比例高于伊冯甚至庄方…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 567</span><span>主播瓜</span><span>😏</span><span>81 回复</span><span>作者：大石碎胸口p</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#55</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050662" target="_blank" rel="noopener noreferrer">[破事氵]为什么连“这简直就是我”都不能说啊？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 553</span><span>游戏瓜</span><span>😏</span><span>79 回复</span><span>作者：Moe_Chiya</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#56</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049624" target="_blank" rel="noopener noreferrer">[米哈游]崩坏3第二部铺垫了很久的主线角色终于要进卡池了，但…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">崩坏3</span><span>热度 525</span><span>游戏瓜</span><span>😏</span><span>75 回复</span><span>作者：Мой люби…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#57</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049650" target="_blank" rel="noopener noreferrer">[破事氵]这合约确实是主心骨啊</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 525</span><span>主播瓜</span><span>😏</span><span>75 回复</span><span>作者：Primok</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#58</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050922" target="_blank" rel="noopener noreferrer">[杂谈氵][破事氵]继续讨论原神是否达到了他的上限</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">原神</span><span>热度 525</span><span>游戏瓜</span><span>😏</span><span>75 回复</span><span>作者：美希花凛</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#59</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051048" target="_blank" rel="noopener noreferrer">[破事氵]话说大家还记不记得籽岷</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 518</span><span>游戏瓜</span><span>😏</span><span>74 回复</span><span>作者：星界杯开幕式</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#60</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048936" target="_blank" rel="noopener noreferrer">[破事氵]终末地地图产能真低吧？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">明日方舟：终末地</span><span>热度 512</span><span>游戏瓜</span><span>😏</span><span>91 回复</span><span>作者：嗷嗷叫的馒头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#61</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048638" target="_blank" rel="noopener noreferrer">[讨论]SCP-CN-NGA-4047 ——&#x27;手游综合版的回…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 502</span><span>社区瓜</span><span>😏</span><span>191 回复</span><span>作者：我什么都不吃到</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#62</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050325" target="_blank" rel="noopener noreferrer">[杂谈氵]kù gǒu现在怎么在手综风评这么低</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 483</span><span>社区瓜</span><span>😏</span><span>69 回复</span><span>作者：罪孽余烬</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#63</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049627" target="_blank" rel="noopener noreferrer">异环这分镜太难绷了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">异环</span><span>热度 483</span><span>其他</span><span>😏</span><span>69 回复</span><span>作者：YakumoRav…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#64</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050552" target="_blank" rel="noopener noreferrer">[杂谈氵]我真的想问？二游的凹分和竞速玩法到底有什么魔咒？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 483</span><span>游戏瓜</span><span>😏</span><span>69 回复</span><span>作者：武陵名著</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#65</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048641" target="_blank" rel="noopener noreferrer">[破事氵]说实话，挺震撼的</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 454</span><span>主播瓜</span><span>😏</span><span>87 回复</span><span>作者：Zerilying</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#66</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049313" target="_blank" rel="noopener noreferrer">[讨论]什么时候狠狠出sp角色，想看本家和续作粉友好互动了。</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 448</span><span>游戏瓜</span><span>😏</span><span>64 回复</span><span>作者：w569994144</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#67</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46926569" target="_blank" rel="noopener noreferrer">[鹰角][纯搬运][疑似内容]街霸6角色动作模组疑似借鉴明日…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">明日方舟：终末地</span><span>热度 428</span><span>游戏瓜</span><span>😏</span><span>214 回复</span><span>作者：零er零er</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#68</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050045" target="_blank" rel="noopener noreferrer">[求推荐]有没有金发大奶御姐的二游推荐</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 413</span><span>游戏瓜</span><span>😏</span><span>59 回复</span><span>作者：东马雪菜</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#69</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049744" target="_blank" rel="noopener noreferrer">[破事氵]木柜子乐队ip的新游内测了，各位怎么看</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 413</span><span>游戏瓜</span><span>😏</span><span>59 回复</span><span>作者：发生的偶然</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#70</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049842" target="_blank" rel="noopener noreferrer">[杂谈氵]最背刺黄牛的一集</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 413</span><span>其他</span><span>😏</span><span>59 回复</span><span>作者：218Albacore</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#71</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048567" target="_blank" rel="noopener noreferrer">[杂谈氵]谈谈玩这么多年游戏第一次主动厌恶并想攻击一个社区</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 412</span><span>游戏瓜</span><span>😏</span><span>91 回复</span><span>作者：沫sama_</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#72</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048291" target="_blank" rel="noopener noreferrer">[提问]边狱巴士这游戏好玩吗？看了视频完全看不懂</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 402</span><span>游戏瓜</span><span>😏</span><span>71 回复</span><span>作者：fh329047302</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#73</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=45860778" target="_blank" rel="noopener noreferrer">[国烤记录氵]也开个记录贴，主要是攒水</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 372</span><span>游戏瓜</span><span>😡</span><span>186 回复</span><span>作者：月照离亭花似雪</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#74</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048820" target="_blank" rel="noopener noreferrer">[杂谈氵]库洛终于出手打击3.5的内鬼搬运了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 366</span><span>游戏瓜</span><span>😏</span><span>73 回复</span><span>作者：破大防法务部</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#75</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049881" target="_blank" rel="noopener noreferrer">[破事氵]到底什么是游戏高级感</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 357</span><span>游戏瓜</span><span>😏</span><span>51 回复</span><span>作者：当晚</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#76</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048367" target="_blank" rel="noopener noreferrer">[破事氵]567这粉丝数到底是为何啊</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 357</span><span>主播瓜</span><span>😏</span><span>81 回复</span><span>作者：davyts-</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#77</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=42632278" target="_blank" rel="noopener noreferrer">pjsk养老记录</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 344</span><span>游戏瓜</span><span>😡</span><span>172 回复</span><span>作者：APBD</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#78</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051478" target="_blank" rel="noopener noreferrer">[杂谈氵]数据求证记录贴，关于几个主流3d游戏的队伍膨胀合水…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 343</span><span>游戏瓜</span><span>😊</span><span>49 回复</span><span>作者：荒野地荆棘</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#79</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049852" target="_blank" rel="noopener noreferrer">[破事氵]有个地方叫玄武国，那里面有令人闻风丧胆的暗影刺客</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 343</span><span>其他</span><span>😏</span><span>49 回复</span><span>作者：等待胜利</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#80</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050182" target="_blank" rel="noopener noreferrer">[破事氵]别的二游玩家都想尽办法瑟瑟的同时某大尺度游戏反而没…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 329</span><span>其他</span><span>😏</span><span>47 回复</span><span>作者：椰子炖乌鸡</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#81</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049606" target="_blank" rel="noopener noreferrer">[破事氵]舟本体怒潮凛冬的立绘没起过节奏吗？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 329</span><span>游戏瓜</span><span>😏</span><span>47 回复</span><span>作者：嗷嗷叫的馒头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#82</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049782" target="_blank" rel="noopener noreferrer">夸夸567这款游戏好的内容</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 308</span><span>游戏瓜</span><span>😊</span><span>44 回复</span><span>作者：月儿弯弯绕枝头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#83</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048482" target="_blank" rel="noopener noreferrer">[破事氵]现在还有多坑玩家有勇气进专版吗</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 303</span><span>社区瓜</span><span>😏</span><span>74 回复</span><span>作者：Sino鲨鱼</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#84</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047453" target="_blank" rel="noopener noreferrer">[提问]有无公正评判，潮的水温和膨胀速度横向对比到底是什么水…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 298</span><span>游戏瓜</span><span>😏</span><span>149 回复</span><span>作者：高贵的羽中</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#85</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47033220" target="_blank" rel="noopener noreferrer">[新瓜]恋与深空上线第六位男主，但社区反响较差</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 294</span><span>其他</span><span>😐</span><span>147 回复</span><span>作者：learnengl…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#86</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051372" target="_blank" rel="noopener noreferrer">[杂谈氵][破事氵]怎么大家都在对着哈气，这还是我印象里的手…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 273</span><span>游戏瓜</span><span>😊</span><span>39 回复</span><span>作者：美希花凛</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#87</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050399" target="_blank" rel="noopener noreferrer">[破事氵]有点怀念某个小人物了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 273</span><span>厂商瓜</span><span>😏</span><span>39 回复</span><span>作者：嗷嗷叫的馒头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#88</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050621" target="_blank" rel="noopener noreferrer">[杂谈氵]编辑了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 273</span><span>其他</span><span>😐</span><span>39 回复</span><span>作者：破大防法务部</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#89</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050153" target="_blank" rel="noopener noreferrer">[杂谈氵]EPIC总裁评价原神玩家为“顶级玩家群体”</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">原神</span><span>热度 273</span><span>游戏瓜</span><span>😡</span><span>39 回复</span><span>作者：Centuatio…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#90</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050634" target="_blank" rel="noopener noreferrer">万能的nga来找个游戏</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 273</span><span>社区瓜</span><span>😐</span><span>39 回复</span><span>作者：米粒糕</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#91</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049817" target="_blank" rel="noopener noreferrer">[破事氵]什么叫搜打撤游戏中开宝箱可以爆出角色的原味袜子</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 273</span><span>厂商瓜</span><span>😏</span><span>39 回复</span><span>作者：今天问题很大</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#92</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47002622" target="_blank" rel="noopener noreferrer">[新瓜]尘白禁区新版本至少延期至7月16日，尘白禁区粉丝全面…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">尘白禁区</span><span>热度 270</span><span>游戏瓜</span><span>😏</span><span>135 回复</span><span>作者：baffelle</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#93</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048214" target="_blank" rel="noopener noreferrer">[破事氵]是不是国内MineCraft的热度真不行了，头部主…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 263</span><span>主播瓜</span><span>😏</span><span>79 回复</span><span>作者：青衫酒仙</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#94</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050274" target="_blank" rel="noopener noreferrer">[破事氵]少前2最近是有个忤逆小队相关的节奏吗</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">少女前线2</span><span>热度 245</span><span>社区瓜</span><span>😏</span><span>35 回复</span><span>作者：早赖尿邮箱</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#95</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46635565" target="_blank" rel="noopener noreferrer">[评分]《异环》</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">异环</span><span>热度 240</span><span>其他</span><span>😏</span><span>120 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#96</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051394" target="_blank" rel="noopener noreferrer">[新瓜]恋与深空这个“不要在锅里洗澡”没人搬吗</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 238</span><span>主播瓜</span><span>😡</span><span>34 回复</span><span>作者：朵丶七</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#97</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050398" target="_blank" rel="noopener noreferrer">[求瓜]B站推广的视频封面混乱</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 238</span><span>主播瓜</span><span>😏</span><span>34 回复</span><span>作者：怀表孤鸣</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#98</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050400" target="_blank" rel="noopener noreferrer">[破事氵]惹厕妹不高兴了怎么办</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 238</span><span>厂商瓜</span><span>😏</span><span>34 回复</span><span>作者：某弗恩</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#99</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46933142" target="_blank" rel="noopener noreferrer">[燕云十六声]梁山伯与祝英台变男同</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">燕云十六声</span><span>热度 230</span><span>其他</span><span>😐</span><span>115 回复</span><span>作者：Briwledge</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#100</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=40272873" target="_blank" rel="noopener noreferrer">[评分]《鸣潮》</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">鸣潮</span><span>热度 2452</span><span>游戏瓜</span><span>😏</span><span>1221 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#101</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47017471" target="_blank" rel="noopener noreferrer">[杂谈氵]来展示一下下大家正在玩的手游吧</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">王者荣耀世界</span><span>热度 214</span><span>游戏瓜</span><span>😐</span><span>107 回复</span><span>作者：星野神威</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#102</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048036" target="_blank" rel="noopener noreferrer">一时间不知道在说谁</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 213</span><span>其他</span><span>😏</span><span>94 回复</span><span>作者：窗外有蜘蛛</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#103</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051182" target="_blank" rel="noopener noreferrer">[破事氵]生动形象的展示了何为高级感</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 210</span><span>其他</span><span>😏</span><span>30 回复</span><span>作者：undrogu</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#104</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048829" target="_blank" rel="noopener noreferrer">[新瓜]雪松遭遇不明身份的DDos攻击，再再再直播天鹅湖</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 209</span><span>游戏瓜</span><span>😏</span><span>37 回复</span><span>作者：DEeEeEEel…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#105</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47033193" target="_blank" rel="noopener noreferrer">[新瓜]乙游乐子小瓜一则，恋与深空首次声明所有男主都是异性恋</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 192</span><span>主播瓜</span><span>😏</span><span>96 回复</span><span>作者：多情红尘客</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#106</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050387" target="_blank" rel="noopener noreferrer">[破事氵]所谓的热爱联盟到底对123做了什么</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 189</span><span>主播瓜</span><span>😏</span><span>27 回复</span><span>作者：Engipart</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#107</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051112" target="_blank" rel="noopener noreferrer">[破事氵]要我说，这是学习了姐姐社区的“美德”导致的</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 189</span><span>游戏瓜</span><span>😏</span><span>27 回复</span><span>作者：Vensus</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#108</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050477" target="_blank" rel="noopener noreferrer">[破事氵]今年的独角兽榜来了 好像少了谁</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 189</span><span>游戏瓜</span><span>😏</span><span>27 回复</span><span>作者：mrgzgch488</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#109</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47046438" target="_blank" rel="noopener noreferrer">[破事氵]每年库洛需要给腾讯多少分红啊</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">明日方舟：终末地</span><span>热度 188</span><span>游戏瓜</span><span>😏</span><span>89 回复</span><span>作者：ByeAvdoty…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#110</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47000965" target="_blank" rel="noopener noreferrer">[游戏综合讨论][闲聊杂谈]卡牌动态对战游戏《激战：大牌英雄…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 182</span><span>游戏瓜</span><span>😡</span><span>91 回复</span><span>作者：PolygonPa…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#111</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47011543" target="_blank" rel="noopener noreferrer">[瓜小味甜]3DM专访碧蓝幻想relink文章遭米U团建</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">碧蓝航线</span><span>热度 176</span><span>游戏瓜</span><span>😏</span><span>88 回复</span><span>作者：VAthdeaz</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#112</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050310" target="_blank" rel="noopener noreferrer">[杂谈氵]和探索的意义一样，我也有些不懂自己配队摸索排轴的意…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 168</span><span>游戏瓜</span><span>😏</span><span>24 回复</span><span>作者：贺鹤赫颌</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#113</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049618" target="_blank" rel="noopener noreferrer">[杂谈氵]跑到官号下面特地找骂也是挺神奇的脑回路</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 168</span><span>其他</span><span>😐</span><span>24 回复</span><span>作者：一封6657</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#114</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050474" target="_blank" rel="noopener noreferrer">[破事氵]nga手综发帖规则怪谈</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 161</span><span>社区瓜</span><span>😏</span><span>23 回复</span><span>作者：代号73937</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#115</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46935308" target="_blank" rel="noopener noreferrer">[王者荣耀世界]“侄”变“姪”</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">王者荣耀世界</span><span>热度 158</span><span>游戏瓜</span><span>😐</span><span>79 回复</span><span>作者：Briwledge</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#116</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050885" target="_blank" rel="noopener noreferrer">[破事氵]异环赚钱了能不能反哺一下哥哥姐姐</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">异环</span><span>热度 154</span><span>游戏瓜</span><span>😏</span><span>22 回复</span><span>作者：Crerapat</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#117</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47010345" target="_blank" rel="noopener noreferrer">[英雄互娱]二重螺旋新版本强推社交、强势回收掉率书，竞争型联…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 152</span><span>游戏瓜</span><span>😏</span><span>76 回复</span><span>作者：孤胆飞客</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#118</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047542" target="_blank" rel="noopener noreferrer">[杂谈氵]又到了我最爱的许愿时间嘻嘻嘻嘻</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 150</span><span>其他</span><span>😏</span><span>55 回复</span><span>作者：Karakuri P…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#119</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46977645" target="_blank" rel="noopener noreferrer">[新瓜]中国企业全球影响力100强名单发布，游戏行业唯有一家…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 146</span><span>游戏瓜</span><span>😐</span><span>73 回复</span><span>作者：重庆刘德发</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#120</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=45165790" target="_blank" rel="noopener noreferrer">[搬运]拂晓：胜利之刻丨舰灵生日楼</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 144</span><span>其他</span><span>😡</span><span>72 回复</span><span>作者：月影重制版</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#121</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47023433" target="_blank" rel="noopener noreferrer">[疑似内容][周边]茶饮品牌茉莉奶白，恋与深空联名活动直接爆…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 142</span><span>游戏瓜</span><span>😐</span><span>71 回复</span><span>作者：baffelle</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#122</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47008684" target="_blank" rel="noopener noreferrer">[新瓜][卡厄斯梦境]ai小画师魅力时刻之吃蛋糕</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 142</span><span>其他</span><span>😐</span><span>71 回复</span><span>作者：nanami0015</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#123</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047229" target="_blank" rel="noopener noreferrer">[提问]卡厄思梦境好玩吗？逼氪吗？国服还是国际服</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 142</span><span>游戏瓜</span><span>😡</span><span>71 回复</span><span>作者：Dreamivme</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#124</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047312" target="_blank" rel="noopener noreferrer">[破事氵]游戏质量真的会影响玩家群体的性质</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 138</span><span>游戏瓜</span><span>😏</span><span>44 回复</span><span>作者：DoRi777</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#125</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047773" target="_blank" rel="noopener noreferrer">[破事氵]我就说，某些社区入脑的，已经彻底无底线到这种地步了…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 138</span><span>主播瓜</span><span>😏</span><span>69 回复</span><span>作者：星檬晓</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#126</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049561" target="_blank" rel="noopener noreferrer">[疑似内容]6月25号，大量小厂手游遭遇ddos攻击</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 133</span><span>其他</span><span>😐</span><span>19 回复</span><span>作者：集日知</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#127</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051486" target="_blank" rel="noopener noreferrer">[杂谈氵]有的时候“高级感”是一种懂的人看了会感到无奈的东西</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">1999</span><span>热度 133</span><span>主播瓜</span><span>😏</span><span>19 回复</span><span>作者：ByeAvdoty…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#128</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049686" target="_blank" rel="noopener noreferrer">[杂谈氵]这个原贴在哪，被删了吗，想要膜拜一下</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 133</span><span>其他</span><span>😊</span><span>19 回复</span><span>作者：玉玉物语</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#129</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049455" target="_blank" rel="noopener noreferrer">[杂谈氵]看到乙游玩家动不动拐腐有感，福瑞和男同的重合还是有…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 133</span><span>社区瓜</span><span>😏</span><span>19 回复</span><span>作者：在沉默的时候</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#130</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047571" target="_blank" rel="noopener noreferrer">为什么老用流水攻击567</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 130</span><span>游戏瓜</span><span>😏</span><span>65 回复</span><span>作者：月儿弯弯绕枝头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#131</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047330" target="_blank" rel="noopener noreferrer">[破事氵]大家来看看</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 126</span><span>其他</span><span>😡</span><span>63 回复</span><span>作者：魔幻飞板</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#132</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46073497" target="_blank" rel="noopener noreferrer">尝试开个记录贴</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 124</span><span>其他</span><span>😏</span><span>62 回复</span><span>作者：格子长衣</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#133</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47046805" target="_blank" rel="noopener noreferrer">[破事氵]有人玩现在免费榜第一的天堂盟约吗？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 123</span><span>游戏瓜</span><span>😐</span><span>24 回复</span><span>作者：暗夜月影</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#134</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=29135891" target="_blank" rel="noopener noreferrer">[猴区，爱马仕水楼]欢迎各位P继续讨论</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 71854</span><span>其他</span><span>😐</span><span>35927 回复</span><span>作者：川内大爱</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#135</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=44995209" target="_blank" rel="noopener noreferrer">[安利]《Torncity》佛系挂机养成，硬核策略博弈，总有…</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 17252</span><span>社区瓜</span><span>😏</span><span>8626 回复</span><span>作者：palm1985</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#136</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47002196" target="_blank" rel="noopener noreferrer">[人事变动]代号鸢总制作人疑似跳槽米哈游子公司</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 120</span><span>厂商瓜</span><span>😡</span><span>60 回复</span><span>作者：Yaoiii615</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#137</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048733" target="_blank" rel="noopener noreferrer">[破事氵]古语有云</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 118</span><span>游戏瓜</span><span>😊</span><span>59 回复</span><span>作者：嗷嗷叫的馒头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#138</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047674" target="_blank" rel="noopener noreferrer">[杂谈氵]为什么有的专区点进去永远有帖子拉踩别的游戏</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 110</span><span>其他</span><span>😏</span><span>40 回复</span><span>作者：会飞的大虫</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#139</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46982646" target="_blank" rel="noopener noreferrer">[新瓜]有手游角色算手游瓜，2026年第一季度蓝p站作品数据…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 108</span><span>其他</span><span>😐</span><span>54 回复</span><span>作者：千早钢板</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#140</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047969" target="_blank" rel="noopener noreferrer">[破事氵]燕云大版本更新预告三套新时装，两套男女同模</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">燕云十六声</span><span>热度 104</span><span>游戏瓜</span><span>😡</span><span>27 回复</span><span>作者：萱时令</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#141</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47009680" target="_blank" rel="noopener noreferrer">[疑似内容][新瓜]潜水员戴夫新dlc出现鸣潮相关彩蛋</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">鸣潮</span><span>热度 102</span><span>游戏瓜</span><span>😏</span><span>51 回复</span><span>作者：铁葬花</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#142</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051110" target="_blank" rel="noopener noreferrer">[提问]闲鱼现在上的初始号是不是风险很大</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 98</span><span>游戏瓜</span><span>😡</span><span>14 回复</span><span>作者：贪吃的吃撑</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#143</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047974" target="_blank" rel="noopener noreferrer">[破事氵]什么叫被刺氪佬，有人能给我解释一下嘛</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 98</span><span>游戏瓜</span><span>😏</span><span>49 回复</span><span>作者：祈雨芒果桃</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#144</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47028300" target="_blank" rel="noopener noreferrer">[破事氵]真羡慕那些觉得竞品多的</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 94</span><span>游戏瓜</span><span>😐</span><span>47 回复</span><span>作者：x77777771111i</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#145</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47032852" target="_blank" rel="noopener noreferrer">[新瓜][雪松]致敬传奇斯拉夫活动:一出事就播天鹅湖</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 86</span><span>游戏瓜</span><span>😡</span><span>43 回复</span><span>作者：吃饭的停车费</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#146</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46921761" target="_blank" rel="noopener noreferrer">王者荣耀世界到底算一个什么价格的游戏</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">王者荣耀世界</span><span>热度 80</span><span>游戏瓜</span><span>😡</span><span>40 回复</span><span>作者：fushsj</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#147</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048803" target="_blank" rel="noopener noreferrer">[破事氵]新角色咋样？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 78</span><span>其他</span><span>😏</span><span>14 回复</span><span>作者：Takanaa</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#148</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048948" target="_blank" rel="noopener noreferrer">[破事氵]雪松这游戏太有梗了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 73</span><span>其他</span><span>😏</span><span>24 回复</span><span>作者：Senvec</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#149</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47039569" target="_blank" rel="noopener noreferrer">这高考真是国人底层逻辑吧</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 70</span><span>其他</span><span>😡</span><span>35 回复</span><span>作者：窗外有蜘蛛</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#150</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46213946" target="_blank" rel="noopener noreferrer">[破事氵]潜水员戴夫太恐怖了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 68</span><span>厂商瓜</span><span>😏</span><span>34 回复</span><span>作者：好想中彩票</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#151</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048794" target="_blank" rel="noopener noreferrer">[破事氵]今日雪松，依旧舞鹅</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 68</span><span>厂商瓜</span><span>😏</span><span>34 回复</span><span>作者：ペンギンの島に…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#152</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47030841" target="_blank" rel="noopener noreferrer">[破事氵]感觉望月尬住了啊</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 66</span><span>游戏瓜</span><span>😏</span><span>33 回复</span><span>作者：殷明风</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#153</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050260" target="_blank" rel="noopener noreferrer">[破事氵]有个小疑问</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 63</span><span>其他</span><span>😐</span><span>9 回复</span><span>作者：MAX56125</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#154</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049692" target="_blank" rel="noopener noreferrer">[顿悟氵]现在想通了，我心中免费游戏就是有原罪的</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 63</span><span>游戏瓜</span><span>😡</span><span>9 回复</span><span>作者：latioslat…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#155</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47038023" target="_blank" rel="noopener noreferrer">[厂商]阿里腾讯准备卖游戏业务回血投AI了</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 62</span><span>厂商瓜</span><span>😏</span><span>31 回复</span><span>作者：怀表孤鸣</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#156</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46955360" target="_blank" rel="noopener noreferrer">[杂谈氵][个人记录氵]新手就任记录</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 56</span><span>游戏瓜</span><span>😡</span><span>28 回复</span><span>作者：乾蒸燒賣</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#157</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46996583" target="_blank" rel="noopener noreferrer">想玩个没班味的游戏，求推荐</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 56</span><span>游戏瓜</span><span>😡</span><span>28 回复</span><span>作者：峡谷隐牧</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#158</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048592" target="_blank" rel="noopener noreferrer">[提问]这是什么手游？</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 53</span><span>其他</span><span>😐</span><span>14 回复</span><span>作者：箜</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#159</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47029617" target="_blank" rel="noopener noreferrer">[新瓜]DMM新作《ドットアビス》开服一周就出现了恶性bug…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 50</span><span>游戏瓜</span><span>😐</span><span>25 回复</span><span>作者：Klyston</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#160</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47047826" target="_blank" rel="noopener noreferrer">[破事氵]才发现手游版块的排版变了</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 46</span><span>游戏瓜</span><span>😏</span><span>23 回复</span><span>作者：黑田题衬QJ</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#161</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47048837" target="_blank" rel="noopener noreferrer">[破事氵]一分钱一分货，贵有贵的好，便宜没好货</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 46</span><span>游戏瓜</span><span>😏</span><span>23 回复</span><span>作者：奕泩</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#162</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47030962" target="_blank" rel="noopener noreferrer">育碧的联合创始人 克劳德·吉耶莫 在法国西部拉博勒因飞机失事…</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 44</span><span>其他</span><span>😐</span><span>22 回复</span><span>作者：侑酱ww</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#163</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47034439" target="_blank" rel="noopener noreferrer">[鹰角]潜水员戴夫新dlc出现泡姆泡姆彩蛋小游戏</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">明日方舟</span><span>热度 44</span><span>游戏瓜</span><span>😊</span><span>22 回复</span><span>作者：白米饭爱好者</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#164</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46996560" target="_blank" rel="noopener noreferrer">想玩个不像上班的游戏，求推荐</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 38</span><span>游戏瓜</span><span>😡</span><span>19 回复</span><span>作者：峡谷隐牧</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#165</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050419" target="_blank" rel="noopener noreferrer">[小报][守真如刃]SSR·鸿： 大招缴械，直线贯穿！可快速…</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 28</span><span>主播瓜</span><span>😏</span><span>4 回复</span><span>作者：镭明闪击</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#166</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050166" target="_blank" rel="noopener noreferrer">[小报][守真如刃]SSR·咏菲：召唤抗伤，满血分裂！乌斯怀…</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 28</span><span>主播瓜</span><span>😊</span><span>4 回复</span><span>作者：镭明闪击</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#167</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049355" target="_blank" rel="noopener noreferrer">[小报]新剧情活动&#x27;影刃同尘&#x27;即将开启，全新队员限时UP！</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 28</span><span>游戏瓜</span><span>😏</span><span>4 回复</span><span>作者：镭明闪击</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#168</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050974" target="_blank" rel="noopener noreferrer">[招募]找回归玩家，一起绑协同！</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 28</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：MUOUJUN</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#169</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050619" target="_blank" rel="noopener noreferrer">[公告][本周公告]功夫季精彩继续，矢仓&#x27;奇拉比落风传&#x27;即将…</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 28</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：火影忍者手游</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#170</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050553" target="_blank" rel="noopener noreferrer">[讨论][超前爆料]虚幻与现实交织，兄弟重逢即是决斗之日！</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 28</span><span>游戏瓜</span><span>😐</span><span>4 回复</span><span>作者：火影忍者手游</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#171</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051527" target="_blank" rel="noopener noreferrer">[破事氵]对终末地卡池的迷思始终百思不得其解</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">明日方舟：终末地</span><span>热度 28</span><span>游戏瓜</span><span>😏</span><span>4 回复</span><span>作者：嗷嗷叫的馒头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#172</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47050844" target="_blank" rel="noopener noreferrer">阿终就像鸡哥有没有懂得</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 28</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：嗷嗷叫的馒头</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#173</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47051302" target="_blank" rel="noopener noreferrer">《史上最强二游仓鼠之13万抽纪念》</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 28</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：Seght</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#174</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47049281" target="_blank" rel="noopener noreferrer">[杂谈氵]疑问：邦2是转型命座游戏了吗</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 28</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：isomerciy</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#175</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46999450" target="_blank" rel="noopener noreferrer">[网易]炉石有手机端，所以是手游</a></div><div class="post-meta-row"><span>二游核心论坛-瓜版</span><span class="post-product">综合</span><span>热度 16</span><span>游戏瓜</span><span>😡</span><span>8 回复</span><span>作者：圣光闪瞎我眼</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#176</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=45506980" target="_blank" rel="noopener noreferrer">停服氵zsbd</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 10</span><span>游戏瓜</span><span>😡</span><span>5 回复</span><span>作者：萌萌的小号哦</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#177</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47033439" target="_blank" rel="noopener noreferrer">[搬运]一个汉化了更多内容的繁中MOD</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 10</span><span>游戏瓜</span><span>😐</span><span>5 回复</span><span>作者：莫比乌斯之翼</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#178</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=43784887" target="_blank" rel="noopener noreferrer">镭明闪击</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#179</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=39640915" target="_blank" rel="noopener noreferrer">蓝色星原：旅谣</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">蓝色星原：旅谣</span><span>热度 8</span><span>游戏瓜</span><span>😐</span><span>4 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#180</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=45290229" target="_blank" rel="noopener noreferrer">[搬运]对本游戏一测时期的元理/位面/真王/僭主等信息的相关…</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>其他</span><span>😐</span><span>4 回复</span><span>作者：aaaaa3w</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#181</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=47046939" target="_blank" rel="noopener noreferrer">拂晓&#x27;盛夏的奇迹&#x27;7.2直播燃夏来袭</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>主播瓜</span><span>😊</span><span>4 回复</span><span>作者：月影重制版</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#182</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=41131245" target="_blank" rel="noopener noreferrer">拂晓：胜利之刻</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>社区瓜</span><span>😡</span><span>4 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#183</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=45502309" target="_blank" rel="noopener noreferrer">[公告]国服停运</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 8</span><span>游戏瓜</span><span>😊</span><span>4 回复</span><span>作者：newthebes…</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#184</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=38888482" target="_blank" rel="noopener noreferrer">交错战线</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 6</span><span>其他</span><span>😐</span><span>3 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#185</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=44203648" target="_blank" rel="noopener noreferrer">嘟嘟脸恶作剧</a></div><div class="post-meta-row"><span>上线游戏讨论版</span><span class="post-product">综合</span><span>热度 6</span><span>其他</span><span>😡</span><span>3 回复</span><span>作者：永恒艾zhen</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#186</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=46283553" target="_blank" rel="noopener noreferrer">帐号权限不足</a></div><div class="post-meta-row"><span>测试阶段游戏讨论版</span><span class="post-product">综合</span><span>热度 0</span><span>其他</span><span>😐</span><span>0 回复</span><span>作者：</span></div></div></article>
+<article class="post-list-card"><div class="post-rank">#187</div><div class="post-main"><div class="post-title"><a href="https://bbs.nga.cn/read.php?tid=23588623" target="_blank" rel="noopener noreferrer">初音未来:缤纷舞台</a></div><div class="post-meta-row"><span>手综版</span><span class="post-product">综合</span><span>热度 0</span><span>其他</span><span>😐</span><span>0 回复</span><span>作者：zxcej</span></div></div></article>
+</div>
+<hr>
+<p><em>本报告由 NGA 多板块舆情监控系统自动生成</em></p>
+<p><em>数据来源: NGA 瓜版 / 测试阶段游戏讨论版 / 上线游戏讨论版 / 手综版 | 报告日期: 2026-06-25</em></p>
+<p><em>⚠️ 情感/观点分析基于关键词词库，仅供参考</em></p></main>
+  </div>
+  <div class="footer">由 WorkBuddy 转换生成 · 保留原报告链接、表格与 SVG 图表 · 游戏图标优先使用 TapTap 图标缓存</div>
+</div>
+</body>
+</html>
