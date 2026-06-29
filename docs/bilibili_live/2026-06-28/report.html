@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-06-28 B站直播日报汇总</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.6}
+.ctn{max-width:1200px;margin:0 auto;padding:0 16px 32px}
+.hdr{background:#1a1a1a;color:#f0f0ec;padding:32px 36px 28px;margin:0 -16px 32px;border-bottom:1px solid #2c2c2c}
+.hdr-top{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.hdr h1{font-size:28px;font-weight:500;letter-spacing:-0.02em;color:#f0f0ec;line-height:1.2}
+.hdr-date{font-size:13px;color:#666;font-variant-numeric:tabular-nums;letter-spacing:0.04em}
+.stats{display:flex;gap:0;margin-top:20px;border-top:1px solid #2c2c2c;padding-top:16px}
+.stat-box{padding:0 28px 0 0;margin-right:28px;border-right:1px solid #2c2c2c}
+.stat-box:last-child{border-right:none;padding-right:0;margin-right:0}
+.stat-box .v{font-size:24px;font-weight:500;color:#f0f0ec;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.stat-box .l{font-size:12px;color:#666;margin-top:2px}
+.section-hdr{font-size:15px;font-weight:500;margin:32px 0 12px;padding:0 0 8px;color:#1a1a1a;border-bottom:1px solid #e0e0e0;letter-spacing:0.01em}
+.section-stats{font-size:12px;color:#888;margin-bottom:14px;padding:0 0 0 10px;border-left:2px solid #ccc}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+.col{min-width:0}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.up-card{background:#fff;border-radius:10px;padding:18px 22px;border:1px solid #e5e5e5;transition:border-color 0.2s ease}
+.up-card:hover{border-color:#aaa}
+.up-card.no-data{background:#fafafa;opacity:0.75}
+.card-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.card-hdr h3{font-size:18px;font-weight:600;color:#1d1d1f}
+.avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #e5e5e5;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.badge{font-size:11px;padding:3px 9px;border-radius:4px;background:#ebebeb;color:#444;font-weight:500;white-space:nowrap}
+.badge.risk{background:#fff0e6;color:#c0540a;font-weight:600}
+.badge.no{background:#f0f0f3;color:#999;font-weight:400}
+.meta-row{display:flex;gap:18px;font-size:13px;color:#666;margin:12px 0;flex-wrap:wrap;padding:12px 0;border-top:1px solid #f0f0f3;border-bottom:1px solid #f0f0f3}
+.topic-row{font-size:13px;margin:8px 0;color:#333;padding:4px 0}
+.sent-row{margin:12px 0;padding:8px 0}
+.sent-bar{display:flex;height:12px;border-radius:8px;overflow:hidden;background:#f0f0f3;margin-top:6px;box-shadow:inset 0 1px 2px rgba(0,0,0,0.05)}
+.sent-bar span{display:block;height:100%;transition:width 0.3s ease}
+.sent-legend{display:flex;flex-wrap:wrap;gap:12px 16px;font-size:12px;color:#555;margin-top:8px}
+.sent-legend em{font-style:normal;display:inline-flex;align-items:center;gap:6px;padding:4px 8px;background:#f5f5f7;border-radius:8px}
+.sent-legend i{display:inline-block;width:10px;height:10px;border-radius:3px}
+.link-row{margin-top:16px;padding-top:12px;border-top:1px solid #f0f0f3}
+.detail-link{display:inline-block;padding:7px 16px;background:#1a1a1a;color:#f0f0ec;border-radius:6px;text-decoration:none;font-size:13px;font-weight:400;transition:background 0.15s ease}
+.detail-link:hover{background:#333}
+.detail-section{margin-top:32px;scroll-margin-top:20px}
+.detail-toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,247,0.97);padding:12px 0;border-bottom:1px solid #e0e0e0}
+.detail-toolbar h2{font-size:18px;font-weight:500;color:#1a1a1a}
+.detail-toolbar a{display:inline-block;padding:6px 14px;border-radius:5px;background:#fff;border:1px solid #ccc;color:#444;text-decoration:none;font-size:13px;transition:border-color 0.15s ease;cursor:pointer}
+.detail-toolbar a:hover{border-color:#888;color:#1a1a1a}
+.detail-frame{width:100%;height:78vh;min-height:720px;border:1px solid #e5e5e5;border-radius:14px;background:#fff;margin-top:16px;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.detail-missing{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:24px;color:#888;margin-top:16px;font-size:14px}
+@media(max-width:768px){.detail-frame{height:82vh;min-height:620px}}
+.ft{text-align:center;padding:32px 0 16px;font-size:12px;color:#999}
+.card-collapse .up-card:nth-child(n+4){display:none}
+.card-collapse.expanded .up-card:nth-child(n+4){display:block}
+.card-collapse-kol .up-card:nth-child(n+4){display:none}
+.card-collapse-kol.expanded .up-card:nth-child(n+4){display:block}
+.toggle-btn{display:inline-block;margin:12px 0;padding:7px 18px;background:#fff;border:1px solid #d0d0d0;border-radius:5px;color:#444;font-size:13px;font-weight:400;cursor:pointer;text-decoration:none;font-family:inherit;transition:border-color 0.15s ease}
+.toggle-btn:hover{border-color:#888;color:#1a1a1a}
+</style></head><body><div id="top" class="ctn">
+<div class="hdr">
+  <div class="hdr-top">
+    <h1>B站直播日报汇总</h1>
+  </div>
+  <div class="hdr-date">2026-06-28 &nbsp;·&nbsp; 官方 0/9 开播 &nbsp;·&nbsp; KOL 0/14 开播</div>
+  <div class="stats">
+    <div class="stat-box"><div class="v">0/23</div><div class="l">开播间</div></div>
+    <div class="stat-box"><div class="v">0h00m</div><div class="l">累计时长</div></div>
+    <div class="stat-box"><div class="v">0</div><div class="l">有效弹幕（原始 0，剔除 0）</div></div>
+  </div>
+</div>
+
+<div style="margin:32px 0">
+<h2 class="section-hdr">游戏直播热度看板</h2>
+<div class="section-stats">快照时间：2026-06-29 09:34:02 ｜ 数据来源：B站官方账号关注数 + 直播分区API（在播数/人气） + KOL弹幕舆情聚合</div>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #e5e5e5">
+<thead><tr style="background:linear-gradient(90deg,#1d1d1f,#2a2a2a);color:#fff;font-weight:600">
+<th style="padding:12px;text-align:left">游戏</th>
+<th style="padding:12px;text-align:right">官方关注数</th>
+<th style="padding:12px;text-align:right">在播数</th>
+<th style="padding:12px;text-align:center">趋势</th>
+<th style="padding:12px;text-align:center">官方是否开播</th>
+<th style="padding:12px;text-align:right">Top3人气</th>
+<th style="padding:12px">头部主播</th>
+<th style="padding:12px">我们的KOL</th>
+<th style="padding:12px;text-align:center">舆情风险</th>
+</tr></thead>
+<tbody>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">三角洲行动</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">52,479</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">869</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 17%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">186,180</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="战术级子轩, 小只芋, 千九-三角洲行动">战术级子轩, 小只芋, 千九-三角洲行动</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">绝区零</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">7,845,454</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">667</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#ff3b30;font-weight:600">↑ 51%</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">15,054</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="青衫祠, 丨沈姐姐丨, 绝区零代肝打练">青衫祠, 丨沈姐姐丨, 绝区零代肝打练</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">崩坏：星穹铁道</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">12,296,233</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">415</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#ff3b30;font-weight:600">↑ 27%</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">8,845</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="星穹铁道代肝-_, 玉er小宝贝, 慕容羽川">星穹铁道代肝-_, 玉er小宝贝, 慕容...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">原神</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">20,573,951</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">316</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 10%</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">39,516</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="落花花打深渊, 晚晚和猫之间的秘密丶, 原神代肝代练至冬">落花花打深渊, 晚晚和猫之间的秘密丶, ...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">明日方舟</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">7,357,627</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">172</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 14%</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">3,531</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="上班班为了下班班, 呆踅, 凉笙づ">上班班为了下班班, 呆踅, 凉笙づ</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">明日方舟终末地</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">4,799,527</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">162</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#ff3b30;font-weight:600">↑ 25%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">5,169</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="终末地代练-, 甜甜花牛奶, 莱莱莱万汀丶">终末地代练-, 甜甜花牛奶, 莱莱莱万汀...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">鸣潮</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">5,228,411</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">158</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 12%</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">39,331</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="Kazane_, 鸣潮松伦单推, 布什丶鸽们儿1">Kazane_, 鸣潮松伦单推, 布什丶...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">异环</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">2,972,624</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">104</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#ff3b30;font-weight:600">↑ 68%</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">52,828</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="玄度银狼, XnWwa, 冷月月哇">玄度银狼, XnWwa, 冷月月哇</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">第五人格</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">4,754,973</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">54</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#ff3b30;font-weight:600">↑ 6%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">6,110</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="灵灵魔王来了, 布吉岛的快乐冒险, 海豚衔丹回春">灵灵魔王来了, 布吉岛的快乐冒险, 海豚...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">弧光猎人</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">66,114</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">16</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 20%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">1,017</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="呕兔O2, 铃铛zkl, 嗷呜小喵喵头">呕兔O2, 铃铛zkl, 嗷呜小喵喵头</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">暗区突围</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">2,491,084</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">12</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 40%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">182</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="薇拉EF, 假面jojo陈某人, 小鸟游星野の白给日常">薇拉EF, 假面jojo陈某人, 小鸟游...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">超自然行动组</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">6</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 40%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">342</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="持伞执意, 穗裕-超自然行动, 是软萌呦">持伞执意, 穗裕-超自然行动, 是软萌呦</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">NIKKE</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">4</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 43%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">145</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="子君oi, BlackPhoenix1982, 小灰机灰呀灰呀">子君oi, BlackPhoenix19...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">崩坏：因缘精灵</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">4</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 50%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">28</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="再现人生奇迹, 遂川游泳健将, 遂川瑞文rw">再现人生奇迹, 遂川游泳健将, 遂川瑞文...</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">归环</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">302,118</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">0</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#8e8e93">—</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="—">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">伊莫</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">267,448</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">0</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#8e8e93">—</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="—">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">遗忘之海</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">325,706</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">0</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#34c759;font-weight:600">↓ 100%</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="—">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fafafa">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">燕云十六声</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">1,098,918</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">0</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#8e8e93">—</span></td>
+<td style="padding:10px 12px;text-align:center">—</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="—">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+<tr style="background:#fff">
+<td style="padding:10px 12px;font-weight:600;color:#1d1d1f">望月</td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">673,464</td>
+<td style="padding:10px 12px;text-align:right;font-weight:700;color:#007AFF;font-size:15px">0</td>
+<td style="padding:10px 12px;text-align:center;font-weight:600"><span style="color:#8e8e93">—</span></td>
+<td style="padding:10px 12px;text-align:center"><span style="background:#d0d0d5;color:#666;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600">未开播</span></td>
+<td style="padding:10px 12px;text-align:right;color:#666;font-size:13px">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#555;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="—">—</td>
+<td style="padding:10px 12px;font-size:12px;color:#333">—</td>
+<td style="padding:10px 12px;text-align:center">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h2 class="section-hdr">官方直播间</h2>
+<div class="section-stats">开播 0/9 ｜ 弹幕 0 条 ｜ 时长 0h00m</div>
+<div class="grid card-collapse" id="off-cards" style="margin-bottom:32px">
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/004033cd.jpg" alt="原神" onerror="this.style.visibility='hidden'"><h3>原神（21987615）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 20,573,953 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/759e7e36.jpg" alt="崩坏：星穹铁道" onerror="this.style.visibility='hidden'"><h3>崩坏：星穹铁道（27263119）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 12,296,232 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/318d1fbb.jpg" alt="绝区零" onerror="this.style.visibility='hidden'"><h3>绝区零（32805602）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 7,845,454 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/dcccfc61.jpg" alt="明日方舟" onerror="this.style.visibility='hidden'"><h3>明日方舟（5555734）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 7,357,627 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/682279b6.jpg" alt="鸣潮" onerror="this.style.visibility='hidden'"><h3>鸣潮（27354807）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 5,228,406 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/8b0034f5.jpg" alt="异环" onerror="this.style.visibility='hidden'"><h3>异环（1890951177）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 2,972,622 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/0b1901fc.jpg" alt="望月" onerror="this.style.visibility='hidden'"><h3>望月（1892451545）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 673,464 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/9ae15f5e.jpg" alt="归环" onerror="this.style.visibility='hidden'"><h3>归环（1992270167）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 302,118 关注</span><span class="badge no">未开播</span></div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/1bcbe4c7.jpg" alt="伊莫" onerror="this.style.visibility='hidden'"><h3>伊莫（1746235011）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 267,448 关注</span><span class="badge no">未开播</span></div></div></div>
+</div>
+<button type="button" class="toggle-btn" data-toggle-target="off-cards">展开全部 ▼</button>
+<h2 class="section-hdr">KOL 直播间</h2>
+<div class="section-stats">开播 0/14 ｜ 弹幕 0 条 ｜ 时长 0h00m</div>
+<div class="grid card-collapse-kol" id="kol-cards">
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/f859b747.jpg" alt="你的影月月" onerror="this.style.visibility='hidden'"><h3>你的影月月（21414905）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 9,943,053 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：中 ｜ 方向：原神 / 星铁 / 绝区零 / 攻略评测</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/7ca989d1.jpg" alt="卡特亚" onerror="this.style.visibility='hidden'"><h3>卡特亚（1455691）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 3,374,671 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：中 ｜ 方向：原神 / 星铁 / 绝区零 / 鸣潮 / 直播反应</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/f4793d15.jpg" alt="魔法Zc目录" onerror="this.style.visibility='hidden'"><h3>魔法Zc目录（3044248）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 3,367,442 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：中 ｜ 方向：明日方舟 / 终末地 / 星铁 / 直播反应</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/7294549a.jpg" alt="企鹅带带北极熊" onerror="this.style.visibility='hidden'"><h3>企鹅带带北极熊（23121424）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 3,240,430 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：中 ｜ 方向：原神 / 星铁 / 绝区零 / 付费内容 / 抽卡</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/17ac4a18.jpg" alt="棉花大哥哥" onerror="this.style.visibility='hidden'"><h3>棉花大哥哥（103）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 2,682,273 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：高 ｜ 方向：泛二游直播 / 米哈游系 / 鸣潮 / 终末地 / 社区节奏</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/836cec5f.jpg" alt="屑芙蒂" onerror="this.style.visibility='hidden'"><h3>屑芙蒂（5805449）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 251,072 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：低 ｜ 方向：NIKKE / 胜利女神 / 垂直攻略 / 角色解析</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/7fa39c6c.jpg" alt="热爱游戏张大狗" onerror="this.style.visibility='hidden'"><h3>热爱游戏张大狗（7282964）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 76,458 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：中 ｜ 方向：鸣潮 / 终末地 / 异环 / 泛二游舆情</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/02cc7456.jpg" alt="黑衣侦探" onerror="this.style.visibility='hidden'"><h3>黑衣侦探（8224585）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 53,549 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：中 ｜ 方向：鸣潮 / 异环 / 终末地 / 泛二游节奏</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/6a0e7a08.jpg" alt="DarkTraveler" onerror="this.style.visibility='hidden'"><h3>DarkTraveler（31584834）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 22,821 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：待核 ｜ 方向：弧光猎人 / ARCRaiders / 射击</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/b93bca07.jpg" alt="喵车王CartLord" onerror="this.style.visibility='hidden'"><h3>喵车王CartLord（481738）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 14,940 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：待核 ｜ 方向：弧光猎人 / ARCRaiders / 射击</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/9fd186f3.jpg" alt="Ra1chu" onerror="this.style.visibility='hidden'"><h3>Ra1chu（9053520）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 13,905 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：待核 ｜ 方向：弧光猎人 / ARCRaiders / 射击</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/75573734.jpg" alt="牢K不是捞K啊" onerror="this.style.visibility='hidden'"><h3>牢K不是捞K啊（25773797）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 10,042 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：待核 ｜ 方向：弧光猎人 / ARCRaiders / 射击</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/63b40594.jpg" alt="_左律zuolv" onerror="this.style.visibility='hidden'"><h3>_左律zuolv（26161613）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 5,135 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：待核 ｜ 方向：弧光猎人 / ARCRaiders / 射击</div></div></div>
+<div class="up-card no-data"><div class="card-hdr" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><div style="display:flex;align-items:center;gap:12px;flex:1"><img class="avatar" src="../../icons/3e0d519b.jpg" alt="射击虎弧光猎人" onerror="this.style.visibility='hidden'"><h3>射击虎弧光猎人（27939473）</h3></div><div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:12px;color:#666;margin-left:8px">👥 4,528 关注</span><span class="badge no">未开播</span></div></div><div class="card-body"><div class="topic-row"><strong>🏷️ KOL标签：</strong>商单频率：待核 ｜ 方向：弧光猎人 / ARCRaiders / 射击</div></div></div>
+</div>
+<button type="button" class="toggle-btn" data-toggle-target="kol-cards">展开全部 ▼</button>
+<h2 class="section-hdr">开播 UP 详情数据</h2>
+<div class="section-stats">点击上方卡片会跳转到本页内对应详情；详情内容已内嵌在同一个 HTML 中。</div>
+
+<div class="ft">自动生成 | 数据来源：腾讯云监控 + 本地CSV | 2026-06-28</div>
+</div>
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-toggle-target]');
+    if(!btn) return;
+    e.preventDefault();
+    var id = btn.getAttribute('data-toggle-target');
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.classList.toggle('expanded');
+    btn.textContent = el.classList.contains('expanded') ? '收起 ▲' : '展开全部 ▼';
+  });
+})();
+</script>
+</body></html>
