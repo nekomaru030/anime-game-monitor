@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板 | 2026年7月1日</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-dim: #8b949e; --accent: #58a6ff;
+  --red: #f85149; --yellow: #d29922; --green: #3fb950;
+  --purple: #bc8cff; --orange: #e8873c;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, "Microsoft YaHei", sans-serif; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header { text-align: center; padding: 30px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+header h1 { font-size: 1.8em; color: var(--accent); margin-bottom: 8px; }
+header .meta { color: var(--text-dim); font-size: 0.9em; }
+.stats { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; text-align: center; }
+.stat .num { font-size: 1.4em; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 0.75em; color: var(--text-dim); }
+section { margin-bottom: 28px; }
+section h2 { font-size: 1.3em; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 12px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card.high { border-left: 4px solid var(--red); }
+.card.mid { border-left: 4px solid var(--yellow); }
+.card.low { border-left: 4px solid var(--green); }
+.card h3 { font-size: 1.05em; margin-bottom: 6px; }
+.card .desc { font-size: 0.9em; color: var(--text-dim); }
+.card .src { font-size: 0.8em; color: var(--accent); margin-top: 6px; word-break: break-all; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: 600; }
+.badge.high { background: rgba(248,81,73,0.2); color: var(--red); }
+.badge.mid { background: rgba(210,153,34,0.2); color: var(--yellow); }
+.badge.low { background: rgba(63,185,80,0.2); color: var(--green); }
+.badge.upcoming { background: rgba(88,166,255,0.2); color: var(--accent); }
+table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--accent); font-weight: 600; white-space: nowrap; }
+tr:hover { background: rgba(88,166,255,0.05); }
+.danger { color: var(--red); font-weight: 700; }
+.warning { color: var(--yellow); font-weight: 600; }
+.safe { color: var(--green); }
+.code { font-family: "Cascadia Code", monospace; background: rgba(88,166,255,0.1); padding: 2px 6px; border-radius: 4px; color: var(--purple); font-size: 0.9em; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .container { padding: 12px; } header h1 { font-size: 1.4em; } table { font-size: 0.8em; } th, td { padding: 6px 8px; } }
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.timeline-item { position: relative; margin-bottom: 14px; padding-left: 16px; }
+.timeline-item::before { content: ""; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+.timeline-item.high::before { background: var(--red); }
+.timeline-item .date { font-size: 0.8em; color: var(--accent); font-weight: 600; }
+.timeline-item .title { font-size: 0.92em; }
+footer { text-align: center; padding: 20px 0; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8em; }
+.highlight-box { background: linear-gradient(135deg, rgba(248,81,73,0.1), rgba(188,140,255,0.1)); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+.highlight-box .title { font-size: 1.05em; font-weight: 700; margin-bottom: 4px; }
+.highlight-box .desc { font-size: 0.88em; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🎮 二次元游戏每日动态看板</h1>
+<div class="meta">2026年7月1日（周三） | 数据采集 06:55 CST | 信源：一级白名单 + GameKee NIKKE专区</div>
+<div class="stats">
+<div class="stat"><div class="num">13/13</div><div class="label">覆盖率</div></div>
+<div class="stat"><div class="num">9</div><div class="label">活跃卡池</div></div>
+<div class="stat"><div class="num">26</div><div class="label">活跃活动</div></div>
+<div class="stat"><div class="num">8</div><div class="label">兑换码</div></div>
+<div class="stat"><div class="num">9</div><div class="label">完整核验</div></div>
+</div>
+</header>
+
+<section>
+<h2>🔴 今日重点</h2>
+<div class="highlight-box">
+<div class="title">🎉 原神6.7「月之八」今日上线！</div>
+<div class="desc">06:00停服维护（预计5h），维护后上半桑多涅(新5★冰双手剑)+茜特菈莉开启。新反应星超导+月球常驻地图+千灵节夏活(免费夏洛蒂+衣装)。版本42天至8/12。</div>
+<div class="src">📎 <a href="https://ys.mihoyo.com/main/news/detail/165028" target="_blank" style="color:var(--accent)">官网维护预告</a></div>
+</div>
+<div class="highlight-box">
+<div class="title">🔥 明日7/2三线同日爆发！</div>
+<div class="desc">①NIKKE国际服：ARK RANGER结束→WAVE TO YOU夏活上线（灰姑娘:琉璃波光限定朝圣） ②异环：卡厄斯结束→1.2「九百九十九夜」上线（上半真红+全服S自选，日期已从7/16修正为7/2） ③重返未来1999：回声谣结束→切奠基石。距今仅1天！</div>
+<div class="src">📎 <a href="https://yh.wanmei.com/news/gamenews/20260627/262896.html" target="_blank" style="color:var(--accent)">异环1.2前瞻</a> | <a href="https://www.gamekee.com/www/710622.html" target="_blank" style="color:var(--accent)">NIKKE夏活</a></div>
+</div>
+</section>
+
+<section>
+<h2>⏰ 卡池预警</h2>
+<table>
+<thead><tr><th>状态</th><th>游戏</th><th>卡池</th><th>截止时间</th><th>剩余</th></tr></thead>
+<tbody>
+<tr><td><span class="danger">🔴 明日截止</span></td><td>异环</td><td>卡厄斯（无归路）</td><td>7/2 05:59</td><td class="danger">1天</td></tr>
+<tr><td><span class="danger">🔴 明日截止</span></td><td>NIKKE国际服</td><td>ARK RANGER（全周期）</td><td>7/2 04:59(JST)</td><td class="danger">1天</td></tr>
+<tr><td><span class="danger">🔴 明日截止</span></td><td>重返未来1999</td><td>上半回声谣</td><td>7/2 04:59</td><td class="danger">1天</td></tr>
+<tr><td><span class="warning">🟡 ≤3天</span></td><td>洛克王国：世界</td><td>精灵抱抱团集合</td><td>7/3 04:00</td><td class="warning">2天</td></tr>
+<tr><td><span class="warning">🟡 ≤7天</span></td><td>绝区零</td><td>维琳娜/叶瞬光（3.0上期）</td><td>7/8 11:59</td><td class="warning">7天</td></tr>
+<tr><td><span class="warning">🟡 ≤7天</span></td><td>鸣潮</td><td>丽贝卡免费领取（联动）</td><td>7/9 11:59</td><td class="warning">8天</td></tr>
+<tr><td><span class="warning">🟡 ≤7天</span></td><td>NIKKE国服</td><td>马斯特：浪漫的女仆</td><td>7/7 23:59</td><td class="warning">6天</td></tr>
+<tr><td><span class="safe">⭐ 稳定</span></td><td>原神</td><td>桑多涅/茜特菈莉（月之八上半）</td><td>7/21 17:59</td><td class="safe">20天</td></tr>
+<tr><td><span class="safe">⭐ 稳定</span></td><td>星铁</td><td>昔涟/白厄（4.3下半）</td><td>7/14 15:00</td><td class="safe">13天</td></tr>
+<tr><td><span class="safe">⭐ 稳定</span></td><td>终末地</td><td>卡缪『逐罪者』</td><td>7/23 04:00</td><td class="safe">22天</td></tr>
+<tr><td><span class="safe">⭐ 稳定</span></td><td>NIKKE国服</td><td>安克：天真的女仆</td><td>7/15 03:59</td><td class="safe">14天</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>🎟️ 兑换码速领</h2>
+<div class="grid-2">
+<div class="card mid"><h3>NIKKE国际服</h3><div class="desc"><span class="code">WAVETOYOU2026</span> — 夏活CDKey</div><div class="desc">🕐 7/2维护后可用 | 截止 7/23 04:59(JST)</div></div>
+<div class="card low"><h3>燕云十六声 ×7</h3><div class="desc"><span class="code">江南少许地年年情不穷</span></div><div class="desc"><span class="code">玉山自倒非人推</span> <span class="code">高山仰止心向往之</span></div><div class="desc"><span class="code">落花时节又逢春</span> <span class="code">皎洁无倦煎熬自求</span></div><div class="desc"><span class="code">山有木兮木有枝</span> <span class="code">陈叔邀你下江南</span></div><div class="desc">✅ 均至 7/5 24:00 | 绕梁之音+题跋</div></div>
+</div>
+</section>
+
+<section>
+<h2>🗓️ 近期关键节点</h2>
+<div class="timeline">
+<div class="timeline-item high"><div class="date">7/1 06:00</div><div class="title"><strong>原神</strong> — 月之八停服维护开始（预计5h）</div></div>
+<div class="timeline-item high"><div class="date">7/1 ~11:00</div><div class="title"><strong>原神</strong> — 上半桑多涅+茜特菈莉卡池开启</div></div>
+<div class="timeline-item high"><div class="date">7/2 04:59</div><div class="title"><strong>重返未来1999</strong> — 回声谣截止→切奠基石</div></div>
+<div class="timeline-item high"><div class="date">7/2 04:59(JST)</div><div class="title"><strong>NIKKE国际服</strong> — ARK RANGER结束→WAVE TO YOU夏活上线</div></div>
+<div class="timeline-item high"><div class="date">7/2 05:59</div><div class="title"><strong>异环</strong> — 卡厄斯截止→1.2九百九十九夜上线</div></div>
+<div class="timeline-item"><div class="date">7/3 04:00</div><div class="title"><strong>洛克王国：世界</strong> — 精灵抱抱团集合截止</div></div>
+<div class="timeline-item"><div class="date">7/4</div><div class="title"><strong>绝区零</strong> — 1000菲林补给发放</div></div>
+<div class="timeline-item"><div class="date">7/5 24:00</div><div class="title"><strong>燕云十六声</strong> — 7个礼包口令截止</div></div>
+<div class="timeline-item"><div class="date">7/7 23:59</div><div class="title"><strong>NIKKE国服</strong> — 马斯特池+浪漫女仆活动截止</div></div>
+<div class="timeline-item"><div class="date">7/8 11:59</div><div class="title"><strong>绝区零</strong> — 3.0上期限时频段结束</div></div>
+<div class="timeline-item"><div class="date">7/9 05:00(JST)</div><div class="title"><strong>NIKKE国际服</strong> — 玛律恰娜:海洋进修招募开启</div></div>
+<div class="timeline-item"><div class="date">7/9 11:59</div><div class="title"><strong>鸣潮</strong> — 赛博朋克联动福利周期结束</div></div>
+<div class="timeline-item"><div class="date">7/10</div><div class="title"><strong>鸣潮</strong> — 3.5版本上线（同步Xbox）</div></div>
+<div class="timeline-item"><div class="date">7/14 15:00</div><div class="title"><strong>星铁</strong> — 昔涟/白厄活动跃迁结束</div></div>
+<div class="timeline-item"><div class="date">7/21 17:59</div><div class="title"><strong>原神</strong> — 月之八上半结束→下半哥伦比娅+雷电将军</div></div>
+<div class="timeline-item"><div class="date">7/23 04:00</div><div class="title"><strong>终末地</strong> — 1.3版本与危机合约结束</div></div>
+</div>
+</section>
+
+<section>
+<h2>📚 分游戏概览</h2>
+<div class="grid-2">
+<div class="card high"><h3>原神 <span class="badge high">6.7 月之八</span></h3><div class="desc">今日上线！上半桑多涅+茜特菈莉(7/1-7/21)，下半哥伦比娅+雷电将军(7/21-8/11)。星超导+月球地图+千灵节夏活。</div><div class="src">FULL 核验</div></div>
+<div class="card high"><h3>异环 <span class="badge high">1.1→1.2 明日</span></h3><div class="desc">卡厄斯明日7/2截止。1.2「九百九十九夜」7/2上线（已修正），上半真红+全服S自选。</div><div class="src">FULL 核验</div></div>
+<div class="card high"><h3>NIKKE国际服 <span class="badge high">ARK RANGER→WAVE TO YOU</span></h3><div class="desc">ARK RANGER明晚结束。夏活灰姑娘:琉璃波光限定朝圣7/2-7/23+玛律恰娜7/9-7/30。CDKey: WAVETOYOU2026。</div><div class="src">FULL 核验</div></div>
+<div class="card high"><h3>重返未来1999 <span class="badge high">3.8 世纪末尺度</span></h3><div class="desc">回声谣明日7/2截止→切奠基石。版本至7/23。湖的涟漪自选UP池贯穿。</div><div class="src">PARTIAL 核验</div></div>
+<div class="card mid"><h3>星铁 <span class="badge mid">4.3 下半</span></h3><div class="desc">昔涟/白厄下半池第八日(至7/14)。像素飞机+尘灵游乐园至7/15。</div><div class="src">FULL 核验</div></div>
+<div class="card mid"><h3>终末地 <span class="badge mid">1.3 下半</span></h3><div class="desc">卡缪『逐罪者』下半池第六日(至7/23)。危机合约持续。</div><div class="src">FULL 核验</div></div>
+<div class="card mid"><h3>鸣潮 <span class="badge mid">3.4→3.5 7/10</span></h3><div class="desc">赛博朋克联动+矩阵重组至7/9。3.5版本7/10同步Xbox上线。</div><div class="src">FULL 核验</div></div>
+<div class="card mid"><h3>绝区零 <span class="badge mid">3.0 上期</span></h3><div class="desc">维琳娜/叶瞬光上期(至7/8)。7/4领1000菲林。模考逆袭+锋芒契影协战。</div><div class="src">FULL 核验</div></div>
+<div class="card low"><h3>NIKKE国服 <span class="badge mid">浪漫女仆</span></h3><div class="desc">马斯特(至7/7)+安克(至7/15)并行。DokiDoki Room今日已截止。</div><div class="src">PARTIAL 核验</div></div>
+<div class="card low"><h3>二重螺旋 <span class="badge low">银星奔流</span></h3><div class="desc">希尔妲昨日开放获取。百花车站+沉浸式戏剧至7/27。</div><div class="src">FULL 核验</div></div>
+<div class="card low"><h3>燕云十六声 <span class="badge low">江南时代</span></h3><div class="desc">上线第六日。杭州主城+西湖+无明春山。7个口令至7/5。</div><div class="src">FULL 核验</div></div>
+<div class="card low"><h3>洛克王国：世界 <span class="badge low">UNKNOWN</span></h3><div class="desc">凡羽掠影至7/10。领地试炼至7/17。BW2026(7/10-7/12)。</div><div class="src">PARTIAL 核验</div></div>
+<div class="card low"><h3>蓝色星原 <span class="badge low">预约中</span></h3><div class="desc">仍处预约阶段。BW2026参展确认(7/10-7/12)。</div><div class="src">PARTIAL 核验</div></div>
+</div>
+</section>
+
+<footer>
+<p>二次元游戏每日动态看板 | 2026-07-01 | 自动化生成 | 信源：一级白名单 + GameKee NIKKE专区</p>
+<p>覆盖率 13/13 | 完整核验 9款 | 部分核验 4款 | 黑名单已排除</p>
+</footer>
+</div>
+</body>
+</html>
