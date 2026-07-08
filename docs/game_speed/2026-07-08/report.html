@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板｜2026年7月8日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0d1117; --surface: #161b22; --surface2: #21262d; --border: #30363d;
+  --text: #e6edf3; --text-dim: #8b949e; --accent: #58a6ff; --accent2: #3fb950;
+  --red: #f85149; --orange: #d29922; --yellow: #e3b341; --green: #3fb950;
+  --purple: #bc8cff; --pink: #f778ba;
+}
+body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif; line-height: 1.6; padding: 20px; max-width: 1200px; margin: 0 auto; }
+h1 { font-size: 1.8em; margin-bottom: 8px; background: linear-gradient(135deg, var(--accent), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { color: var(--text-dim); font-size: 0.9em; margin-bottom: 20px; }
+.stats-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; flex: 1; min-width: 120px; text-align: center; }
+.stat-card .num { font-size: 1.8em; font-weight: 700; color: var(--accent); }
+.stat-card .label { font-size: 0.75em; color: var(--text-dim); margin-top: 4px; }
+.section { margin-bottom: 28px; }
+.section-title { font-size: 1.3em; font-weight: 600; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 12px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card-high { border-left: 4px solid var(--red); }
+.card-mid { border-left: 4px solid var(--orange); }
+.card-low { border-left: 4px solid var(--green); }
+.card h3 { font-size: 1.05em; margin-bottom: 6px; }
+.card .desc { font-size: 0.88em; color: var(--text-dim); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: 600; margin-right: 6px; }
+.badge-high { background: rgba(248,81,73,0.15); color: var(--red); }
+.badge-mid { background: rgba(210,153,34,0.15); color: var(--orange); }
+.badge-low { background: rgba(63,185,80,0.15); color: var(--green); }
+.badge-active { background: rgba(63,185,80,0.15); color: var(--green); }
+.badge-upcoming { background: rgba(88,166,255,0.15); color: var(--accent); }
+.badge-ended { background: rgba(139,148,158,0.15); color: var(--text-dim); }
+table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.85em; }
+th { color: var(--text-dim); font-weight: 600; font-size: 0.8em; text-transform: uppercase; }
+tr:hover { background: var(--surface2); }
+.danger-row { background: rgba(248,81,73,0.05); }
+.warning-row { background: rgba(210,153,34,0.05); }
+.game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+.game-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+.game-card h3 { font-size: 1em; margin-bottom: 4px; color: var(--accent); }
+.game-card .ver { font-size: 0.8em; color: var(--purple); margin-bottom: 8px; }
+.game-card ul { list-style: none; padding: 0; }
+.game-card li { font-size: 0.82em; color: var(--text-dim); padding: 3px 0; padding-left: 16px; position: relative; }
+.game-card li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+.source { font-size: 0.75em; color: var(--text-dim); margin-top: 8px; }
+.source a { color: var(--accent); text-decoration: none; }
+.countdown { font-weight: 700; }
+.cd-danger { color: var(--red); }
+.cd-warning { color: var(--orange); }
+.cd-safe { color: var(--green); }
+.footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.78em; color: var(--text-dim); text-align: center; }
+@media (max-width: 600px) { .stats-bar { flex-direction: column; } .game-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>🎮 二次元游戏动态看板</h1>
+<p class="subtitle">📅 2026年7月8日（周三）｜🤖 自动化扫描 13/13 款 ｜⏰ 06:55 生成 ｜ Schema P1-3layer-v8</p>
+
+<div class="stats-bar">
+  <div class="stat-card"><div class="num">10</div><div class="label">活跃卡池</div></div>
+  <div class="stat-card"><div class="num">24</div><div class="label">活跃活动</div></div>
+  <div class="stat-card"><div class="num">10</div><div class="label">即将开始</div></div>
+  <div class="stat-card"><div class="num">1</div><div class="label">兑换码</div></div>
+  <div class="stat-card"><div class="num">4</div><div class="label">高优预警</div></div>
+  <div class="stat-card"><div class="num">13/13</div><div class="label">覆盖率</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">🔴 今日重点</div>
+  <div class="card card-high">
+    <h3><span class="badge badge-high">HIGH</span> NIKKE国服Beauty Full Shot今日上线！樱花+罗珊娜双限定开池</h3>
+    <p class="desc">7/7 23:59-7/8 07:00维护后，Beauty Full Shot美力全开正式上线。全新SSR樱花:夏日绽放+罗珊娜:高雅海洋双限定池同步开启(7/8-7/29)。Sunny Date签到21天送樱花x1(7/8-8/12)。索达/灰姑娘/格拉维加入常规池。梅登-艳阳之下 via 7月Mission Pass。安克:天真的女仆池继续(至7/15)。</p>
+    <p class="source">📎 <a href="https://www.taptap.com/app/737341/topic?type=official" target="_blank">一级源</a> | 游戏：胜利女神：NIKKE（国服）</p>
+  </div>
+  <div class="card card-high">
+    <h3><span class="badge badge-high">HIGH</span> 绝区零3.0下半今日12:00开启！诺姆+千夏+邦布签到10连</h3>
+    <p class="desc">3.0上期维琳娜/叶瞬光今日11:59截止。12:00切下半：诺姆(火击破S)+千夏(物支援S)+可琳+波可娜，音擎首席跟班+思络成歌同步UP。邦布签到10连今日10:00开启(至7/28)。跛脚乌鸦奇闻录进行中(至7/20)。7/17 3.1周年庆前瞻直播。</p>
+    <p class="source">📎 <a href="https://zzz.mihoyo.com/main/" target="_blank">一级源</a> | 游戏：绝区零</p>
+  </div>
+  <div class="card card-high">
+    <h3><span class="badge badge-high">HIGH</span> 7/10超级事件日倒计时2天：鸣潮3.5+燕云渡尘墟+蓝色星原三测+BW2026</h3>
+    <p class="desc">7/10四线同日爆发：①鸣潮3.5版本上线(SP秧秧·玄翎+穗穗+梦州玄方+导电漂泊者)②燕云十六声渡尘墟正式上线(逃离塔科夫联动搜打撤+杭州浙江渡/海客巷/莽滩口新区域)③蓝色星原三测旅迹测试招募开启(限量删档不计费)④BW2026上海7/10-12。洛克王国凡羽掠影同日04:00截止。</p>
+    <p class="source">📎 <a href="https://www.taptap.cn/app/593829" target="_blank">一级源</a> | 游戏：鸣潮, 燕云十六声, 蓝色星原：旅谣</p>
+  </div>
+  <div class="card card-mid">
+    <h3><span class="badge badge-mid">MID</span> 异环1.2热更维护今日06:00-11:00，补偿环石2200+S自选箱</h3>
+    <p class="desc">异环1.2九百九十九夜今日06:00-11:00热更维护。补偿：维护补偿环石300+致谢赠礼环石1600+S级常驻角色自选箱(早雾/白藏/哈索尔/法帝娅/达芙蒂尔/九原六选一)。真红上半池确认延长至7/29。</p>
+    <p class="source">📎 <a href="https://nte.perfectworld.com/cn/article/news/gamenews/20260706/263031.html" target="_blank">一级源</a> | 游戏：异环</p>
+  </div>
+  <div class="card card-mid">
+    <h3><span class="badge badge-mid">MID</span> NIKKE国际服玛律恰娜明日7/9开启(JST)+星铁4.3仅剩6天</h3>
+    <p class="desc">NIKKE国际服玛律恰娜:海洋进修7/9 05:00(JST)开启招募(至7/30 04:59 JST)，STORY II同日解锁。星铁4.3下半昔涟/白厄仅剩6天(7/14截止)。4.4版本7/15上线：SP姬子·启行+Fate联动7/24永久开放(远坂凛+吉尔伽美什免费二选一)。</p>
+    <p class="source">📎 <a href="https://www.gamekee.com/nikke/710630.html" target="_blank">一级源</a> | 游戏：胜利女神：NIKKE（国际服）, 崩坏：星穹铁道</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">⏰ 卡池预警</div>
+  <table>
+    <thead><tr><th>状态</th><th>游戏</th><th>角色/卡池</th><th>截止时间</th><th>剩余</th><th>建议</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td>🟢 13天+</td>
+        <td>原神</td>
+        <td><strong>桑多涅 / 茜特菈莉</strong><br><span style="font-size:0.8em;color:var(--text-dim)">月之八上半</span></td>
+        <td>2026-07-21</td>
+        <td class="countdown cd-safe">13天</td>
+        <td>月之八上半第八日</td>
+      </tr>
+      <tr class="warning-row">
+        <td>🟡 6天内</td>
+        <td>崩坏：星穹铁道</td>
+        <td><strong>昔涟 / 白厄</strong><br><span style="font-size:0.8em;color:var(--text-dim)">下半角色活动跃迁</span></td>
+        <td>2026-07-14</td>
+        <td class="countdown cd-warning">6天</td>
+        <td>下半池第十五日，7/14截止仅剩6天</td>
+      </tr>
+      <tr class="">
+        <td>🟢 15天+</td>
+        <td>明日方舟：终末地</td>
+        <td><strong>卡缪逐罪者</strong><br><span style="font-size:0.8em;color:var(--text-dim)">下半特许寻访</span></td>
+        <td>2026-07-23</td>
+        <td class="countdown cd-safe">15天</td>
+        <td>第十三日火队核心</td>
+      </tr>
+      <tr class="danger-row">
+        <td>🔴 明日截止</td>
+        <td>鸣潮 🔗联动</td>
+        <td><strong>丽贝卡免费领取（联动）</strong><br><span style="font-size:0.8em;color:var(--text-dim)">全周期</span></td>
+        <td>2026-07-09</td>
+        <td class="countdown cd-danger">1天</td>
+        <td>联动福利仅剩1天！明日截止</td>
+      </tr>
+      <tr class="">
+        <td>🟢 20天+</td>
+        <td>绝区零</td>
+        <td><strong>诺姆 / 千夏</strong><br><span style="font-size:0.8em;color:var(--text-dim)">3.0版本下期</span></td>
+        <td>2026-07-28</td>
+        <td class="countdown cd-safe">20天</td>
+        <td>下半首日！诺姆(火击破)+千夏(物支援)新池开启</td>
+      </tr>
+      <tr class="">
+        <td>🟢 21天+</td>
+        <td>异环</td>
+        <td><strong>真红</strong><br><span style="font-size:0.8em;color:var(--text-dim)">九百九十九夜上半</span></td>
+        <td>2026-07-29</td>
+        <td class="countdown cd-safe">21天</td>
+        <td>1.2上半第七日（官方确认截止日延长至7/29）</td>
+      </tr>
+      <tr class="">
+        <td>🟢 15天+</td>
+        <td>胜利女神：NIKKE（国际服）</td>
+        <td><strong>灰姑娘:琉璃波光</strong><br><span style="font-size:0.8em;color:var(--text-dim)">夏活限定朝圣</span></td>
+        <td>2026-07-23</td>
+        <td class="countdown cd-safe">15天</td>
+        <td>夏活第七日限定朝圣</td>
+      </tr>
+      <tr class="">
+        <td>🟢 21天+</td>
+        <td>胜利女神：NIKKE（国服）</td>
+        <td><strong>樱花:夏日绽放</strong><br><span style="font-size:0.8em;color:var(--text-dim)">Beauty Full Shot限定</span></td>
+        <td>2026-07-29</td>
+        <td class="countdown cd-safe">21天</td>
+        <td>今日上线！夏日限定SSR火力型(步枪)</td>
+      </tr>
+      <tr class="">
+        <td>🟢 21天+</td>
+        <td>胜利女神：NIKKE（国服）</td>
+        <td><strong>罗珊娜:高雅海洋</strong><br><span style="font-size:0.8em;color:var(--text-dim)">Beauty Full Shot限定</span></td>
+        <td>2026-07-29</td>
+        <td class="countdown cd-safe">21天</td>
+        <td>今日上线！夏日限定SSR辅助型(步枪)</td>
+      </tr>
+      <tr class="">
+        <td>🟢 7天+</td>
+        <td>胜利女神：NIKKE（国服）</td>
+        <td><strong>安克:天真的女仆</strong><br><span style="font-size:0.8em;color:var(--text-dim)">特殊招募</span></td>
+        <td>2026-07-15</td>
+        <td class="countdown cd-safe">7天</td>
+        <td>剩余7天</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">🗓️ 关键日历（未来7天）</div>
+  <table>
+    <thead><tr><th>日期</th><th>游戏</th><th>事件</th><th>优先级</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2026-07-08T06:00</td>
+        <td>异环</td>
+        <td>1.2热更维护06:00-11:00</td>
+        <td><span class="badge badge-mid">MID</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-08T07:00</td>
+        <td>胜利女神：NIKKE（国服）</td>
+        <td>Beauty Full Shot上线+樱花/罗珊娜双限定开池</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-08T10:00</td>
+        <td>绝区零</td>
+        <td>邦布签到10连开启</td>
+        <td><span class="badge badge-mid">MID</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-08T10:00</td>
+        <td>鸣潮</td>
+        <td>3.5版本预下载开启</td>
+        <td><span class="badge badge-mid">MID</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-08T11:59</td>
+        <td>绝区零</td>
+        <td>3.0上期维琳娜/叶瞬光截止</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-08T12:00</td>
+        <td>绝区零</td>
+        <td>3.0切下半诺姆+千夏</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-09T05:00</td>
+        <td>胜利女神：NIKKE（国际服）</td>
+        <td>玛律恰娜招募开启+STORY II解锁(JST)</td>
+        <td><span class="badge badge-mid">MID</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-09T11:59</td>
+        <td>鸣潮</td>
+        <td>赛博朋克联动结束</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-09T12:00</td>
+        <td>明日方舟：终末地</td>
+        <td>理智补给开启(至7/16)</td>
+        <td><span class="badge badge-low">LOW</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-10T00:00</td>
+        <td>鸣潮</td>
+        <td>3.5版本上线(SP秧秧·玄翎)</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-10T00:00</td>
+        <td>燕云十六声</td>
+        <td>渡尘墟+杭州新区域上线</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-10T00:00</td>
+        <td>蓝色星原：旅谣</td>
+        <td>三测旅迹测试招募+BW2026</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-10T04:00</td>
+        <td>洛克王国：世界</td>
+        <td>凡羽掠影截止+S3预热</td>
+        <td><span class="badge badge-mid">MID</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-10T10:00</td>
+        <td>二重螺旋</td>
+        <td>收获日·魔之楔掉落提升开启</td>
+        <td><span class="badge badge-low">LOW</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-14T15:00</td>
+        <td>崩坏：星穹铁道</td>
+        <td>4.3下半昔涟/白厄截止</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td>2026-07-15T00:00</td>
+        <td>崩坏：星穹铁道</td>
+        <td>4.4版本上线</td>
+        <td><span class="badge badge-high">HIGH</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">📚 分游戏详情</div>
+  <div class="game-grid">
+    <div class="game-card">
+      <h3>原神</h3>
+      <div class="ver">v6.7「月之八·空月之歌·谐谑」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>月之八上半第八日运行平稳</li>
+        <li>下半哥伦比娅+雷电将军7/21接档</li>
+        <li>千灵节夏活免费夏洛蒂+衣装全程至8/11</li>
+        <li>月球霜月探索至9/22</li>
+        <li>溯光祈愿混池全程开放</li>
+      </ul>
+      <p class="source">📎 <a href="https://ys.mihoyo.com/main/news/detail/165062" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>崩坏：星穹铁道</h3>
+      <div class="ver">v4.3「沉于生者的忘川」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>下半昔涟/白厄7/14截止仅剩6天</li>
+        <li>4.4版本7/15上线：SP姬子·启行(火智识)整版本UP</li>
+        <li>Fate联动7/24永久开放：远坂凛+吉尔伽美什免费二选一</li>
+        <li>4.4上半Fate联动吉尔伽美什限定UP(7/15-8/2)</li>
+        <li>4.4下半SP姬子·启行(8/2-8/22)</li>
+      </ul>
+      <p class="source">📎 <a href="https://sr.mihoyo.com/main" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>明日方舟：终末地</h3>
+      <div class="ver">v1.3「寻遗散记」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>卡缪下半池第十三日(7/23截止)</li>
+        <li>危机合约进行中(至7/23)</li>
+        <li>影拓丰碑死寂争鸣+丰碑留名忿声限时挑战</li>
+        <li>理智补给7/9-7/16明日开启</li>
+        <li>1.4版本7/16上线：李织烟(诀)+偶像角色(笞心魔)+AIC工厂大改+两张新地图</li>
+      </ul>
+      <p class="source">📎 <a href="https://m.taptap.cn/moment/811699765564671081" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>鸣潮</h3>
+      <div class="ver">v3.4「未选择的梦」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>赛博朋克联动+丽贝卡免费领取仅剩1天(明日7/9 11:59截止)</li>
+        <li>3.5版本预下载今日7/8 10:00开启(PC需76GB/安卓iOS需29GB)</li>
+        <li>3.5版本7/10 04:00-11:00维护上线：SP秧秧·玄翎(湮灭迅刀)+穗穗(冷凝辅助)+新区域梦州玄方</li>
+        <li>漂泊者导电属性+Xbox/鸿蒙同步+忆旅混池(忌炎/吟霖/今汐/长离/折枝/相里要)</li>
+        <li>BW2026参展7/10-12上海</li>
+      </ul>
+      <p class="source">📎 <a href="https://wutheringwaves.kurogames.com/zh-tw/main/news/detail/4974" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>绝区零</h3>
+      <div class="ver">v3.0「某个梦游者的自白」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>3.0上期维琳娜/叶瞬光今日11:59截止</li>
+        <li>今日12:00切下半诺姆(火击破S)+千夏(物支援S)+可琳+波可娜</li>
+        <li>邦布签到10连今日10:00开启(至7/28)</li>
+        <li>跛脚乌鸦奇闻录进行中(至7/20)</li>
+        <li>7/17 3.1周年庆前瞻直播，7/29 3.1周年庆上线</li>
+      </ul>
+      <p class="source">📎 <a href="https://zzz.mihoyo.com/news/164823" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>洛克王国：世界</h3>
+      <div class="ver">vUNKNOWN「S2狂欢怪谈」<span class="badge badge-ended">UNKNOWN</span> ⚠️ PARTIAL</div>
+      <ul>
+        <li>凡羽掠影仅剩2天(7/10 04:00截止)</li>
+        <li>赛季冲刺+乐团协奏曲+洛克新鲜事均至7/16</li>
+        <li>S3赛季糖果迷城7/16 04:00开启：40+新精灵+阿布返场+页游手游双向联动</li>
+        <li>S3预热7/10开始</li>
+      </ul>
+      <p class="source">📎 <a href="https://www.bilibili.com/read/cv51056020" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>二重螺旋</h3>
+      <div class="ver">v1.4.0「银星奔流」<span class="badge badge-active">CURRENT</span> ⚠️ PARTIAL</div>
+      <ul>
+        <li>希尔妲开放获取第九日</li>
+        <li>百花车站区域探索至7/27</li>
+        <li>祷音回廊修女主题+休憩日签到至7/27</li>
+        <li>赠礼活动至7/13(仅剩5天)</li>
+        <li>收获日魔之楔掉落提升7/10-7/17</li>
+      </ul>
+      <p class="source">📎 <a href="https://dnabbs.yingxiong.com/pc/detail/841482591847583085" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>异环</h3>
+      <div class="ver">v1.2「九百九十九夜」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>今日06:00-11:00热更维护，补偿环石300+1600+S自选箱</li>
+        <li>上半真红(S光属性爆发主C)7/2-7/29(官方确认截止日延长)</li>
+        <li>下半伊洛伊(S灵属性液态治疗首位限定奶)7/29-8/13(待确认)</li>
+        <li>全服S自选+签到10抽+19套时装</li>
+        <li>活力焕能进行中(7/6-7/13)，燎原环线7/10，夺金大作战7/13</li>
+      </ul>
+      <p class="source">📎 <a href="https://nte.perfectworld.com/cn/article/news/gamenews/20260706/263031.html" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>蓝色星原：旅谣</h3>
+      <div class="ver">vUNKNOWN「旅迹测试」<span class="badge badge-upcoming">PREVIEW</span> ⚠️ PARTIAL</div>
+      <ul>
+        <li>三测定档7/10旅迹测试招募开启(TapTap发布会官宣)</li>
+        <li>限量删档不计费测试，全网预约破千万</li>
+        <li>BW2026参展7/10-12上海国家会展中心4.1H 4A30</li>
+        <li>台港澳漫画博览会7/23-27</li>
+      </ul>
+      <p class="source">📎 <a href="https://www.taptap.cn/app/593829" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>重返未来1999</h3>
+      <div class="ver">v3.8「世纪末尺度」<span class="badge badge-active">CURRENT</span> ⚠️ PARTIAL</div>
+      <ul>
+        <li>奠基石下半第七日(六星岩灵感辅助型)</li>
+        <li>下篇签到7抽+匣中交流赛和平角斗场进行中</li>
+        <li>湖的涟漪自选UP池贯穿全版本(冷周六/J/新巴别塔/星锑/未锈铠/环状水星六选一)</li>
+        <li>7月商店可兑换10个独一律</li>
+        <li>3.8版本至7/23，下版本3.85原子之心联动7/23开启</li>
+      </ul>
+      <p class="source">📎 <a href="https://re.bluepoch.com/" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>胜利女神：NIKKE（国际服）</h3>
+      <div class="ver">vWAVE TO YOU「夏活2026」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>灰姑娘:琉璃波光限定朝圣7/2-7/23(JST)夏活第七日</li>
+        <li>玛律恰娜:海洋进修明日7/9 05:00(JST)开启招募(至7/30 04:59 JST)</li>
+        <li>STORY II将于明日7/9 05:00(JST)解锁</li>
+        <li>新Boss噬屿+ISLAND BREAKER迷你游戏+A-1 Pictures动画</li>
+        <li>复刻限定Dorothy/Elegg</li>
+        <li>CDKey: WAVETOYOU2026</li>
+        <li>NIKKE×女神异闻录联动预告(8月下旬国服同步)</li>
+      </ul>
+      <p class="source">📎 <a href="https://www.gamekee.com/nikke/710630.html" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>胜利女神：NIKKE（国服）</h3>
+      <div class="ver">vBeauty Full Shot「美力全开」<span class="badge badge-active">CURRENT</span> ✅ FULL</div>
+      <ul>
+        <li>Beauty Full Shot美力全开今日上线！樱花:夏日绽放+罗珊娜:高雅海洋双限定开池</li>
+        <li>Sunny Date签到21天送樱花x1(7/8-8/12)</li>
+        <li>索达/灰姑娘/格拉维加入常规池</li>
+        <li>梅登-艳阳之下 via 7月Mission Pass</li>
+        <li>安克:天真的女仆池至7/15 03:59(剩余7天)</li>
+        <li>BOOM! THE GHOST幽灵大轰炸7/22上线(桃乐丝:机缘巧遇+伊莱格)</li>
+        <li>Kill the Lord覆灭虚像8/5上线(D:杀手妻子)</li>
+        <li>NIKKE×女神异闻录联动预告8月下旬国服同步</li>
+      </ul>
+      <p class="source">📎 <a href="https://www.taptap.com/app/737341/topic?type=official" target="_blank">一级源</a></p>
+    </div>
+    <div class="game-card">
+      <h3>燕云十六声</h3>
+      <div class="ver">v2.7.0A「江南时代」<span class="badge badge-active">CURRENT</span> ⚠️ PARTIAL</div>
+      <ul>
+        <li>江南时代上线第十三日：杭州主城+西湖+无明春山+打马棋+萌主争锋</li>
+        <li>渡尘墟7/10正式上线：逃离塔科夫联动搜打撤玩法+杭州浙江渡/海客巷/莽滩口新区域</li>
+        <li>独立货币系统金宝钞+150余种收集品</li>
+        <li>冷兵器暗杀+听声辨位+伪装埋伏</li>
+        <li>装备券机制降低门槛+安全匣保底</li>
+      </ul>
+      <p class="source">📎 <a href="https://www.yysls.cn/" target="_blank">一级源</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎟️ 兑换码</div>
+  <table>
+    <thead><tr><th>游戏</th><th>兑换码</th><th>奖励</th><th>截止时间</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>胜利女神：NIKKE（国际服）</td>
+        <td><code style="background:var(--surface2);padding:2px 8px;border-radius:4px;color:var(--green)">WAVETOYOU2026</code></td>
+        <td>夏活CDKey</td>
+        <td>2026-07-23T04:59</td>
+        <td><span class="badge badge-active">ACTIVE</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>📋 覆盖率：13/13 | 一级事实完整核验 9 款 | 部分核验 4 款</p>
+  <p>⚠️ 洛克王国版本时间轴、蓝色星原三测规模、重返未来1999角色池单帖、NIKKE国际服X官号时间戳待人工补核</p>
+  <p>所有日期均为2026年 | 事实段sourceUrl均来自一级白名单源 | Schema P1-3layer-source-validated-v8</p>
+</div>
+
+</body>
+</html>
