@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板 | 2026-07-20</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d;
+  --text: #e6edf3; --text-dim: #8b949e; --accent: #58a6ff;
+  --red: #f85149; --yellow: #d29922; --green: #3fb950; --purple: #bc8cff;
+  --orange: #db6d28; --teal: #39d0d8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, "Microsoft YaHei", sans-serif; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.header { text-align: center; padding: 30px 0; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+.header h1 { font-size: 28px; color: var(--accent); margin-bottom: 8px; }
+.header .date { color: var(--text-dim); font-size: 14px; }
+.header .alert { background: rgba(248,81,73,0.1); border: 1px solid var(--red); border-radius: 8px; padding: 12px 20px; margin-top: 16px; display: inline-block; }
+.header .alert strong { color: var(--red); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 30px; }
+.stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+.stat-card .num { font-size: 32px; font-weight: bold; }
+.stat-card .label { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+.section { margin-bottom: 30px; }
+.section-title { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 16px; }
+.highlight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 16px; }
+.hl-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; border-left: 4px solid var(--accent); }
+.hl-card.high { border-left-color: var(--red); }
+.hl-card.mid { border-left-color: var(--yellow); }
+.hl-card .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.tag-high { background: rgba(248,81,73,0.2); color: var(--red); }
+.tag-mid { background: rgba(210,153,34,0.2); color: var(--yellow); }
+.hl-card .title { font-size: 15px; font-weight: bold; margin-bottom: 8px; }
+.hl-card .desc { font-size: 13px; color: var(--text-dim); }
+.hl-card .game { font-size: 11px; color: var(--purple); margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; }
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
+th { background: rgba(88,166,255,0.1); color: var(--accent); font-weight: 600; }
+tr:hover { background: rgba(88,166,255,0.05); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+.badge-red { background: rgba(248,81,73,0.2); color: var(--red); }
+.badge-yellow { background: rgba(210,153,34,0.2); color: var(--yellow); }
+.badge-green { background: rgba(63,185,80,0.2); color: var(--green); }
+.badge-purple { background: rgba(188,140,255,0.2); color: var(--purple); }
+.game-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 16px; }
+.game-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.game-card .gname { font-size: 16px; font-weight: bold; color: var(--accent); margin-bottom: 4px; }
+.game-card .gver { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; }
+.game-card ul { list-style: none; padding: 0; }
+.game-card li { font-size: 13px; padding: 4px 0; color: var(--text-dim); padding-left: 16px; position: relative; }
+.game-card li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.game-card li.warn { color: var(--red); }
+.game-card li.warn::before { content: "⚠"; color: var(--red); }
+.cal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.cal-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+.cal-card .cdate { font-size: 14px; font-weight: bold; color: var(--accent); margin-bottom: 8px; }
+.cal-card .cdate.super { color: var(--red); }
+.cal-card ul { list-style: none; padding: 0; }
+.cal-card li { font-size: 12px; padding: 2px 0; color: var(--text-dim); }
+.cal-card li.super { color: var(--red); font-weight: bold; }
+.footer { text-align: center; color: var(--text-dim); font-size: 12px; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 30px; }
+@media (max-width: 768px) { .container { padding: 10px; } .highlight-grid, .game-list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎮 二次元游戏动态看板</h1>
+    <div class="date">2026年7月20日（周一）| 覆盖13款游戏 | 自动化扫描第104天</div>
+    <div class="alert"><strong>🔴 7/23超级事件日倒计时3天</strong>：NIKKE国际服夏活结束+终末地切池+重返未来原子之心联动+星铁Fate联动+洛克16周年庆截止</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="num" style="color:var(--accent)">13</div><div class="label">监控游戏</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--green)">13</div><div class="label">活跃卡池</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--yellow)">26</div><div class="label">活跃活动</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--red)">1</div><div class="label">明日截止卡池</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--purple)">8</div><div class="label">即将开始</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--teal)">1</div><div class="label">活跃兑换码</div></div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🔴 重点提醒</h2>
+    <div class="highlight-grid">
+      <div class="hl-card high">
+        <span class="tag tag-high">HIGH</span>
+        <div class="title">原神上半桑多涅/茜特菈莉仅剩1天！</div>
+        <div class="desc">月之八上半仅剩1天(7/21 17:59截止)。下半哥伦比娅(水法器·月体系辅助)+雷电将军(雷长柄武器·充能辅助)7/21 18:00接档。最终远射瞄准线第四日(420原石，至7/27)。</div>
+        <div class="game">原神</div>
+      </div>
+      <div class="hl-card high">
+        <span class="tag tag-high">HIGH</span>
+        <div class="title">7/23超级事件日倒计时3天</div>
+        <div class="desc">NIKKE国际服WAVE TO YOU夏活结束+灰姑娘&桃乐丝池截止、终末地诀池截止(接梨诺)、重返未来×原子之心联动上线、星铁Fate联动7/24永久开放、洛克16周年庆截止。</div>
+        <div class="game">胜利女神：NIKKE（国际服）</div>
+      </div>
+      <div class="hl-card high">
+        <span class="tag tag-high">HIGH</span>
+        <div class="title">NIKKE国际服FULL BURST DAY今日已结束</div>
+        <div class="desc">FULL BURST DAY已于今日04:59(JST)结束。Storm Bringer已于7/19截止。灰姑娘:琉璃波光+桃乐丝复刻仅剩3天(7/23截止)。玛律恰那+伊莱格复刻持续至7/30。时间为JST。</div>
+        <div class="game">胜利女神：NIKKE（国际服）</div>
+      </div>
+      <div class="hl-card high">
+        <span class="tag tag-high">HIGH</span>
+        <div class="title">绝区零跛脚乌鸦今日截止+3.1周年庆9天后</div>
+        <div class="desc">跛脚乌鸦已于今日03:59截止。3.0下半诺姆/千夏仅剩8天。3.1周年庆7/29上线：蕾米埃尔·丹整版本UP+S级五选一+1600菲林。前瞻码0729XUSHOU已过期。</div>
+        <div class="game">绝区零</div>
+      </div>
+      <div class="hl-card mid">
+        <span class="tag tag-mid">MID</span>
+        <div class="title">星铁4.4第六日+Fate联动倒计时4天</div>
+        <div class="desc">SP姬子·启行(火智识)整版本UP(至8/22)。Fate联动7/24永久开放：远坂凛+吉尔伽美什免费二选一+200抽自选光锥。上半陪跑火花/丹恒·腾荒/长夜月(至8/5)。</div>
+        <div class="game">崩坏：星穹铁道</div>
+      </div>
+      <div class="hl-card mid">
+        <span class="tag tag-mid">MID</span>
+        <div class="title">终末地1.4第五日+半周年庆典</div>
+        <div class="desc">诀(李织烟·自然术师大C)上半7/16-8/9。半周年庆典送10000嵌晶玉+6星武器遥望。应龙关新地图+战争回响常驻+炽燃竞技大会+根脉奇境。</div>
+        <div class="game">明日方舟：终末地</div>
+      </div>
+      <div class="hl-card mid">
+        <span class="tag tag-mid">MID</span>
+        <div class="title">二重螺旋银星奔流仅剩7天</div>
+        <div class="desc">希尔妲(火属性女仆·双刀+榴炮)卡池持续中。祷音回廊+休憩日签到同步进行中。鸿蒙版已上架华为游戏中心。</div>
+        <div class="game">二重螺旋</div>
+      </div>
+      <div class="hl-card mid">
+        <span class="tag tag-mid">MID</span>
+        <div class="title">洛克王国S3第五日+16周年庆仅剩3天</div>
+        <div class="desc">S3赛季「铅字幻梦」第五日运行。16周年庆联动仅剩3天(7/23截止)。海盔虫已于今日04:00结束。海底捞联动持续中(至8/9)。</div>
+        <div class="game">洛克王国：世界</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">⏰ 卡池预警</h2>
+    <table>
+      <thead><tr><th>状态</th><th>游戏</th><th>角色/卡池</th><th>截止时间</th><th>剩余</th><th>建议</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-red">明日截止</span></td><td>原神</td><td>桑多涅/茜特菈莉(上半)</td><td>7/21 17:59</td><td>1天</td><td>⭐⭐ 月体系核心</td></tr>
+        <tr><td><span class="badge badge-red">紧急</span></td><td>NIKKE国际服</td><td>灰姑娘:琉璃波光</td><td>7/23 04:59(JST)</td><td>3天</td><td>⭐⭐ 限定朝圣MG</td></tr>
+        <tr><td><span class="badge badge-red">紧急</span></td><td>NIKKE国际服</td><td>桃乐丝:机缘巧遇(复刻)</td><td>7/23 04:59(JST)</td><td>3天</td><td>🟡 朝圣者SG</td></tr>
+        <tr><td><span class="badge badge-red">紧急</span></td><td>重返未来1999</td><td>奠基石(下半)</td><td>7/23 04:59</td><td>3天</td><td>⭐ 版本末</td></tr>
+        <tr><td><span class="badge badge-yellow">预警</span></td><td>二重螺旋</td><td>希尔妲</td><td>7/27 17:00</td><td>7天</td><td>🟡 火属性女仆</td></tr>
+        <tr><td><span class="badge badge-yellow">预警</span></td><td>绝区零</td><td>诺姆/千夏(下半)</td><td>7/28 14:59</td><td>8天</td><td>⭐⭐ 3.0末班</td></tr>
+        <tr><td><span class="badge badge-yellow">预警</span></td><td>异环</td><td>真红(上半)</td><td>7/29 05:59</td><td>9天</td><td>⭐ 光属性主C</td></tr>
+        <tr><td><span class="badge badge-yellow">预警</span></td><td>NIKKE国服</td><td>樱花:夏日绽放</td><td>7/29 03:59</td><td>9天</td><td>⭐ 免费限定</td></tr>
+        <tr><td><span class="badge badge-yellow">预警</span></td><td>鸣潮</td><td>秧秧·玄翎(上半)</td><td>7/30 09:59</td><td>10天</td><td>⭐⭐ 首位SP五星</td></tr>
+        <tr><td><span class="badge badge-green">正常</span></td><td>NIKKE国际服</td><td>玛律恰那:海洋进修</td><td>7/30 04:59(JST)</td><td>10天</td><td>SSR火力型AR</td></tr>
+        <tr><td><span class="badge badge-green">正常</span></td><td>NIKKE国服</td><td>罗珊娜:高雅海洋</td><td>8/5 03:59</td><td>16天</td><td>SSR辅助型AR</td></tr>
+        <tr><td><span class="badge badge-green">正常</span></td><td>终末地</td><td>诀(李织烟)</td><td>8/9 04:00</td><td>20天</td><td>自然术师大C</td></tr>
+        <tr><td><span class="badge badge-green">正常</span></td><td>星铁</td><td>SP姬子·启行</td><td>8/22 17:59</td><td>33天</td><td>整版本UP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🎟️ 兑换码</h2>
+    <table>
+      <thead><tr><th>游戏</th><th>兑换码</th><th>奖励</th><th>截止时间</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>NIKKE国际服</td><td><code>WAVETOYOU2026</code></td><td>10张高级招募券+24H成长套装+3张通行证+50模块强化</td><td>7/23 04:59(JST)</td><td><span class="badge badge-green">可用</span></td></tr>
+        <tr><td>重返未来1999</td><td><code>AtomicHeartCollab0723</code></td><td>原子之心联动兑换码</td><td>7/23后可用</td><td><span class="badge badge-purple">UPCOMING</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🗓️ 活动日历</h2>
+    <div class="cal-grid">
+      <div class="cal-card">
+        <div class="cdate">7/20 (今日)</div>
+        <ul>
+          <li>绝区零跛脚乌鸦奇闻录截止(03:59)✅</li>
+          <li>NIKKE国际服FULL BURST DAY截止(JST)✅</li>
+          <li>洛克王国海盔虫大量出没截止(04:00)✅</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate">7/21 (明日)</div>
+        <ul>
+          <li>原神上半桑多涅/茜特菈莉截止(17:59)</li>
+          <li>原神下半哥伦比娅+雷电将军开池(18:00)</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate">7/22</div>
+        <ul>
+          <li>NIKKE国服BOOM! THE GHOST上线</li>
+          <li>绝区零数据悬赏翻倍开</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate super">🔴 7/23 超级事件日</div>
+        <ul>
+          <li class="super">NIKKE国际服WAVE TO YOU结束(JST)</li>
+          <li class="super">NIKKE国际服灰姑娘&桃乐丝截止(JST)</li>
+          <li class="super">终末地诀池截止→接梨诺</li>
+          <li class="super">重返未来1999×原子之心联动上线</li>
+          <li class="super">星铁Fate联动7/24永久开放</li>
+          <li>洛克王国16周年庆联动截止</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate">7/24</div>
+        <ul>
+          <li>星铁Fate联动正式开放(12:00)</li>
+          <li>原神悠悠律动舞力聚会上线</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate">7/27</div>
+        <ul>
+          <li>二重螺旋版本结束+希尔妲截止</li>
+          <li>异环夺金大作战截止</li>
+          <li>绝区零艺术就是邦布截止</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate">7/29</div>
+        <ul>
+          <li>NIKKE国服Beauty Full Shot结束</li>
+          <li>异环真红截止→伊洛伊开池</li>
+          <li>绝区零3.1周年庆上线</li>
+        </ul>
+      </div>
+      <div class="cal-card">
+        <div class="cdate">7/30</div>
+        <ul>
+          <li>NIKKE国际服玛律恰那+伊莱格截止(JST)</li>
+          <li>鸣潮秧秧·玄翎截止</li>
+          <li>鸣潮虚域危局·象限延展开启</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">📚 分游戏详情</h2>
+    <div class="game-list">
+      <div class="game-card">
+        <div class="gname">原神</div>
+        <div class="gver">v6.7 月之八·空月之歌·谐谑 | CURRENT | 7/1-8/11 → 7.0(8/12)</div>
+        <ul>
+          <li class="warn">上半桑多涅/茜特菈莉仅剩1天(7/21 17:59)⚠️明日截止</li>
+          <li>下半哥伦比娅(水法器)+雷电将军(雷长柄)7/21 18:00接档</li>
+          <li>千灵节夏活免费夏洛蒂+衣装(至8/11) | 幽境危战(至7/21)</li>
+          <li>最终远射瞄准线第四日(420原石，至7/27) | 悠悠律动7/24上线</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">崩坏：星穹铁道</div>
+        <div class="gver">v4.4 鸣笛于归寂之时 | CURRENT | 7/15-8/22</div>
+        <ul>
+          <li>SP姬子·启行(火智识)整版本UP(至8/22)，第六日</li>
+          <li>Fate联动7/24永久开放：远坂凛+吉尔伽美什免费二选一</li>
+          <li>上半陪跑火花/丹恒·腾荒/长夜月(至8/5)</li>
+          <li>火花时装甜梦电波已上架 | 主线终章决战</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">明日方舟：终末地</div>
+        <div class="gver">v1.4 向渊行 | CURRENT | 7/16-8/27</div>
+        <ul>
+          <li>诀(李织烟·自然术师大C)上半7/16-8/9 | 梨诺下半8/9-8/27</li>
+          <li>半周年庆典送10000嵌晶玉+6星武器遥望</li>
+          <li>应龙关新地图+气体工业+战争回响常驻+炽燃竞技大会</li>
+          <li>PS5 Pro PSSR+DLSS 4.5+FSR 3 | 云·终末地测试中</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">鸣潮</div>
+        <div class="gver">v3.5 遗音扶剑，荡梦而歌 | CURRENT | 7/10-8/19</div>
+        <ul>
+          <li>SP秧秧·玄翎(湮灭迅刀)首位SP五星上半7/10-7/30</li>
+          <li>巡回演唱会礼包已上架(98元) | 再续·光影瞬息(至8/6)</li>
+          <li>回音盈域7/23-7/30 | 虚域危局7/30-8/19</li>
+          <li>穗穗(冷凝音感仪)下半8/13-9/2</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">绝区零</div>
+        <div class="gver">v3.0 某个梦游者的自白 | CURRENT | 6/17-7/28 → 3.1(7/29)</div>
+        <ul>
+          <li class="warn">下半诺姆/千夏仅剩8天(7/28 14:59)</li>
+          <li>跛脚乌鸦已于今日03:59截止 | 前瞻码已过期</li>
+          <li>3.1周年庆7/29：蕾米埃尔·丹(流明异常)整版本UP</li>
+          <li>登录送S级五选一+1600菲林 | 冬季联动星铁</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">洛克王国：世界</div>
+        <div class="gver">S3 铅字幻梦 | CURRENT | 7/16-9/10</div>
+        <ul>
+          <li>S3赛季第五日：七大新区域+40+新精灵+传说精灵加尔</li>
+          <li class="warn">16周年庆联动仅剩3天(7/23截止)</li>
+          <li>海底捞联动(至8/9) | 皮卡期刊(至7/31) | S3棱镜球(至9/10)</li>
+          <li>远哥福利码3个已于7/19过期 | 海盔虫已于今日结束</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">二重螺旋</div>
+        <div class="gver">银星奔流 | CURRENT | 6/2-7/27</div>
+        <ul>
+          <li class="warn">希尔妲(火属性女仆)仅剩7天(7/27截止)</li>
+          <li>祷音回廊+休憩日签到持续中</li>
+          <li>鸿蒙版已上架华为游戏中心</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">异环</div>
+        <div class="gver">v1.2 九百九十九夜 | CURRENT | 7/2-8/13 → 1.3(8/19)</div>
+        <ul>
+          <li>真红(光属性双形态主C)上半延长至7/29，仅剩9天</li>
+          <li>下半伊洛伊(灵属性治疗辅助)7/29接档</li>
+          <li>夺金大作战(7/13-7/27)仅剩7天 | 徊影憧憧(至8/13)</li>
+          <li>S级常驻角色自选箱可领(至8/13)</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">蓝色星原：旅谣</div>
+        <div class="gver">旅迹测试(三测) | PREVIEW | 7/10-8/20</div>
+        <ul>
+          <li>三测旅迹测试招募进行中(限量计费删档)</li>
+          <li>支持PC/鸿蒙/安卓/iOS | 全网预约突破1500万</li>
+          <li>BW2026线下试玩已完成(7/10-12)</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">重返未来1999</div>
+        <div class="gver">v3.8 世纪末尺度 | CURRENT | 6/11-7/23 → 3.85(7/23)</div>
+        <ul>
+          <li class="warn">奠基石下半仅剩3天(7/23截止)</li>
+          <li>×原子之心联动7/23上线！双生舞伶(六星双属性)+诺拉(免费)</li>
+          <li>联动奖励110+抽免费资源+免费月度通行证+免费衣着</li>
+          <li>兑换码AtomicHeartCollab0723(7/23后可用)</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">胜利女神：NIKKE（国际服）</div>
+        <div class="gver">WAVE TO YOU(夏活) | CURRENT | 7/2-7/23 (JST)</div>
+        <ul>
+          <li class="warn">灰姑娘:琉璃波光+桃乐丝仅剩3天(7/23截止)</li>
+          <li>FULL BURST DAY已于今日结束 | Storm Bringer已结束</li>
+          <li>玛律恰那+伊莱格复刻(至7/30) | 单人突击S39(至7/23)</li>
+          <li>NIKKE×女神异闻录联动预告(8月下旬)</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">胜利女神：NIKKE（国服）</div>
+        <div class="gver">Beauty Full Shot(美力全开) | CURRENT | 7/8-7/29</div>
+        <ul>
+          <li>樱花:夏日绽放(免费限定)至7/29 | 罗珊娜(至8/5)第六日</li>
+          <li>BOOM! THE GHOST 7/22上线(桃乐丝+伊莱格双SSR)</li>
+          <li>Kill the Lord 8/5上线(D:杀手妻子)</li>
+          <li>Sunny Date签到(至8/12) | 8月底女神异闻录联动预告</li>
+        </ul>
+      </div>
+      <div class="game-card">
+        <div class="gname">燕云十六声</div>
+        <div class="gver">v2.7.0B 陌上花正好(江南时代) | CURRENT | 6/26-9/26</div>
+        <ul>
+          <li>渡尘墟(逃离塔科夫联动)7/10上线运行中(至9/10)</li>
+          <li>杭州新区域浙江渡/海客巷/莽滩口同步开放</li>
+          <li>冷兵器搜打撤+独立货币金宝钞+150余种收集品</li>
+          <li>8月推中式志怪+国民级IP联动+醉拳/双刀新武学</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>数据来源：官方游戏域名/官方公告平台(TapTap/B站/微博/X认证号) | NIKKE国际服GameKee专区按一级源处理</p>
+    <p>生成时间：2026-07-20 06:55 CST | 覆盖率：13/13 (100%) | 一级事实完整核验9款，部分核验4款</p>
+  </div>
+</div>
+</body>
+</html>
