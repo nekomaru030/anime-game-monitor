@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板 | 2026年7月24日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:20px;max-width:1200px;margin:0 auto}
+h1{font-size:1.8em;background:linear-gradient(135deg,#58a6ff,#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
+.subtitle{color:#8b949e;font-size:0.9em;margin-bottom:20px}
+.section{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:16px}
+.section h2{font-size:1.2em;color:#58a6ff;margin-bottom:12px;border-bottom:1px solid #30363d;padding-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.card{background:#21262d;border:1px solid #30363d;border-radius:8px;padding:14px;transition:transform 0.2s}
+.card:hover{transform:translateY(-2px);border-color:#58a6ff}
+.card-title{font-size:1.05em;font-weight:bold;margin-bottom:6px}
+.card-desc{font-size:0.85em;color:#8b949e;line-height:1.5}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:0.75em;font-weight:bold;margin-right:4px}
+.badge-high{background:#da3633;color:#fff}
+.badge-mid{background:#d29922;color:#000}
+.badge-low{background:#238636;color:#fff}
+.badge-active{background:#1f6feb;color:#fff}
+.badge-upcoming{background:#6e7681;color:#fff}
+.badge-collab{background:#bc8cff;color:#000}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #30363d}
+th{color:#58a6ff;font-weight:600}
+tr:hover{background:#21262d}
+.danger{color:#f85149;font-weight:bold}
+.warning{color:#d29922}
+.safe{color:#3fb950}
+.game-tag{display:inline-block;background:#30363d;color:#8b949e;padding:1px 6px;border-radius:4px;font-size:0.75em;margin-right:4px}
+.stat-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.stat-item{background:#21262d;padding:8px 16px;border-radius:8px;border:1px solid #30363d}
+.stat-num{font-size:1.4em;font-weight:bold;color:#58a6ff}
+.stat-label{font-size:0.75em;color:#8b949e}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.stat-row{gap:8px}}
+.highlight-card{border-left:3px solid #58a6ff}
+.highlight-card.high{border-left-color:#f85149}
+.highlight-card.mid{border-left-color:#d29922}
+.calendar-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #21262d}
+.cal-date{min-width:70px;font-weight:bold;color:#58a6ff}
+.cal-event{flex:1;font-size:0.85em}
+.cal-pri{font-size:0.7em;padding:2px 6px;border-radius:8px}
+</style>
+</head>
+<body>
+<h1>🎮 二次元游戏动态看板</h1>
+<p class="subtitle">2026年7月24日 | 覆盖13款游戏 | 一级源验证9款 | 部分核验4款</p>
+
+<div class="stat-row">
+<div class="stat-item"><div class="stat-num">13</div><div class="stat-label">覆盖游戏</div></div>
+<div class="stat-item"><div class="stat-num">15</div><div class="stat-label">活跃卡池</div></div>
+<div class="stat-item"><div class="stat-num">32</div><div class="stat-label">活跃活动</div></div>
+<div class="stat-item"><div class="stat-num">4</div><div class="stat-label">联动事件</div></div>
+<div class="stat-item"><div class="stat-num">1</div><div class="stat-label">兑换码</div></div>
+<div class="stat-item"><div class="stat-num">11</div><div class="stat-label">即将开始</div></div>
+</div>
+
+<div class="section">
+<h2>🔴 今日重点</h2>
+<div class="grid">
+<div class="card highlight-card high"><div class="card-title">⭐星铁Fate联动今日12:00永久开放 <span class="badge badge-high">HIGH</span></div><div class="card-desc">远坂凛(智识·量子)+吉尔伽美什(毁灭·雷)联动卡池。登录免费领吉尔伽美什或Archer二选一+养成材料。累计200抽自选5星光锥。<br><span class="game-tag">崩坏：星穹铁道</span></div></div>
+<div class="card highlight-card high"><div class="card-title">NIKKE国际服PROJECT MATIS第二日 <span class="badge badge-high">HIGH</span></div><div class="card-desc">拉普拉斯:终极英雄(Wind/RL攻击型)7/23-8/12。麦克斯韦7/30-8/20。14日登录+Solo Raid Museum永久+桃乐丝怀旧服装复刻。时间JST。<br><span class="game-tag">NIKKE国际服</span></div></div>
+<div class="card highlight-card high"><div class="card-title">重返未来1999×原子之心联动第二日 <span class="badge badge-high">HIGH</span></div><div class="card-desc">六星双生舞伶(星岩双系术具大C)通过银色拟剧论卡池获取。四星诺拉免费。限定十连+110抽福利。<br><span class="game-tag">重返未来1999</span></div></div>
+<div class="card highlight-card mid"><div class="card-title">原神悠悠律动今日10:00上线 <span class="badge badge-mid">MID</span></div><div class="card-desc">音游复刻活动，匹配共舞挑战赢积分，累计6000分领420原石。至8/3 03:59。<br><span class="game-tag">原神</span></div></div>
+<div class="card highlight-card mid"><div class="card-title">NIKKE国服协同作战今日12:00开启 <span class="badge badge-mid">MID</span></div><div class="card-desc">5名指挥官协同作战实时挑战首领(至7/26 23:59)。FULL BURST DAY明日7/25-7/27。<br><span class="game-tag">NIKKE国服</span></div></div>
+<div class="card highlight-card mid"><div class="card-title">洛克王国花园里的秘密+领地试炼今日上线 <span class="badge badge-mid">MID</span></div><div class="card-desc">花园里的秘密礼物+领地试炼(风暴酷拉)+PVP极速对决04:00上线。周年庆优化礼包(迪莫蛋+洛克钻100)7/24-8/6。<br><span class="game-tag">洛克王国：世界</span></div></div>
+<div class="card highlight-card mid"><div class="card-title">绝区零3.1周年庆倒计时5天 <span class="badge badge-mid">MID</span></div><div class="card-desc">3.0下半仅剩4天(7/28截止)。3.1版本7/29上线：蕾米埃尔整版本UP+S级五选一+1600菲林+首充双倍重置。<br><span class="game-tag">绝区零</span></div></div>
+<div class="card highlight-card mid"><div class="card-title">二重螺旋银星奔流仅剩3天 <span class="badge badge-mid">MID</span></div><div class="card-desc">希尔妲(火属性女仆)卡池+祷音回廊+休憩日签到+星耀巡游均至7/27 17:00截止。<br><span class="game-tag">二重螺旋</span></div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>⏰ 卡池预警</h2>
+<table>
+<tr><th>状态</th><th>游戏</th><th>角色/卡池</th><th>截止时间</th><th>剩余</th><th>建议</th></tr>
+<tr><td class="danger">🔴紧急</td><td>二重螺旋</td><td>希尔妲</td><td>7/27 17:00</td><td class="danger">3天</td><td>⭐⭐ 版本结束前必抽</td></tr>
+<tr><td class="danger">🔴紧急</td><td>绝区零</td><td>诺姆/千夏</td><td>7/28 14:59</td><td class="danger">4天</td><td>⭐⭐ 下半即将结束</td></tr>
+<tr><td class="warning">🟡预警</td><td>异环</td><td>真红</td><td>7/29 05:59</td><td class="warning">5天</td><td>⭐⭐ 延长至7/29</td></tr>
+<tr><td class="warning">🟡预警</td><td>NIKKE国服</td><td>樱花:夏日绽放</td><td>7/29 03:59</td><td class="warning">5天</td><td>⭐ 免费获取别错过</td></tr>
+<tr><td class="warning">🟡预警</td><td>鸣潮</td><td>秧秧·玄翎</td><td>7/30 09:59</td><td class="warning">6天</td><td>⭐⭐ 首位SP五星</td></tr>
+<tr><td class="warning">🟡预警</td><td>NIKKE国际服</td><td>玛律恰那:海洋进修</td><td>7/30 04:59(JST)</td><td class="warning">6天</td><td>⭐⭐ 夏活限定</td></tr>
+<tr><td class="warning">🟡预警</td><td>NIKKE国际服</td><td>伊莱格复刻</td><td>7/30 04:59(JST)</td><td class="warning">6天</td><td>⭐ 夏活复刻</td></tr>
+<tr><td class="safe">🟢正常</td><td>原神</td><td>哥伦比娅/雷电将军</td><td>8/11 14:59</td><td>18天</td><td>⭐⭐ 双神复刻</td></tr>
+<tr><td class="safe">🟢正常</td><td>星铁</td><td>SP姬子·启行</td><td>8/22 17:59</td><td>29天</td><td>⭐⭐ 整版本UP</td></tr>
+<tr><td class="safe">🟢正常</td><td>星铁</td><td>远坂凛+吉尔伽美什</td><td>永久</td><td>长期</td><td>⭐⭐ Fate联动今日开</td></tr>
+<tr><td class="safe">🟢正常</td><td>终末地</td><td>诀(李织烟)</td><td>8/9 04:00</td><td>16天</td><td>⭐⭐ 1.4上半大C</td></tr>
+<tr><td class="safe">🟢正常</td><td>NIKKE国际服</td><td>拉普拉斯:终极英雄</td><td>8/12(JST)</td><td>19天</td><td>⭐⭐ PROJECT MATIS新角色</td></tr>
+<tr><td class="safe">🟢正常</td><td>NIKKE国服</td><td>罗珊娜:高雅海洋</td><td>8/5 03:59</td><td>12天</td><td>⭐ 零件伤害辅助</td></tr>
+<tr><td class="safe">🟢正常</td><td>NIKKE国服</td><td>桃乐丝复刻</td><td>8/12 03:59</td><td>19天</td><td>⭐ 朝圣者复刻</td></tr>
+<tr><td class="safe">🟢正常</td><td>重返未来1999</td><td>双生舞伶(联动)</td><td>8/13 04:59</td><td>20天</td><td>⭐⭐ 首位双属性</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🎟️ 兑换码</h2>
+<table>
+<tr><th>兑换码</th><th>游戏</th><th>奖励</th><th>有效期</th></tr>
+<tr><td><code>AtomicHeartCollab0723</code></td><td>重返未来1999</td><td>联动版本兑换码</td><td>至8/13</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🗓️ 活动日历</h2>
+<div class="calendar-item"><span class="cal-date">7/24(今日)</span><span class="cal-event">⭐星铁Fate联动12:00永久开放</span><span class="cal-pri badge badge-high">HIGH</span></div>
+<div class="calendar-item"><span class="cal-date">7/24(今日)</span><span class="cal-event">原神悠悠律动10:00上线</span><span class="cal-pri badge badge-mid">MID</span></div>
+<div class="calendar-item"><span class="cal-date">7/24(今日)</span><span class="cal-event">NIKKE国服协同作战12:00开启</span><span class="cal-pri badge badge-mid">MID</span></div>
+<div class="calendar-item"><span class="cal-date">7/24(今日)</span><span class="cal-event">洛克王国花园里的秘密+领地试炼上线</span><span class="cal-pri badge badge-mid">MID</span></div>
+<div class="calendar-item"><span class="cal-date">7/25</span><span class="cal-event">NIKKE国服FULL BURST DAY(7/25-7/27)</span><span class="cal-pri badge badge-mid">MID</span></div>
+<div class="calendar-item"><span class="cal-date">7/27</span><span class="cal-event">🔴二重螺旋银星奔流17:00截止</span><span class="cal-pri badge badge-high">HIGH</span></div>
+<div class="calendar-item"><span class="cal-date">7/27</span><span class="cal-event">绝区零艺术就是邦布+数据悬赏截止</span><span class="cal-pri badge badge-mid">MID</span></div>
+<div class="calendar-item"><span class="cal-date">7/28</span><span class="cal-event">🔴绝区零3.0下半14:59截止</span><span class="cal-pri badge badge-high">HIGH</span></div>
+<div class="calendar-item"><span class="cal-date">7/29</span><span class="cal-event">🔴绝区零3.1周年庆上线+异环真红截止+NIKKE国服樱花截止</span><span class="cal-pri badge badge-high">HIGH</span></div>
+<div class="calendar-item"><span class="cal-date">7/30</span><span class="cal-event">🔴鸣潮上半截止+NIKKE国际服麦克斯韦开池+玛律恰那/伊莱格截止</span><span class="cal-pri badge badge-high">HIGH</span></div>
+</div>
+
+<div class="section">
+<h2>📚 分游戏概览</h2>
+<div class="grid">
+<div class="card"><div class="card-title">原神 <span class="badge badge-active">v6.7</span></div><div class="card-desc">下半哥伦比娅/雷电将军(18天) | 悠悠律动今日上线 | 最终远射仅剩3天</div></div>
+<div class="card"><div class="card-title">崩坏：星穹铁道 <span class="badge badge-active">v4.4</span> <span class="badge badge-collab">联动</span></div><div class="card-desc">SP姬子(29天) | Fate联动今日12:00永久开放 | 7日签到送10抽</div></div>
+<div class="card"><div class="card-title">明日方舟：终末地 <span class="badge badge-active">v1.4</span></div><div class="card-desc">诀(李织烟)(16天) | 半周年庆典 | 炽燃竞技大会</div></div>
+<div class="card"><div class="card-title">鸣潮 <span class="badge badge-active">v3.5</span></div><div class="card-desc">秧秧·玄翎(6天) | 回音盈域材料双倍 | 悲鸣行动(至8/19)</div></div>
+<div class="card"><div class="card-title">绝区零 <span class="badge badge-active">v3.0</span></div><div class="card-desc">诺姆/千夏(4天) | 3.1周年庆7/29 | 艺术就是邦布(3天)</div></div>
+<div class="card"><div class="card-title">洛克王国：世界 <span class="badge badge-active">S3</span></div><div class="card-desc">花园里的秘密今日上线 | 领地试炼 | 周年庆礼包(迪莫蛋)</div></div>
+<div class="card"><div class="card-title">二重螺旋 <span class="badge badge-active">银星奔流</span></div><div class="card-desc">希尔妲(3天) | 祷音回廊+签到(3天) | 版本7/27截止</div></div>
+<div class="card"><div class="card-title">异环 <span class="badge badge-active">v1.2</span></div><div class="card-desc">真红(5天) | 伊洛伊7/29登场 | 夺金大作战(3天)</div></div>
+<div class="card"><div class="card-title">蓝色星原：旅谣 <span class="badge badge-upcoming">测试</span></div><div class="card-desc">旅迹测试招募中(至8/20) | 限量计费删档</div></div>
+<div class="card"><div class="card-title">重返未来1999 <span class="badge badge-active">联动</span> <span class="badge badge-collab">联动</span></div><div class="card-desc">双生舞伶(20天) | 诺拉免费 | 110抽福利</div></div>
+<div class="card"><div class="card-title">NIKKE国际服 <span class="badge badge-active">MATIS</span></div><div class="card-desc">拉普拉斯(19天) | 玛律恰那(6天) | 麦克斯韦7/30开</div></div>
+<div class="card"><div class="card-title">NIKKE国服 <span class="badge badge-active">BOOM</span></div><div class="card-desc">樱花(5天) | 罗珊娜(12天) | 桃乐丝复刻(19天) | 协同作战今日开</div></div>
+<div class="card"><div class="card-title">燕云十六声 <span class="badge badge-active">v2.7.0B</span></div><div class="card-desc">渡尘墟(至10/9) | 杭州新域 | 聆音套装今日上线</div></div>
+</div>
+</div>
+
+<p style="text-align:center;color:#8b949e;font-size:0.8em;margin-top:20px">
+报告生成时间：2026-07-24 06:55 (Asia/Shanghai) | 信源三级分级体系执行 | 一级白名单验证
+</p>
+</body>
+</html>
