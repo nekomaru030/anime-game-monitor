@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板｜2026年7月30日</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0d1117; color:#e6edf3; font-family:'Segoe UI',system-ui,sans-serif; line-height:1.6; }
+.container { max-width:1200px; margin:0 auto; padding:20px; }
+.header { text-align:center; padding:30px 0 20px; border-bottom:1px solid #30363d; margin-bottom:20px; }
+.header h1 { font-size:1.8em; background:linear-gradient(135deg,#58a6ff,#bc8cff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.header .meta { color:#8b949e; font-size:0.85em; margin-top:8px; }
+.section { margin-bottom:24px; }
+.section-title { font-size:1.2em; padding:10px 0; border-bottom:2px solid #30363d; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
+.card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px; transition:transform 0.15s; }
+.card:hover { transform:translateY(-2px); border-color:#58a6ff; }
+.card.priority-HIGH { border-left:3px solid #f85149; }
+.card.priority-MID { border-left:3px solid #d29922; }
+.card.priority-LOW { border-left:3px solid #3fb950; }
+.card h3 { font-size:1em; margin-bottom:6px; }
+.card .game-tag { display:inline-block; background:#21262d; color:#8b949e; padding:2px 8px; border-radius:12px; font-size:0.75em; margin-right:4px; }
+.card .desc { font-size:0.85em; color:#8b949e; margin-top:6px; }
+.banner-table { width:100%; border-collapse:collapse; font-size:0.85em; }
+.banner-table th { background:#161b22; padding:8px; text-align:left; border-bottom:2px solid #30363d; color:#8b949e; }
+.banner-table td { padding:8px; border-bottom:1px solid #21262d; }
+.banner-table .warn-3 { color:#f85149; font-weight:bold; }
+.banner-table .warn-7 { color:#d29922; }
+.banner-table .warn-14 { color:#58a6ff; }
+.banner-table .warn-ok { color:#3fb950; }
+.stat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:8px; }
+.stat-item { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px; text-align:center; }
+.stat-item .num { font-size:1.6em; font-weight:bold; color:#58a6ff; }
+.stat-item .label { font-size:0.75em; color:#8b949e; margin-top:4px; }
+.game-list { display:flex; flex-wrap:wrap; gap:6px; }
+.game-item { background:#161b22; border:1px solid #30363d; border-radius:6px; padding:8px 12px; font-size:0.8em; }
+.game-item .ver { color:#58a6ff; }
+.footer { text-align:center; padding:20px 0; color:#8b949e; font-size:0.8em; border-top:1px solid #30363d; margin-top:20px; }
+.code-box { background:#161b22; border:1px solid #30363d; border-radius:6px; padding:12px; font-family:monospace; font-size:0.9em; display:flex; justify-content:space-between; align-items:center; }
+.code-box .code { color:#3fb950; font-weight:bold; }
+@media(max-width:768px) { .grid { grid-template-columns:1fr; } .stat-grid { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎮 二次元游戏动态看板</h1>
+    <div class="meta">2026年7月30日 · 覆盖13款游戏 · 一级事实核验9款 · 部分核验4款 · 覆盖率100%</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📊 数据概览</div>
+    <div class="stat-grid">
+      <div class="stat-item"><div class="num">13</div><div class="label">监控游戏</div></div>
+      <div class="stat-item"><div class="num">13</div><div class="label">活跃卡池</div></div>
+      <div class="stat-item"><div class="num">27</div><div class="label">活跃活动</div></div>
+      <div class="stat-item"><div class="num">4</div><div class="label">即将开始</div></div>
+      <div class="stat-item"><div class="num">1</div><div class="label">兑换码</div></div>
+      <div class="stat-item"><div class="num">100%</div><div class="label">覆盖率</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🔴 今日重点</div>
+    <div class="grid">
+      <div class="card priority-HIGH">
+        <h3>鸣潮穗穗今日10:00接档</h3>
+        <span class="game-tag">鸣潮</span>
+        <div class="desc">秧秧·玄翎09:59截止→穗穗(冷凝音感仪辅助)10:00开池(至8/19)。爱弥斯复刻同步。回音盈域今日截止。秘玉寻踪H5+虚域危局今日开启。</div>
+      </div>
+      <div class="card priority-HIGH">
+        <h3>NIKKE国际服麦克斯韦今日开池</h3>
+        <span class="game-tag">NIKKE国际服</span>
+        <div class="desc">玛律恰那/伊莱格04:59(JST)截止→麦克斯韦05:00(JST)开池(至8/20)。STORY II Part2+冠军竞技场Beta S35今日开启。联合突袭+协同作战明日7/31。</div>
+      </div>
+      <div class="card priority-HIGH">
+        <h3>重返未来切洛梅探索今日开启</h3>
+        <span class="game-tag">重返未来1999</span>
+        <div class="desc">原子之心联动第八日。切洛梅探索模式7/30开启(至8/13)，可获取宽檐帽皮肤+满增幅6星心相。双生舞伶卡池持续(至8/13)。</div>
+      </div>
+      <div class="card priority-HIGH">
+        <h3>NIKKE国服单人突击今日开启</h3>
+        <span class="game-tag">NIKKE国服</span>
+        <div class="desc">单人突击7/30-8/6开启。桃乐丝复刻持续(至8/12)。Kill the Lord 8/5接档。</div>
+      </div>
+      <div class="card priority-MID">
+        <h3>二重螺旋收获日+机傀大乱斗10:00</h3>
+        <span class="game-tag">二重螺旋</span>
+        <div class="desc">收获日第一期(7/30-8/6)每日6次委托奖励加成。机傀大乱斗(7/30-9/7)棋盘策略对战。艾达限定获取中。</div>
+      </div>
+      <div class="card priority-MID">
+        <h3>绝区零3.1二周年庆第二日</h3>
+        <span class="game-tag">绝区零</span>
+        <div class="desc">蕾米埃尔整版本UP(至9/9)。登录送S级五选一+1600菲林+首充双倍重置。爱芮复刻(上半)。希格莉德(下半)。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">⏰ 卡池预警</div>
+    <table class="banner-table">
+      <thead><tr><th>状态</th><th>游戏</th><th>角色/卡池</th><th>截止时间</th><th>剩余天数</th></tr></thead>
+      <tbody>
+        <tr><td class="warn-7">🟡</td><td>终末地</td><td>诀(李织烟)</td><td>8/9 03:59</td><td class="warn-7">10天</td></tr>
+        <tr><td class="warn-7">🟡</td><td>原神</td><td>哥伦比娅/雷电将军</td><td>8/11 14:59</td><td class="warn-7">12天</td></tr>
+        <tr><td class="warn-7">🟡</td><td>NIKKE国际服</td><td>拉普拉斯:终极英雄</td><td>8/12 23:59 JST</td><td class="warn-7">13天</td></tr>
+        <tr><td class="warn-7">🟡</td><td>NIKKE国服</td><td>桃乐丝(复刻)</td><td>8/12 03:59</td><td class="warn-7">13天</td></tr>
+        <tr><td class="warn-7">🟡</td><td>异环</td><td>伊洛伊</td><td>8/13 05:59</td><td class="warn-7">14天</td></tr>
+        <tr><td class="warn-7">🟡</td><td>重返未来1999</td><td>双生舞伶(联动)</td><td>8/13 04:59</td><td class="warn-7">14天</td></tr>
+        <tr><td class="warn-ok">🟢</td><td>星铁</td><td>SP姬子·启行</td><td>8/22 06:00</td><td class="warn-ok">23天</td></tr>
+        <tr><td class="warn-ok">🟢</td><td>星铁</td><td>Fate联动远坂凛/吉尔伽美什</td><td>8/26 06:00</td><td class="warn-ok">27天</td></tr>
+        <tr><td class="warn-ok">🟢</td><td>绝区零</td><td>蕾米埃尔·丹</td><td>9/9 06:00</td><td class="warn-ok">41天</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎟️ 兑换码</div>
+    <div class="code-box">
+      <span><span class="code">AtomicHeartCollab0723</span> — 重返未来1999 · 纯雨滴/独一律等</span>
+      <span style="color:#8b949e;">至8/13</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📚 游戏版本总览</div>
+    <div class="game-list">
+      <div class="game-item">原神 <span class="ver">v6.7</span> → 7.0(8/12)</div>
+      <div class="game-item">星铁 <span class="ver">v4.4</span> Fate联动</div>
+      <div class="game-item">终末地 <span class="ver">v1.4</span> 半周年</div>
+      <div class="game-item">鸣潮 <span class="ver">v3.5</span> 穗穗今日开池</div>
+      <div class="game-item">绝区零 <span class="ver">v3.1</span> 二周年</div>
+      <div class="game-item">异环 <span class="ver">v1.2</span> 伊洛伊</div>
+      <div class="game-item">重返未来1999 <span class="ver">聚合浪潮</span> 原子之心</div>
+      <div class="game-item">NIKKE国际服 <span class="ver">PROJECT MATIS</span></div>
+      <div class="game-item">NIKKE国服 <span class="ver">BOOM! THE GHOST</span></div>
+      <div class="game-item">二重螺旋 <span class="ver">v1.5</span> 乐园序曲</div>
+      <div class="game-item">洛克王国 <span class="ver">S3</span> 铅字幻梦</div>
+      <div class="game-item">燕云十六声 <span class="ver">v2.7.0B</span></div>
+      <div class="game-item">蓝色星原 <span class="ver">PREVIEW</span> 旅迹测试</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    报告生成时间：2026-07-30 06:55 (UTC+8) · 信源三级分级执行 · 一级事实完整核验9款 · 部分核验4款<br>
+    NIKKE国际服时间为JST · 洛克王国仅监控《洛克王国：世界》
+  </div>
+</div>
+</body>
+</html>
