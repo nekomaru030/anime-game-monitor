@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板 - 2026年8月5日</title>
+<style>
+:root {
+  --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #c9d1d9; --text-dim: #8b949e;
+  --accent: #58a6ff; --red: #f85149; --orange: #ff9800; --green: #3fb950; --purple: #bc8cff;
+  --yellow: #d29922; --pink: #f778ba;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; line-height:1.6; }
+.container { max-width:1200px; margin:0 auto; padding:16px; }
+h1 { font-size:1.5em; text-align:center; margin-bottom:4px; color:var(--accent); }
+.meta { text-align:center; color:var(--text-dim); font-size:0.85em; margin-bottom:16px; }
+.section { margin-bottom:20px; }
+.section-title { font-size:1.1em; color:var(--accent); border-bottom:1px solid var(--border); padding-bottom:6px; margin-bottom:10px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:14px; transition:border-color 0.2s; }
+.card:hover { border-color:var(--accent); }
+.card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.card-title { font-weight:600; font-size:0.95em; }
+.badge { font-size:0.7em; padding:2px 8px; border-radius:10px; font-weight:600; }
+.badge-high { background:rgba(248,81,73,0.2); color:var(--red); border:1px solid var(--red); }
+.badge-mid { background:rgba(255,152,0,0.2); color:var(--orange); border:1px solid var(--orange); }
+.badge-low { background:rgba(59,185,80,0.2); color:var(--green); border:1px solid var(--green); }
+.badge-active { background:rgba(88,166,255,0.15); color:var(--accent); }
+.badge-upcoming { background:rgba(188,140,255,0.15); color:var(--purple); }
+.badge-ended { background:rgba(139,148,158,0.15); color:var(--text-dim); }
+.card-desc { font-size:0.85em; color:var(--text-dim); }
+.card-source { font-size:0.75em; color:var(--text-dim); margin-top:6px; word-break:break-all; }
+table { width:100%; border-collapse:collapse; font-size:0.85em; }
+th,td { padding:8px 10px; text-align:left; border-bottom:1px solid var(--border); }
+th { color:var(--accent); font-weight:600; }
+tr:hover { background:rgba(255,255,255,0.03); }
+.warn-1 { color:var(--red); font-weight:600; }
+.warn-3 { color:var(--orange); font-weight:600; }
+.warn-7 { color:var(--yellow); }
+.warn-normal { color:var(--text-dim); }
+.game-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:10px; }
+.game-name { font-weight:700; color:var(--accent); margin-bottom:4px; }
+.game-ver { font-size:0.8em; color:var(--text-dim); margin-bottom:6px; }
+.game-notes { font-size:0.85em; }
+@media(max-width:768px) { .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎮 二次元游戏动态看板</h1>
+<div class="meta">2026年8月5日 · 13/13覆盖 · 一级核验9 · 部分核验4</div>
+
+<div class="section">
+<div class="section-title">🔴 今日重点</div>
+<div class="grid">
+<div class="card"><div class="card-header"><span class="card-title">NIKKE国服 Kill the Lord上线</span><span class="badge badge-high">HIGH</span></div><div class="card-desc">D:杀手妻子特殊招募8/5-8/19。BOOM版本与大惊夏已结束。桃乐丝复刻至8/12。单人突击至8/6仅剩1天。</div><div class="card-source">nikke.qq.com</div></div>
+<div class="card"><div class="card-header"><span class="card-title">星铁4.4下半接档</span><span class="badge badge-high">HIGH</span></div><div class="card-desc">刻律德菈/那刻夏/砂金今日12:00接档(至8/26)。SP姬子+Fate联动持续。</div><div class="card-source">sr.mihoyo.com</div></div>
+<div class="card"><div class="card-header"><span class="card-title">NIKKE国际服联合突袭明日截止</span><span class="badge badge-high">HIGH</span></div><div class="card-desc">联合突袭+冠军竞技场S35至8/6(JST)仅剩1天。FBD第二轮8/8-8/10。拉普拉斯至8/12。</div><div class="card-source">x.com/NIKKE_japan</div></div>
+<div class="card"><div class="card-header"><span class="card-title">原神7.0至冬倒计时7天</span><span class="badge badge-high">HIGH</span></div><div class="card-desc">下半哥伦比娅/雷电将军至8/11仅剩6天。7.0至冬8/12上线。前瞻码已过期。</div><div class="card-source">ys.mihoyo.com</div></div>
+<div class="card"><div class="card-header"><span class="card-title">二重螺旋收获日明日截止</span><span class="badge badge-mid">MID</span></div><div class="card-desc">收获日第一期至8/6仅剩1天。联袂演绎+黄金旅途明日开启。</div><div class="card-source">dnabbs.yingxiong.com</div></div>
+<div class="card"><div class="card-header"><span class="card-title">终末地诀卡池仅剩4天</span><span class="badge badge-mid">MID</span></div><div class="card-desc">诀限定UP至8/9。梨诺8/9接档。相伴庆典至8/30。</div><div class="card-source">endfield.hypergryph.com</div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">⏰ 卡池预警</div>
+<table>
+<tr><th>状态</th><th>游戏</th><th>角色/卡池</th><th>截止</th><th>剩余</th></tr>
+<tr class="warn-1"><td>明日截止</td><td>NIKKE国际服</td><td>联合突袭+冠军竞技场S35</td><td>8/6 (JST)</td><td>1天</td></tr>
+<tr class="warn-1"><td>明日截止</td><td>NIKKE国服</td><td>单人突击</td><td>8/6</td><td>1天</td></tr>
+<tr class="warn-1"><td>明日截止</td><td>二重螺旋</td><td>收获日第一期</td><td>8/6 05:00</td><td>1天</td></tr>
+<tr class="warn-3"><td>即将截止</td><td>终末地</td><td>诀(李织烟)</td><td>8/9 03:59</td><td>4天</td></tr>
+<tr class="warn-7"><td>本周截止</td><td>原神</td><td>哥伦比娅/雷电将军</td><td>8/11 14:59</td><td>6天</td></tr>
+<tr class="warn-7"><td>本周截止</td><td>NIKKE国际服</td><td>拉普拉斯</td><td>8/12 (JST)</td><td>7天</td></tr>
+<tr class="warn-7"><td>本周截止</td><td>NIKKE国服</td><td>桃乐丝复刻</td><td>8/12 03:59</td><td>7天</td></tr>
+<tr class="warn-7"><td>本周截止</td><td>异环</td><td>伊洛伊</td><td>8/13 05:59</td><td>8天</td></tr>
+<tr class="warn-7"><td>本周截止</td><td>重返未来</td><td>双生舞伶(联动)</td><td>8/13 04:59</td><td>8天</td></tr>
+</table>
+</div>
+
+<div class="section">
+<div class="section-title">📚 分游戏详情</div>
+<div class="grid">
+<div class="game-card"><div class="game-name">原神</div><div class="game-ver">v6.7「月之八」 → 7.0「不受神怜爱的雪国」8/12</div><div class="game-notes">下半哥伦比娅/雷电将军(至8/11) · 映夏千灵节(至8/12) · 7.0前瞻码已过期</div></div>
+<div class="game-card"><div class="game-name">崩坏：星穹铁道</div><div class="game-ver">v4.4「鸣笛于归寂之时」</div><div class="game-notes">SP姬子(至8/26) · Fate联动(至8/26) · <strong>下半刻律德菈/那刻夏/砂金今日12:00接档</strong> · 花园巡礼8/14</div></div>
+<div class="game-card"><div class="game-name">明日方舟：终末地</div><div class="game-ver">v1.4「向渊行」</div><div class="game-notes">诀(至8/9仅剩4天) → 梨诺8/9接档 · 相伴庆典(至8/30)</div></div>
+<div class="game-card"><div class="game-name">鸣潮</div><div class="game-ver">v3.5「遗音扶剑，荡梦而歌」</div><div class="game-notes">穗穗+爱弥斯(至8/19) · 忆旅回响(至8/20) · 秘玉寻踪H5(至8/13)</div></div>
+<div class="game-card"><div class="game-name">绝区零</div><div class="game-ver">v3.1「漫长的告别」(二周年庆)</div><div class="game-notes">蕾米埃尔(至9/9) · S级五选一 · 咔嚓焦点对决8/7 · 深度巡防8/12</div></div>
+<div class="game-card"><div class="game-name">洛克王国：世界</div><div class="game-ver">S3「铅字幻梦」</div><div class="game-notes">16周年快洛(至8/14) · 海底捞(至8/10) · 时光梦境(至8/17)</div></div>
+<div class="game-card"><div class="game-name">二重螺旋</div><div class="game-ver">v1.5「乐园序曲」</div><div class="game-notes">艾达限定 · <strong>收获日至8/6仅剩1天</strong> · 联袂演绎8/6 · 绯色梦魇8/18</div></div>
+<div class="game-card"><div class="game-name">异环</div><div class="game-ver">v1.2「九百九十九夜」(至8/13)</div><div class="game-notes">伊洛伊(至8/13仅剩8天) · 徊影憧憧(至8/13) · S自选箱全版本</div></div>
+<div class="game-card"><div class="game-name">蓝色星原：旅谣</div><div class="game-ver">旅迹测试(PREVIEW)</div><div class="game-notes">招募中(至8/20) · 计费删档 · 预约1500万+ · TapTap有奖至8/7</div></div>
+<div class="game-card"><div class="game-name">重返未来1999</div><div class="game-ver">聚合浪潮(原子之心联动)</div><div class="game-notes">双生舞伶(至8/13仅剩8天) · 切洛梅探索(至8/13) · 兑换码至8/13</div></div>
+<div class="game-card"><div class="game-name">NIKKE（国际服）</div><div class="game-ver">PROJECT MATIS (JST)</div><div class="game-notes">拉普拉斯(至8/12) · 麦克斯韦(至8/20) · <strong>联合突袭明日截止</strong> · FBD第二轮8/8</div></div>
+<div class="game-card"><div class="game-name">NIKKE（国服）</div><div class="game-ver">Kill the Lord (8/5-8/19)</div><div class="game-notes"><strong>D:杀手妻子今日04:00上线</strong> · 桃乐丝复刻(至8/12) · 单人突击至8/6</div></div>
+<div class="game-card"><div class="game-name">燕云十六声</div><div class="game-ver">v2.7.0B「陌上花正好」</div><div class="game-notes">×新白娘子传奇联动(8/2) · 渡尘墟(至10/9) · 破竹·樽8/14 · 照影庙8/27</div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">🗓️ 关键日历</div>
+<table>
+<tr><th>日期</th><th>事件</th></tr>
+<tr><td><strong>8/5</strong></td><td>NIKKE国服Kill the Lord上线 · 星铁下半接档</td></tr>
+<tr><td><strong>8/6</strong></td><td>二重螺旋收获日截止+联袂演绎开启 · NIKKE国际服联合突袭截止(JST)</td></tr>
+<tr><td>8/7</td><td>绝区零咔嚓焦点对决开启 · 蓝色星原TapTap有奖截止</td></tr>
+<tr><td>8/8</td><td>NIKKE国际服FBD第二轮(JST)</td></tr>
+<tr><td>8/9</td><td>终末地诀截止+梨诺接档</td></tr>
+<tr><td><strong>8/12</strong></td><td><strong>原神7.0至冬上线</strong> · NIKKE双服版本结束 · 绝区零深度巡防</td></tr>
+<tr><td>8/13</td><td>异环1.2结束 · 重返未来联动结束 · 鸣潮秘玉寻踪截止</td></tr>
+<tr><td>8/14</td><td>燕云破竹·樽上线 · 星铁花园巡礼开启</td></tr>
+</table>
+</div>
+
+</div>
+</body>
+</html>
