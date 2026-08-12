@@ -1,0 +1,1517 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGA舆情日报 - 2026-08-11</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+:root {
+  --bg:    oklch(98% 0.004 60);
+  --card:  oklch(99.5% 0.002 60);
+  --text:  oklch(18% 0.01 60);
+  --muted: oklch(52% 0.01 60);
+  --line:  oklch(88% 0.008 60);
+  --brand: oklch(55% 0.13 55);
+  --brand-mid: oklch(70% 0.10 55);
+  --brand-pale: oklch(95% 0.04 60);
+  --code-bg: oklch(96% 0.005 60);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "DM Sans", -apple-system, "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Page shell ── */
+.page { max-width: 1240px; margin: 0 auto; padding: 24px 20px 56px; }
+
+/* ── Hero ── */
+.hero {
+  background: transparent;
+  color: var(--text);
+  border-radius: 0;
+  padding: 8px 0 12px;
+  margin-bottom: 6px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hero h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  border: 0;
+}
+.hero p { margin: 0; font-size: 13px; color: var(--muted); font-weight: 500; white-space: nowrap; }
+.reading-guide {
+  margin: 2px 2px 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.reading-guide b { color: var(--text); font-weight: 600; }
+
+/* ── Global stats panel ── */
+.global-stats {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 24px 16px;
+  margin-bottom: 20px;
+}
+.gs-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px; flex-wrap: wrap;
+}
+.gs-kicker {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand); background: var(--brand-pale);
+  padding: 3px 8px; border-radius: 4px; border: 1px solid var(--line);
+  white-space: nowrap; flex-shrink: 0;
+}
+.gs-title {
+  margin: 0; padding: 0; border: 0; background: none;
+  font-size: 16px; font-weight: 600; color: var(--text); flex-shrink: 0;
+}
+.gs-chips { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; justify-content: flex-end; }
+.gs-chip {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 6px 14px; border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--line);
+  min-width: 64px;
+}
+.gs-chip-val {
+  font-size: 18px; font-weight: 700; line-height: 1.1;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.5px;
+  color: var(--text);
+}
+.gs-chip-label {
+  font-size: 10px; color: var(--muted); font-weight: 500; margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* B站风格排行表 */
+.gs-ranking-wrap { margin-bottom: 14px; }
+.gs-section-title {
+  font-size: 12px; font-weight: 600; letter-spacing: .06em;
+  color: var(--brand); text-transform: uppercase; margin-bottom: 8px;
+}
+.gs-rank-table {
+  width: 100%; border-collapse: collapse;
+  table-layout: auto; min-width: 580px;
+}
+.gs-rank-table thead th {
+  padding: 7px 10px; background: var(--bg);
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  border-bottom: 1px solid var(--line); text-align: left;
+  white-space: nowrap;
+}
+.gs-rank-row { cursor: pointer; transition: background .12s; }
+.gs-rank-row:hover td { background: var(--brand-pale); }
+.gs-rank-row td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; font-size: 13px; }
+.gs-rank-row:last-child td { border-bottom: 0; }
+.gs-rank-num { color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; text-align: center; }
+.gs-rank-chg { text-align: center; font-size: 12px; white-space: nowrap; }
+.gs-rank-game { display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.gs-rank-icon {
+  width: 32px; height: 32px; min-width: 32px;
+  border-radius: 8px; object-fit: cover;
+  background: var(--line); display: block;
+}
+.gs-rank-icon-fb {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--brand);
+  background: var(--brand-pale);
+}
+.gs-game-link { color: var(--text); font-weight: 500; font-size: 13.5px; }
+.gs-game-link:hover { color: var(--brand); text-decoration: none; }
+.gs-score-cell { min-width: 100px; }
+.gs-score-num {
+  font-weight: 700; font-size: 15px; color: var(--text);
+  font-variant-numeric: tabular-nums;
+  display: block; margin-bottom: 3px;
+}
+.gs-score-bar {
+  height: 3px; background: var(--line); border-radius: 2px; overflow: hidden;
+}
+.gs-score-fill {
+  height: 100%; background: var(--brand); border-radius: 2px;
+  transition: width .3s;
+}
+.gs-posts-cell { font-size: 12.5px; white-space: nowrap; }
+.gs-new-badge {
+  display: inline-block; padding: 1px 5px; border-radius: 4px;
+  background: oklch(93% 0.05 145); color: oklch(35% 0.14 145);
+  font-size: 10px; font-weight: 600; margin-left: 3px;
+}
+.gs-burst-badge {
+  display: inline-block; padding: 1px 5px; border-radius: 4px;
+  background: oklch(94% 0.04 25); color: oklch(38% 0.14 25);
+  font-size: 10px; font-weight: 600; margin-left: 3px;
+}
+.gs-sent-cell { text-align: center; font-weight: 700; font-size: 13px; }
+.gs-brief-cell { color: var(--muted); font-size: 12px; }
+
+/* 其他标签区 */
+.gs-meta-block { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 7px; }
+.gs-meta-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.gs-meta-label {
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  letter-spacing: .04em; white-space: nowrap; min-width: 52px;
+}
+.gs-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+.gs-pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 3px 9px; border-radius: 999px;
+  font-size: 12px; background: var(--bg); border: 1px solid var(--line);
+  color: var(--text); font-variant-numeric: tabular-nums;
+}
+.gs-pill b { font-weight: 600; margin: 0 2px; }
+.gs-pill em { font-style: normal; font-size: 10px; color: var(--muted); }
+@media (max-width: 900px) {
+  .global-stats { padding: 14px 16px; }
+  .gs-chips { justify-content: flex-start; }
+  .gs-chip { min-width: 52px; padding: 5px 10px; }
+}
+
+/* ── Quick overview panel ── */
+.quick-overview {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.quick-overview-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.quick-overview-kicker { margin: 0 0 3px; color: var(--brand); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.quick-overview h2 { margin: 0; padding: 0; border: 0; background: none; color: var(--text); font-size: 22px; font-weight: 500; letter-spacing: -0.3px; }
+.quick-overview-desc { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.quick-overview-note { margin: 0; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.overview-section { margin-top: 20px; }
+.overview-section-title {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 12px; padding: 0;
+  color: var(--brand);
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  background: transparent; border: 0;
+}
+.overview-section-title::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+.overview-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.overview-card {
+  display: grid; grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px; padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  transition: border-color .15s, box-shadow .15s;
+}
+.overview-card:hover { border-color: var(--brand-mid); box-shadow: 0 4px 16px oklch(55% 0.13 55 / .08); text-decoration: none; }
+.overview-meta {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--brand-pale);
+  min-width: 88px;
+}
+.game-icon { width: 44px; height: 44px; display: block; border-radius: 10px; background: var(--line); object-fit: cover; }
+.game-icon-fallback { display: flex; align-items: center; justify-content: center; color: var(--brand); font-size: 12px; font-weight: 600; }
+.game-name { color: var(--brand); font-size: 11px; font-weight: 600; line-height: 1.3; word-break: keep-all; text-align: center; }
+.heat-score { padding: 2px 7px; border-radius: 999px; background: var(--card); color: var(--brand); border: 1px solid var(--line); font-size: 11px; font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.overview-body { min-width: 0; align-self: center; }
+.overview-card-title { margin: 0 0 6px; color: var(--text); font-weight: 500; font-size: 14px; line-height: 1.4; }
+.overview-card-summary { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Overview card v2: tier badge + 大分数 + 数据条 */
+.overview-score { display: flex; align-items: baseline; gap: 1px; margin-top: 2px; }
+.overview-score-num { font-size: 22px; font-weight: 700; color: var(--text); line-height: 1; font-variant-numeric: tabular-nums; }
+.overview-score-unit { font-size: 10px; color: var(--muted); font-weight: 500; }
+.overview-meta .tier-badge { font-size: 10px; padding: 1px 6px; }
+.overview-nums { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; font-size: 12.5px; color: var(--muted); }
+.overview-nums b { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; }
+.overview-nums .ov-num-new { color: oklch(35% 0.14 145); }
+.overview-nums .ov-num-burst { color: oklch(38% 0.14 25); }
+
+/* ── Layout（目录已移除，单列内容区）── */
+.layout { display: block; }
+.toc { display: none; }
+.content {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 8px 2px 24px;
+  overflow: visible;
+  font-size: 15.5px;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 { line-height: 1.3; scroll-margin-top: 24px; }
+.content > h1 { display: none; }
+h2 {
+  margin: 28px 0 4px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  background: oklch(96% 0.02 55);
+  border: 0;
+  border-radius: 8px;
+}
+h3 {
+  margin-top: 24px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+p { margin: 10px 0; }
+strong { font-weight: 600; color: var(--text); }
+code {
+  background: var(--code-bg);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-family: "DM Mono", "SFMono-Regular", monospace;
+  font-size: .88em;
+  border: 1px solid var(--line);
+}
+pre {
+  background: oklch(14% 0.01 250);
+  color: oklch(88% 0.005 250);
+  padding: 16px 18px;
+  border-radius: 10px;
+  overflow: auto;
+}
+pre code { background: transparent; color: inherit; padding: 0; border: 0; }
+ul { padding-left: 0; list-style: none; }
+li {
+  margin: 6px 0;
+  padding: 8px 12px 8px 28px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  position: relative;
+}
+li::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--brand-mid);
+  position: absolute;
+  left: 12px; top: 17px;
+}
+hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
+
+/* ── Tables ── */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin: 14px 0 20px; }
+table { border-collapse: collapse; width: 100%; min-width: 620px; background: var(--card); table-layout: fixed; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; word-break: normal; overflow-wrap: anywhere; font-size: 13.5px; }
+th { background: var(--brand-pale); color: var(--brand); font-weight: 600; font-size: 12px; letter-spacing: .04em; white-space: nowrap; }
+th:first-child, td:first-child { width: 140px; min-width: 140px; white-space: nowrap; word-break: keep-all; overflow-wrap: normal; color: var(--brand); font-weight: 600; }
+th:nth-child(2), td:nth-child(2) { width: auto; }
+tr:last-child td { border-bottom: 0; }
+
+/* ── Full post list ── */
+.full-post-list { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0 20px; }
+.post-list-card {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px; padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+.post-list-card:hover { border-color: var(--brand-mid); }
+.post-rank {
+  align-self: start; justify-self: center;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: var(--brand-pale);
+  color: var(--brand);
+  border: 1px solid var(--line);
+  font-size: 12px; font-weight: 600; line-height: 1.3;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.post-main { min-width: 0; }
+.post-title { margin: 0 0 7px; color: var(--text); font-size: 14px; font-weight: 500; line-height: 1.5; word-break: normal; overflow-wrap: anywhere; }
+.post-title a { color: var(--text); }
+.post-title a:hover { color: var(--brand); }
+.post-meta-row { display: flex; flex-wrap: wrap; gap: 5px; color: var(--muted); font-size: 12px; line-height: 1.2; }
+.post-meta-row span { padding: 3px 7px; border-radius: 5px; background: var(--bg); border: 1px solid var(--line); white-space: nowrap; }
+.post-meta-row .post-product { color: var(--brand); background: var(--brand-pale); border-color: var(--line); font-weight: 600; }
+.svg-card { margin: 12px 0 18px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); overflow-x: auto; }
+.svg-card svg { max-width: 100%; height: auto; display: block; }
+
+/* ── Ranking table ── */
+.ranking-table { table-layout: auto; min-width: 700px; }
+.ranking-table th {
+  background: var(--brand-pale);
+  padding: 8px 10px; text-align: left;
+  font-weight: 600; font-size: 11px; letter-spacing: .06em;
+  border-bottom: 1px solid var(--line); white-space: nowrap;
+  color: var(--brand);
+}
+.ranking-table td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; font-size: 13px; }
+.ranking-table tr:last-child td { border-bottom: 0; }
+.ranking-table tr:hover td { background: var(--brand-pale); }
+.rank-cell { color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; font-weight: 500; }
+.rank-change { font-weight: 600; font-variant-numeric: tabular-nums; text-align: center; }
+.rank-up { color: oklch(42% 0.15 25); }
+.rank-down { color: oklch(42% 0.12 155); }
+.rank-new { color: oklch(42% 0.14 280); }
+.rank-flat { color: var(--muted); }
+.tier-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 40px; padding: 2px 7px;
+  border-radius: 5px; font-size: 11px; font-weight: 600; letter-spacing: .03em;
+}
+.tier-s { background: oklch(92% 0.05 25); color: oklch(38% 0.14 25); }
+.tier-a { background: oklch(94% 0.04 55); color: oklch(40% 0.12 55); }
+.tier-b { background: oklch(93% 0.04 230); color: oklch(38% 0.12 230); }
+.tier-c { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+.heat-score { font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ── Game cards ── */
+.game-card {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+  box-shadow: none;
+}
+.game-card.misc-card { background: transparent; }
+.game-card.misc-card > .game-summary { opacity: .7; }
+.game-card > .game-summary {
+  list-style: none; cursor: pointer;
+  padding: 18px 4px;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 14px;
+  user-select: none;
+  transition: background .1s;
+}
+.game-card > .game-summary:hover { background: var(--brand-pale); }
+.game-card:not([open]) > .game-summary { border-radius: 0; }
+.game-card > .game-summary::-webkit-details-marker { display: none; }
+.game-card > .game-summary::before {
+  content: "›";
+  color: var(--muted); font-size: 18px; line-height: 1;
+  transition: transform .2s cubic-bezier(.25,1,.5,1);
+  display: inline-block; width: 12px; flex-shrink: 0;
+}
+.game-card[open] > .game-summary::before { transform: rotate(90deg); }
+.game-summary-text { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; flex-wrap: nowrap; }
+.game-name-main { font-size: 16px; font-weight: 650; color: var(--text); white-space: nowrap; line-height: 1.2; }
+.game-meta-row { display: none; }
+.game-stat-pill {
+  font-size: 11px; color: var(--muted); padding: 2px 7px;
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: 99px; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.game-stat-pill b { font-weight: 600; color: var(--text); }
+.game-heat-hi {
+  padding: 2px 8px; border-radius: 6px;
+  background: oklch(93% 0.05 25); color: oklch(35% 0.14 25);
+  font-size: 11px; font-weight: 700; white-space: nowrap;
+}
+.game-heat-mid {
+  padding: 2px 8px; border-radius: 6px;
+  background: oklch(93% 0.04 55); color: oklch(38% 0.12 55);
+  font-size: 11px; font-weight: 700; white-space: nowrap;
+}
+.game-card-icon { width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: var(--line); object-fit: cover; flex-shrink: 0; }
+.game-card-icon-fallback { display: inline-flex; align-items: center; justify-content: center; color: var(--brand); font-size: 13px; font-weight: 700; }
+.game-card > blockquote {
+  margin: 0 16px 10px;
+  padding: 8px 12px;
+  background: var(--brand-pale);
+  border-left: 2px solid var(--brand-mid);
+  border-radius: 0 6px 6px 0;
+  color: var(--muted); font-size: 13px;
+}
+.game-stats-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 8px 16px 8px 70px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  font-size: 12.5px;
+}
+.game-stats-pills { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.game-stats-sent { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex: 1; }
+.game-heat-badges { display: flex; gap: 6px; align-items: center; margin-left: auto; }
+
+/* ── Game card v2 统计面板：左 4 大数字 / 右 风向 + 溯源 ── */
+.game-stats-v2 {
+  display: flex; align-items: stretch; gap: 14px;
+  padding: 12px 8px 12px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.gsv-numbers {
+  display: grid; grid-template-columns: repeat(4, minmax(64px, 1fr));
+  gap: 8px; flex: 0 0 auto;
+  min-width: 300px;
+}
+.gsv-num {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 8px 6px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 10px;
+  min-height: 62px;
+}
+.gsv-num-value {
+  font-size: 22px; font-weight: 700; line-height: 1.1; color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.gsv-num-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.gsv-num-new { color: oklch(35% 0.14 145); }
+.gsv-num-burst { color: oklch(38% 0.14 25); }
+.gsv-num-heat { color: oklch(38% 0.12 55); }
+.gsv-sentiment, .gsv-source {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  flex: 1; min-width: 200px;
+  font-size: 12.5px;
+}
+.gsv-sentiment-label, .gsv-source-label {
+  color: var(--muted); font-size: 11px; font-weight: 600;
+  margin-right: 4px; flex-shrink: 0;
+}
+.gsv-sent-chip {
+  display: inline-flex; align-items: baseline; gap: 3px;
+  padding: 2px 6px; border-radius: 4px;
+  background: var(--bg); border: 1px solid var(--line);
+  font-size: 12px;
+}
+.gsv-sent-chip b { font-weight: 600; }
+.gsv-sent-chip i { font-style: normal; color: var(--muted); font-size: 11px; }
+.gsv-board-pill {
+  display: inline-flex; align-items: baseline; gap: 3px;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--brand-pale); color: var(--brand);
+  font-size: 11.5px; font-weight: 600;
+}
+.gsv-board-pill i { font-style: normal; color: var(--muted); font-weight: 400; }
+@media (max-width: 720px) {
+  .game-stats-v2 { flex-direction: column; padding-left: 16px; }
+  .gsv-numbers { width: 100%; min-width: unset; }
+}
+
+/* ── Post buckets ── */
+.post-bucket {
+  margin: 6px 0 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+.post-bucket > .bucket-summary {
+  list-style: none; cursor: pointer;
+  padding: 8px 4px;
+  font-size: 14px; font-weight: 650; color: var(--muted);
+  letter-spacing: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  user-select: none; display: flex; align-items: center; gap: 6px;
+}
+.post-bucket:not([open]) > .bucket-summary { border-bottom: 1px solid var(--line); border-radius: 0; }
+.post-bucket > .bucket-summary::-webkit-details-marker { display: none; }
+.post-bucket > .bucket-summary::before {
+  content: "›"; color: var(--muted); font-size: 15px;
+  transition: transform .2s; display: inline-block;
+}
+.post-bucket[open] > .bucket-summary::before { transform: rotate(90deg); }
+.post-bucket > .post-list { margin: 0; padding: 8px 0 6px; }
+.post-bucket.water-bucket > .bucket-summary { color: var(--muted); opacity: .72; }
+
+/* ── Individual posts (轻量信息流风格) ── */
+ol.post-list { list-style: none; counter-reset: post-counter; padding: 0; margin: 4px 0; }
+ol.post-list > li.post-item-li {
+  counter-increment: post-counter; margin: 10px 0; padding: 0;
+  background: transparent; border: 0;
+}
+ol.post-list > li.post-item-li::before { content: none; }
+.post-item {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid oklch(90% 0.03 55);
+  border-radius: 0;
+  overflow: hidden;
+  transition: border-color .12s;
+}
+.post-item:hover { border-left-color: var(--brand); }
+.post-item[open] {
+  background: var(--card);
+  border-left-color: var(--brand);
+}
+.post-item > .post-summary {
+  list-style: none; cursor: pointer;
+  padding: 10px 12px 10px 44px;
+  position: relative; user-select: none;
+  display: block;
+}
+.post-item > .post-summary::-webkit-details-marker { display: none; }
+/* 序号角标 */
+.post-item > .post-summary::before {
+  content: counter(post-counter);
+  position: absolute; left: 10px; top: 12px;
+  min-width: 22px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--muted); font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  background: transparent; border: 0;
+  border-radius: 0; line-height: 1;
+}
+.post-item[open] > .post-summary::before { color: var(--brand); }
+/* 帖子标题行 */
+.pi-title {
+  font-size: 15px; font-weight: 600; line-height: 1.5;
+  color: var(--text); margin-bottom: 5px;
+  word-break: normal; overflow-wrap: anywhere;
+}
+.post-title-link {
+  color: var(--text); text-decoration: none;
+}
+.post-title-link:hover { color: var(--brand); text-decoration: underline; }
+/* 元数据徽章行 */
+.pi-meta {
+  display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
+}
+.pi-score {
+  font-size: 12.5px; font-weight: 700; color: oklch(35% 0.14 25);
+  background: oklch(95% 0.05 25); border: 0;
+  border-radius: 7px; padding: 2px 9px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.pi-sent {
+  font-size: 11.5px; font-weight: 650;
+  border: 0; border-radius: 6px;
+  padding: 2px 8px; white-space: nowrap;
+}
+.pi-source {
+  font-size: 11.5px; color: var(--muted);
+  background: var(--card); border: 0;
+  border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+}
+.pi-dim {
+  font-size: 11.5px; font-weight: 550;
+  color: oklch(35% 0.12 230); background: oklch(94% 0.04 230);
+  border: 0;
+  border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+}
+.pi-signal {
+  font-size: 11.5px; font-weight: 550;
+  color: oklch(35% 0.12 290); background: oklch(95% 0.04 290);
+  border: 0;
+  border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+}
+.pi-risk {
+  font-size: 11.5px; font-weight: 650;
+  border: 0;
+  border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+}
+.pi-irony {
+  font-size: 10px; font-weight: 700;
+  color: oklch(38% 0.12 55); background: oklch(94% 0.04 55);
+  border: 1px solid oklch(82% 0.08 55);
+  border-radius: 4px; padding: 1px 5px; margin-left: 5px;
+  white-space: nowrap; vertical-align: middle;
+}
+.pi-review-flag {
+  font-size: 10px; font-weight: 700;
+  color: oklch(35% 0.14 25); background: oklch(93% 0.05 25);
+  border: 1px solid oklch(82% 0.08 25);
+  border-radius: 4px; padding: 1px 5px; margin-left: 5px;
+  white-space: nowrap; vertical-align: middle;
+}
+.post-item > .post-detail {
+  padding: 0 12px 10px 44px;
+  border-top: 1px dashed var(--line);
+  padding-top: 6px;
+}
+.post-item > .post-detail blockquote {
+  margin: 6px 0 0;
+  padding: 8px 12px;
+  background: var(--card);
+  border-left: 3px solid var(--brand-mid);
+  border-radius: 0 8px 8px 0;
+  color: var(--muted); font-size: 13px; line-height: 1.65;
+}
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; }
+  .hero { padding: 12px 10px; flex-direction: column; gap: 4px; }
+  .quick-overview { padding: 14px; }
+  .quick-overview-head { display: block; }
+  .quick-overview-note { margin-top: 6px; white-space: normal; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .overview-card { grid-template-columns: 72px minmax(0, 1fr); }
+  .game-icon { width: 36px; height: 36px; }
+  .content { padding: 4px 0 16px; font-size: 14.5px; }
+  h2 { margin: 20px 0 4px; padding: 8px 12px; font-size: 14px; }
+  .game-card > .game-summary { padding: 14px 2px; }
+  .game-card-icon { width: 40px; height: 40px; min-width: 40px; }
+  .game-name-main { font-size: 15px; }
+  .post-bucket > .bucket-summary { font-size: 13px; }
+  .pi-title { font-size: 14px; }
+  .post-list-card { grid-template-columns: 36px minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <h1>NGA 舆情日报</h1>
+    <p>2026-08-11 报告</p>
+  </header>
+
+  <section class="global-stats" id="global-stats">
+  <div class="gs-head">
+    <span class="gs-kicker">TODAY</span>
+    <h2 class="gs-title">今日全局舆情</h2>
+    <div class="gs-chips"><div class="gs-chip"><span class="gs-chip-val" style="color:var(--text)">189</span><span class="gs-chip-label">总帖量</span></div><div class="gs-chip"><span class="gs-chip-val" style="color:oklch(35% 0.14 145)">29</span><span class="gs-chip-label">今日新增</span></div><div class="gs-chip"><span class="gs-chip-val" style="color:oklch(38% 0.14 25)">76</span><span class="gs-chip-label">爆发</span></div><div class="gs-chip"><span class="gs-chip-val" style="color:oklch(38% 0.12 230)">144</span><span class="gs-chip-label">持续追踪</span></div><div class="gs-chip"><span class="gs-chip-val" style="color:var(--text)">56,886</span><span class="gs-chip-label">总回复</span></div><div class="gs-chip"><span class="gs-chip-val" style="color:oklch(38% 0.12 55)">1232</span><span class="gs-chip-label">热度峰值</span></div></div>
+  </div>
+  <div class="gs-ranking-wrap">
+  <div class="gs-section-title">游戏热度排行</div>
+  <div class="table-wrap" style="margin:0">
+  <table class="gs-rank-table">
+    <thead><tr>
+      <th style="width:44px">排名</th>
+      <th style="width:36px"></th>
+      <th>游戏</th>
+      <th style="width:52px">梯队</th>
+      <th style="width:120px">热度</th>
+      <th style="width:110px">帖量</th>
+      <th style="width:32px">风向</th>
+      <th>简报</th>
+    </tr></thead>
+    <tbody><tr class="gs-rank-row" onclick="document.getElementById('明日方舟终末地')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#1</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/75772d5d.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#明日方舟终末地" class="gs-game-link">明日方舟：终末地</a>
+  </td>
+  <td><span class="tier-badge tier-s">S档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">100.0</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:100%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>11</b>帖 <span class="gs-new-badge">+3</span> <span class="gs-burst-badge">6爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[评分]《明日方舟：终末地》</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('鸣潮')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#2</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/07d58cd6.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#鸣潮" class="gs-game-link">鸣潮</a>
+  </td>
+  <td><span class="tier-badge tier-s">S档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">92.2</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:92%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>5</b>帖 <span class="gs-new-badge">+2</span> <span class="gs-burst-badge">3爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[破事氵]鸣潮是真降档了吧</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('异环')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#3</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/affd183b.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#异环" class="gs-game-link">异环</a>
+  </td>
+  <td><span class="tier-badge tier-s">S档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">81.8</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:82%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>6</b>帖 <span class="gs-new-badge">+2</span> <span class="gs-burst-badge">1爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">异环版盒狗道歉贴有没有省流</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('原神')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#4</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/9f24494e.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#原神" class="gs-game-link">原神</a>
+  </td>
+  <td><span class="tier-badge tier-s">S档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">77.9</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:78%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>4</b>帖 <span class="gs-new-badge">+1</span> <span class="gs-burst-badge">2爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[破事氵]没人讨论过原神现在剧情都区分有…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('蓝色星原旅谣')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#5</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/5052ff6d.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#蓝色星原旅谣" class="gs-game-link">蓝色星原：旅谣</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">74.1</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:74%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>7</b>帖 <span class="gs-new-badge">+4</span> <span class="gs-burst-badge">1爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[新闻相关][厂商][蛮啾]蓝色星原：旅…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('碧蓝航线')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#6</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <span class="gs-rank-icon gs-rank-icon-fb">碧蓝</span>
+    <a href="#碧蓝航线" class="gs-game-link">碧蓝航线</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">69.0</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:69%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[新瓜]战舰少女r新头像直接抄袭碧蓝航线…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('恋与深空')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#7</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/9fcdba2a.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#恋与深空" class="gs-game-link">恋与深空</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">64.4</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:64%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>4</b>帖  </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[疑似内容][新瓜]恋与深空活过来了</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('尘白禁区')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#8</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/158d6c49.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#尘白禁区" class="gs-game-link">尘白禁区</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">62.8</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:63%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[制作人][厂商]尘白禁区发行制作人木木…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('FGO')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#9</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <span class="gs-rank-icon gs-rank-icon-fb">FG</span>
+    <a href="#FGO" class="gs-game-link">FGO</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">61.5</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:62%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>3</b>帖 <span class="gs-new-badge">+1</span> </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[破事氵]我是说，有没有可能fgo其实是…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('绝区零')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#10</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/bb4ea6c0.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#绝区零" class="gs-game-link">绝区零</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">59.5</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:60%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>2</b>帖 <span class="gs-new-badge">+1</span> </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[提问]不是，到底谁爱玩搜打撤啊？？？</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('王者荣耀世界')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#11</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/73bb3505.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#王者荣耀世界" class="gs-game-link">王者荣耀世界</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">56.3</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:56%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  <span class="gs-burst-badge">1爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[王者荣耀世界]第二赛季无限期延期，补偿…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('少女前线2')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#12</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/248ed8cf.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#少女前线2" class="gs-game-link">少女前线2</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">55.1</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:55%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>2</b>帖  <span class="gs-burst-badge">1爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[少女前线][周边]少前2近半年多次发布…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('1999')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#13</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/73095c3b.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#1999" class="gs-game-link">1999</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">52.8</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:53%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  <span class="gs-burst-badge">1爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[杂谈氵][破事氵]求推荐游戏，最近下了…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('遗忘之海')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#14</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <span class="gs-rank-icon gs-rank-icon-fb">遗忘</span>
+    <a href="#遗忘之海" class="gs-game-link">遗忘之海</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">47.2</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:47%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[安利][攻略]遗忘之海出海流程一图流！</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('明日方舟')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#15</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/75772d5d.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#明日方舟" class="gs-game-link">明日方舟</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">47.1</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:47%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  <span class="gs-burst-badge">1爆</span></td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[杂谈氵]简单聊聊入坑半年的二游游戏体验</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('崩坏星穹铁道')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#16</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <img src="../../icons/95903fa9.jpg" class="gs-rank-icon" alt="" onerror="this.style.visibility='hidden'">
+    <a href="#崩坏星穹铁道" class="gs-game-link">崩坏：星穹铁道</a>
+  </td>
+  <td><span class="tier-badge tier-a">A档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">46.3</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:46%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖 <span class="gs-new-badge">+1</span> </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[破事氵]崩铁这版本名上不装了</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('王者荣耀')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#17</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <span class="gs-rank-icon gs-rank-icon-fb">王者</span>
+    <a href="#王者荣耀" class="gs-game-link">王者荣耀</a>
+  </td>
+  <td><span class="tier-badge tier-b">B档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">43.6</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:44%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[瓜小味甜]王者荣耀衍生动画羞辱周瑜剧情…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('逆水寒手游')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#18</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <span class="gs-rank-icon gs-rank-icon-fb">逆水</span>
+    <a href="#逆水寒手游" class="gs-game-link">逆水寒手游</a>
+  </td>
+  <td><span class="tier-badge tier-b">B档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">39.0</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:39%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖  </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[网易]手游7月全球流水TOP20狂揽5…</td>
+</tr><tr class="gs-rank-row" onclick="document.getElementById('阴阳师')?.scrollIntoView({behavior:'smooth'})">
+  <td class="gs-rank-num">#19</td>
+  <td class="gs-rank-chg"><span style="color:oklch(38% 0.12 230);font-weight:700;font-size:10px">NEW</span></td>
+  <td class="gs-rank-game">
+    <span class="gs-rank-icon gs-rank-icon-fb">阴阳</span>
+    <a href="#阴阳师" class="gs-game-link">阴阳师</a>
+  </td>
+  <td><span class="tier-badge tier-b">B档</span></td>
+  <td class="gs-score-cell">
+    <span class="gs-score-num">36.2</span>
+    <div class="gs-score-bar"><div class="gs-score-fill" style="width:36%"></div></div>
+  </td>
+  <td class="gs-posts-cell"><b>1</b>帖 <span class="gs-new-badge">+1</span> </td>
+  <td class="gs-sent-cell" style="color:var(--muted)">—</td>
+  <td class="gs-brief-cell">[阴阳师]阴阳师 X 洛天依 联动</td>
+</tr></tbody>
+  </table>
+  </div>
+</div>
+  <div class="gs-meta-block"><div class="gs-meta-row"><span class="gs-meta-label">社区风向</span><div class="gs-pills"><span class="gs-pill" style="background:oklch(93% 0.05 25);color:oklch(35% 0.14 25)">负面为主<b>85</b><em>45%</em></span><span class="gs-pill" style="background:var(--bg);color:var(--muted)">中性<b>54</b><em>29%</em></span><span class="gs-pill" style="background:oklch(94% 0.04 25);color:oklch(38% 0.10 25)">偏负面<b>40</b><em>21%</em></span><span class="gs-pill" style="background:oklch(94% 0.04 155);color:oklch(38% 0.10 155)">偏正面<b>10</b><em>5%</em></span></div></div><div class="gs-meta-row"><span class="gs-meta-label">覆盖板块</span><div class="gs-pills"><span class="gs-pill">二游核心论坛-瓜版<b>34</b>帖<em>+5</em></span><span class="gs-pill">测试阶段游戏讨论版<b>20</b>帖<em>+8</em></span><span class="gs-pill">上线游戏讨论版<b>27</b>帖<em>+4</em></span><span class="gs-pill">手综版<b>116</b>帖<em>+29</em></span></div></div></div>
+</section>
+  <section class="quick-overview" id="quick-overview">
+    <div class="quick-overview-head">
+      <div>
+        <p class="quick-overview-kicker">QUICK OVERVIEW</p>
+        <h2>今日舆情速览</h2>
+        <p class="quick-overview-desc">基于AI抓取二游核心社区生成，目前仅覆盖NGA、taptap，后续将持续优化。吃瓜怡情，谨慎当真，理性看待社区言论哦~</p>
+      </div>
+    </div>
+    <div class="overview-section">
+      <h3 class="overview-section-title">按游戏热度 Top 8</h3>
+      <div class="overview-grid">
+        <a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/75772d5d.jpg" alt="明日方舟：终末地" onerror="this.style.visibility='hidden'"><span class="game-name">明日方舟：终末地</span><span class="tier-badge tier-s">S档</span><div class="overview-score"><span class="overview-score-num">100.0</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>11</b>帖</span><span class="ov-num-new">新增 3</span><span class="ov-num-burst">爆发 6</span><span>持续 8</span></div><p class="overview-card-summary">今日重点：[评分]《明日方舟：终末地》</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/07d58cd6.jpg" alt="鸣潮" onerror="this.style.visibility='hidden'"><span class="game-name">鸣潮</span><span class="tier-badge tier-s">S档</span><div class="overview-score"><span class="overview-score-num">92.2</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>5</b>帖</span><span class="ov-num-new">新增 2</span><span class="ov-num-burst">爆发 3</span><span>持续 3</span></div><p class="overview-card-summary">今日重点：[破事氵]鸣潮是真降档了吧</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/affd183b.jpg" alt="异环" onerror="this.style.visibility='hidden'"><span class="game-name">异环</span><span class="tier-badge tier-s">S档</span><div class="overview-score"><span class="overview-score-num">81.8</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>6</b>帖</span><span class="ov-num-new">新增 2</span><span class="ov-num-burst">爆发 1</span><span>持续 4</span></div><p class="overview-card-summary">今日重点：异环版盒狗道歉贴有没有省流</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/9f24494e.jpg" alt="原神" onerror="this.style.visibility='hidden'"><span class="game-name">原神</span><span class="tier-badge tier-s">S档</span><div class="overview-score"><span class="overview-score-num">77.9</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>4</b>帖</span><span class="ov-num-new">新增 1</span><span class="ov-num-burst">爆发 2</span><span>持续 3</span></div><p class="overview-card-summary">今日重点：[破事氵]没人讨论过原神现在剧情都区分有…</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/5052ff6d.jpg" alt="蓝色星原：旅谣" onerror="this.style.visibility='hidden'"><span class="game-name">蓝色星原：旅谣</span><span class="tier-badge tier-a">A档</span><div class="overview-score"><span class="overview-score-num">74.1</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>7</b>帖</span><span class="ov-num-new">新增 4</span><span class="ov-num-burst">爆发 1</span><span>持续 3</span></div><p class="overview-card-summary">今日重点：[新闻相关][厂商][蛮啾]蓝色星原：旅…</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><span class="game-icon game-icon-fallback" title="待补充 TapTap icon">碧蓝</span><span class="game-name">碧蓝航线</span><span class="tier-badge tier-a">A档</span><div class="overview-score"><span class="overview-score-num">69.0</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>1</b>帖</span><span class="ov-num-new">新增 0</span><span class="ov-num-burst">爆发 0</span><span>持续 1</span></div><p class="overview-card-summary">今日重点：[新瓜]战舰少女r新头像直接抄袭碧蓝航线…</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/9fcdba2a.jpg" alt="恋与深空" onerror="this.style.visibility='hidden'"><span class="game-name">恋与深空</span><span class="tier-badge tier-a">A档</span><div class="overview-score"><span class="overview-score-num">64.4</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>4</b>帖</span><span class="ov-num-new">新增 0</span><span class="ov-num-burst">爆发 0</span><span>持续 4</span></div><p class="overview-card-summary">今日重点：[疑似内容][新瓜]恋与深空活过来了</p></div></a>
+<a class="overview-card" href="#fen-you-xi-yu-qing-xiang-qing"><div class="overview-meta"><img class="game-icon" src="../../icons/158d6c49.jpg" alt="尘白禁区" onerror="this.style.visibility='hidden'"><span class="game-name">尘白禁区</span><span class="tier-badge tier-a">A档</span><div class="overview-score"><span class="overview-score-num">62.8</span><span class="overview-score-unit">/100</span></div></div><div class="overview-body"><div class="overview-nums"><span><b>1</b>帖</span><span class="ov-num-new">新增 0</span><span class="ov-num-burst">爆发 0</span><span>持续 1</span></div><p class="overview-card-summary">今日重点：[制作人][厂商]尘白禁区发行制作人木木…</p></div></a>
+      </div>
+    </div>
+  </section>
+  <div class="layout">
+    <main class="content"><h1 id="中国二游每日吃瓜播报">中国二游每日吃瓜播报</h1>
+<p><strong>日期</strong>: 2026-08-11</p>
+<p><strong>生成时间</strong>: 2026-08-12 08:52</p>
+<p><strong>帖子总数</strong>: 189 条（ 新增 45 | 持续追踪 144）</p>
+<p>基于AI抓取二游核心社区生成，目前仅覆盖NGA、taptap，后续将持续优化。吃瓜怡情，谨慎当真，理性看待社区言论哦~</p>
+<hr>
+<h2 id="分游戏舆情详情">分游戏舆情详情</h2>
+<details class="game-card" open id="明日方舟-终末地"><summary class="game-summary"><img class="game-card-icon" src="../../icons/75772d5d.jpg" alt="明日方舟：终末地" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">明日方舟：终末地</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/玩法 3 / game/角色 3 / game/剧情 2 / game/商业化 2</blockquote>
+<div class="game-stats-v2" id="明日方舟-终末地-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">11</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">3</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">6</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">3684</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>8</i></span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>2</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>9</i></span><span class="gsv-board-pill">二游核心论坛-瓜版<i>2</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日新增 · 水楼/水帖（3，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346096" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]我要说个比较搞笑的：后原神时代，只有终末地让我感受到了当时原神的感觉</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">152分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>先亮成分：第一个二游是明日方舟，也算是方舟IP的老受众了。大学的时候被舍友带入坑原神玩了两年左右，在须弥退的坑。然后目前的话：鸣潮、异环开服玩家现在一直玩着。终末地开服的时候，急头白脸的进去注册游玩，玩到武陵道心破碎卖号…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347111" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]其实我也觉得终末地挺像原神的(后附三款新游安利)</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">96分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>rt，刚刚看见文豪哥写的终末地原神说，深有同感，此处放下他的金句但我的想法却略有不同我认为终末地跟原神同样都是开天辟地级别的，就像无人可以质疑原神在大世界二游圈的历史地位一样，终末地其实也有点开创一个新品类的意思在但问题…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347533" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]终末地这新剧情是标准的好人没好报，祸害留千年啊</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">48分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.10 55);background:oklch(94% 0.04 55)">阶级对立</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>好人偶像做好事，违法违规挪用赞助资金自保。坏人公司做坏事，合法合规坑害打工人。正义的主角插手后，好人倾家荡产做好事，坏人无事发生和平退场，主角在故事里起到一个大众舆论的作用，但是大众舆论只能解决事件，不能解决问题，问题只…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（2）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=46047326" class="post-title-link" target="_blank" rel="noopener noreferrer">评分]《明日方舟：终末地》</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">1232分</span><span class="pi-dim">玩法体验</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">涉政</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348463" class="post-title-link" target="_blank" rel="noopener noreferrer">终末地]你抽的角色你不在时真的会去勾搭别的男人</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">286分</span><span class="pi-dim">玩法体验</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日爆发 · 水楼/水帖（4，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47351220" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]王世杰要Reborn了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">469分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 290);background:oklch(94% 0.04 290)">性别对立</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>但不是宣发上的reborn，是真的要重做开头剧情+战斗系统+地图美术了，不得不说这S2地图重做前和S0开服的垃圾地图美术没区别，改了之后感觉和终末地武陵差不多，虽然现在也不特殊了但至少不那么难看总结一下有用的内容，其他优…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350627" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]基础概率越高是不是“欧狗”就越多</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">403分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>异环基础概率是0.99%，终末地和鸣潮基础概率都是0.8%，原铁绝的基础概率是0.6%。异环群、终末地群、鸣潮群、原群还有铁群我都待过。每到版本更新的时候，那些晒欧的说自己出提前金的“欧狗”，数量就是跟基础概率成正相关的…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352722" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]未来二游各自有什么额外增负特色吗</a></div><div class="pi-meta"><span class="pi-score">238分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>类似异环都市体力粉爪、终末地基建这种，尝过二游之后感觉传统3D女不够色，还是想要二游的女角色，但是真的很讨厌这些有的没的，还不像逆水寒那种你不爱打就打别的拿收益，都是摁头必须搞的，后续的作品了解的不够多都有这种系统吗？</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348328" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]最近给我歪麻了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">70分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>最近几个游戏真给我歪麻了，小绝想抽21蕾米连歪3个，鸣鸣的潮也是秧秧歪了，就在刚才憋了三天冷静期的终末地也给我吃了个120，说好的多玩几个游戏分散投资减少压力呢，怎么全绿了，之前都还有亏有赚的，这次全面崩盘有点没绷住想回…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47342004" class="post-title-link" target="_blank" rel="noopener noreferrer">终末地]再次出现你是男生不可以靠这么近</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">112分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 290);background:oklch(94% 0.04 290)">性别对立</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">持续追踪 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47339220" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]看了终末地的新偶像剧情</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">578分</span><span class="pi-dim">玩法体验</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>一个偶像觉得公司压榨工友，安排很多粉丝圈钱活动，觉得公司是黑公司，不在乎粉丝，然后选择单飞发现有管理员这号大人物，想利用管理员，然后费尽心思接近管理员搞“ml”，欺骗利用管理员脱离抛弃原公司偶像一个月赚600万，公司花成…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="鸣潮"><summary class="game-summary"><img class="game-card-icon" src="../../icons/07d58cd6.jpg" alt="鸣潮" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">鸣潮</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/竞品对比 2 / game/版本节奏 1 / game/音乐音效 1 / game/商业化 1</blockquote>
+<div class="game-stats-v2" id="鸣潮-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">5</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">2</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">3</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">3368</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>3</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>4</i></span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346446" class="post-title-link" target="_blank" rel="noopener noreferrer">转发]继先锋米哈游法务部，后至鸣潮法务部，现在异环法务部也要发力了</a></div><div class="pi-meta"><span class="pi-score">42分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>目前米哈游法务部收获颇丰，鸣潮法务部初绽头角，让我们静待时日看看异环法务部的成色这条消息不算泄露吧，我是转别人的</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47345789" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]鸣潮是真降档了吧</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">168分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>我记得这个是按照专版热度排序，之前潮版都在第一第二，现在大降档了</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=40272873" class="post-title-link" target="_blank" rel="noopener noreferrer">评分]《鸣潮》</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">2736分</span><span class="pi-dim">商业化</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日爆发 · 水楼/水帖（2，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350367" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]鸣潮社区不是之前拉了打手吗？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">376分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>Asoul的战斗力还可以吧，当时我记得和原神打的有来有回的</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348839" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]鸣潮社区就是整个二游社区的缩影</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">46分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">涉政</span><span class="pi-risk" style="color:oklch(35% 0.10 55);background:oklch(94% 0.04 55)">阶级对立</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>众所周知库洛只管埋头做游戏做鸵鸟，基本不管社区的。随着鸣潮不再是小众游戏，各路神仙纷纷涌入，社区呈现一种野蛮生长的状态，自身一款游戏里有多款pg也是实属小见。在高压状态下，甚至鸣潮成为了各种游戏代称，这何尝不是另一种扩圈</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="异环"><summary class="game-summary"><img class="game-card-icon" src="../../icons/affd183b.jpg" alt="异环" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">异环</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 3 / game/技术 1 / game/商业化 1 / game/玩法 1</blockquote>
+<div class="game-stats-v2" id="异环-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">6</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">2</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">1</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">1204</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>3</i></span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>2</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>5</i></span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347138" class="post-title-link" target="_blank" rel="noopener noreferrer">异环版盒狗道歉贴有没有省流</a></div><div class="pi-meta"><span class="pi-score">96分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>半天没看怎么突然整了个活</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47343706" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]异环能有这样的皮肤产能，是不是源于mmo经验</a></div><div class="pi-meta"><span class="pi-score">62分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>论皮肤时装这一块，主流二游所有捏一起也不如一家老牌mmo吧，感觉这也算是目前异环一个优势了</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350838" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]异环的福利也是震惊到我了。普普通通一个1.3版本，加起来送147抽限定</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">602分</span><span class="pi-dim">商业化</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>环石72 + 红骰子15 + 武器池60 = 147抽前两个版本可能更多，147抽看起来不夸张，但是抽取期望低，按期望算等于米池里的260抽了，两游戏我都玩，不拉踩只陈述事实的话，原神一个版本一般是80抽，也就是说这就是…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47336260" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]小瓜，面对反派角色入池+同居机制，异环给出的答案是……</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">170分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>前情：下版本up角色残虹(白毛)，沙僧日风太刀女，目前为止剧情里最外显的反派组织“红字”的成员，常驻角色兼主角团之一达芙蒂尔(蓝毛)的旧识，抱有类似病娇姐控的情感在此前版本的剧情里，以略low的方式诱骗了一名身世离奇的“…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">持续追踪 · 水楼/水帖（2，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47335961" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]异环新版本又是恶意爆产能</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">152分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>出了一个比开服整个地图都大的郊区。新增了三辆新的载具，其中自行车和水上摩托艇都是全新种类。新增了一个独栋房子并且可以种菜。新增了一个沙滩排球的玩法，一个99层血宫爬塔模式，一个海上摩托比赛模式，一个类吸血鬼幸存者模式，一…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47340985" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]异环的角色设计：一般甚至可以说是比较差劲</a></div><div class="pi-meta"><span class="pi-score">122分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>个人观点，主观性强前提观点：1 这类二次元游戏核心是角色，角色设计应是排在较高优先级，你角色设计的丑根本没多少路人会去玩2 只谈第一眼的视觉设计，路人在游玩之前不大可能深入了解你家角色的个性、经历等3 会关注角色的色情度…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="原神"><summary class="game-summary"><img class="game-card-icon" src="../../icons/9f24494e.jpg" alt="原神" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">原神</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/商业化 1 / game/竞品对比 1 / game/玩法 1 / game/技术 1</blockquote>
+<div class="game-stats-v2" id="原神-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">4</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">1</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">2</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">1092</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>2</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>3</i></span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346582" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]没人讨论过原神现在剧情都区分有没有对应角色才能看这种设计吗？</a></div><div class="pi-meta"><span class="pi-score">84分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>才做完桑多涅的小任务，因为这个任务推荐做完夏活，就用这几天把活动过完，具体内容就不提了，中规中矩吧，就是任务最后给了个小道具，说是可以邀请同伴开茶会，结果提示里赫然写着“使用桑多涅坐下后开启剧情”。.合着如果我不抽桑多涅…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348733" class="post-title-link" target="_blank" rel="noopener noreferrer">原神配隊比較靈活不是應該的嗎？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">308分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>4個人的組合和3個人的組合肯定是4人更靈活呀？為什麼這也能當笑點？</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348352" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]新游社区都在贷款鸣潮1.1，鸣潮社区在贷款原神4.8</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">462分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">涉政</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>不得不说也是奇景</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47315079" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]小红薯原神玩家发表亲子言论惨遭数万楼网暴，某品牌员工用公号参与被公司辞退</a></div><div class="pi-meta"><span class="pi-score">238分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="蓝色星原-旅谣"><summary class="game-summary"><img class="game-card-icon" src="../../icons/5052ff6d.jpg" alt="蓝色星原：旅谣" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">蓝色星原：旅谣</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 3 / game/版本节奏 2 / game/玩法 1 / meta/泛讨论 1</blockquote>
+<div class="game-stats-v2" id="蓝色星原-旅谣-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">7</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">4</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">1</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">563</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>3</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.12 145)"><b>偏正面</b><i>2</i></span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">测试阶段游戏讨论版<i>5</i></span><span class="gsv-board-pill">二游核心论坛-瓜版<i>2</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（4）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47345023" class="post-title-link" target="_blank" rel="noopener noreferrer">蛮啾]蓝色星原：旅谣App Store定档12月31日</a></div><div class="pi-meta"><span class="pi-score">202分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344610" class="post-title-link" target="_blank" rel="noopener noreferrer">情报]《蓝色星原：旅谣》上架App Store商城</a></div><div class="pi-meta"><span class="pi-score">52分</span><span class="pi-dim">美术角色</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"><blockquote>目前商城显示上架时间2026年12月31日(那应该就是年内了)商店页面最后一张图还是新角色！</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344942" class="post-title-link" target="_blank" rel="noopener noreferrer">搬运]《蓝色星原：旅谣》正式开启App Store预订</a></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"><blockquote>亲爱的星临者，《蓝色星原：旅谣》现已正式开启App Store预订！扫描下方二维码，或前往App Store搜索[蓝色星原旅谣]并点击[获取]即可进行预订。同时，官方网站及全网各大平台的预约通道也已同步开启。欢迎星临者前…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344934" class="post-title-link" target="_blank" rel="noopener noreferrer">情报]《蓝色星原：旅谣》正式开启App Store预订</a></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"><blockquote>亲爱的星临者，《蓝色星原：旅谣》现已正式开启App Store预订！扫描下方二维码，或前往App Store搜索[蓝色星原旅谣]并点击[获取]即可进行预订。同时，官方网站及全网各大平台的预约通道也已同步开启。欢迎星临者前…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348720" class="post-title-link" target="_blank" rel="noopener noreferrer">蓝色星原]ios预约界面国服已出现和谐</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">231分</span><span class="pi-dim">美术角色</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">涉政</span><span class="pi-risk" style="color:oklch(35% 0.12 290);background:oklch(94% 0.04 290)">性别对立</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（2）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47342366" class="post-title-link" target="_blank" rel="noopener noreferrer">提问]突然想起来问下蓝原的养成如何，有没有祖传圣遗物</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">54分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"><blockquote>养成肝点或者要花多点时间这我都能接受，只要能让角色毕业有个盼头就行，只有这坨圣遗物是真的吃不下一点了所以蓝原有没有圣遗物或者其他的随机养成要素</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=39640915" class="post-title-link" target="_blank" rel="noopener noreferrer">蓝色星原：旅谣</a></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="碧蓝航线"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">碧蓝</span><span class="game-summary-text"><span class="game-name-main">碧蓝航线</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 1</blockquote>
+<div class="game-stats-v2" id="碧蓝航线-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">976</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47290137" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]战舰少女r新头像直接抄袭碧蓝航线托里拆利换装立绘</a></div><div class="pi-meta"><span class="pi-score">976分</span><span class="pi-dim">美术角色</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>舰r这个新头像不仅角色动作还有一些服饰元素高度相似，连背后的海岸线都几乎一模一样，这直接描图级别的抄袭是否有点这是碧蓝的皮肤原图，舰r新头像单纯只是把这个皮肤翻转一下描图了最新编辑:舰r官方已偷偷摸摸修改抄袭头像最新编辑…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="恋与深空"><summary class="game-summary"><img class="game-card-icon" src="../../icons/9fcdba2a.jpg" alt="恋与深空" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">恋与深空</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/商业化 2 / game/版本节奏 1 / game/竞品对比 1</blockquote>
+<div class="game-stats-v2" id="恋与深空-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">4</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">324</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>2</i></span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>1</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.12 145)"><b>偏正面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>3</i></span><span class="gsv-board-pill">手综版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（3）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47305375" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]恋与深空活过来了</a></div><div class="pi-meta"><span class="pi-score">132分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>该游戏因之前的舆论风波，自 7 月 8日宣布退出 bw 展之后全平台陷入静默。据一些玩家传言，游戏内也停止了内容更新。但刚刚该游戏官博又发布了男主的新 PV，新卡池和新版本内容，疑似复活</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47327806" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]恋与深空欧美社区的洋妞试图用爱感化叠纸中，集体组织参与保护大熊猫的公益+学习汉字书法，刷屏的tag新增了中文#全世界都爱…</a></div><div class="pi-meta"><span class="pi-score">98分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>大部分洋妞还是没脸参照国内集美搞上升扣帽子搞媒体矩阵，国内很多狼小妹其实觉得搞用爱感化对上老六没用，但不忍心责怪她们</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47332836" class="post-title-link" target="_blank" rel="noopener noreferrer">厂商]叠纸新瓜，运营暗改技能试探玩家底线</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">72分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>上个月恋与深空的事大家都知道了，这次的主角是无期迷途，前几天刚开了四周年版本无期迷途这游戏，文案、美术、音乐都不错，但是运营就仗着这几点试探玩家底线，3年老玩家这次忍不了一点绝非恶意抹黑，所言若有不实，愿付一切法律责任四…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">持续追踪 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47332798" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]叠纸新瓜，运营暗改技能试探玩家底线</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">22分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>上个月恋与深空的事大家都知道了，这次的主角是无期迷途，前几天刚开了四周年版本无期迷途这游戏，文案、美术、音乐都不错，但是运营就仗着这几点试探玩家底线，3年老玩家这次忍不了一点绝非恶意抹黑，所言若有不实，愿付一切法律责任四…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="尘白禁区"><summary class="game-summary"><img class="game-card-icon" src="../../icons/158d6c49.jpg" alt="尘白禁区" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">尘白禁区</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/版本节奏 1</blockquote>
+<div class="game-stats-v2" id="尘白禁区-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">524</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47331947" class="post-title-link" target="_blank" rel="noopener noreferrer">厂商]尘白禁区发行制作人木木/林增鸿疑似离职</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">524分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>脉脉职位任职到6月和前西山居员工还是尘白玩家最喜欢的脉脉治游信息来源：▸以及上个月的最后一舞(疑似)视频版本BV1gmuR6wEVS前制作人：你们的情绪是一样的，甚至比你们有过之无不及，能理解吧？所以说呢，我才接的你这个…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="fgo"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">FG</span><span class="game-summary-text"><span class="game-name-main">FGO</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/玩法 1 / game/剧情 1 / game/角色 1</blockquote>
+<div class="game-stats-v2" id="fgo-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">3</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">1</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">288</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>2</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>2</i></span><span class="gsv-board-pill">手综版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347526" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]我是说，有没有可能fgo其实是有不小游戏性的</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">82分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>看到很多萌新抱怨拐不好用，甚至所长不好用想到在并非顶配的情况下，如何蓝卡冲浪，他充自冲如何分配，甚至生存技能的对轴等，其实都是挺有操作空间的策略日常3t/高难/战旗，三色卡、暴击、多核单核…策略的广度也有从基础的buff…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（2）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47320010" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]哈哈哈，原来年末是真的想关服大吉啊fgo你个初生</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">160分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>先简单放个链接在这里吧，人已经气晕过去了，看这贴回复人数再决定要不要放全瓜，或者下面有好心大佬帮补充完整也十分感谢，现在就是后悔，十分后悔入你型月这个b坑编辑，放下图，省的有人嚼舌简单来说就是：去年年底fgo2.0完结…</blockquote></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47316520" class="post-title-link" target="_blank" rel="noopener noreferrer">fgo紧急调整泳装皮肤，为其添上外套</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">46分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>耀星图中小男孩的泳装灵衣不知什么情况，今天突然公告进行了调整(加了外套)，官推也对此表示了歉意 ???fgo日常草台班子把草稿当成图？添上后确实好看些守男德说是</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="绝区零"><summary class="game-summary"><img class="game-card-icon" src="../../icons/bb4ea6c0.jpg" alt="绝区零" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">绝区零</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/玩法 2</blockquote>
+<div class="game-stats-v2" id="绝区零-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">2</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">1</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">286</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>1</i></span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>1</i></span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346308" class="post-title-link" target="_blank" rel="noopener noreferrer">提问]不是，到底谁爱玩搜打撤啊？？？</a></div><div class="pi-meta"><span class="pi-score">94分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-risk" style="color:oklch(35% 0.10 55);background:oklch(94% 0.04 55)">阶级对立</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>我感觉今年玩的每一款游戏都硬是要搞个搜打撤，终末地，异环，卡厄斯，绝区零等。到底谁爱玩搜打撤啊，这些二游用户真的喜欢这个东西吗。。怎么一个东西火了，全世界都要有这个玩意儿吗，不理解啊</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47319740" class="post-title-link" target="_blank" rel="noopener noreferrer">米哈游]绝区零制作人莅临知名节奏区up青衫祠直播间收集游戏建议</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">192分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>以防你不知道啥概念，相当于海猫进入鳞杨直播间收集玩家建议，松伦进入芦毛直播间收集玩家建议再以防你不咋关注社区不知道这个节奏up主，简单介绍一下米家新一代节奏区up主生态，由傲雪，青衫，树海为首每天纠集一大堆闲散人士带其他…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="王者荣耀世界"><summary class="game-summary"><img class="game-card-icon" src="../../icons/73bb3505.jpg" alt="王者荣耀世界" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">王者荣耀世界</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 1</blockquote>
+<div class="game-stats-v2" id="王者荣耀世界-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">1</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">273</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350761" class="post-title-link" target="_blank" rel="noopener noreferrer">王者荣耀世界]第二赛季无限期延期，补偿6500玄晶?10连</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">273分</span><span class="pi-dim">美术角色</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>怎么一脸死相[[师姐来信]关于S1的下一步丨制作组的思考与规划-哔哩哔哩]▸</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="少女前线2"><summary class="game-summary"><img class="game-card-icon" src="../../icons/248ed8cf.jpg" alt="少女前线2" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">少女前线2</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/版本节奏 1 / game/玩法 1</blockquote>
+<div class="game-stats-v2" id="少女前线2-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">2</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">1</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">187</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span><span class="gsv-board-pill">测试阶段游戏讨论版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47342136" class="post-title-link" target="_blank" rel="noopener noreferrer">提问]半年多没玩了，现在这游戏怎么样了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">49分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"><blockquote>信标后面一点弃坑的，当时好像是有一期s关打不过破防了。我看人说也变成buff打大数字游戏了？没变成少前2那种吧</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47331097" class="post-title-link" target="_blank" rel="noopener noreferrer">周边]少前2近半年多次发布外服特供内容</a></div><div class="pi-meta"><span class="pi-score">138分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>如题，少前二日服近半年已经三次发布特供立绘等内容但是，国内没有任何宣发，官号没有任何动静，这是很反常的因为在此之前，少前二的海外服宣发是会由运营官号搬运回墙内的，也就是所谓的端水但是这几次日服宣发，国服完全没有任何消息…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="1999"><summary class="game-summary"><img class="game-card-icon" src="../../icons/73095c3b.jpg" alt="1999" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">1999</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/玩法 1</blockquote>
+<div class="game-stats-v2" id="1999-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">1</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">193</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349350" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]求推荐游戏，最近下了好多游戏都删了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">193分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>什么1999，原神啊，铃兰之剑，都玩了一下，好复杂，特别1999各种名词怪怪的，奇奇怪怪的称呼就想玩玩刷刷刷，然后数字提升的。最好下线也做打怪的，这样零碎时间可以点点，不用太费脑子</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="遗忘之海"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">遗忘</span><span class="game-summary-text"><span class="game-name-main">遗忘之海</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 1</blockquote>
+<div class="game-stats-v2" id="遗忘之海-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">110</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47333344" class="post-title-link" target="_blank" rel="noopener noreferrer">攻略]遗忘之海出海流程一图流！</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">110分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>哎，专版都没有的区[腾讯文档]一图流</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="明日方舟"><summary class="game-summary"><img class="game-card-icon" src="../../icons/75772d5d.jpg" alt="明日方舟" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">明日方舟</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/玩法 1</blockquote>
+<div class="game-stats-v2" id="明日方舟-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">1</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">109</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日爆发 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349887" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]简单聊聊入坑半年的二游游戏体验</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">109分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>我从今年年初开始入坑3D二游，之前只简单体验过一段时间方舟，因此可以基本上算是圈外人的真实体验了一 终末地初期体验我是终末地开服玩家。最开始会期待这款游戏，主要还是因为之前玩过明日方舟。我很好奇原本的2D角色进入一个完整…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="崩坏-星穹铁道"><summary class="game-summary"><img class="game-card-icon" src="../../icons/95903fa9.jpg" alt="崩坏：星穹铁道" loading="lazy" onerror="this.style.visibility='hidden'"><span class="game-summary-text"><span class="game-name-main">崩坏：星穹铁道</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/商业化 1</blockquote>
+<div class="game-stats-v2" id="崩坏-星穹铁道-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">1</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">100</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">手综版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">今日新增 · 水楼/水帖（1，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346404" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]崩铁这版本名上不装了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">100分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-risk" style="color:oklch(35% 0.12 290);background:oklch(94% 0.04 290)">性别对立</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"><blockquote>明明是两个人的版本，结果版本名7个字都跟砂金有关系，鸟sp就是一般路过女明星?还有这时间线是不是很奇怪？感觉就是一定要把泳装回插在大决战之前，所以把时间线上应该是这样在大决战后面的泳装回直接插在前面了播了</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card" open id="王者荣耀"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">王者</span><span class="game-summary-text"><span class="game-name-main">王者荣耀</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 1</blockquote>
+<div class="game-stats-v2" id="王者荣耀-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">76</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47341071" class="post-title-link" target="_blank" rel="noopener noreferrer">瓜小味甜]王者荣耀衍生动画羞辱周瑜剧情引起众怒</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">76分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>看了一圈瓜版居然没有讲这个的，这个是个很有意思的瓜，那我来切一下事情背景：王者荣耀把四位军师英雄：诸葛亮、周瑜、元歌(庞统)、司马懿，放在一起整了个组合，叫稷下 F4，因为在王者荣耀的背景设定里面，他们四个是在同一个学院…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="逆水寒手游"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">逆水</span><span class="game-summary-text"><span class="game-name-main">逆水寒手游</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/版本节奏 1</blockquote>
+<div class="game-stats-v2" id="逆水寒手游-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">48</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47321367" class="post-title-link" target="_blank" rel="noopener noreferrer">网易]手游7月全球流水TOP20狂揽55亿，蛋仔派对重回巅峰</a></div><div class="pi-meta"><span class="pi-score">48分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>代理游戏不包含外服1梦幻西游手游11亿62蛋仔派对10亿53第五人格5亿燕云十六声3亿4实况足球手游3亿2光遇3亿2率土之滨2亿4逆水寒手游2亿1巅峰极速1亿7阴阳师1亿6炉石传说1亿5荒野行动1亿2大话西游归来1亿1暗…</blockquote></div></details></li>
+</ol>
+</details>
+</details>
+<details class="game-card" open id="阴阳师"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">阴阳</span><span class="game-summary-text"><span class="game-name-main">阴阳师</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<blockquote>Topic 分布：game/角色 1</blockquote>
+<div class="game-stats-v2" id="阴阳师-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">1</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">1</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">36</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>1</i></span></div><div class="gsv-source"><span class="gsv-source-label">覆盖板块（溯源）</span><span class="gsv-board-pill">二游核心论坛-瓜版<i>1</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">今日新增（1）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47345731" class="post-title-link" target="_blank" rel="noopener noreferrer">阴阳师]阴阳师 X 洛天依 联动</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">36分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"><blockquote>觉醒后为阴阳师原创联动立绘发布后 红薯平台都在说终于吃到好的了 并列举上海禾念的逆天操作 并扬言让阴阳师成为新的禾念 一通操作把阴阳师玩家这边都搞得有点懵 有点整不会了 一度怀疑难道阴阳师真的是好东西？场面一度十分和谐“…</blockquote></div></details></li>
+</ol>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">今日爆发（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+<details class="post-bucket"><summary class="bucket-summary">持续追踪（0）</summary>
+<blockquote>暂无。</blockquote>
+</details>
+</details>
+<details class="game-card misc-card" open id="综合-无明确游戏归属"><summary class="game-summary"><span class="game-card-icon game-card-icon-fallback" title="待补充 TapTap icon">综合</span><span class="game-summary-text"><span class="game-name-main">综合 / 无明确游戏归属</span><span class="game-meta-row" data-game-meta="1"></span></span></summary>
+<div class="game-stats-v2" id="综合-无明确游戏归属-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">—</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">—</div><div class="gsv-num-label">总热度</div></div></div><div class="gsv-sentiment"><span class="gsv-sentiment-label">风向</span><span class="gsv-sent-chip" style="color:oklch(35% 0.14 25)"><b>负面为主</b><i>60</i></span><span class="gsv-sent-chip" style="color:var(--muted)"><b>中性</b><i>41</i></span><span class="gsv-sent-chip" style="color:oklch(38% 0.10 25)"><b>偏负面</b><i>27</i></span></div></div>
+<details class="post-bucket"><summary class="bucket-summary">跨游戏讨论（65）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344418" class="post-title-link" target="_blank" rel="noopener noreferrer">学园偶像大师]日本人都吃不下去新出的超级大粪泳装特效皮肤池</a></div><div class="pi-meta"><span class="pi-score">82分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347852" class="post-title-link" target="_blank" rel="noopener noreferrer">原鸣终三修玩家近期集中补完版本内容体验良好</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">54分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348018" class="post-title-link" target="_blank" rel="noopener noreferrer">提问求助]国际服玩家弱弱的问下安娜</a></div><div class="pi-meta"><span class="pi-score">43分</span><span class="pi-dim">技术表现</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344030" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]花亦山心之月哑舍联动pv用ai被冲</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">28分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347186" class="post-title-link" target="_blank" rel="noopener noreferrer">新忍爆料]灵活虚化，锁链破空！神秘面具男传说时装“百战”即将登场！</a></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">上线游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346352" class="post-title-link" target="_blank" rel="noopener noreferrer">讨论]初心卡池最新数据公开！谁才是初心卡池的人气王？</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-source">上线游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346264" class="post-title-link" target="_blank" rel="noopener noreferrer">搬运]拂晓：胜利之刻丨8月13日更新公告</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">上线游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346082" class="post-title-link" target="_blank" rel="noopener noreferrer">讨论]决胜时刻已至，S17 船长格斗大赛决赛全记录</a></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">上线游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47353016" class="post-title-link" target="_blank" rel="noopener noreferrer">提问]有没有赛博史官告诉我一下O友当时为什么要骂黑神话？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">623分</span><span class="pi-dim">内容量长线</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47351921" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]账号的欧非真的在出生那一刻就注定了？烟雨江湖，角色序列被破解。</a></div><div class="pi-meta"><span class="pi-score">553分</span><span class="pi-dim">商业化</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 25);background:oklch(94% 0.04 25)">产品事故</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350826" class="post-title-link" target="_blank" rel="noopener noreferrer">米哈游]米哈游AI音乐互动陪伴游戏《BSide: Olivia Lin》发布停止运营公告</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">553分</span><span class="pi-dim">美术角色</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 25);background:oklch(94% 0.04 25)">产品事故</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350934" class="post-title-link" target="_blank" rel="noopener noreferrer">讨论下，基建如何优化才能反败为胜？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">497分</span><span class="pi-dim">玩法体验</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=42632278" class="post-title-link" target="_blank" rel="noopener noreferrer">pjsk养老记录</a></div><div class="pi-meta"><span class="pi-score">380分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352048" class="post-title-link" target="_blank" rel="noopener noreferrer">但是迟到]拂晓制作人承认游戏立绘使用Ai辅助</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">329分</span><span class="pi-dim">美术角色</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352546" class="post-title-link" target="_blank" rel="noopener noreferrer">只有一两个角色还能上场就算没有膨胀吗</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">273分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47336558" class="post-title-link" target="_blank" rel="noopener noreferrer">微联动氵]原来环鸣两家的关系这么好吗？</a></div><div class="pi-meta"><span class="pi-score">270分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47326376" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]米哈游皮套论审理判决书，内容极其抽象，官方定性：断章取义</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">248分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352808" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">238分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=43459766" class="post-title-link" target="_blank" rel="noopener noreferrer">安利]推荐一款竖屏休闲策略手游，Friends and Dragons.</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">194分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">涉政</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47331623" class="post-title-link" target="_blank" rel="noopener noreferrer">无脑护的差不多的了</a></div><div class="pi-meta"><span class="pi-score">174分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47329509" class="post-title-link" target="_blank" rel="noopener noreferrer">新瓜]棕色尘埃2要死了？</a></div><div class="pi-meta"><span class="pi-score">172分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47304609" class="post-title-link" target="_blank" rel="noopener noreferrer">搬运]星塔旅人问卷直接明了询问玩家喜欢萝莉少女还是成女并追问细节</a></div><div class="pi-meta"><span class="pi-score">158分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348548" class="post-title-link" target="_blank" rel="noopener noreferrer">讨论]没人觉得残虹的鞋巨丑吗？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">148分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350028" class="post-title-link" target="_blank" rel="noopener noreferrer">这也太变态了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">138分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47338562" class="post-title-link" target="_blank" rel="noopener noreferrer">搬运]星之翼联动魔法少女奈叶 EXCEEDS Gun Blaze Vengeance</a></div><div class="pi-meta"><span class="pi-score">130分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=44995209" class="post-title-link" target="_blank" rel="noopener noreferrer">安利]《Torncity》佛系挂机养成，硬核策略博弈，总有一种玩法适合你。</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">19166分</span><span class="pi-dim">商业化</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=42805374" class="post-title-link" target="_blank" rel="noopener noreferrer">停服]部分停服后有离线版本/私服的抽卡手游一览</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">106分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 25);background:oklch(94% 0.04 25)">产品事故</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47336751" class="post-title-link" target="_blank" rel="noopener noreferrer">疑似内容]网易新项目疑似是3d大乙游</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">100分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">二游核心论坛-瓜版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47336370" class="post-title-link" target="_blank" rel="noopener noreferrer">讨论]残红的好感度剧情其实跟弗洛洛差不多</a></div><div class="pi-meta"><span class="pi-score">82分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349540" class="post-title-link" target="_blank" rel="noopener noreferrer">有没有像素风武侠的手游啊</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">68分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+<blockquote><em>…及其他 35 条跨游戏讨论，请参见底部全量表。</em></blockquote>
+</details>
+<details class="post-bucket water-bucket"><summary class="bucket-summary">水楼/水帖（70，默认隐藏）</summary>
+<ol class="post-list">
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347007" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]手游版《死锁》好像来了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">148分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344609" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]图片仅供参考，请以实物为准</a></div><div class="pi-meta"><span class="pi-score">146分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47343874" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]我们的学圣帝君又管不住粉丝群了，攻击泛式被人转出去了</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">124分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348089" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]有可能用降价米池+多皮肤售卖的模式吗</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">104分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47345677" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]一线二游有没有这种假小子</a></div><div class="pi-meta"><span class="pi-score">86分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348127" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">78分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47345618" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]拿豆包把“码”换成“集”，豆包的水印都不去掉，是何意味</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">78分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47345266" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]心月狐真实身份猜测</a></div><div class="pi-meta"><span class="pi-score">76分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346844" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]没人聊聊最新的《魂坠深境》吗，感觉还有点意思</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">64分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346107" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]拼黄毛像素表情包的人是填海，是反冻π，是举膏药旗的?子！</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">60分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347749" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]大伙觉得一个游戏的PV应该要做到哪些？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">52分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346162" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]居然还有僵尸娘可还行</a></div><div class="pi-meta"><span class="pi-score">40分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347556" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]这是否……太刀了</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">40分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47344561" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]这才是真正尊重(培养)各种xp的二游</a></div><div class="pi-meta"><span class="pi-score">36分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347029" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]客观讨论，没有深渊:不膨胀的下落攻击是否没有实用价值</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">32分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348084" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]62爱要冲一下65吗，这武器精炼从2到5提升很可观吗</a></div><div class="pi-meta"><span class="pi-score">32分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346719" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]海猫：坏了，我被开除游戏行业了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">30分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47347036" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]我知道怎么区分形容目前的二游了</a></div><div class="pi-meta"><span class="pi-score">24分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346810" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]怎么没人搬这个，同一时间大号小号两个前瞻</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">14分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346783" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]自己脑补了一些特殊进化和分支进化的奇波来增加趣味性(反正也够呛能实现，也就想想了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47346777" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]终于完成了全角色70级+满技能</a></div><div class="pi-meta"><span class="pi-score">8分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">测试阶段游戏讨论版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352071" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]如果有问题，版务手下留情，直接锁贴就行</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">651分</span><span class="pi-dim">竞品定位</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47351311" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]没全玩过，朋友让我问问命名属实么</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">553分</span><span class="pi-dim">内容量长线</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352261" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]没人水这个吗</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">483分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352377" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]一粒老鼠屎，坏了一锅粥。</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">483分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350241" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]羽中哥哥海猫弟弟还真是有共时性啊，同时推出偶像角色</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">455分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349613" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]讨论下，眼下几个3d二游的强度焦虑大概怎么分档？</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">455分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">涉政</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350097" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]别怪终u一直对菲比表情包哈气，我真是被菲比表情包引流的</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">429分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350785" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]用上王之力 不升反倒降</a></div><div class="pi-meta"><span class="pi-score">413分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47351993" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]网易官网更新科隆参展信息，无限大可能参展</a></div><div class="pi-meta"><span class="pi-score">350分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350723" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]林离停止运营</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">327分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349327" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]感觉有点无家可归了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">306分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 290);background:oklch(94% 0.04 290)">性别对立</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352585" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]听说老米终于凑出来一个10w同接的游戏直播间了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">301分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350416" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]为什么把公司娘化的操作没有被普及开</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">289分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47350570" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]NGA是不是应该把IP在帖子的头像附近那块UI放出来, 方便开发个油猴脚本, 自定义屏蔽某些IP的发言</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">253分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349668" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]至冬流水登顶前言：畸形的社区生态令人恶心</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">250分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47338865" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]qq群看到的，无限大似乎终于要准备上桌终结二游了</a></div><div class="pi-meta"><span class="pi-score">240分</span><span class="pi-sent" style="color:oklch(38% 0.12 145);background:oklch(94% 0.04 145)">偏正面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352904" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]我真的要好好攻击kg了</a></div><div class="pi-meta"><span class="pi-score">238分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47351771" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]摸摸头怎么还没国服的消息？</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">238分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349545" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]最近是什么白丝的季节吗？</a></div><div class="pi-meta"><span class="pi-score">218分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348213" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]我觉得二游的创新在于商业模式</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">213分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 290);background:oklch(94% 0.04 290)">性别对立</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47341122" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]崩版这两天尖叫抓绕程度应该仅次于3.7了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">200分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47348912" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]从商业逻辑看，鹰池还有产能压力</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">196分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352354" class="post-title-link" target="_blank" rel="noopener noreferrer">杂谈氵]好奇，是从什么时候开始国产二游不搞大破差分这一套了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">189分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(38% 0.10 55);background:oklch(94% 0.04 55)">引战</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349457" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]这是人类能做出的事情？</a><span class="pi-irony" title="反讽风险：mid">反讽M</span></div><div class="pi-meta"><span class="pi-score">173分</span><span class="pi-sent" style="color:oklch(38% 0.10 25);background:oklch(94% 0.04 25)">偏负面</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47332355" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]我这个滑坡人都能做到，希望你们以后也要做到哦</a></div><div class="pi-meta"><span class="pi-score">170分</span><span class="pi-sent" style="color:oklch(42% 0.01 60);background:var(--bg)">中性</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349367" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]不在意流水是不是伪敍事</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">166分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349105" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]这么茶啊，那我知道该怎么办了</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">166分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47352906" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]玩的人多的游戏，新版本前的宣发造势反而少</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">161分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(35% 0.12 25);background:oklch(94% 0.04 25)">产品事故</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+<li class="post-item-li"><details class="post-item"><summary class="post-summary"><div class="pi-title"><a href="https://bbs.nga.cn/read.php?tid=47349890" class="post-title-link" target="_blank" rel="noopener noreferrer">破事氵]不吹不黑，截止1.4版本说说zmd玩起来不太舒服的主要原因</a><span class="pi-irony" title="反讽风险：high">反讽H</span><span class="pi-review-flag">待复核</span></div><div class="pi-meta"><span class="pi-score">160分</span><span class="pi-sent" style="color:oklch(35% 0.14 25);background:oklch(93% 0.05 25)">负面为主</span><span class="pi-risk" style="color:oklch(30% 0.14 25);background:oklch(93% 0.05 25)">泄露/开盒</span><span class="pi-source">手综版</span></div></summary><div class="post-detail"></div></details></li>
+</ol>
+</details>
+<div class="game-stats-v2" id="综合-无明确游戏归属-stats"><div class="gsv-numbers"><div class="gsv-num"><div class="gsv-num-value">—</div><div class="gsv-num-label">帖数</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-new">0</div><div class="gsv-num-label">新增</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-burst">0</div><div class="gsv-num-label">爆发</div></div><div class="gsv-num"><div class="gsv-num-value gsv-num-heat">—</div><div class="gsv-num-label">总热度</div></div></div></div>
+</details>
+<hr>
+<p><em>本报告由 NGA 多板块舆情监控系统自动生成</em></p>
+<p><em>数据来源: NGA 瓜版 / 测试阶段游戏讨论版 / 上线游戏讨论版 / 手综版 | 报告日期: 2026-08-11</em></p>
+<p><em> 情感/观点分析基于关键词词库，仅供参考</em></p></main>
+  </div>
+  <div class="footer">由 WorkBuddy 转换生成 · 保留原报告链接、表格与 SVG 图表 · 游戏图标优先使用 TapTap 图标缓存</div>
+</div>
+</body>
+</html>
