@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态 | 2026年8月19日（周三）</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.6; padding: 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.header { background: linear-gradient(135deg, #1f6feb 0%, #6e40c9 100%); padding: 30px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
+.header h1 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+.header .meta { color: #8b949e; font-size: 14px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
+.stat-card .num { font-size: 32px; font-weight: bold; color: #58a6ff; }
+.stat-card .label { color: #8b949e; font-size: 13px; margin-top: 4px; }
+.section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+.section h2 { color: #f0f6fc; font-size: 20px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #30363d; }
+.highlight-card { background: #21262d; border-left: 4px solid #f85149; padding: 16px; margin-bottom: 12px; border-radius: 4px; }
+.highlight-card.priority-HIGH { border-left-color: #f85149; }
+.highlight-card h3 { color: #f0f6fc; font-size: 15px; margin-bottom: 8px; }
+.highlight-card .games { display: inline-block; background: #1f6feb; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-right: 6px; margin-top: 6px; }
+.highlight-card p { color: #c9d1d9; font-size: 13px; }
+.highlight-card a { color: #58a6ff; font-size: 12px; text-decoration: none; }
+table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #30363d; font-size: 13px; }
+th { background: #21262d; color: #f0f6fc; font-weight: 600; }
+tr:hover { background: #21262d; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.badge-CRITICAL { background: #da3633; color: #fff; }
+.badge-HIGH { background: #f85149; color: #fff; }
+.badge-WARNING { background: #d29922; color: #fff; }
+.badge-ACTIVE { background: #238636; color: #fff; }
+.badge-UPCOMING { background: #1f6feb; color: #fff; }
+.badge-ENDED { background: #6e7681; color: #fff; }
+.badge-ENDED_TODAY { background: #da3633; color: #fff; }
+.badge-CURRENT { background: #238636; color: #fff; }
+.badge-PREVIEW { background: #8957e5; color: #fff; }
+.calendar-day { margin-bottom: 16px; padding: 12px; background: #21262d; border-radius: 6px; }
+.calendar-day .date { color: #58a6ff; font-weight: 600; margin-bottom: 8px; font-size: 15px; }
+.calendar-day.important { border-left: 4px solid #f85149; }
+.calendar-event { padding: 6px 0; border-bottom: 1px solid #30363d; font-size: 13px; }
+.calendar-event:last-child { border-bottom: none; }
+.calendar-event .time { color: #d29922; font-weight: 600; margin-right: 8px; }
+.game-card { background: #21262d; padding: 16px; border-radius: 6px; margin-bottom: 12px; border-left: 3px solid #30363d; }
+.game-card h3 { color: #f0f6fc; font-size: 16px; margin-bottom: 8px; }
+.game-card .version { color: #58a6ff; font-size: 13px; margin-bottom: 8px; }
+.game-card ul { list-style: none; padding-left: 0; }
+.game-card li { padding: 4px 0; font-size: 13px; color: #c9d1d9; }
+.game-card li::before { content: '▸ '; color: #58a6ff; }
+.game-card a { color: #58a6ff; font-size: 12px; text-decoration: none; }
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .header h1 { font-size: 22px; }
+  table { font-size: 12px; }
+  th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎮 二次元游戏动态看板</h1>
+    <div class="meta">2026年8月19日（周三） | 执行日期 T = 2026-08-19 06:55 CST | 监控 13 款 / 报告 13 款</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num">13</div><div class="label">监控游戏</div></div>
+    <div class="stat-card"><div class="num">12+3</div><div class="label">活跃+即将卡池</div></div>
+    <div class="stat-card"><div class="num">40</div><div class="label">活跃活动</div></div>
+    <div class="stat-card"><div class="num">5</div><div class="label">硬预警</div></div>
+    <div class="stat-card"><div class="num">0</div><div class="label">兑换码</div></div>
+  </div>
+
+  <div class="section">
+    <h2>🔴 今日核心事件（8/19）</h2>
+    <div class="highlight-card priority-HIGH">
+      <h3>三线同日收线（绝区零切下半+NIKKE国服截止+鸣潮截止）</h3>
+      <span class="games">绝区零</span><span class="games">NIKKE国服</span><span class="games">鸣潮</span>
+      <p>03:59 绝区零爱芮+NIKKE国服D:杀手妻子截止；11:59 鸣潮下半穗穗+爱弥斯截止。12:00 绝区零下半希格莉德+混池开启。10:00 嗯呢大派送+咔滋酥脆接档。</p>
+      <a href="https://zenless.hoyoverse.com/zh-cn/news/165414">来源</a>
+    </div>
+    <div class="highlight-card priority-HIGH">
+      <h3>原神幽境危战整体活动 10:00 开启 + 新增武器外观功能</h3>
+      <span class="games">原神</span>
+      <p>紊乱爆发期 8/19 10:00-8/29 03:59。新增敌人嵌合翼骏狮/历经百战的风役人/重拳出击鸭。本次起幻煌至形新增一套武器外观。</p>
+      <a href="https://ys.mihoyo.com/main/news/detail/165626">来源</a>
+    </div>
+    <div class="highlight-card priority-HIGH">
+      <h3>终末地密境行者六方巧境 12:00 首批开放</h3>
+      <span class="games">明日方舟：终末地</span>
+      <p>今日 12:00 首批 3 个协议空间开放，8/26 04:00 开放后续 3 个。玩法核心为观察场景+操作机关+判断路线。</p>
+      <a href="https://www.taptap.cn/moment/835500773344280845">来源</a>
+    </div>
+    <div class="highlight-card priority-HIGH">
+      <h3>明日 8/20 超级切换日五线同日爆发（倒计时 1 天）</h3>
+      <span class="games">鸣潮</span><span class="games">NIKKE国际服</span><span class="games">蓝色星原</span><span class="games">燕云十六声</span><span class="games">二重螺旋</span>
+      <p>①鸣潮 3.6 04:00 上线 ②NIKKE 天城雪子开池+麦克斯韦截止+Solo Raid S40 ③蓝色星原招募截止 ④燕云隐山天门上线 ⑤二重螺旋星耀巡游</p>
+      <a href="https://www.wywyx.com/news/202608/583804.html">来源</a>
+    </div>
+    <div class="highlight-card priority-HIGH">
+      <h3>NIKKE 国际服 Persona 联动第七日（JST）+ 明日天城雪子开池</h3>
+      <span class="games">NIKKE国际服</span>
+      <p>Queen 招募持续中。麦克斯韦池硬预警仅剩 1 天。明日 8/20 05:00 天城雪子开池（JST）+12:00 Solo Raid Season 40 开启（风 Code·火 Code弱点）。</p>
+      <a href="https://x.com/NIKKE_japan">来源</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>⏰ 卡池预警</h2>
+    <table>
+      <thead><tr><th>剩余</th><th>游戏</th><th>卡池</th><th>截止时间</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-CRITICAL">🔴 1 天</span></td><td>NIKKE 国际服</td><td>麦克斯韦:常规机械师</td><td>8/20 04:59 JST</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td><span class="badge badge-CRITICAL">🔴 1 天</span></td><td>蓝色星原</td><td>旅迹测试招募</td><td>8/20 23:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td><span class="badge badge-ENDED">今日截止</span></td><td>鸣潮</td><td>下半穗穗+爱弥斯</td><td>8/19 11:59</td><td><span class="badge badge-ENDED_TODAY">ENDED</span></td></tr>
+        <tr><td><span class="badge badge-ENDED">今日截止</span></td><td>NIKKE 国服</td><td>D:杀手妻子</td><td>8/19 03:59</td><td><span class="badge badge-ENDED">ENDED</span></td></tr>
+        <tr><td>🟢 7 天</td><td>崩铁</td><td>SP 姬子+Fate 联动</td><td>8/26 06:00</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 11 天</td><td>终末地</td><td>梨诺限定 UP</td><td>8/30 11:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 13 天</td><td>原神</td><td>上半奥黛塔+阿蕾奇诺+阿罗夏</td><td>9/1 17:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 15 天</td><td>重返未来</td><td>上半赫多涅+哑谜轮换</td><td>9/3 04:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 15 天</td><td>异环</td><td>上半残虹+娜娜莉</td><td>9/3 05:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 20 天</td><td>绝区零</td><td>蕾米埃尔整版本 UP</td><td>9/8 14:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 21 天</td><td>绝区零</td><td>下半希格莉德+混池（今日开启）</td><td>9/9 05:59</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🟢 22 天</td><td>NIKKE 国际服</td><td>Queen(P5R 联动)</td><td>9/10 03:59 JST</td><td><span class="badge badge-ACTIVE">ACTIVE</span></td></tr>
+        <tr><td>🆕 1 天</td><td>鸣潮</td><td>3.6 上半清宵+达妮娅（明日开启）</td><td>8/20 04:00 起</td><td><span class="badge badge-UPCOMING">UPCOMING</span></td></tr>
+        <tr><td>🆕 1 天</td><td>NIKKE 国际服</td><td>天城雪子(P4G 联动)（明日开启）</td><td>8/20 05:00 JST 起</td><td><span class="badge badge-UPCOMING">UPCOMING</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🗓️ 关键日历</h2>
+    <div class="calendar-day important">
+      <div class="date">📅 8/19（今日·多事件截止日 + 切换日）</div>
+      <div class="calendar-event"><span class="time">03:59</span>绝区零上半爱芮复刻截止 + NIKKE 国服 D:杀手妻子+Kill the Lord 截止</div>
+      <div class="calendar-event"><span class="time">10:00</span>原神幽境危战整体活动开启（8/19-8/29）</div>
+      <div class="calendar-event"><span class="time">10:00</span>绝区零嗯呢大派送+咔滋酥脆接档开启</div>
+      <div class="calendar-event"><span class="time">11:59</span>鸣潮下半穗穗+爱弥斯+悲鸣行动 7 日签到截止</div>
+      <div class="calendar-event"><span class="time">12:00</span>终末地六方巧境首批 3 个协议空间开放</div>
+      <div class="calendar-event"><span class="time">12:00</span>绝区零下半希格莉德卡池+混池开启</div>
+    </div>
+    <div class="calendar-day important">
+      <div class="date">🔴 8/20（明日·超级切换日五线同日爆发）</div>
+      <div class="calendar-event"><span class="time">04:00</span>鸣潮 3.6 版本「蜃云灯影凡尘剑心」上线</div>
+      <div class="calendar-event"><span class="time">04:00</span>燕云隐山第二章「天门」上线</div>
+      <div class="calendar-event"><span class="time">04:59</span>NIKKE 国际服麦克斯韦池截止（JST）</div>
+      <div class="calendar-event"><span class="time">05:00</span>NIKKE 国际服天城雪子开池（JST）</div>
+      <div class="calendar-event"><span class="time">10:00</span>二重螺旋星耀巡游+收获日第二期开启</div>
+      <div class="calendar-event"><span class="time">12:00</span>NIKKE 国际服 Solo Raid S40 开启（JST·风 Code·火弱点）</div>
+      <div class="calendar-event"><span class="time">23:59</span>蓝色星原旅迹测试招募截止</div>
+    </div>
+    <div class="calendar-day">
+      <div class="date">8/21-8/24</div>
+      <div class="calendar-event"><span class="time">8/21</span>NIKKE 协同作战第二轮（JST）+ 异环遗舸寻珍 + 重返未来洋葱头轶事</div>
+      <div class="calendar-event"><span class="time">8/22</span>鸣潮群声共振模拟域（1200 星声）+ NIKKE FBD 第二轮</div>
+      <div class="calendar-event"><span class="time">8/24</span>绝区零极危通缉+悠游假期 + 原神若叶/星铁花园/异环活力焕能截止</div>
+    </div>
+    <div class="calendar-day important">
+      <div class="date">🔴 8/26（7 天后·星铁切换日）</div>
+      <div class="calendar-event"><span class="time">04:00</span>终末地六方巧境后续 3 个协议空间开放</div>
+      <div class="calendar-event"><span class="time">06:00</span>星铁 4.4 结束 → 4.5「挥掷千星的筹码」上线（知更鸟·晴歌+风堇）</div>
+      <div class="calendar-event"><span class="time">10:00</span>二重螺旋狩月人之阶开启</div>
+      <div class="calendar-event"><span class="time">全日</span>NIKKE 国服 Phantom Thief Invitation 截止</div>
+    </div>
+    <div class="calendar-day">
+      <div class="date">8/27-8/28</div>
+      <div class="calendar-event"><span class="time">8/27 04:59</span>NIKKE 国际服 Solo Raid S40 截止（JST）</div>
+      <div class="calendar-event"><span class="time">8/27 05:00</span>二重螺旋收获日第二期截止</div>
+      <div class="calendar-event"><span class="time">8/27</span>燕云照影庙规则怪谈开启</div>
+      <div class="calendar-event"><span class="time">8/28 05:00</span>重返未来湖的馈赠 9 名自选 3 人池 + 双重谐振开启</div>
+      <div class="calendar-event"><span class="time">8/28 10:00</span>原神冒险者竞技大会开启（免费迪奥娜）</div>
+      <div class="calendar-event"><span class="time">8/28</span>NIKKE 国际服协同+FBD 第三轮（JST 8/28-8/30）</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 分游戏详细动态</h2>
+    <div class="game-card">
+      <h3>1. 原神 · 7.0「无神怜爱的雪国」第八日</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 8/12-9/22 | 卡池：上半奥黛塔+阿蕾奇诺+阿罗夏 8/12-9/1 17:59</div>
+      <ul>
+        <li>今日 10:00 幽境危战整体活动开启（紊乱爆发期 8/19-8/29，新增嵌合翼骏狮/风役人/重拳出击鸭，新增武器外观功能）</li>
+        <li>新元素反应：星扩散（风冰触发）+星超导</li>
+        <li>新区域：至冬国+古兽冰原/白桦雪葬地/永凝冻土/焰羽谷/霜殛寒峰</li>
+        <li>集录祈愿限时：八重神子/赛诺/莱欧斯利/七七/琉典 + 5 把 5 星武器</li>
+        <li>UPCOMING：冒险者竞技大会 8/28-9/14（免费 4 星迪奥娜）</li>
+      </ul>
+      <a href="https://ys.mihoyo.com/main/news/detail/165626">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>2. 崩坏：星穹铁道 · 4.4 下半第十二日 + 4.5 倒计时 7 天</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 7/15-8/26 | 卡池：SP 姬子+Fate 联动+下半三复刻 7/15-8/26 06:00</div>
+      <ul>
+        <li>4.5 版本 8/26 上线：上半知更鸟·晴歌（风/记忆·拉条充能副 C）+风堇（丰饶/量子·复刻）</li>
+        <li>下半砂金·戏浪（量子/欢愉·多动主 C）+不死途（雷/巡猎·复刻）</li>
+        <li>新区域千星城+指针塔+空声院；剧情**对话加速功能**正式实装</li>
+        <li>超限·狂飙大奖赛赛车活动（免费 4 星光锥）+大白兔奶糖联动</li>
+        <li>星铁×绝区零联动 2026 年冬</li>
+      </ul>
+      <a href="https://sr.mihoyo.com/">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>3. 明日方舟：终末地 · 1.4 下半第十日 + 今日六方巧境开放</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 7/16-8/30 | 卡池：梨诺限定 UP 8/9-8/30 11:59</div>
+      <ul>
+        <li>今日 12:00 密境行者新空间组「六方巧境」首批 3 个协议空间开放（8/26 后续 3 个）</li>
+        <li>梨诺：6 星电磁辅助·偶像干员·演唱姿态全队回血+攻击增益+强制导电·0 潜完整可用</li>
+        <li>配队：电队（庄方宜+佩丽卡+弧光+梨诺）/自然队（诀+洁尔佩塔+佩丽卡+梨诺）</li>
+        <li>专武曜夜的首演（平替黄金时代）</li>
+      </ul>
+      <a href="https://www.taptap.cn/moment/835500773344280845">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>4. 鸣潮 · 3.5 第四十日 + 3.6 倒计时 1 天</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 7/10-8/20 | 下半穗穗+爱弥斯今日 11:59 截止</div>
+      <ul>
+        <li>3.6 版本明日 8/20 04:00 上线：上半清宵（气动迅刀·剑仙主 C·御剑飞行·琴剑双形态·镇玄司骑·专武云琅）+达妮娅复刻</li>
+        <li>下半景燃（热熔长刃·阴阳双形态盾 C）+绯雪+莫宁最后 UP（9/10-9/29）</li>
+        <li>潮汐任务第四章第三幕+幕间；全平台换 C#+DLSS 4.5+邮箱扩容 200 封</li>
+        <li>御剑飞行+七弦琴演奏；活动：群声共振 8/22+若梦仍有回声 9/10+清弦纪流年 9/3+第二索拉 8/27+潮汐觅闻 9/17</li>
+      </ul>
+      <a href="https://www.wywyx.com/news/202608/583804.html">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>5. 绝区零 · 3.1 二周年庆第二十二日 + 切换日</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 7/29-9/8 | 今日 03:59 上半爱芮截止 → 12:00 下半希格莉德开启</div>
+      <ul>
+        <li>下半希格莉德（冰强攻·空域巡戍局·长枪）+专武骁骑礼赞 8/19 12:00-9/9 05:59</li>
+        <li>混池：琉音/浮波柚叶/浅羽悠真（首个 S 必为自选·首次 10 连 8 折）</li>
+        <li>希格莉德时装「惊鸿逐浪」1350 菲林底片折扣</li>
+        <li>10:00 嗯呢大派送（送加密母带×10+邦布券×10·7 日签到·8/19-9/8）+咔滋酥脆出餐计划（KFC 联动·8/19-9/7）</li>
+        <li>后续：8/24 极危通缉+悠游假期；8/28 叮咚见习邮差</li>
+      </ul>
+      <a href="https://zenless.hoyoverse.com/zh-cn/news/165414">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>6. 洛克王国：世界 · S3「铅字幻梦」第三十五日</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 7/16-10/31</div>
+      <ul>
+        <li>七大新区域：威廉古堡/淘晶镇/迷雾之森/仪式镇/结晶森林/金水河谷/巨人裂谷</li>
+        <li>赛季传说精灵：加尔（含黑化形态）+幻王芙蕾雅（幻系精灵王）</li>
+        <li>S3 赛季动作兑换 9/10 04:00 截止（忍耐/看报纸/放心吧/盯梢）</li>
+      </ul>
+      <a href="https://pd.qq.com/g/roco135790/">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>7. 二重螺旋 · 乐园序曲 · 下半阶段第三日</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 7/28-9/7 | 卡池：艾达+最好的一天委托密函</div>
+      <ul>
+        <li>绯色梦魇活动第二日（希尔妲·惑夜伶人+卡米拉·惑夜伶人主题外观）8/18-9/29</li>
+        <li>梦魇残声副本掉落替换：艾达+最好的一天+锥心黑曜镰</li>
+        <li>明日 8/20 10:00：星耀巡游+星耀纪念 II（含西比尔外观）+收获日第二期（魔之楔双倍）</li>
+        <li>8/26 狩月人之阶 UPCOMING</li>
+      </ul>
+      <a href="https://dna.yingxiong.com/">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>8. 异环 · 1.3「雾中朔望星回」第七日</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 8/13-9/24 05:59 | 卡池：上半残虹+娜娜莉复刻 8/13-9/3 05:59</div>
+      <ul>
+        <li>活力焕能（双倍活力双倍奖励）8/17-8/24 05:00（仅剩 5 天）</li>
+        <li>新区域：泊暮区+雾巢+夏日海岸+房产系统</li>
+        <li>UPCOMING：8/21 遗舸寻珍；8/24 夺金大作战；9/3 下半灵可+浔复刻</li>
+      </ul>
+      <a href="https://yh.wanmei.com/news/gamebroad/20260812/263538.html">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>9. 蓝色星原：旅谣 · 旅迹测试招募硬预警仅剩 1 天</h3>
+      <div class="version">版本状态：<span class="badge badge-PREVIEW">PREVIEW</span> 7/10-8/20 23:59</div>
+      <ul>
+        <li>旅迹测试招募 7/10 09:00-8/20 23:59（硬预警仅剩 1 天）</li>
+        <li>限量计费删档测试，PC/安卓/iOS/鸿蒙四端数据互通</li>
+        <li>预约破 1200 万；App Store 预订 8/10 已开启</li>
+      </ul>
+      <a href="https://azurpromilia.manjuu.com/home/">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>10. 重返未来 1999 · 3.9 三周年第七日</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 8/13-9/24 | 卡池：上半赫多涅+哑谜轮换 8/13-9/3 04:59</div>
+      <ul>
+        <li>哑谜轮换复刻第二日运行（含坦南特+喀嚓喀嚓+泳装 68 元）</li>
+        <li>下半纳西索斯 9/3-9/24</li>
+        <li>B.Duck 联动·箱中数鸭节（3 日登录免费领联动建筑）</li>
+        <li>8/28 湖的馈赠 9 名自选 3 人池（首个十连仅需 5 抽）+双重谐振</li>
+      </ul>
+      <a href="https://re.bluepoch.com/">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>11. NIKKE 国际服 · Persona 联动第七日（JST）</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 8/13-9/10 04:59 JST | Queen 招募持续中</div>
+      <ul>
+        <li>Queen（新岛真·P5R SSR·燃烧火力型·SG·Abnormal）招募至 9/10 04:59 JST</li>
+        <li>明日 8/20 天城雪子开池（JST 05:00·P4G SSR·火属性 MG）+麦克斯韦池截止（JST 04:59·硬预警 1 天）</li>
+        <li>明日 8/20 Solo Raid Season 40 开启（JST 12:00·风 Code·火弱点·8/20-8/27）+Story II 解锁</li>
+        <li>周末 FBD+协同作战三轮：8/21-23 / 8/28-30</li>
+        <li>永久添加：主线 47-48+Outpost Defense 800+Lost Sector 29+EX-17+Tribe Tower 1550 层</li>
+      </ul>
+      <a href="https://x.com/NIKKE_japan">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>12. NIKKE 国服 · Kill the Lord 今日 03:59 已截止</h3>
+      <div class="version">版本状态：<span class="badge badge-ENDED">ENDED</span> 8/5-8/19 03:59 | D:杀手妻子已加入常规招募池</div>
+      <ul>
+        <li>今日 03:59 D:杀手妻子特殊招募+KILL THE LORD 剧情+FAIR JUDGE 7 日签到全部截止</li>
+        <li>D:杀手妻子活动结束后已加入常规招募池</li>
+        <li>Phantom Thief Invitation 7 日签到（潘托姆/坎西二选一）8/5-8/26，仅剩 7 天</li>
+      </ul>
+      <a href="https://www.wegame.com.cn/platform/article/detail.html?articleId=88cd86e385414536a27cec10f08f15b4">来源</a>
+    </div>
+    <div class="game-card">
+      <h3>13. 燕云十六声 · 破竹·樽第六日 + 隐山天门倒计时 1 天</h3>
+      <div class="version">版本状态：<span class="badge badge-CURRENT">CURRENT</span> 8/14-9/30 | 破竹·樽流派 ACTIVE</div>
+      <ul>
+        <li>破竹·樽新流派：醉拳+双刀·悬身拳法+断水双诀·袁和平参与打磨·狂饮值系统</li>
+        <li>明日 8/20 04:00 隐山第二章「天门」上线</li>
+        <li>全新地图（云海深处·墨家遗迹）+秘技系统（衍九矢+万物皆刃）</li>
+        <li>机械巨兽 BOSS（鸢墨蝎+擎云蛇）+大衍迷阵地下副本+Cloudtop Ascent 全服活动</li>
+        <li>8/27 照影庙规则怪谈（中式惊悚生存模式）</li>
+      </ul>
+      <a href="https://www.yysls.cn/">来源</a>
+    </div>
+  </div>
+
+  <div class="section" style="text-align: center; color: #8b949e; font-size: 12px;">
+    <p>📝 由 WorkBuddy 二次元游戏每日播报自动化生成 | 🕐 2026-08-19 06:55 CST</p>
+    <p>🎯 信源三级分级 | NIKKE 国际服/国服分开 | 洛克王国仅含《洛克王国：世界》</p>
+  </div>
+</div>
+</body>
+</html>
