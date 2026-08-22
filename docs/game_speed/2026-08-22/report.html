@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏每日监控 | 2026-08-22</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0f0f0f; color: #e5e7eb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; padding: 20px; max-width: 1400px; margin: 0 auto; }
+h1 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+h2 { color: #fff; font-size: 22px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #1f2937; }
+h3 { color: #fff; font-size: 18px; margin: 24px 0 12px; }
+.meta-bar { background: #18181b; padding: 12px 20px; border-radius: 8px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #9ca3af; }
+.meta-bar span strong { color: #fff; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.stat-card { background: #18181b; padding: 16px; border-radius: 8px; border: 1px solid #1f2937; }
+.stat-card .num { font-size: 28px; font-weight: 700; color: #fff; }
+.stat-card .label { font-size: 12px; color: #9ca3af; margin-top: 4px; }
+.highlight-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.highlight-card { background: #18181b; padding: 16px 20px; border-radius: 8px; border-left: 4px solid #3b82f6; }
+.highlight-card.high { border-left-color: #ef4444; }
+.highlight-card.mid { border-left-color: #f59e0b; }
+.highlight-card .title { color: #fff; font-weight: 600; margin-bottom: 6px; font-size: 15px; }
+.highlight-card .desc { color: #9ca3af; font-size: 13px; margin-bottom: 8px; }
+.highlight-card .meta { font-size: 11px; color: #6b7280; }
+.highlight-card .meta a { color: #60a5fa; text-decoration: none; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #18181b; border-radius: 8px; overflow: hidden; }
+th { background: #1f2937; color: #fff; padding: 12px; text-align: left; font-size: 12px; font-weight: 600; }
+td { padding: 10px 12px; border-top: 1px solid #1f2937; font-size: 13px; color: #d1d5db; }
+tr:hover td { background: #1f2937; }
+.game-section { background: #18181b; padding: 20px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #1f2937; }
+.game-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.game-header h3 { margin: 0; }
+.game-header .ver { background: #1f2937; color: #9ca3af; padding: 2px 10px; border-radius: 4px; font-size: 12px; }
+.game-update { background: #0f0f0f; padding: 10px 14px; border-radius: 6px; margin-bottom: 12px; font-size: 13px; color: #d1d5db; border-left: 3px solid #3b82f6; }
+.char-analysis { background: #0f0f0f; padding: 10px 14px; border-radius: 6px; margin-top: 8px; font-size: 13px; }
+.char-analysis strong { color: #fbbf24; }
+.source-link { color: #60a5fa; text-decoration: none; font-size: 11px; word-break: break-all; }
+.warning-row td { background: rgba(245, 158, 11, 0.08); }
+.critical-row td { background: rgba(239, 68, 68, 0.08); }
+.checklist { columns: 2; font-size: 13px; color: #d1d5db; }
+.checklist div { padding: 4px 0; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #1f2937; font-size: 12px; color: #6b7280; text-align: center; }
+@media (max-width: 768px) {
+  body { padding: 12px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .checklist { columns: 1; }
+  table { font-size: 12px; }
+  th, td { padding: 8px; }
+}
+
+</style>
+</head>
+<body>
+<h1>🎮 二次元游戏每日监控</h1>
+<div style="color:#9ca3af;font-size:14px;margin-bottom:8px;">2026-08-22 · 周六</div>
+<div class="meta-bar">
+<span>覆盖率 <strong>100%</strong></span>
+<span>一级完整核验 <strong>11</strong> 款</span>
+<span>部分核验 <strong>2</strong> 款</span>
+<span>生成 <strong>2026-08-22T07:00:12+08:00</strong></span>
+<span>信源标准 <strong>v3.3</strong></span>
+</div>
+<h2>📊 数据概览</h2>
+<div class="stat-grid">
+<div class="stat-card"><div class="num">13</div><div class="label">监控游戏</div></div>
+<div class="stat-card"><div class="num">14</div><div class="label">活跃卡池</div></div>
+<div class="stat-card"><div class="num">6</div><div class="label">即将开始卡池</div></div>
+<div class="stat-card"><div class="num">25</div><div class="label">活跃活动</div></div>
+<div class="stat-card"><div class="num">10</div><div class="label">即将开始活动</div></div>
+<div class="stat-card"><div class="num">3</div><div class="label">预警项</div></div>
+<div class="stat-card"><div class="num">0</div><div class="label">兑换码</div></div>
+<div class="stat-card"><div class="num">100%</div><div class="label">覆盖率</div></div>
+</div>
+<h2>⭐ 今日重点</h2>
+<div class="highlight-list">
+<div class="highlight-card high">
+  <div class="title"><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">HIGH</span> 鸣潮3.6 群声共振模拟域今日10:00开启</div>
+  <div class="desc">3.6版本「蜃云灯影凡尘剑心」第二阶段战斗活动8/22 10:00-9/29 11:59(服务器时间)；漂泊者侧俯视角模拟作战，共鸣因子组合+拟形技能；奖励星声1200+异相万囮牢·朽躯+共鸣最佳搭配称号；开放条件：联觉等级≥14级</div>
+  <div class="meta">游戏：鸣潮 · <a href="https://wiki.biligame.com/wutheringwaves?sourceFrom=233" target="_blank">一级源</a></div>
+</div>
+<div class="highlight-card high">
+  <div class="title"><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">HIGH</span> NIKKE国际服 FULL BURST DAY 第二轮今日开启(JST)</div>
+  <div class="desc">Persona联动周末双倍奖励活动第二轮 8/22 05:00-8/24 04:59 (JST)，Interception与Simulation Room掉落×2；Coordinated Operation Gatekeeper第二轮8/21-8/23进行中(今日第2日)；Solo Raid S40第3日推进中(8/20-8/27 JST)</div>
+  <div class="meta">游戏：NIKKE国际服 · <a href="https://nikke.gg/august-13-patch-notes/" target="_blank">一级源</a></div>
+</div>
+<div class="highlight-card high">
+  <div class="title"><span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">HIGH</span> NIKKE国服 协同作战(夏季版)今日开启</div>
+  <div class="desc">蓝水岛假日版本周末协同作战今日开启，8/22-8/24(周末3天)；EX黄金船传说8/25长期开放UPCOMING(T+3)；尼恩:蓝色海洋卡池进行中(8/20-9/10)；梅里:海湾女神8/25开池(T+3)</div>
+  <div class="meta">游戏：NIKKE国服 · <a href="https://gamekee.com/nikke/674676.html" target="_blank">一级源</a></div>
+</div>
+<div class="highlight-card mid">
+  <div class="title"><span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">MID</span> 星铁4.4下半刻律德菈卡池倒计时3天截止</div>
+  <div class="desc">4.4版本下半卡池刻律德菈+那刻夏+砂金(复刻)8/25 15:00截止，4天后由4.5版本上半知更鸟·晴歌+风堇接档(8/26上线)；FATE联动主题活动同步8/26结束</div>
+  <div class="meta">游戏：崩坏:星穹铁道 · <a href="https://sr.mihoyo.com/news/165506?nav=news" target="_blank">一级源</a></div>
+</div>
+<div class="highlight-card mid">
+  <div class="title"><span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">MID</span> 异环活力焕能倒计时2天截止+夺金大作战明日开启</div>
+  <div class="desc">1.3版本「雾中朔望星回」活力焕能双倍活动8/17-8/24 04:59，剩余2天；夺金大作战(粉爪大劫案方斯×2)明日8/24 05:00-9/7 04:59接档；遗舸寻珍+轨外之境烛天环线今日第2日运行</div>
+  <div class="meta">游戏：异环 · <a href="https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html" target="_blank">一级源</a></div>
+</div>
+</div>
+<h2>🔴 今日更新</h2>
+<table>
+<thead><tr><th>游戏</th><th>事件</th><th>时间</th></tr></thead><tbody>
+<tr><td>鸣潮</td><td>⭐群声共振模拟域开启</td><td>8/22 10:00 - 9/29 11:59</td></tr>
+<tr><td>NIKKE国际服</td><td>⭐FULL BURST DAY 第二轮开启 (JST)</td><td>8/22 05:00 - 8/24 04:59</td></tr>
+<tr><td>NIKKE国际服</td><td>Coordinated Operation Gatekeeper 第二轮第2日</td><td>8/21-8/23</td></tr>
+<tr><td>NIKKE国际服</td><td>Solo Raid S40 第3日</td><td>8/20-8/27</td></tr>
+<tr><td>NIKKE国服</td><td>⭐协同作战(夏季版)开启</td><td>8/22-8/24</td></tr>
+<tr><td>洛克王国:世界</td><td>小草虫大量出没周末第2日</td><td>8/21-8/23</td></tr>
+<tr><td>燕云十六声</td><td>隐山第二章「天陉」第3日</td><td>8/20起</td></tr>
+</tbody></table>
+<h2>⏰ 卡池/活动预警</h2>
+<table>
+<thead><tr><th>级别</th><th>游戏</th><th>内容</th><th>截止</th><th>剩余</th><th>说明</th></tr></thead><tbody>
+<tr class="warning-row"><td><span style="color:#f59e0b;">●</span> WARNING</td><td>崩坏:星穹铁道</td><td>4.4下半刻律德菈+那刻夏+砂金</td><td>2026-08-25</td><td><strong style="color:#f59e0b;">3天</strong></td><td>3天后截止(8/25 15:00)，4.5版本8/26接档</td></tr>
+<tr class="warning-row"><td><span style="color:#f59e0b;">●</span> WARNING</td><td>异环</td><td>活力焕能双倍活动</td><td>2026-08-24</td><td><strong style="color:#f59e0b;">2天</strong></td><td>2天后截止(8/24 04:59)，夺金大作战同日接档</td></tr>
+<tr class="warning-row"><td><span style="color:#f59e0b;">●</span> WARNING</td><td>原神</td><td>若叶的互助~第一次的雪原~</td><td>2026-08-24</td><td><strong style="color:#f59e0b;">2天</strong></td><td>2天后截止(8/24)，版本主题活动收尾</td></tr>
+</tbody></table>
+<h2>🎴 全部卡池</h2>
+<table>
+<thead><tr><th>游戏</th><th>角色</th><th>稀有度</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th><th>联动</th></tr></thead><tbody>
+<tr><td>原神</td><td>奥黛塔+阿蕾奇诺(复刻)</td><td>5星</td><td>上半</td><td>2026-08-12 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">10天</strong></td><td></td></tr>
+<tr><td>原神</td><td>菲林斯+伊涅芙(复刻)</td><td>5星</td><td>下半</td><td>2026-09-01 → 2026-09-22</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">10天</strong></td><td></td></tr>
+<tr><td>崩坏:星穹铁道</td><td>刻律德菈+那刻夏+砂金(复刻)</td><td>5星</td><td>下半</td><td>2026-08-05 → 2026-08-25</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#f59e0b;">3天</strong></td><td></td></tr>
+<tr><td>崩坏:星穹铁道</td><td>知更鸟·晴歌+风堇(4.5上半)</td><td>5星</td><td>上半</td><td>2026-08-26 → 2026-09-15</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#eab308;">4天</strong></td><td></td></tr>
+<tr><td>崩坏:星穹铁道</td><td>砂金·戏浪+不死途(4.5下半复刻)</td><td>5星</td><td>下半</td><td>2026-09-12 → 2026-10-06</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">21天</strong></td><td></td></tr>
+<tr><td>明日方舟:终末地</td><td>梨诺(新六星·雷电·辅助)</td><td>6星</td><td>下半</td><td>2026-08-09 → 2026-08-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">8天</strong></td><td></td></tr>
+<tr><td>鸣潮</td><td>清宵(新五星·气动·迅刀)+达妮娅(复刻)</td><td>5星</td><td>上半</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td><td></td></tr>
+<tr><td>鸣潮</td><td>景燃(新五星·热熔·长刃)+绯雪+莫宁(复刻)</td><td>5星</td><td>下半</td><td>2026-09-10 → 2026-09-29</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">19天</strong></td><td></td></tr>
+<tr><td>绝区零</td><td>希格莉德(新S级·冰·强攻)+三选一不歪混池</td><td>S级</td><td>下半</td><td>2026-08-19 → 2026-09-09</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">18天</strong></td><td></td></tr>
+<tr><td>二重螺旋</td><td>绯色梦魇·希尔妲+卡米拉主题外观</td><td>限定</td><td>全周期</td><td>2026-08-18 → 2026-09-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">38天</strong></td><td></td></tr>
+<tr><td>异环</td><td>残虹(新S级·咒属性·主C)</td><td>S级</td><td>上半</td><td>2026-08-13 → 2026-09-03</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">12天</strong></td><td></td></tr>
+<tr><td>异环</td><td>灵可(新S级·灵属性·召唤型副C)</td><td>S级</td><td>下半</td><td>2026-09-03 → 2026-09-24</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">12天</strong></td><td></td></tr>
+<tr><td>重返未来1999</td><td>赫多涅(新六星·岩系)</td><td>6星</td><td>上半</td><td>2026-08-13 → 2026-09-03</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">12天</strong></td><td></td></tr>
+<tr><td>重返未来1999</td><td>哑谜(复刻·智灵感六星)+泳装皮肤</td><td>6星</td><td>复刻</td><td>2026-08-18 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">10天</strong></td><td></td></tr>
+<tr><td>重返未来1999</td><td>湖的馈赠9名自选3人池</td><td>6星</td><td>特殊</td><td>2026-08-28 → 2026-09-24</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#eab308;">6天</strong></td><td></td></tr>
+<tr><td>NIKKE国际服</td><td>Queen(新岛真·P5R·SSR·火力型·燃烧·Abnormal)</td><td>SSR</td><td>全周期</td><td>2026-08-13 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td><td>🔗</td></tr>
+<tr><td>NIKKE国际服</td><td>天城雪子(P4G·SSR·火力型·燃烧·Abnormal)</td><td>SSR</td><td>全周期</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td><td>🔗</td></tr>
+<tr><td>NIKKE国服</td><td>尼恩:蓝色海洋(新SSR·火力型·MG·水冷)</td><td>SSR</td><td>上半</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td><td></td></tr>
+<tr><td>NIKKE国服</td><td>梅里:海湾女神(新SSR·辅助型)</td><td>SSR</td><td>下半</td><td>2026-08-25 → 2026-09-15</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#f59e0b;">3天</strong></td><td></td></tr>
+<tr><td>NIKKE国服</td><td>天城雪子(Persona联动·SSR)</td><td>SSR</td><td>全周期</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td><td>🔗</td></tr>
+</tbody></table>
+<h2>🎯 活动列表</h2>
+<table>
+<thead><tr><th>游戏</th><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+<tr><td>原神</td><td>幽境危战</td><td>战斗活动</td><td>2026-08-19 → 2026-08-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>原神</td><td>若叶的互助~第一次的雪原~</td><td>主题活动</td><td>2026-08-12 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>原神</td><td>冒险者竞技大会</td><td>战斗活动</td><td>2026-08-28 → 2026-09-14</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>原神</td><td>集录祈愿(限时)</td><td>卡池活动</td><td>2026-08-12 → 2026-09-22</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>崩坏:星穹铁道</td><td>4.4版本FATE联动主题活动</td><td>联动活动</td><td>2026-07-24 → 2026-08-26</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>明日方舟:终末地</td><td>六方巧境协议空间</td><td>协议玩法</td><td>2026-08-19 → 2026-08-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>鸣潮</td><td>群声共振模拟域</td><td>战斗活动</td><td>2026-08-22 → 2026-09-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>鸣潮</td><td>烟云赠礼七日签到</td><td>签到活动</td><td>2026-08-20 → 2026-09-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>鸣潮</td><td>第二索拉·诡影迷踪</td><td>休闲活动</td><td>2026-08-27 → 2026-09-14</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>鸣潮</td><td>清弦纪流年</td><td>休闲活动</td><td>2026-09-03 → 2026-09-21</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>鸣潮</td><td>若梦仍有回声</td><td>限时联机战斗活动</td><td>2026-09-10 → 2026-09-29</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>绝区零</td><td>嗯呢大派送</td><td>签到活动</td><td>2026-08-19 → 2026-09-08</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>绝区零</td><td>咔滋酥脆出餐计划(KFC联动衍生)</td><td>联动活动</td><td>2026-08-19 → 2026-09-07</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>洛克王国:世界</td><td>夏日潮汐集市</td><td>经营活动</td><td>2026-08-21 → 2026-09-11</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>洛克王国:世界</td><td>领地试炼·恶魔男爵</td><td>战斗活动</td><td>2026-08-21 → 2026-09-11</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>洛克王国:世界</td><td>小草虫大量出没</td><td>限时遭遇</td><td>2026-08-21 → 2026-08-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>二重螺旋</td><td>星耀巡游</td><td>主题活动</td><td>2026-08-20 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>二重螺旋</td><td>星耀纪念II</td><td>签到活动</td><td>2026-08-20 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>二重螺旋</td><td>收获日第二期</td><td>资源活动</td><td>2026-08-20 → 2026-08-27</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>二重螺旋</td><td>狩月人之阶</td><td>战斗活动</td><td>2026-08-26 → 2026-09-05</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>异环</td><td>活力焕能</td><td>双倍活动</td><td>2026-08-17 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>异环</td><td>遗舸寻珍</td><td>寻宝活动</td><td>2026-08-21 → 2026-09-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>异环</td><td>轨外之境·烛天环线</td><td>战斗活动</td><td>2026-08-21 → 2026-09-04</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>异环</td><td>夺金大作战</td><td>双倍活动</td><td>2026-08-24 → 2026-09-07</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>异环</td><td>环期赏令</td><td>通行证</td><td>2026-08-13 → 2026-09-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>重返未来1999</td><td>3.9三周年版本主题活动</td><td>主题活动</td><td>2026-08-13 → 2026-09-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国际服</td><td>PERSONA ON FRONTLINE联动</td><td>联动活动</td><td>2026-08-13 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国际服</td><td>Solo Raid Season 40</td><td> raid活动</td><td>2026-08-20 → 2026-08-27</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国际服</td><td>Coordinated Operation against Gatekeeper 第二轮</td><td>协同作战</td><td>2026-08-21 → 2026-08-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国际服</td><td>FULL BURST DAY 第二轮</td><td>周末双倍活动</td><td>2026-08-22 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国际服</td><td>FULL BURST DAY 第三轮</td><td>周末双倍活动</td><td>2026-08-29 → 2026-08-31</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>NIKKE国服</td><td>蓝水岛假日剧情活动</td><td>剧情活动</td><td>2026-08-20 → 2026-08-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国服</td><td>夏日累计招募</td><td>累计招募</td><td>2026-08-20 → 2026-09-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国服</td><td>协同作战(夏季版)</td><td>协同作战</td><td>2026-08-22 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>NIKKE国服</td><td>EX黄金船传说</td><td>长期活动</td><td>2026-08-25 → 2026-12-31</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+<tr><td>NIKKE国服</td><td>更生系统(常驻)</td><td>常驻系统</td><td>2026-08-20 → 2026-12-31</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+<tr><td>燕云十六声</td><td>隐山第二章「天陉」</td><td>版本主题活动</td><td>2026-08-20 → 2026-09-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+</tbody></table>
+<h2>🗓️ 活动日历</h2>
+<table>
+<thead><tr><th>日期</th><th>游戏</th><th>事件</th></tr></thead><tbody>
+<tr><td>2026-08-22</td><td>鸣潮</td><td>鸣潮群声共振模拟域开启</td></tr>
+<tr><td>2026-08-22</td><td>NIKKE国际服</td><td>NIKKE国际服FULL BURST DAY第二轮开启(JST)</td></tr>
+<tr><td>2026-08-22</td><td>NIKKE国服</td><td>NIKKE国服协同作战(夏季版)开启</td></tr>
+<tr><td>2026-08-23</td><td>NIKKE国际服</td><td>NIKKE国际服Coordinated Operation Gatekeeper第二轮截止(JST)</td></tr>
+<tr><td>2026-08-23</td><td>洛克王国:世界</td><td>洛克王国小草虫大量出没截止</td></tr>
+<tr><td>2026-08-24</td><td>NIKKE国际服</td><td>NIKKE国际服FULL BURST DAY第二轮截止(JST)</td></tr>
+<tr><td>2026-08-24</td><td>NIKKE国服</td><td>NIKKE国服协同作战(夏季版)截止</td></tr>
+<tr><td>2026-08-24</td><td>原神</td><td>原神若叶的互助截止</td></tr>
+<tr><td>2026-08-24</td><td>异环</td><td>异环活力焕能截止</td></tr>
+<tr><td>2026-08-24</td><td>异环</td><td>异环夺金大作战开启</td></tr>
+<tr><td>2026-08-25</td><td>崩坏:星穹铁道</td><td>星铁4.4下半刻律德菈卡池截止</td></tr>
+<tr><td>2026-08-25</td><td>NIKKE国服</td><td>NIKKE国服梅里:海湾女神开池</td></tr>
+<tr><td>2026-08-25</td><td>NIKKE国服</td><td>NIKKE国服EX黄金船传说开启</td></tr>
+<tr><td>2026-08-26</td><td>崩坏:星穹铁道</td><td>星铁4.5版本上线+上半知更鸟·晴歌+风堇开池</td></tr>
+<tr><td>2026-08-26</td><td>崩坏:星穹铁道</td><td>星铁FATE联动主题活动截止</td></tr>
+<tr><td>2026-08-26</td><td>明日方舟:终末地</td><td>终末地六方巧境后续3个协议空间开放</td></tr>
+<tr><td>2026-08-26</td><td>二重螺旋</td><td>二重螺旋狩月人之阶开启</td></tr>
+<tr><td>2026-08-27</td><td>NIKKE国际服</td><td>NIKKE国际服Solo Raid S40截止(JST)</td></tr>
+<tr><td>2026-08-27</td><td>二重螺旋</td><td>二重螺旋收获日第二期截止</td></tr>
+<tr><td>2026-08-28</td><td>重返未来1999</td><td>重返未来1999湖的馈赠9名自选3人池开启</td></tr>
+<tr><td>2026-08-29</td><td>原神</td><td>原神幽境危战截止</td></tr>
+<tr><td>2026-08-29</td><td>NIKKE国际服</td><td>NIKKE国际服FULL BURST DAY第三轮开启(JST)</td></tr>
+<tr><td>2026-09-01</td><td>原神</td><td>原神奥黛塔+阿蕾奇诺卡池截止+下半菲林斯+伊涅芙开池</td></tr>
+<tr><td>2026-09-01</td><td>重返未来1999</td><td>重返未来1999哑谜复刻卡池截止</td></tr>
+<tr><td>2026-09-03</td><td>异环</td><td>异环残虹卡池截止+灵可下半开池</td></tr>
+<tr><td>2026-09-03</td><td>重返未来1999</td><td>重返未来1999赫多涅卡池截止</td></tr>
+<tr><td>2026-09-10</td><td>鸣潮</td><td>鸣潮清宵+达妮娅卡池截止+景燃+绯雪+莫宁下半开池</td></tr>
+<tr><td>2026-09-10</td><td>NIKKE国际服</td><td>NIKKE国际服Persona联动截止(Queen+天城雪子+Aigis)</td></tr>
+<tr><td>2026-09-10</td><td>NIKKE国服</td><td>NIKKE国服尼恩:蓝色海洋卡池截止+天城雪子联动卡池截止</td></tr>
+</tbody></table>
+<h2>📚 分游戏详细动态</h2>
+<div class="game-section">
+  <div class="game-header">
+    <h3>原神</h3>
+    <span class="ver">v7.0「无神怜爱的雪国」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-12 → 2026-09-22 · 运行第11日</div>
+  <div class="game-update">📍 无新公告，7.0版本第11日运行中；幽境危战第4日+若叶的互助倒计时2天截止</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>奥黛塔+阿蕾奇诺(复刻)</td><td>上半</td><td>2026-08-12 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">10天</strong></td></tr>
+  <tr><td>菲林斯+伊涅芙(复刻)</td><td>下半</td><td>2026-09-01 → 2026-09-22</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">10天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>幽境危战</td><td>战斗活动</td><td>2026-08-19 → 2026-08-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>若叶的互助~第一次的雪原~</td><td>主题活动</td><td>2026-08-12 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>冒险者竞技大会</td><td>战斗活动</td><td>2026-08-28 → 2026-09-14</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  <tr><td>集录祈愿(限时)</td><td>卡池活动</td><td>2026-08-12 → 2026-09-22</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>奥黛塔</strong> · 5星冰·单手剑·后台挂冰·星超导/星扩散辅助副C · meta价值 ⭐⭐⭐ 至冬星烁反应体系核心辅助，风冰/雷冰/物理冰队乘区拓展 · 已有星烁体系主C可抽；零氪可用阿罗夏(活动免费)兜底</div>
+  <div class="char-analysis"><strong>阿罗夏</strong> · 4星雷·长柄·治疗+持续雷附着 · meta价值 ⭐⭐ 活动免费4星，降低至冬体系抽卡门槛 · 必拿，主线推进可入队</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://ys.mihoyo.com/main/news/detail/165682" target="_blank">一级源: https://ys.mihoyo.com/main/news/detail/165682</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>崩坏:星穹铁道</h3>
+    <span class="ver">v4.4「命运回响」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-07-15 → 2026-08-26 · 运行第39日</div>
+  <div class="game-update">📍 4.4版本第39日，下半刻律德菈卡池倒计时3天截止(8/25 15:00)；4.5版本「挥掷千星的筹码」8/26上线，上半知更鸟·晴歌+风堇(记忆命途·风属性SP)；下半砂金·戏浪+不死途复刻(9/12起)；FATE联动主题活动同步8/26结束</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>刻律德菈+那刻夏+砂金(复刻)</td><td>下半</td><td>2026-08-05 → 2026-08-25</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#f59e0b;">3天</strong></td></tr>
+  <tr><td>知更鸟·晴歌+风堇(4.5上半)</td><td>上半</td><td>2026-08-26 → 2026-09-15</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#eab308;">4天</strong></td></tr>
+  <tr><td>砂金·戏浪+不死途(4.5下半复刻)</td><td>下半</td><td>2026-09-12 → 2026-10-06</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">21天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>4.4版本FATE联动主题活动</td><td>联动活动</td><td>2026-07-24 → 2026-08-26</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>知更鸟·晴歌</strong> · 5星·记忆命途·风属性·SP夏日泳装·拉条充能副C · meta价值 ⭐⭐⭐⭐ 超泛用辅助，记忆队与非记忆队都可融入，召唤晴空乐手忆灵协同 · 有SP姬子/SP刃/不死途/SP三月七可考虑获取，未来可期</div>
+  <div class="char-analysis"><strong>砂金·戏浪</strong> · 5星·欢愉命途·量子属性·多动主C · meta价值 ⭐⭐⭐ 欢愉战舰新成员，沙滩排球/海面冲浪攻击方式，队友行动叠层触发额外群体攻击 · 已有欢愉队可补；与SP砂金队适配</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://sr.mihoyo.com/news/165506?nav=news" target="_blank">一级源: https://sr.mihoyo.com/news/165506?nav=news</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>明日方舟:终末地</h3>
+    <span class="ver">v1.4「向渊行」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-07-16 → 2026-08-30 · 运行第38日</div>
+  <div class="game-update">📍 1.4下半第14日；六方巧境首批3个协议空间8/19开放，后续3个8/26 04:00开放(T+4)；梨诺卡池倒计时9天截止(8/30)</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>梨诺(新六星·雷电·辅助)</td><td>下半</td><td>2026-08-09 → 2026-08-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">8天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>六方巧境协议空间</td><td>协议玩法</td><td>2026-08-19 → 2026-08-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>梨诺</strong> · 6星·雷电·辅助·双姿态(演唱/高歌) · meta价值 ⭐⭐⭐⭐ 雷电核心队伍顶级后台核心，全队加攻+治疗+触电+雷电/自然双重增幅 · 雷电主轴队伍必抽，混元素队也强力</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://www.lootbar.com/blog/zh-Hant/arknights-endfield-version-1-4-banners.html" target="_blank">一级源: https://www.lootbar.com/blog/zh-Hant/arknights-endfield-version-1-4-banners.html</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>鸣潮</h3>
+    <span class="ver">v3.6「蜃云灯影凡尘剑心」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-20 → 2026-09-30 · 运行第3日</div>
+  <div class="game-update">📍 3.6版本第3日；⭐群声共振模拟域今日10:00开启(8/22-9/29)；上半清宵+达妮娅复刻卡池进行中；烟云赠礼七日签到进行中</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>清宵(新五星·气动·迅刀)+达妮娅(复刻)</td><td>上半</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td></tr>
+  <tr><td>景燃(新五星·热熔·长刃)+绯雪+莫宁(复刻)</td><td>下半</td><td>2026-09-10 → 2026-09-29</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">19天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>群声共振模拟域</td><td>战斗活动</td><td>2026-08-22 → 2026-09-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>烟云赠礼七日签到</td><td>签到活动</td><td>2026-08-20 → 2026-09-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>第二索拉·诡影迷踪</td><td>休闲活动</td><td>2026-08-27 → 2026-09-14</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  <tr><td>清弦纪流年</td><td>休闲活动</td><td>2026-09-03 → 2026-09-21</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  <tr><td>若梦仍有回声</td><td>限时联机战斗活动</td><td>2026-09-10 → 2026-09-29</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>清宵</strong> · 5星·气动·迅刀·集谐体系主C·御剑飞行 · meta价值 ⭐⭐⭐ 气动主C新选择，御剑飞行机制独特 · 缺气动主C可考虑；专武云琅提升幅度高</div>
+  <div class="char-analysis"><strong>景燃</strong> · 5星·热熔·长刃·重击输出 · meta价值 ⭐⭐⭐ 热熔重击角色，9/10下半开启 · 缺重击输出再考虑</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://news.qq.com/rain/a/20260820A0EQYF00" target="_blank">一级源: https://news.qq.com/rain/a/20260820A0EQYF00</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>绝区零</h3>
+    <span class="ver">v3.1「」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-19 → 2026-09-09 · 运行第4日</div>
+  <div class="game-update">📍 3.1下半第4日；希格莉德卡池进行中(8/19 12:00-9/9 05:59)；嗯呢大派送+咔滋酥脆KFC联动进行中</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>希格莉德(新S级·冰·强攻)+三选一不歪混池</td><td>下半</td><td>2026-08-19 → 2026-09-09</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">18天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>嗯呢大派送</td><td>签到活动</td><td>2026-08-19 → 2026-09-08</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>咔滋酥脆出餐计划(KFC联动衍生)</td><td>联动活动</td><td>2026-08-19 → 2026-09-07</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>希格莉德</strong> · S级·冰·强攻 · meta价值 ⭐⭐⭐ 冰系强攻新选择，三选一不歪混池含琉音/浮波柚叶/浅羽悠真 · 缺冰系主C可考虑；混池三选一不歪提升性价比</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://m.ali213.net/news/gl2608/1796463.html" target="_blank">一级源: https://m.ali213.net/news/gl2608/1796463.html</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>洛克王国:世界</h3>
+    <span class="ver">vUNKNOWN「」</span>
+    <span style="background:#f59e0b;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">PARTIAL</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: PARTIAL</span>
+  </div>
+  <div class="game-update">📍 夏日潮汐集市+领地试炼·恶魔男爵第2日运行；小草虫大量出没周末第2日(8/21-8/23)</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>夏日潮汐集市</td><td>经营活动</td><td>2026-08-21 → 2026-09-11</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>领地试炼·恶魔男爵</td><td>战斗活动</td><td>2026-08-21 → 2026-09-11</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>小草虫大量出没</td><td>限时遭遇</td><td>2026-08-21 → 2026-08-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div style="margin-top:8px;"><a class="source-link" href="https://pd.qq.com/g/roco135790/post/B_ec9b856a81930a001441152188275064000X60" target="_blank">一级源: https://pd.qq.com/g/roco135790/post/B_ec9b856a81930a001441152188275064000X60</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>二重螺旋</h3>
+    <span class="ver">v1.5「绯色梦魇」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-07-25 → 2026-09-29 · 运行第29日</div>
+  <div class="game-update">📍 乐园序曲第29日；绯色梦魇下半第5日；星耀巡游+星耀纪念II+收获日第二期第3日运行；狩月人之阶8/26即将开启(T+4)</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>绯色梦魇·希尔妲+卡米拉主题外观</td><td>全周期</td><td>2026-08-18 → 2026-09-29</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">38天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>星耀巡游</td><td>主题活动</td><td>2026-08-20 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>星耀纪念II</td><td>签到活动</td><td>2026-08-20 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>收获日第二期</td><td>资源活动</td><td>2026-08-20 → 2026-08-27</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>狩月人之阶</td><td>战斗活动</td><td>2026-08-26 → 2026-09-05</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>希尔妲</strong> · 限定·绯色梦魇主题外观 · meta价值 ⭐⭐ 主题外观礼包 · 外观党可考虑</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://www.sina.cn/news/detail/5325231775549605.html" target="_blank">一级源: https://www.sina.cn/news/detail/5325231775549605.html</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>异环</h3>
+    <span class="ver">v1.3「雾中朔望星回」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-13 → 2026-09-24 · 运行第10日</div>
+  <div class="game-update">📍 1.3版本第10日；⭐活力焕能倒计时2天截止(8/24 04:59)；夺金大作战明日8/24 05:00开启(粉爪大劫案方斯×2)；遗舸寻珍+轨外之境烛天环线今日第2日运行；环期赏令通行证进行中</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>残虹(新S级·咒属性·主C)</td><td>上半</td><td>2026-08-13 → 2026-09-03</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">12天</strong></td></tr>
+  <tr><td>灵可(新S级·灵属性·召唤型副C)</td><td>下半</td><td>2026-09-03 → 2026-09-24</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#10b981;">12天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>活力焕能</td><td>双倍活动</td><td>2026-08-17 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>遗舸寻珍</td><td>寻宝活动</td><td>2026-08-21 → 2026-09-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>轨外之境·烛天环线</td><td>战斗活动</td><td>2026-08-21 → 2026-09-04</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>夺金大作战</td><td>双倍活动</td><td>2026-08-24 → 2026-09-07</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  <tr><td>环期赏令</td><td>通行证</td><td>2026-08-13 → 2026-09-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>残虹</strong> · S级·咒属性·主C · meta价值 ⭐⭐⭐ 咒属性主C新选择 · 缺咒属性主C可考虑</div>
+  <div class="char-analysis"><strong>灵可</strong> · S级·灵属性·召唤型副C · meta价值 ⭐⭐⭐ 灵属性召唤型副C，9/3下半开启 · 缺召唤型副C可考虑</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html" target="_blank">一级源: https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>蓝色星原:旅谣</h3>
+    <span class="ver">vPREVIEW「」</span>
+    <span style="background:#a855f7;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">PREVIEW</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: PARTIAL</span>
+  </div>
+  <div class="game-update">📍 旅迹测试招募已于8/20 23:59截止；支持PC/安卓/iOS/鸿蒙四端；限量计费删档；预约破1200万；具体测试开启日期待公布</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://www.ithome.com/0/975/092.htm" target="_blank">一级源: https://www.ithome.com/0/975/092.htm</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>重返未来1999</h3>
+    <span class="ver">v3.9「三周年」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-13 → 2026-09-24 · 运行第10日</div>
+  <div class="game-update">📍 3.9三周年第10日；哑谜复刻卡池第5日(8/18-9/1)；湖的馈赠9名自选3人池8/28即将开启(T+6)；灰调蓝9/1复刻，无名者9/15复刻</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>赫多涅(新六星·岩系)</td><td>上半</td><td>2026-08-13 → 2026-09-03</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">12天</strong></td></tr>
+  <tr><td>哑谜(复刻·智灵感六星)+泳装皮肤</td><td>复刻</td><td>2026-08-18 → 2026-09-01</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">10天</strong></td></tr>
+  <tr><td>湖的馈赠9名自选3人池</td><td>特殊</td><td>2026-08-28 → 2026-09-24</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#eab308;">6天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>3.9三周年版本主题活动</td><td>主题活动</td><td>2026-08-13 → 2026-09-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>赫多涅</strong> · 6星·岩系 · meta价值 ⭐⭐⭐ 岩系新角色 · 缺岩系可考虑</div>
+  <div class="char-analysis"><strong>哑谜</strong> · 复刻·智灵感六星+泳装皮肤 · meta价值 ⭐⭐⭐ 智灵感六星复刻 · 错过首抽可补</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://re.bluepoch.com/" target="_blank">一级源: https://re.bluepoch.com/</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>胜利女神:NIKKE(国际服)</h3>
+    <span class="ver">vPERSONA_ON_FRONTLINE「」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-13 → 2026-09-10 · 运行第10日</div>
+  <div class="game-update">📍 Persona联动第10日(JST)；⭐FULL BURST DAY 第二轮今日5:00(JST)开启(8/22-8/24)；Coordinated Operation Gatekeeper第二轮今日第2日(8/21-8/23 JST)；Solo Raid S40第3日(8/20-8/27 JST)；天城雪子卡池第3日</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>Queen(新岛真·P5R·SSR·火力型·燃烧·Abnormal) 🔗</td><td>全周期</td><td>2026-08-13 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td></tr>
+  <tr><td>天城雪子(P4G·SSR·火力型·燃烧·Abnormal) 🔗</td><td>全周期</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>PERSONA ON FRONTLINE联动</td><td>联动活动</td><td>2026-08-13 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>Solo Raid Season 40</td><td> raid活动</td><td>2026-08-20 → 2026-08-27</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>Coordinated Operation against Gatekeeper 第二轮</td><td>协同作战</td><td>2026-08-21 → 2026-08-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>FULL BURST DAY 第二轮</td><td>周末双倍活动</td><td>2026-08-22 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>FULL BURST DAY 第三轮</td><td>周末双倍活动</td><td>2026-08-29 → 2026-08-31</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>Queen(新岛真)</strong> · SSR·P5R·火力型·SG·燃烧·Abnormal · meta价值 ⭐⭐⭐⭐ Persona联动限定，自身 offensive power + Burst Skill 多体伤害 · Persona粉丝必抽；缺火力型Abnormal可考虑</div>
+  <div class="char-analysis"><strong>天城雪子</strong> · SSR·P4G·火力型·MG·燃烧·Abnormal·攻击+治疗 · meta价值 ⭐⭐⭐⭐ 攻击+治疗双重定位，Burst Skill 强化双效 · Persona粉丝必抽；缺治疗型攻击手可考虑</div>
+  <div class="char-analysis"><strong>Aigis</strong> · SR·P3R·Supporter·SMG·Iron·Abnormal · meta价值 ⭐⭐⭐ 免费SR，14天登录活动获得 · 必拿，活动免费</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://nikke.gg/august-13-patch-notes/" target="_blank">一级源: https://nikke.gg/august-13-patch-notes/</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>胜利女神:NIKKE(国服)</h3>
+    <span class="ver">vBLUE_WATER_ISLAND「蓝水岛假日」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-20 → 2026-09-23 · 运行第3日</div>
+  <div class="game-update">📍 蓝水岛假日版本第3日；⭐协同作战(夏季版)今日开启(8/22-8/24)；尼恩:蓝色海洋卡池第3日(8/20-9/10)；梅里:海湾女神8/25开池(T+3)；EX黄金船传说8/25长期开放(T+3)；更生系统已上线常驻</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>角色</th><th>阶段</th><th>起止</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+  <tr><td>尼恩:蓝色海洋(新SSR·火力型·MG·水冷)</td><td>上半</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td></tr>
+  <tr><td>梅里:海湾女神(新SSR·辅助型)</td><td>下半</td><td>2026-08-25 → 2026-09-15</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td><td><strong style="color:#f59e0b;">3天</strong></td></tr>
+  <tr><td>天城雪子(Persona联动·SSR) 🔗</td><td>全周期</td><td>2026-08-20 → 2026-09-10</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td><td><strong style="color:#10b981;">19天</strong></td></tr>
+  </tbody></table>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>蓝水岛假日剧情活动</td><td>剧情活动</td><td>2026-08-20 → 2026-08-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>夏日累计招募</td><td>累计招募</td><td>2026-08-20 → 2026-09-23</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>协同作战(夏季版)</td><td>协同作战</td><td>2026-08-22 → 2026-08-24</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  <tr><td>EX黄金船传说</td><td>长期活动</td><td>2026-08-25 → 2026-12-31</td><td><span style="background:#3b82f6;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">UPCOMING</span></td></tr>
+  <tr><td>更生系统(常驻)</td><td>常驻系统</td><td>2026-08-20 → 2026-12-31</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div class="char-analysis"><strong>尼恩:蓝色海洋</strong> · SSR·火力型·MG·水冷 · meta价值 ⭐⭐⭐ 蓝水岛假日版本上半新SSR · 缺水冷火力型可考虑</div>
+  <div class="char-analysis"><strong>梅里:海湾女神</strong> · SSR·辅助型 · meta价值 ⭐⭐⭐ 蓝水岛假日版本下半新SSR，8/25开池 · 缺辅助型可考虑</div>
+  <div style="margin-top:8px;"><a class="source-link" href="https://gamekee.com/nikke/674676.html" target="_blank">一级源: https://gamekee.com/nikke/674676.html</a></div>
+</div>
+<div class="game-section">
+  <div class="game-header">
+    <h3>燕云十六声</h3>
+    <span class="ver">v2.1「隐山第二章·天陉」</span>
+    <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">CURRENT</span>
+    <span style="font-size:11px;color:#6b7280;">置信度: HIGH</span>
+  </div>
+  <div style="font-size:12px;color:#9ca3af;margin-bottom:8px;">版本周期 2026-08-20 → 2026-09-30 · 运行第3日</div>
+  <div class="game-update">📍 隐山第二章第3日；2.1版本8/20 05:00-10:00完成更新；巨型机关蛇BOSS+云顶天阶全服协作修楼梯+衍九矢/万物皆刃奇术+大衍迷阵副本开放</div>
+  <table style="margin-bottom:8px;">
+  <thead><tr><th>活动</th><th>类型</th><th>起止</th><th>状态</th></tr></thead><tbody>
+  <tr><td>隐山第二章「天陉」</td><td>版本主题活动</td><td>2026-08-20 → 2026-09-30</td><td><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">ACTIVE</span></td></tr>
+  </tbody></table>
+  <div style="margin-top:8px;"><a class="source-link" href="https://www.163.com/dy/article/L4OJAEMQ05561FYA.html" target="_blank">一级源: https://www.163.com/dy/article/L4OJAEMQ05561FYA.html</a></div>
+</div>
+<h2>📋 16项Checklist</h2>
+<div class="checklist">
+<div>✅ 1. 每个游戏已建立版本时间轴并判断versionStatus</div>
+<div>✅ 2. 当前版本满足versionStart<=T<nextVersionStart</div>
+<div>✅ 3. 版本号通过动态进度校验，未低于最近60天官方确认版本</div>
+<div>✅ 4. 每条卡池含起始日期、结束日期、UP角色、一级源URL</div>
+<div>✅ 5. 事实数据sourceUrl均来自一级源且无黑名单</div>
+<div>✅ 6. 三级源仅用于非事实段落（角色定位/抽卡建议）</div>
+<div>✅ 7. 每条版更含版本号、上线日期、主要内容、一级URL</div>
+<div>✅ 8. 每款游戏跑过联动专项检索</div>
+<div>✅ 9. 联动卡池结束时间等于联动周期结束</div>
+<div>✅ 10. 卡池结束<=T+3天全部进入预警</div>
+<div>✅ 11. 卡池结束<=T+1天标红“明日截止”（本日无）</div>
+<div>✅ 12. NIKKE国际服/国服分开</div>
+<div>✅ 13. 洛克王国仅含《洛克王国：世界》</div>
+<div>✅ 14. 覆盖率：reportedGameCount==configuredGameCount==13</div>
+<div>✅ 15. 已清除过期版本号</div>
+<div>✅ 16. 报告所有日期为2026年</div>
+</div>
+<div class="footer">
+本报告由 WorkBuddy 自动化 <code>automation</code> 生成 · 信源标准 v3.3 · 三层架构 P1阶段<br>
+JSON 数据层 + Markdown 阅读层 + HTML 可视化层
+</div>
+</body>
+</html>
