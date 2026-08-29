@@ -1,0 +1,7398 @@
+{
+  "source": "tieba",
+  "contract_version": "v3.3",
+  "date": "2026-08-28",
+  "source_run_date": "2026-08-29",
+  "updated_at": "2026-08-29T09:57:16+08:00",
+  "meta": {
+    "total_threads": 1757,
+    "water_threads": 205,
+    "valid_threads": 1552,
+    "bars_crawled": 43,
+    "games_count": 29,
+    "replies_count": 51250,
+    "nlp_done": true,
+    "collect_start": "2026-08-29T03:30",
+    "collect_end": "2026-08-29T08:58"
+  },
+  "games": [
+    {
+      "name": "原神",
+      "tier": "S",
+      "heat_score": 90.2,
+      "feedback_score": 74.9,
+      "value_score": 66,
+      "thread_count": 245,
+      "valid_count": 229,
+      "water_count": 16,
+      "valid_reply": 24169,
+      "valid_view": 4090548,
+      "total_agree": 131410,
+      "red_count": 122,
+      "yellow_count": 105,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.16,
+        "positive_pct": 1.3,
+        "negative_pct": 11.4,
+        "neutral_pct": 87.3,
+        "total": 7913,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 12,
+            "pct": 0.2
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 94,
+            "pct": 1.2
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 6908,
+            "pct": 87.3
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 412,
+            "pct": 5.2
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 487,
+            "pct": 6.2
+          }
+        }
+      },
+      "top_slang": [
+        "孝",
+        "二游",
+        "非",
+        "版本",
+        "孝子",
+        "老米",
+        "抄袭",
+        "MYG"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 128,
+          "pct": 52.2
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 18,
+          "pct": 7.3
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 18,
+          "pct": 7.3
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 15,
+          "pct": 6.1
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 15,
+          "pct": 6.1
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 15,
+          "pct": 6.1
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 14,
+          "pct": 5.7
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 9,
+          "pct": 3.7
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 8,
+          "pct": 3.3
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 2,
+          "pct": 0.8
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 2,
+          "pct": 0.8
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 1,
+          "pct": 0.4
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 7,
+          "pct": 2.9
+        },
+        "gender": {
+          "count": 6,
+          "pct": 2.4
+        },
+        "class_conflict": {
+          "count": 12,
+          "pct": 4.9
+        },
+        "community_conflict": {
+          "count": 79,
+          "pct": 32.2
+        },
+        "product_incident": {
+          "count": 3,
+          "pct": 1.2
+        },
+        "leak_privacy": {
+          "count": 16,
+          "pct": 6.5
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10968514178,
+          "title": "对米哈游来说杀伤力最大的节奏是哪一场?",
+          "bar_name": "mihoyo",
+          "url": "https://tieba.baidu.com/p/10968514178",
+          "reply_num": 904,
+          "view_num": 108664,
+          "agree_num": 11981,
+          "score": 240.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "political",
+            "community_conflict",
+            "product_incident",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "米哈游",
+              "节奏"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 03:21"
+        },
+        {
+          "tid": 10973086226,
+          "title": "历史上最无耻的游戏公司",
+          "bar_name": "mihoyo",
+          "url": "https://tieba.baidu.com/p/10973086226",
+          "reply_num": 457,
+          "view_num": 275504,
+          "agree_num": 8218,
+          "score": 240.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": -1,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 02:59"
+        },
+        {
+          "tid": 10153047005,
+          "title": "原神角色满命排行榜",
+          "bar_name": "原神",
+          "url": "https://tieba.baidu.com/p/10153047005",
+          "reply_num": 346,
+          "view_num": 161811,
+          "agree_num": 887,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "满命",
+              "角色"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:07"
+        },
+        {
+          "tid": 10938792438,
+          "title": "圆规吧热议 鸣潮角色身材像兽之巨人 如何评价",
+          "bar_name": "mihoyo",
+          "url": "https://tieba.baidu.com/p/10938792438",
+          "reply_num": 216,
+          "view_num": 138469,
+          "agree_num": 2869,
+          "score": 228.5,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "角色"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:50"
+        },
+        {
+          "tid": 10518447898,
+          "title": "群贤毕至！盘点学长记恨的百万粉up",
+          "bar_name": "mihoyo",
+          "url": "https://tieba.baidu.com/p/10518447898",
+          "reply_num": 1208,
+          "view_num": 142695,
+          "agree_num": 15550,
+          "score": 225.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 18:33"
+        }
+      ]
+    },
+    {
+      "name": "鸣潮",
+      "tier": "S",
+      "heat_score": 89.0,
+      "feedback_score": 65.6,
+      "value_score": 66,
+      "thread_count": 138,
+      "valid_count": 118,
+      "water_count": 20,
+      "valid_reply": 76039,
+      "valid_view": 2021368,
+      "total_agree": 52925,
+      "red_count": 43,
+      "yellow_count": 70,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.06,
+        "positive_pct": 1.9,
+        "negative_pct": 6.4,
+        "neutral_pct": 91.7,
+        "total": 3467,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 1,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 65,
+            "pct": 1.9
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 3178,
+            "pct": 91.7
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 158,
+            "pct": 4.6
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 65,
+            "pct": 1.9
+          }
+        }
+      },
+      "top_slang": [
+        "歪",
+        "版本",
+        "非",
+        "乐",
+        "二游",
+        "恶心",
+        "好看",
+        "buff"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 91,
+          "pct": 65.9
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 12,
+          "pct": 8.7
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 11,
+          "pct": 8.0
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 5,
+          "pct": 3.6
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 5,
+          "pct": 3.6
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 5,
+          "pct": 3.6
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 4,
+          "pct": 2.9
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 3,
+          "pct": 2.2
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 1,
+          "pct": 0.7
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 0.7
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 2,
+          "pct": 1.4
+        },
+        "class_conflict": {
+          "count": 1,
+          "pct": 0.7
+        },
+        "community_conflict": {
+          "count": 7,
+          "pct": 5.1
+        },
+        "leak_privacy": {
+          "count": 2,
+          "pct": 1.4
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 9291793209,
+          "title": "今汐散华皮肤模型四视角图",
+          "bar_name": "鸣潮爆料",
+          "url": "https://tieba.baidu.com/p/9291793209",
+          "reply_num": 903,
+          "view_num": 128872,
+          "agree_num": 3417,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "模型",
+              "皮肤"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:53"
+        },
+        {
+          "tid": 10387823313,
+          "title": "注水注注注水水水",
+          "bar_name": "鸣潮爆料",
+          "url": "https://tieba.baidu.com/p/10387823313",
+          "reply_num": 63853,
+          "view_num": 190628,
+          "agree_num": 5890,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 01:39"
+        },
+        {
+          "tid": 10893260035,
+          "title": "明年有联动的版本",
+          "bar_name": "鸣潮爆料",
+          "url": "https://tieba.baidu.com/p/10893260035",
+          "reply_num": 1718,
+          "view_num": 152418,
+          "agree_num": 5210,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "版本"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "联动",
+              "版本"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 00:00"
+        },
+        {
+          "tid": 10962396043,
+          "title": "麻麻的，充值中心看错了6480不是点卷是人民币！！！",
+          "bar_name": "鸣潮",
+          "url": "https://tieba.baidu.com/p/10962396043",
+          "reply_num": 469,
+          "view_num": 309862,
+          "agree_num": 3231,
+          "score": 230.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [
+              "648",
+              "充值"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 20:39"
+        },
+        {
+          "tid": 10780614358,
+          "title": "因为宿友入坑了，然后这人为什么不打我",
+          "bar_name": "鸣潮",
+          "url": "https://tieba.baidu.com/p/10780614358",
+          "reply_num": 3136,
+          "view_num": 54947,
+          "agree_num": 3075,
+          "score": 215.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:38"
+        }
+      ]
+    },
+    {
+      "name": "崩坏星穹铁道",
+      "tier": "S",
+      "heat_score": 88.2,
+      "feedback_score": 71.2,
+      "value_score": 65,
+      "thread_count": 130,
+      "valid_count": 124,
+      "water_count": 6,
+      "valid_reply": 39249,
+      "valid_view": 3396059,
+      "total_agree": 83076,
+      "red_count": 55,
+      "yellow_count": 68,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.07,
+        "positive_pct": 4.3,
+        "negative_pct": 8.1,
+        "neutral_pct": 87.6,
+        "total": 3377,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 145,
+            "pct": 4.3
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 2958,
+            "pct": 87.6
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 165,
+            "pct": 4.9
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 109,
+            "pct": 3.2
+          }
+        }
+      },
+      "top_slang": [
+        "版本",
+        "加强",
+        "非",
+        "环境",
+        "buff",
+        "恶心",
+        "乐",
+        "皮肤"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 87,
+          "pct": 66.9
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 16,
+          "pct": 12.3
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 11,
+          "pct": 8.5
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 6,
+          "pct": 4.6
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 4,
+          "pct": 3.1
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 2,
+          "pct": 1.5
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 1,
+          "pct": 0.8
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 0.8
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 1,
+          "pct": 0.8
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 1,
+          "pct": 0.8
+        }
+      },
+      "risk_dist": {
+        "gender": {
+          "count": 1,
+          "pct": 0.8
+        },
+        "class_conflict": {
+          "count": 4,
+          "pct": 3.1
+        },
+        "community_conflict": {
+          "count": 9,
+          "pct": 6.9
+        },
+        "leak_privacy": {
+          "count": 15,
+          "pct": 11.5
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 8667254217,
+          "title": "抽到镜流后，镜流的强度让我有点难以置信",
+          "bar_name": "崩坏星穹铁道",
+          "url": "https://tieba.baidu.com/p/8667254217",
+          "reply_num": 31106,
+          "view_num": 2049842,
+          "agree_num": 42715,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "强度"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 22:32"
+        },
+        {
+          "tid": 10975523418,
+          "title": "简评v1版本真珠，内容略多，想省略只看最后几句话就行了",
+          "bar_name": "崩坏星穹铁道内鬼",
+          "url": "https://tieba.baidu.com/p/10975523418",
+          "reply_num": 339,
+          "view_num": 61465,
+          "agree_num": 718,
+          "score": 220.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "版本"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "版本"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:24"
+        },
+        {
+          "tid": 10978002932,
+          "title": "搬运 虚照天赋和秘技相关",
+          "bar_name": "崩坏星穹铁道内鬼",
+          "url": "https://tieba.baidu.com/p/10978002932",
+          "reply_num": 580,
+          "view_num": 54465,
+          "agree_num": 1928,
+          "score": 220.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "天赋"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 03:31"
+        },
+        {
+          "tid": 10975695327,
+          "title": "我爻怎么会？！难道说火花花真的能笑到最后🙃",
+          "bar_name": "崩坏星穹铁道内鬼",
+          "url": "https://tieba.baidu.com/p/10975695327",
+          "reply_num": 285,
+          "view_num": 63809,
+          "agree_num": 1553,
+          "score": 213.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:51"
+        },
+        {
+          "tid": 10765169764,
+          "title": "【2026.6月】铁鬼吧吧务管理通知",
+          "bar_name": "崩坏星穹铁道内鬼",
+          "url": "https://tieba.baidu.com/p/10765169764",
+          "reply_num": 185,
+          "view_num": 66929,
+          "agree_num": 386,
+          "score": 205.8,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:05"
+        }
+      ]
+    },
+    {
+      "name": "洛克王国世界",
+      "tier": "A",
+      "heat_score": 83.0,
+      "feedback_score": 67.3,
+      "value_score": 63,
+      "thread_count": 159,
+      "valid_count": 146,
+      "water_count": 13,
+      "valid_reply": 10829,
+      "valid_view": 1227218,
+      "total_agree": 27190,
+      "red_count": 64,
+      "yellow_count": 78,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.14,
+        "positive_pct": 2.0,
+        "negative_pct": 10.7,
+        "neutral_pct": 87.3,
+        "total": 4287,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 1,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 85,
+            "pct": 2.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 3744,
+            "pct": 87.3
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 246,
+            "pct": 5.7
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 211,
+            "pct": 4.9
+          }
+        }
+      },
+      "top_slang": [
+        "赛季",
+        "草",
+        "砍",
+        "非",
+        "环境",
+        "恶心",
+        "削弱",
+        "加强"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 88,
+          "pct": 55.3
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 25,
+          "pct": 15.7
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 14,
+          "pct": 8.8
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 7,
+          "pct": 4.4
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 7,
+          "pct": 4.4
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 5,
+          "pct": 3.1
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 5,
+          "pct": 3.1
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 3,
+          "pct": 1.9
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 3,
+          "pct": 1.9
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 1,
+          "pct": 0.6
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 0.6
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 4,
+          "pct": 2.5
+        },
+        "gender": {
+          "count": 5,
+          "pct": 3.1
+        },
+        "class_conflict": {
+          "count": 1,
+          "pct": 0.6
+        },
+        "community_conflict": {
+          "count": 13,
+          "pct": 8.2
+        },
+        "product_incident": {
+          "count": 1,
+          "pct": 0.6
+        },
+        "leak_privacy": {
+          "count": 7,
+          "pct": 4.4
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10969333247,
+          "title": "为了拉新，喜欢背刺老玩家的开水",
+          "bar_name": "洛克王国手游",
+          "url": "https://tieba.baidu.com/p/10969333247",
+          "reply_num": 487,
+          "view_num": 78568,
+          "agree_num": 2464,
+          "score": 230.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "老玩家"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:31"
+        },
+        {
+          "tid": 10180161623,
+          "title": "【洛克王国手游吧】同行测试（三测）攻略大赛",
+          "bar_name": "洛克王国手游",
+          "url": "https://tieba.baidu.com/p/10180161623",
+          "reply_num": 564,
+          "view_num": 70240,
+          "agree_num": 587,
+          "score": 215.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "political"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:54"
+        },
+        {
+          "tid": 10581863546,
+          "title": "【记录帖？】能玩几天算几天",
+          "bar_name": "洛克王国世界",
+          "url": "https://tieba.baidu.com/p/10581863546",
+          "reply_num": 1350,
+          "view_num": 29802,
+          "agree_num": 215,
+          "score": 190.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 12:41"
+        },
+        {
+          "tid": 10968543089,
+          "title": "如果火狗的削弱真是削种族值那么平衡策划是个低能",
+          "bar_name": "洛克王国手游",
+          "url": "https://tieba.baidu.com/p/10968543089",
+          "reply_num": 151,
+          "view_num": 11801,
+          "agree_num": 427,
+          "score": 182.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "削弱",
+              "平衡",
+              "策划"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "削弱"
+            ]
+          },
+          "sentiment_5": -1,
+          "sentiment_label": "偏负面",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:20"
+        },
+        {
+          "tid": 10976408586,
+          "title": "你洛哪来这么多阴湿淋人",
+          "bar_name": "洛克王国手游",
+          "url": "https://tieba.baidu.com/p/10976408586",
+          "reply_num": 142,
+          "view_num": 29602,
+          "agree_num": 2369,
+          "score": 181.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "gender",
+            "community_conflict"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": [
+              "阴湿"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:29"
+        }
+      ]
+    },
+    {
+      "name": "三角洲行动",
+      "tier": "A",
+      "heat_score": 81.4,
+      "feedback_score": 76.8,
+      "value_score": 63,
+      "thread_count": 91,
+      "valid_count": 88,
+      "water_count": 3,
+      "valid_reply": 12339,
+      "valid_view": 1723584,
+      "total_agree": 30063,
+      "red_count": 53,
+      "yellow_count": 35,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.09,
+        "positive_pct": 1.7,
+        "negative_pct": 7.3,
+        "neutral_pct": 91.0,
+        "total": 3274,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 55,
+            "pct": 1.7
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 2980,
+            "pct": 91.0
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 116,
+            "pct": 3.5
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 123,
+            "pct": 3.8
+          }
+        }
+      },
+      "top_slang": [
+        "赛季",
+        "环境",
+        "非",
+        "恶心",
+        "加强",
+        "削弱",
+        "砍",
+        "乐"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 56,
+          "pct": 61.5
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 14,
+          "pct": 15.4
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 8,
+          "pct": 8.8
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 4,
+          "pct": 4.4
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 4,
+          "pct": 4.4
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 2,
+          "pct": 2.2
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 1.1
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 1.1
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 1,
+          "pct": 1.1
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 2,
+          "pct": 2.2
+        },
+        "gender": {
+          "count": 1,
+          "pct": 1.1
+        },
+        "class_conflict": {
+          "count": 2,
+          "pct": 2.2
+        },
+        "community_conflict": {
+          "count": 6,
+          "pct": 6.6
+        },
+        "leak_privacy": {
+          "count": 1,
+          "pct": 1.1
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 9191623298,
+          "title": "【专项反馈】《三角洲行动》BUG反馈&违规举报",
+          "bar_name": "三角洲行动",
+          "url": "https://tieba.baidu.com/p/9191623298",
+          "reply_num": 2431,
+          "view_num": 373743,
+          "agree_num": 2978,
+          "score": 245.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "技术",
+            "topic_terms": [
+              "BUG",
+              "举报"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:27"
+        },
+        {
+          "tid": 10975719405,
+          "title": "你懂个毛，策划出这个成就是有良苦用心的",
+          "bar_name": "三角洲行动",
+          "url": "https://tieba.baidu.com/p/10975719405",
+          "reply_num": 414,
+          "view_num": 90565,
+          "agree_num": 2042,
+          "score": 220.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [
+              "策划"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:07"
+        },
+        {
+          "tid": 10968957704,
+          "title": "5000万日活到底掉了多少",
+          "bar_name": "三角洲行动",
+          "url": "https://tieba.baidu.com/p/10968957704",
+          "reply_num": 300,
+          "view_num": 60818,
+          "agree_num": 2006,
+          "score": 219.1,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:18"
+        },
+        {
+          "tid": 10968604968,
+          "title": "臭区！臭区！臭区！",
+          "bar_name": "三角洲行动",
+          "url": "https://tieba.baidu.com/p/10968604968",
+          "reply_num": 240,
+          "view_num": 70087,
+          "agree_num": 2527,
+          "score": 215.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 03:03"
+        },
+        {
+          "tid": 10878040246,
+          "title": "策划最早是不是想捧M4A1这把枪",
+          "bar_name": "三角洲行动",
+          "url": "https://tieba.baidu.com/p/10878040246",
+          "reply_num": 198,
+          "view_num": 54540,
+          "agree_num": 1090,
+          "score": 211.9,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [
+              "策划"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:11"
+        }
+      ]
+    },
+    {
+      "name": "绝区零",
+      "tier": "A",
+      "heat_score": 80.9,
+      "feedback_score": 69.3,
+      "value_score": 62,
+      "thread_count": 123,
+      "valid_count": 112,
+      "water_count": 11,
+      "valid_reply": 7532,
+      "valid_view": 1551717,
+      "total_agree": 39832,
+      "red_count": 50,
+      "yellow_count": 60,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.08,
+        "positive_pct": 3.8,
+        "negative_pct": 9.0,
+        "neutral_pct": 87.2,
+        "total": 3081,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 3,
+            "pct": 0.1
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 115,
+            "pct": 3.7
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 2686,
+            "pct": 87.2
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 185,
+            "pct": 6.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 92,
+            "pct": 3.0
+          }
+        }
+      },
+      "top_slang": [
+        "歪",
+        "版本",
+        "非",
+        "欧",
+        "皮肤",
+        "好看",
+        "二游",
+        "复刻"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 72,
+          "pct": 58.5
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 18,
+          "pct": 14.6
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 9,
+          "pct": 7.3
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 8,
+          "pct": 6.5
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 6,
+          "pct": 4.9
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 5,
+          "pct": 4.1
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 2,
+          "pct": 1.6
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 0.8
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 1,
+          "pct": 0.8
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 0.8
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 0.8
+        },
+        "gender": {
+          "count": 2,
+          "pct": 1.6
+        },
+        "class_conflict": {
+          "count": 2,
+          "pct": 1.6
+        },
+        "community_conflict": {
+          "count": 6,
+          "pct": 4.9
+        },
+        "product_incident": {
+          "count": 1,
+          "pct": 0.8
+        },
+        "leak_privacy": {
+          "count": 9,
+          "pct": 7.3
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 9785727835,
+          "title": "不想玩了 被恶心了",
+          "bar_name": "绝区零",
+          "url": "https://tieba.baidu.com/p/9785727835",
+          "reply_num": 1468,
+          "view_num": 406962,
+          "agree_num": 6467,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict",
+            "product_incident",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": -1,
+          "sentiment_label": "偏负面",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 22:18"
+        },
+        {
+          "tid": 10920733336,
+          "title": "我突然想到一个很生草的事",
+          "bar_name": "绝区零内鬼",
+          "url": "https://tieba.baidu.com/p/10920733336",
+          "reply_num": 168,
+          "view_num": 91256,
+          "agree_num": 2785,
+          "score": 204.1,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:24"
+        },
+        {
+          "tid": 10837728079,
+          "title": "3.2-3.3绝鬼吧集中举报贴",
+          "bar_name": "绝区零内鬼",
+          "url": "https://tieba.baidu.com/p/10837728079",
+          "reply_num": 474,
+          "view_num": 24036,
+          "agree_num": 415,
+          "score": 195.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "社区生态",
+            "topic_terms": [
+              "举报"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:12"
+        },
+        {
+          "tid": 10979322961,
+          "title": "12345",
+          "bar_name": "绝区零内鬼",
+          "url": "https://tieba.baidu.com/p/10979322961",
+          "reply_num": 161,
+          "view_num": 39518,
+          "agree_num": 715,
+          "score": 188.4,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:04"
+        },
+        {
+          "tid": 10979362390,
+          "title": "出三挽昼卡池概率又变高了",
+          "bar_name": "绝区零内鬼",
+          "url": "https://tieba.baidu.com/p/10979362390",
+          "reply_num": 133,
+          "view_num": 24929,
+          "agree_num": 399,
+          "score": 185.1,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [
+              "卡池",
+              "概率"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:28"
+        }
+      ]
+    },
+    {
+      "name": "明日方舟",
+      "tier": "A",
+      "heat_score": 80.5,
+      "feedback_score": 75.8,
+      "value_score": 62,
+      "thread_count": 89,
+      "valid_count": 86,
+      "water_count": 3,
+      "valid_reply": 11998,
+      "valid_view": 1222652,
+      "total_agree": 50436,
+      "red_count": 46,
+      "yellow_count": 40,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.1,
+        "positive_pct": 1.5,
+        "negative_pct": 7.1,
+        "neutral_pct": 91.4,
+        "total": 2671,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 1,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 38,
+            "pct": 1.4
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 2442,
+            "pct": 91.4
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 83,
+            "pct": 3.1
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 107,
+            "pct": 4.0
+          }
+        }
+      },
+      "top_slang": [
+        "非",
+        "乐",
+        "联动",
+        "急",
+        "草",
+        "限定",
+        "恶心",
+        "二游"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 59,
+          "pct": 66.3
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 8,
+          "pct": 9.0
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 7,
+          "pct": 7.9
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 4,
+          "pct": 4.5
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 3,
+          "pct": 3.4
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 2,
+          "pct": 2.2
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 2,
+          "pct": 2.2
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 1,
+          "pct": 1.1
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 1,
+          "pct": 1.1
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 1.1
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 1.1
+        }
+      },
+      "risk_dist": {
+        "gender": {
+          "count": 4,
+          "pct": 4.5
+        },
+        "class_conflict": {
+          "count": 1,
+          "pct": 1.1
+        },
+        "community_conflict": {
+          "count": 10,
+          "pct": 11.2
+        },
+        "leak_privacy": {
+          "count": 6,
+          "pct": 6.7
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 7830083063,
+          "title": "【功能】明日方舟吧申诉/举报专贴",
+          "bar_name": "明日方舟",
+          "url": "https://tieba.baidu.com/p/7830083063",
+          "reply_num": 2823,
+          "view_num": 102283,
+          "agree_num": 502,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "社区生态",
+            "topic_terms": [
+              "举报"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:37"
+        },
+        {
+          "tid": 10975437060,
+          "title": "粥本都这样吗",
+          "bar_name": "明日方舟",
+          "url": "https://tieba.baidu.com/p/10975437060",
+          "reply_num": 219,
+          "view_num": 118638,
+          "agree_num": 4657,
+          "score": 228.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:39"
+        },
+        {
+          "tid": 8987191659,
+          "title": "给吧友们的一封道歉信以及对一些吧友关切问题的答复",
+          "bar_name": "明日方舟",
+          "url": "https://tieba.baidu.com/p/8987191659",
+          "reply_num": 1764,
+          "view_num": 176458,
+          "agree_num": 8459,
+          "score": 225.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [
+              "道歉"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 19:19"
+        },
+        {
+          "tid": 10968293212,
+          "title": "舟有没有穿很多衣服却色的飞起的单位？",
+          "bar_name": "明日方舟",
+          "url": "https://tieba.baidu.com/p/10968293212",
+          "reply_num": 166,
+          "view_num": 72046,
+          "agree_num": 2579,
+          "score": 203.9,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:27"
+        },
+        {
+          "tid": 9815915986,
+          "title": "建议和里雪并称大唐双龙传，加上棋棋就是三唐大闹仙术杯",
+          "bar_name": "明日方舟",
+          "url": "https://tieba.baidu.com/p/9815915986",
+          "reply_num": 366,
+          "view_num": 25179,
+          "agree_num": 4278,
+          "score": 195.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 02:26"
+        }
+      ]
+    },
+    {
+      "name": "明日方舟终末地",
+      "tier": "A",
+      "heat_score": 78.1,
+      "feedback_score": 71.6,
+      "value_score": 61,
+      "thread_count": 95,
+      "valid_count": 76,
+      "water_count": 19,
+      "valid_reply": 6846,
+      "valid_view": 1189851,
+      "total_agree": 39975,
+      "red_count": 43,
+      "yellow_count": 33,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.06,
+        "positive_pct": 2.2,
+        "negative_pct": 6.4,
+        "neutral_pct": 91.4,
+        "total": 2933,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 64,
+            "pct": 2.2
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 2682,
+            "pct": 91.4
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 124,
+            "pct": 4.2
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 63,
+            "pct": 2.1
+          }
+        }
+      },
+      "top_slang": [
+        "版本",
+        "非",
+        "好看",
+        "草",
+        "二游",
+        "歪",
+        "开服",
+        "大保底"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 64,
+          "pct": 67.4
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 9,
+          "pct": 9.5
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 6,
+          "pct": 6.3
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 6,
+          "pct": 6.3
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 6,
+          "pct": 6.3
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 3,
+          "pct": 3.2
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 1,
+          "pct": 1.1
+        }
+      },
+      "risk_dist": {
+        "gender": {
+          "count": 3,
+          "pct": 3.2
+        },
+        "class_conflict": {
+          "count": 1,
+          "pct": 1.1
+        },
+        "community_conflict": {
+          "count": 8,
+          "pct": 8.4
+        },
+        "product_incident": {
+          "count": 1,
+          "pct": 1.1
+        },
+        "leak_privacy": {
+          "count": 2,
+          "pct": 2.1
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10962275076,
+          "title": "我支持鹰角媚男又媚女，自己也会抽老马，但我还是会反感这个服设",
+          "bar_name": "明日方舟终末地",
+          "url": "https://tieba.baidu.com/p/10962275076",
+          "reply_num": 377,
+          "view_num": 21458,
+          "agree_num": 1534,
+          "score": 245.0,
+          "alert_level": "red",
+          "collection_tags": [
+            "涉性别"
+          ],
+          "risk_tags": [
+            "gender",
+            "community_conflict",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [
+              "鹰角"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:39"
+        },
+        {
+          "tid": 10964170720,
+          "title": "吧里吐槽马头媚女的",
+          "bar_name": "明日方舟终末地",
+          "url": "https://tieba.baidu.com/p/10964170720",
+          "reply_num": 264,
+          "view_num": 89246,
+          "agree_num": 4277,
+          "score": 236.9,
+          "alert_level": "red",
+          "collection_tags": [
+            "涉性别"
+          ],
+          "risk_tags": [
+            "gender",
+            "community_conflict"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:10"
+        },
+        {
+          "tid": 10421257008,
+          "title": "大家觉得终末地活得下去吗",
+          "bar_name": "明日方舟终末地",
+          "url": "https://tieba.baidu.com/p/10421257008",
+          "reply_num": 1392,
+          "view_num": 236735,
+          "agree_num": 7711,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 02:47"
+        },
+        {
+          "tid": 10964567784,
+          "title": "我其实也很好奇，罗德岛上女干员这么多，厕所会不会震不够使",
+          "bar_name": "明日方舟终末地",
+          "url": "https://tieba.baidu.com/p/10964567784",
+          "reply_num": 83,
+          "view_num": 50838,
+          "agree_num": 1428,
+          "score": 192.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:17"
+        },
+        {
+          "tid": 10969792982,
+          "title": "我服了系统",
+          "bar_name": "明日方舟终末地",
+          "url": "https://tieba.baidu.com/p/10969792982",
+          "reply_num": 221,
+          "view_num": 47389,
+          "agree_num": 472,
+          "score": 188.8,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:28"
+        }
+      ]
+    },
+    {
+      "name": "诡秘之主",
+      "tier": "A",
+      "heat_score": 77.7,
+      "feedback_score": 68.9,
+      "value_score": 61,
+      "thread_count": 79,
+      "valid_count": 71,
+      "water_count": 8,
+      "valid_reply": 8866,
+      "valid_view": 792021,
+      "total_agree": 37464,
+      "red_count": 32,
+      "yellow_count": 38,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.12,
+        "positive_pct": 1.1,
+        "negative_pct": 10.7,
+        "neutral_pct": 88.2,
+        "total": 2084,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 5,
+            "pct": 0.2
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 18,
+            "pct": 0.9
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 1838,
+            "pct": 88.2
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 162,
+            "pct": 7.8
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 61,
+            "pct": 2.9
+          }
+        }
+      },
+      "top_slang": [
+        "非",
+        "污染",
+        "换皮",
+        "典",
+        "逆天",
+        "恶心",
+        "跑路",
+        "乐"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 52,
+          "pct": 65.8
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 10,
+          "pct": 12.7
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 5,
+          "pct": 6.3
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 3,
+          "pct": 3.8
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 2,
+          "pct": 2.5
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 2,
+          "pct": 2.5
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 2,
+          "pct": 2.5
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 1,
+          "pct": 1.3
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 1,
+          "pct": 1.3
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 1,
+          "pct": 1.3
+        }
+      },
+      "risk_dist": {
+        "gender": {
+          "count": 1,
+          "pct": 1.3
+        },
+        "community_conflict": {
+          "count": 8,
+          "pct": 10.1
+        },
+        "leak_privacy": {
+          "count": 3,
+          "pct": 3.8
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10584040290,
+          "title": "诡秘世界是最低级的无脑世界观。",
+          "bar_name": "诡秘之主",
+          "url": "https://tieba.baidu.com/p/10584040290",
+          "reply_num": 3641,
+          "view_num": 109255,
+          "agree_num": 4083,
+          "score": 230.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "剧情",
+            "topic_terms": [
+              "世界观"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "偏负面",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 20:24"
+        },
+        {
+          "tid": 10163315706,
+          "title": "诡秘之主真的能看下去吗？（毒点一堆",
+          "bar_name": "诡秘之主",
+          "url": "https://tieba.baidu.com/p/10163315706",
+          "reply_num": 268,
+          "view_num": 105764,
+          "agree_num": 1467,
+          "score": 222.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 09:38"
+        },
+        {
+          "tid": 10604127895,
+          "title": "假如给你一瓶序列5魔药，而且包成功，你会选哪种？",
+          "bar_name": "诡秘之主",
+          "url": "https://tieba.baidu.com/p/10604127895",
+          "reply_num": 370,
+          "view_num": 30531,
+          "agree_num": 1503,
+          "score": 195.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "gender"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 02:30"
+        },
+        {
+          "tid": 10705790711,
+          "title": "奥黛丽的剧情是不是九成删了都不会有影响？",
+          "bar_name": "诡秘之主",
+          "url": "https://tieba.baidu.com/p/10705790711",
+          "reply_num": 330,
+          "view_num": 41181,
+          "agree_num": 2671,
+          "score": 195.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "剧情",
+            "topic_terms": [
+              "剧情"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:42"
+        },
+        {
+          "tid": 10968156447,
+          "title": "写同人主角不小心睡了戴莉是毒点吗？",
+          "bar_name": "诡秘之主",
+          "url": "https://tieba.baidu.com/p/10968156447",
+          "reply_num": 220,
+          "view_num": 21652,
+          "agree_num": 1787,
+          "score": 193.8,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:02"
+        }
+      ]
+    },
+    {
+      "name": "异环",
+      "tier": "A",
+      "heat_score": 75.0,
+      "feedback_score": 65.8,
+      "value_score": 60,
+      "thread_count": 79,
+      "valid_count": 69,
+      "water_count": 10,
+      "valid_reply": 5496,
+      "valid_view": 460460,
+      "total_agree": 19010,
+      "red_count": 32,
+      "yellow_count": 36,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.06,
+        "positive_pct": 2.6,
+        "negative_pct": 6.1,
+        "neutral_pct": 91.3,
+        "total": 2416,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 1,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 62,
+            "pct": 2.6
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 2206,
+            "pct": 91.3
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 85,
+            "pct": 3.5
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 62,
+            "pct": 2.6
+          }
+        }
+      },
+      "top_slang": [
+        "版本",
+        "二游",
+        "皮肤",
+        "非",
+        "乐",
+        "好看",
+        "开服",
+        "毕业"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 47,
+          "pct": 59.5
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 11,
+          "pct": 13.9
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 6,
+          "pct": 7.6
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 5,
+          "pct": 6.3
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 3,
+          "pct": 3.8
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 3,
+          "pct": 3.8
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 2,
+          "pct": 2.5
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 1.3
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 1.3
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 1.3
+        },
+        "class_conflict": {
+          "count": 2,
+          "pct": 2.5
+        },
+        "community_conflict": {
+          "count": 4,
+          "pct": 5.1
+        },
+        "product_incident": {
+          "count": 3,
+          "pct": 3.8
+        },
+        "leak_privacy": {
+          "count": 7,
+          "pct": 8.9
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10871206331,
+          "title": "你们的xp不会腻吗？",
+          "bar_name": "异环",
+          "url": "https://tieba.baidu.com/p/10871206331",
+          "reply_num": 344,
+          "view_num": 35360,
+          "agree_num": 1654,
+          "score": 200.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:07"
+        },
+        {
+          "tid": 10969033026,
+          "title": "每次看贴吧和B站都感觉异环要完蛋了",
+          "bar_name": "异环",
+          "url": "https://tieba.baidu.com/p/10969033026",
+          "reply_num": 346,
+          "view_num": 26225,
+          "agree_num": 1217,
+          "score": 200.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "完蛋了"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 03:27"
+        },
+        {
+          "tid": 10938789520,
+          "title": "8.13残虹＆娜娜莉（复刻）抽卡欧非集中贴",
+          "bar_name": "异环",
+          "url": "https://tieba.baidu.com/p/10938789520",
+          "reply_num": 438,
+          "view_num": 24539,
+          "agree_num": 227,
+          "score": 195.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [
+              "抽卡",
+              "复刻"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "复刻",
+              "欧",
+              "非"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 00:32"
+        },
+        {
+          "tid": 10978001243,
+          "title": "灵可池子累抽爆料",
+          "bar_name": "异环",
+          "url": "https://tieba.baidu.com/p/10978001243",
+          "reply_num": 145,
+          "view_num": 25141,
+          "agree_num": 427,
+          "score": 181.6,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:31"
+        },
+        {
+          "tid": 10863147920,
+          "title": "想到了如果异环联动，联动哪些老二次元的ip好呢？想了些名单",
+          "bar_name": "异环",
+          "url": "https://tieba.baidu.com/p/10863147920",
+          "reply_num": 400,
+          "view_num": 18496,
+          "agree_num": 546,
+          "score": 180.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": [
+              "联动"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:52"
+        }
+      ]
+    },
+    {
+      "name": "燕云十六声",
+      "tier": "A",
+      "heat_score": 73.6,
+      "feedback_score": 54.9,
+      "value_score": 59,
+      "thread_count": 67,
+      "valid_count": 66,
+      "water_count": 1,
+      "valid_reply": 4329,
+      "valid_view": 373564,
+      "total_agree": 5746,
+      "red_count": 20,
+      "yellow_count": 43,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.09,
+        "positive_pct": 3.3,
+        "negative_pct": 8.1,
+        "neutral_pct": 88.7,
+        "total": 1782,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 5,
+            "pct": 0.3
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 53,
+            "pct": 3.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 1580,
+            "pct": 88.7
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 69,
+            "pct": 3.9
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 75,
+            "pct": 4.2
+          }
+        }
+      },
+      "top_slang": [
+        "好看",
+        "恶心",
+        "非",
+        "开服",
+        "好玩",
+        "唐",
+        "赛季",
+        "纸"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 43,
+          "pct": 64.2
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 9,
+          "pct": 13.4
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 5,
+          "pct": 7.5
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 3,
+          "pct": 4.5
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 2,
+          "pct": 3.0
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 2,
+          "pct": 3.0
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 2,
+          "pct": 3.0
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 1.5
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 2,
+          "pct": 3.0
+        },
+        "gender": {
+          "count": 6,
+          "pct": 9.0
+        },
+        "community_conflict": {
+          "count": 7,
+          "pct": 10.4
+        },
+        "leak_privacy": {
+          "count": 2,
+          "pct": 3.0
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10961622572,
+          "title": "今天深度体验了下燕云和逆手的竞品：诡秘之主",
+          "bar_name": "燕云十六声",
+          "url": "https://tieba.baidu.com/p/10961622572",
+          "reply_num": 292,
+          "view_num": 42129,
+          "agree_num": 468,
+          "score": 188.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "竞品对比",
+            "topic_terms": [
+              "竞品"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 19:58"
+        },
+        {
+          "tid": 10917200110,
+          "title": "被曹敬观音的剧情恶心到了，来个人说服我她为什么值得敬佩……",
+          "bar_name": "燕云十六声",
+          "url": "https://tieba.baidu.com/p/10917200110",
+          "reply_num": 630,
+          "view_num": 14584,
+          "agree_num": 1161,
+          "score": 180.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "剧情",
+            "topic_terms": [
+              "剧情"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:00"
+        },
+        {
+          "tid": 10953612022,
+          "title": "如果影之刃上线也暴雷了，我不敢想燕云会飘成什么样",
+          "bar_name": "燕云十六声",
+          "url": "https://tieba.baidu.com/p/10953612022",
+          "reply_num": 155,
+          "view_num": 13870,
+          "agree_num": 406,
+          "score": 167.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "gender"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:04"
+        },
+        {
+          "tid": 10977102366,
+          "title": "是不是有点太过了",
+          "bar_name": "燕云十六声",
+          "url": "https://tieba.baidu.com/p/10977102366",
+          "reply_num": 106,
+          "view_num": 15392,
+          "agree_num": 244,
+          "score": 166.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:12"
+        },
+        {
+          "tid": 10974445630,
+          "title": "新和鸣来了",
+          "bar_name": "燕云十六声",
+          "url": "https://tieba.baidu.com/p/10974445630",
+          "reply_num": 123,
+          "view_num": 20448,
+          "agree_num": 151,
+          "score": 163.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "来了"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 18:08"
+        }
+      ]
+    },
+    {
+      "name": "NIKKE",
+      "tier": "A",
+      "heat_score": 72.2,
+      "feedback_score": 55.3,
+      "value_score": 59,
+      "thread_count": 65,
+      "valid_count": 57,
+      "water_count": 8,
+      "valid_reply": 2664,
+      "valid_view": 588025,
+      "total_agree": 9317,
+      "red_count": 17,
+      "yellow_count": 34,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.06,
+        "positive_pct": 1.1,
+        "negative_pct": 5.3,
+        "neutral_pct": 93.6,
+        "total": 1392,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 3,
+            "pct": 0.2
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 12,
+            "pct": 0.9
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 1303,
+            "pct": 93.6
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 48,
+            "pct": 3.4
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 26,
+            "pct": 1.9
+          }
+        }
+      },
+      "top_slang": [
+        "联动",
+        "周年",
+        "乐",
+        "非",
+        "开服",
+        "皮肤",
+        "复刻",
+        "恶心"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 40,
+          "pct": 61.5
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 7,
+          "pct": 10.8
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 6,
+          "pct": 9.2
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 5,
+          "pct": 7.7
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 3,
+          "pct": 4.6
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 2,
+          "pct": 3.1
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 1.5
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 1.5
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 2,
+          "pct": 3.1
+        },
+        "gender": {
+          "count": 1,
+          "pct": 1.5
+        },
+        "class_conflict": {
+          "count": 2,
+          "pct": 3.1
+        },
+        "community_conflict": {
+          "count": 3,
+          "pct": 4.6
+        },
+        "leak_privacy": {
+          "count": 2,
+          "pct": 3.1
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 8583010789,
+          "title": "NIKKE贴吧指定 联盟招新贴！",
+          "bar_name": "nikke",
+          "url": "https://tieba.baidu.com/p/8583010789",
+          "reply_num": 581,
+          "view_num": 85838,
+          "agree_num": 661,
+          "score": 210.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 20:48"
+        },
+        {
+          "tid": 10942069539,
+          "title": "这游戏有牛吗？",
+          "bar_name": "nikke",
+          "url": "https://tieba.baidu.com/p/10942069539",
+          "reply_num": 101,
+          "view_num": 31322,
+          "agree_num": 756,
+          "score": 175.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 23:06"
+        },
+        {
+          "tid": 10216163902,
+          "title": "国服这样做是不是多少有点不尊重国际服玩家了？",
+          "bar_name": "nikke方舟人口",
+          "url": "https://tieba.baidu.com/p/10216163902",
+          "reply_num": 101,
+          "view_num": 49224,
+          "agree_num": 633,
+          "score": 170.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "国服"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 20:23"
+        },
+        {
+          "tid": 9918054342,
+          "title": "（补档）攻略桃乐丝",
+          "bar_name": "nikke方舟人口",
+          "url": "https://tieba.baidu.com/p/9918054342",
+          "reply_num": 119,
+          "view_num": 21224,
+          "agree_num": 894,
+          "score": 165.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 06:49"
+        },
+        {
+          "tid": 10944610282,
+          "title": "看大伙都觉得安德森要嘎了统计下",
+          "bar_name": "nikke方舟人口",
+          "url": "https://tieba.baidu.com/p/10944610282",
+          "reply_num": 54,
+          "view_num": 42869,
+          "agree_num": 261,
+          "score": 159.6,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 16:41"
+        }
+      ]
+    },
+    {
+      "name": "第五人格",
+      "tier": "A",
+      "heat_score": 71.8,
+      "feedback_score": 67.3,
+      "value_score": 59,
+      "thread_count": 49,
+      "valid_count": 46,
+      "water_count": 3,
+      "valid_reply": 5391,
+      "valid_view": 269856,
+      "total_agree": 16421,
+      "red_count": 22,
+      "yellow_count": 24,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.11,
+        "positive_pct": 2.2,
+        "negative_pct": 9.8,
+        "neutral_pct": 88.0,
+        "total": 1425,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 32,
+            "pct": 2.2
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 1254,
+            "pct": 88.0
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 85,
+            "pct": 6.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 54,
+            "pct": 3.8
+          }
+        }
+      },
+      "top_slang": [
+        "非",
+        "赛季",
+        "版本",
+        "砍",
+        "乐",
+        "加强",
+        "削弱",
+        "皮肤"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 31,
+          "pct": 63.3
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 9,
+          "pct": 18.4
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 2,
+          "pct": 4.1
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 2,
+          "pct": 4.1
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 1,
+          "pct": 2.0
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 1,
+          "pct": 2.0
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 2.0
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 1,
+          "pct": 2.0
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 2.0
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 2.0
+        },
+        "gender": {
+          "count": 1,
+          "pct": 2.0
+        },
+        "community_conflict": {
+          "count": 4,
+          "pct": 8.2
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10349921272,
+          "title": "为何第五人格会成为lgbt神游",
+          "bar_name": "第五人格",
+          "url": "https://tieba.baidu.com/p/10349921272",
+          "reply_num": 1290,
+          "view_num": 42199,
+          "agree_num": 4832,
+          "score": 195.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "gender"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:06"
+        },
+        {
+          "tid": 10597754635,
+          "title": "我发第五所有角色，大伙来根据好听程度打分",
+          "bar_name": "第五人格",
+          "url": "https://tieba.baidu.com/p/10597754635",
+          "reply_num": 870,
+          "view_num": 39045,
+          "agree_num": 1251,
+          "score": 190.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "音乐音效",
+            "topic_terms": [
+              "角色",
+              "好听"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "好听"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 18:49"
+        },
+        {
+          "tid": 10962021405,
+          "title": "26IVL夏季赛季后赛ZQ（L）对战ACT（W）赛后打分贴",
+          "bar_name": "第五人格",
+          "url": "https://tieba.baidu.com/p/10962021405",
+          "reply_num": 415,
+          "view_num": 16135,
+          "agree_num": 1833,
+          "score": 180.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "赛季"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "赛季"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 21:19"
+        },
+        {
+          "tid": 10819448655,
+          "title": "如何评价部分东玄粉丝对xawm的疯狂拉踩",
+          "bar_name": "第五人格",
+          "url": "https://tieba.baidu.com/p/10819448655",
+          "reply_num": 244,
+          "view_num": 13018,
+          "agree_num": 1734,
+          "score": 175.6,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "社区生态",
+            "topic_terms": [
+              "拉踩",
+              "粉丝"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "拉踩"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 02:00"
+        },
+        {
+          "tid": 10961146626,
+          "title": "策划做出心兽这么逆天的屠夫不怕司冯？",
+          "bar_name": "第五人格",
+          "url": "https://tieba.baidu.com/p/10961146626",
+          "reply_num": 140,
+          "view_num": 8164,
+          "agree_num": 321,
+          "score": 156.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [
+              "策划"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:08"
+        }
+      ]
+    },
+    {
+      "name": "无限大",
+      "tier": "A",
+      "heat_score": 69.8,
+      "feedback_score": 57.3,
+      "value_score": 58,
+      "thread_count": 49,
+      "valid_count": 48,
+      "water_count": 1,
+      "valid_reply": 2484,
+      "valid_view": 298571,
+      "total_agree": 5671,
+      "red_count": 17,
+      "yellow_count": 25,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.14,
+        "positive_pct": 2.2,
+        "negative_pct": 11.2,
+        "neutral_pct": 86.6,
+        "total": 1108,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 24,
+            "pct": 2.2
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 960,
+            "pct": 86.6
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 66,
+            "pct": 6.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 58,
+            "pct": 5.2
+          }
+        }
+      },
+      "top_slang": [
+        "二游",
+        "非",
+        "皮肤",
+        "开服",
+        "好玩",
+        "好看",
+        "辣仙",
+        "逆天"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 30,
+          "pct": 61.2
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 5,
+          "pct": 10.2
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 3,
+          "pct": 6.1
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 3,
+          "pct": 6.1
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 2,
+          "pct": 4.1
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 2,
+          "pct": 4.1
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 2.0
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 1,
+          "pct": 2.0
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 1,
+          "pct": 2.0
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 2.0
+        }
+      },
+      "risk_dist": {
+        "gender": {
+          "count": 3,
+          "pct": 6.1
+        },
+        "class_conflict": {
+          "count": 6,
+          "pct": 12.2
+        },
+        "community_conflict": {
+          "count": 4,
+          "pct": 8.2
+        },
+        "product_incident": {
+          "count": 2,
+          "pct": 4.1
+        },
+        "leak_privacy": {
+          "count": 8,
+          "pct": 16.3
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10733911857,
+          "title": "无限大会议，直接讽刺了隔壁几家换汤不换药🤣要做真技术革新",
+          "bar_name": "无限大",
+          "url": "https://tieba.baidu.com/p/10733911857",
+          "reply_num": 343,
+          "view_num": 53269,
+          "agree_num": 1176,
+          "score": 205.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "竞品对比",
+            "topic_terms": [
+              "隔壁"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-27 11:57"
+        },
+        {
+          "tid": 10975555563,
+          "title": "网易每个重磅游戏我发现都很牛逼。莫名其妙就烂了",
+          "bar_name": "无限大",
+          "url": "https://tieba.baidu.com/p/10975555563",
+          "reply_num": 120,
+          "view_num": 21270,
+          "agree_num": 368,
+          "score": 178.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 00:04"
+        },
+        {
+          "tid": 10970727768,
+          "title": "最后一天来谈论个暴论。",
+          "bar_name": "无限大",
+          "url": "https://tieba.baidu.com/p/10970727768",
+          "reply_num": 72,
+          "view_num": 7469,
+          "agree_num": 426,
+          "score": 149.5,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "gender"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 03:09"
+        },
+        {
+          "tid": 10973595025,
+          "title": "无限大怎么不是虚幻五做的",
+          "bar_name": "无限大",
+          "url": "https://tieba.baidu.com/p/10973595025",
+          "reply_num": 84,
+          "view_num": 12664,
+          "agree_num": 114,
+          "score": 147.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 23:28"
+        },
+        {
+          "tid": 10972169503,
+          "title": "看完pv是不是可以给望月把土埋上了",
+          "bar_name": "无限大",
+          "url": "https://tieba.baidu.com/p/10972169503",
+          "reply_num": 77,
+          "view_num": 9966,
+          "agree_num": 220,
+          "score": 145.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "剧情",
+            "topic_terms": [
+              "pv"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 22:48"
+        }
+      ]
+    },
+    {
+      "name": "暗区突围",
+      "tier": "A",
+      "heat_score": 69.7,
+      "feedback_score": 46.0,
+      "value_score": 58,
+      "thread_count": 53,
+      "valid_count": 50,
+      "water_count": 3,
+      "valid_reply": 2340,
+      "valid_view": 291236,
+      "total_agree": 3373,
+      "red_count": 9,
+      "yellow_count": 37,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.1,
+        "positive_pct": 1.2,
+        "negative_pct": 7.0,
+        "neutral_pct": 91.7,
+        "total": 1121,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 1,
+            "pct": 0.1
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 13,
+            "pct": 1.2
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 1028,
+            "pct": 91.7
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 27,
+            "pct": 2.4
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 52,
+            "pct": 4.6
+          }
+        }
+      },
+      "top_slang": [
+        "皮肤",
+        "赛季",
+        "恶心",
+        "非",
+        "乐",
+        "联动",
+        "法老",
+        "帅"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 37,
+          "pct": 69.8
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 5,
+          "pct": 9.4
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 3,
+          "pct": 5.7
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 3,
+          "pct": 5.7
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 2,
+          "pct": 3.8
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 1,
+          "pct": 1.9
+        },
+        "meta/主播KOL": {
+          "topic_l1": "meta",
+          "topic_l2": "主播KOL",
+          "count": 1,
+          "pct": 1.9
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 1.9
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 1.9
+        },
+        "community_conflict": {
+          "count": 8,
+          "pct": 15.1
+        },
+        "product_incident": {
+          "count": 1,
+          "pct": 1.9
+        },
+        "leak_privacy": {
+          "count": 2,
+          "pct": 3.8
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10926664543,
+          "title": "想问一下忏悔是这个赛季结束吗",
+          "bar_name": "暗区突围",
+          "url": "https://tieba.baidu.com/p/10926664543",
+          "reply_num": 97,
+          "view_num": 42209,
+          "agree_num": 200,
+          "score": 169.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "product_incident"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "赛季"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "赛季"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 19:12"
+        },
+        {
+          "tid": 10748987016,
+          "title": "让我看看你们自己的特遣，被你们打扮的多漂亮",
+          "bar_name": "暗区突围",
+          "url": "https://tieba.baidu.com/p/10748987016",
+          "reply_num": 99,
+          "view_num": 14260,
+          "agree_num": 223,
+          "score": 160.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 23:31"
+        },
+        {
+          "tid": 10954022059,
+          "title": "最不拖泥带水的下赛季皮肤爆料",
+          "bar_name": "暗区突围",
+          "url": "https://tieba.baidu.com/p/10954022059",
+          "reply_num": 174,
+          "view_num": 12964,
+          "agree_num": 170,
+          "score": 159.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "皮肤",
+              "赛季"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "赛季"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 01:06"
+        },
+        {
+          "tid": 10969324356,
+          "title": "为什么要藏包呢",
+          "bar_name": "暗区突围",
+          "url": "https://tieba.baidu.com/p/10969324356",
+          "reply_num": 107,
+          "view_num": 5639,
+          "agree_num": 215,
+          "score": 151.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 21:56"
+        },
+        {
+          "tid": 10970641326,
+          "title": "卡莫纳已死",
+          "bar_name": "暗区突围",
+          "url": "https://tieba.baidu.com/p/10970641326",
+          "reply_num": 101,
+          "view_num": 9081,
+          "agree_num": 203,
+          "score": 150.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:03"
+        }
+      ]
+    },
+    {
+      "name": "饥困荒野",
+      "tier": "A",
+      "heat_score": 69.2,
+      "feedback_score": 47.5,
+      "value_score": 58,
+      "thread_count": 34,
+      "valid_count": 29,
+      "water_count": 5,
+      "valid_reply": 5352,
+      "valid_view": 243309,
+      "total_agree": 4298,
+      "red_count": 6,
+      "yellow_count": 21,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.05,
+        "positive_pct": 1.8,
+        "negative_pct": 5.6,
+        "neutral_pct": 92.6,
+        "total": 781,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 14,
+            "pct": 1.8
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 723,
+            "pct": 92.6
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 32,
+            "pct": 4.1
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 12,
+            "pct": 1.5
+          }
+        }
+      },
+      "top_slang": [
+        "乐",
+        "非",
+        "草",
+        "砍",
+        "好看",
+        "典",
+        "皮肤",
+        "好玩"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 23,
+          "pct": 67.6
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 5,
+          "pct": 14.7
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 2,
+          "pct": 5.9
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 2,
+          "pct": 5.9
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 1,
+          "pct": 2.9
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 1,
+          "pct": 2.9
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 2.9
+        },
+        "community_conflict": {
+          "count": 1,
+          "pct": 2.9
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 6192803504,
+          "title": "每日一抽使我快乐",
+          "bar_name": "饥荒联机",
+          "url": "https://tieba.baidu.com/p/6192803504",
+          "reply_num": 3482,
+          "view_num": 122082,
+          "agree_num": 782,
+          "score": 225.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "political"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 08:45"
+        },
+        {
+          "tid": 9243228116,
+          "title": "Heap of food最新更新内容",
+          "bar_name": "饥荒联机",
+          "url": "https://tieba.baidu.com/p/9243228116",
+          "reply_num": 626,
+          "view_num": 17568,
+          "agree_num": 390,
+          "score": 175.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "更新"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 14:51"
+        },
+        {
+          "tid": 10398726209,
+          "title": "为什么说温蒂和伍迪是萌新陷阱？温蒂篇",
+          "bar_name": "饥荒联机",
+          "url": "https://tieba.baidu.com/p/10398726209",
+          "reply_num": 222,
+          "view_num": 10131,
+          "agree_num": 524,
+          "score": 173.9,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 00:12"
+        },
+        {
+          "tid": 10959146353,
+          "title": "饥荒要不是便宜，一定被喷死",
+          "bar_name": "饥荒联机",
+          "url": "https://tieba.baidu.com/p/10959146353",
+          "reply_num": 140,
+          "view_num": 11451,
+          "agree_num": 395,
+          "score": 156.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [
+              "便宜"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-27 15:54"
+        },
+        {
+          "tid": 10572032218,
+          "title": "【WX-78 全芯片详解】",
+          "bar_name": "饥荒联机",
+          "url": "https://tieba.baidu.com/p/10572032218",
+          "reply_num": 70,
+          "view_num": 11378,
+          "agree_num": 129,
+          "score": 131.1,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-26 09:36"
+        }
+      ]
+    },
+    {
+      "name": "恋与深空",
+      "tier": "A",
+      "heat_score": 68.3,
+      "feedback_score": 54.8,
+      "value_score": 57,
+      "thread_count": 13,
+      "valid_count": 11,
+      "water_count": 2,
+      "valid_reply": 8902,
+      "valid_view": 796112,
+      "total_agree": 951,
+      "red_count": 6,
+      "yellow_count": 5,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.03,
+        "positive_pct": 2.3,
+        "negative_pct": 4.2,
+        "neutral_pct": 93.5,
+        "total": 568,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 13,
+            "pct": 2.3
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 531,
+            "pct": 93.5
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 17,
+            "pct": 3.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 7,
+            "pct": 1.2
+          }
+        }
+      },
+      "top_slang": [
+        "非",
+        "纸",
+        "歪",
+        "乐",
+        "叠纸",
+        "欧",
+        "复刻",
+        "大保底"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 11,
+          "pct": 84.6
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 1,
+          "pct": 7.7
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 1,
+          "pct": 7.7
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 7.7
+        },
+        "class_conflict": {
+          "count": 1,
+          "pct": 7.7
+        },
+        "community_conflict": {
+          "count": 1,
+          "pct": 7.7
+        },
+        "leak_privacy": {
+          "count": 1,
+          "pct": 7.7
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 5669918398,
+          "title": "【零氪成长记录】如果可以，请你们陪我到最后",
+          "bar_name": "恋与制作人",
+          "url": "https://tieba.baidu.com/p/5669918398",
+          "reply_num": 6791,
+          "view_num": 589039,
+          "agree_num": 670,
+          "score": 250.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "class_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [
+              "零氪",
+              "氪"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 22:13"
+        },
+        {
+          "tid": 9182651171,
+          "title": "【记录】重新建了个号，看看可以养成什么样子吧",
+          "bar_name": "恋与制作人",
+          "url": "https://tieba.baidu.com/p/9182651171",
+          "reply_num": 617,
+          "view_num": 94137,
+          "agree_num": 47,
+          "score": 180.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "养成"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "养成"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 20:56"
+        },
+        {
+          "tid": 8869774729,
+          "title": "📖⭐️⭐️⭐️⭐️⭐️",
+          "bar_name": "恋与深空",
+          "url": "https://tieba.baidu.com/p/8869774729",
+          "reply_num": 336,
+          "view_num": 18240,
+          "agree_num": 70,
+          "score": 155.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 14:13"
+        },
+        {
+          "tid": 8899791690,
+          "title": "记录一下第一个乙女游戏🕹",
+          "bar_name": "恋与深空",
+          "url": "https://tieba.baidu.com/p/8899791690",
+          "reply_num": 434,
+          "view_num": 20843,
+          "agree_num": 28,
+          "score": 155.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": [
+              "乙女游戏"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-27 10:19"
+        },
+        {
+          "tid": 9292788958,
+          "title": "只要你在风里，我就能找到你",
+          "bar_name": "恋与制作人",
+          "url": "https://tieba.baidu.com/p/9292788958",
+          "reply_num": 106,
+          "view_num": 48061,
+          "agree_num": 7,
+          "score": 123.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-26 17:29"
+        }
+      ]
+    },
+    {
+      "name": "无畏契约",
+      "tier": "A",
+      "heat_score": 68.0,
+      "feedback_score": 56.8,
+      "value_score": 57,
+      "thread_count": 21,
+      "valid_count": 10,
+      "water_count": 11,
+      "valid_reply": 14310,
+      "valid_view": 397226,
+      "total_agree": 16473,
+      "red_count": 5,
+      "yellow_count": 5,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.01,
+        "positive_pct": 0.2,
+        "negative_pct": 1.3,
+        "neutral_pct": 98.6,
+        "total": 631,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 1,
+            "pct": 0.2
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 622,
+            "pct": 98.6
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 6,
+            "pct": 1.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 2,
+            "pct": 0.3
+          }
+        }
+      },
+      "top_slang": [
+        "乐",
+        "急",
+        "赛季",
+        "非",
+        "绷",
+        "欧",
+        "恶心",
+        "笑死"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 17,
+          "pct": 81.0
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 2,
+          "pct": 9.5
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 1,
+          "pct": 4.8
+        },
+        "game/音乐音效": {
+          "topic_l1": "game",
+          "topic_l2": "音乐音效",
+          "count": 1,
+          "pct": 4.8
+        }
+      },
+      "risk_dist": {
+        "product_incident": {
+          "count": 1,
+          "pct": 4.8
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 8559408037,
+          "title": "ECO局起枪攻略——搏一搏单车变摩托",
+          "bar_name": "无畏契约",
+          "url": "https://tieba.baidu.com/p/8559408037",
+          "reply_num": 12273,
+          "view_num": 360675,
+          "agree_num": 15580,
+          "score": 235.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 00:27"
+        },
+        {
+          "tid": 10705712054,
+          "title": "女玩家一千小时总卡在青铜三怎么办",
+          "bar_name": "无畏契约",
+          "url": "https://tieba.baidu.com/p/10705712054",
+          "reply_num": 221,
+          "view_num": 6866,
+          "agree_num": 112,
+          "score": 153.8,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:17"
+        },
+        {
+          "tid": 9804879790,
+          "title": "你是游戏里勇往直前的突破手，现实中又怎么能停滞不前",
+          "bar_name": "无畏契约",
+          "url": "https://tieba.baidu.com/p/9804879790",
+          "reply_num": 1529,
+          "view_num": 12077,
+          "agree_num": 32,
+          "score": 150.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "突破"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 22:41"
+        },
+        {
+          "tid": 10947675716,
+          "title": "充了80w库存说封就封",
+          "bar_name": "无畏契约",
+          "url": "https://tieba.baidu.com/p/10947675716",
+          "reply_num": 56,
+          "view_num": 6851,
+          "agree_num": 87,
+          "score": 120.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "product_incident"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:15"
+        },
+        {
+          "tid": 10967273003,
+          "title": "cj闹不闹",
+          "bar_name": "无畏契约",
+          "url": "https://tieba.baidu.com/p/10967273003",
+          "reply_num": 75,
+          "view_num": 6489,
+          "agree_num": 49,
+          "score": 120.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 03:00"
+        }
+      ]
+    },
+    {
+      "name": "重返未来1999",
+      "tier": "B",
+      "heat_score": 67.3,
+      "feedback_score": 56.0,
+      "value_score": 57,
+      "thread_count": 47,
+      "valid_count": 32,
+      "water_count": 15,
+      "valid_reply": 2675,
+      "valid_view": 212265,
+      "total_agree": 14409,
+      "red_count": 11,
+      "yellow_count": 18,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.05,
+        "positive_pct": 1.6,
+        "negative_pct": 4.5,
+        "neutral_pct": 93.8,
+        "total": 1455,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 24,
+            "pct": 1.6
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 1365,
+            "pct": 93.8
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 34,
+            "pct": 2.3
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 32,
+            "pct": 2.2
+          }
+        }
+      },
+      "top_slang": [
+        "开服",
+        "版本",
+        "皮肤",
+        "非",
+        "抄袭",
+        "联动",
+        "乐",
+        "二游"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 31,
+          "pct": 66.0
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 5,
+          "pct": 10.6
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 4,
+          "pct": 8.5
+        },
+        "game/剧情": {
+          "topic_l1": "game",
+          "topic_l2": "剧情",
+          "count": 3,
+          "pct": 6.4
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 2,
+          "pct": 4.3
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 1,
+          "pct": 2.1
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 2.1
+        }
+      },
+      "risk_dist": {
+        "gender": {
+          "count": 1,
+          "pct": 2.1
+        },
+        "class_conflict": {
+          "count": 2,
+          "pct": 4.3
+        },
+        "community_conflict": {
+          "count": 2,
+          "pct": 4.3
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10901266254,
+          "title": "重返开服你你该如何度过一个完美的9生",
+          "bar_name": "重返未来1999",
+          "url": "https://tieba.baidu.com/p/10901266254",
+          "reply_num": 1032,
+          "view_num": 21422,
+          "agree_num": 1273,
+          "score": 190.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "开服"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "开服"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 20:22"
+        },
+        {
+          "tid": 10933665125,
+          "title": "深蓝已经失去了他的初心",
+          "bar_name": "重返未来1999",
+          "url": "https://tieba.baidu.com/p/10933665125",
+          "reply_num": 142,
+          "view_num": 29352,
+          "agree_num": 1226,
+          "score": 181.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 23:45"
+        },
+        {
+          "tid": 10389270881,
+          "title": "为什么我说不要对原子之心联动抱有期待",
+          "bar_name": "重返未来1999",
+          "url": "https://tieba.baidu.com/p/10389270881",
+          "reply_num": 174,
+          "view_num": 29089,
+          "agree_num": 1387,
+          "score": 174.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [],
+            "entity_hits": [
+              "原子之心联动"
+            ],
+            "slang_hints": [
+              "联动"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 01:23"
+        },
+        {
+          "tid": 10951232146,
+          "title": "在小红书看到了有意思的帖子，搬过来给大家看看",
+          "bar_name": "重返未来1999",
+          "url": "https://tieba.baidu.com/p/10951232146",
+          "reply_num": 169,
+          "view_num": 11195,
+          "agree_num": 599,
+          "score": 164.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "class_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": -1,
+          "sentiment_label": "偏负面",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 16:50"
+        },
+        {
+          "tid": 9486291076,
+          "title": "不要乱带暗改老玩家爆率节奏",
+          "bar_name": "重返未来1999",
+          "url": "https://tieba.baidu.com/p/9486291076",
+          "reply_num": 100,
+          "view_num": 6041,
+          "agree_num": 255,
+          "score": 150.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "老玩家",
+              "节奏"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:58"
+        }
+      ]
+    },
+    {
+      "name": "遗忘之海",
+      "tier": "B",
+      "heat_score": 66.2,
+      "feedback_score": 39.0,
+      "value_score": 56,
+      "thread_count": 45,
+      "valid_count": 44,
+      "water_count": 1,
+      "valid_reply": 1584,
+      "valid_view": 125079,
+      "total_agree": 1769,
+      "red_count": 4,
+      "yellow_count": 34,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.13,
+        "positive_pct": 3.5,
+        "negative_pct": 11.3,
+        "neutral_pct": 85.2,
+        "total": 851,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 1,
+            "pct": 0.1
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 29,
+            "pct": 3.4
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 725,
+            "pct": 85.2
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 49,
+            "pct": 5.8
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 47,
+            "pct": 5.5
+          }
+        }
+      },
+      "top_slang": [
+        "开服",
+        "非",
+        "皮肤",
+        "恶心",
+        "养成",
+        "二游",
+        "好玩",
+        "好看"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 26,
+          "pct": 57.8
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 5,
+          "pct": 11.1
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 4,
+          "pct": 8.9
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 3,
+          "pct": 6.7
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 2,
+          "pct": 4.4
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 2,
+          "pct": 4.4
+        },
+        "game/技术": {
+          "topic_l1": "game",
+          "topic_l2": "技术",
+          "count": 1,
+          "pct": 2.2
+        },
+        "game/竞品对比": {
+          "topic_l1": "game",
+          "topic_l2": "竞品对比",
+          "count": 1,
+          "pct": 2.2
+        },
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 1,
+          "pct": 2.2
+        }
+      },
+      "risk_dist": {
+        "class_conflict": {
+          "count": 5,
+          "pct": 11.1
+        },
+        "community_conflict": {
+          "count": 4,
+          "pct": 8.9
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10960129467,
+          "title": "不拉踩来做对比下，都是2026",
+          "bar_name": "遗忘之海",
+          "url": "https://tieba.baidu.com/p/10960129467",
+          "reply_num": 169,
+          "view_num": 12904,
+          "agree_num": 219,
+          "score": 159.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "community_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "社区生态",
+            "topic_terms": [
+              "对比",
+              "拉踩"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "拉踩"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 22:26"
+        },
+        {
+          "tid": 10974311693,
+          "title": "遗忘之海为什么这么凉啊",
+          "bar_name": "遗忘之海",
+          "url": "https://tieba.baidu.com/p/10974311693",
+          "reply_num": 90,
+          "view_num": 6818,
+          "agree_num": 162,
+          "score": 133.4,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 18:18"
+        },
+        {
+          "tid": 10969505503,
+          "title": "考虑了一周我还是决定放弃这游戏",
+          "bar_name": "遗忘之海",
+          "url": "https://tieba.baidu.com/p/10969505503",
+          "reply_num": 81,
+          "view_num": 6164,
+          "agree_num": 93,
+          "score": 126.5,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "class_conflict",
+            "community_conflict"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 22:26"
+        },
+        {
+          "tid": 10933502813,
+          "title": "细数这游戏各种膈应你的小巧思，说不完，根本说不完",
+          "bar_name": "遗忘之海",
+          "url": "https://tieba.baidu.com/p/10933502813",
+          "reply_num": 96,
+          "view_num": 3753,
+          "agree_num": 249,
+          "score": 124.5,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": [
+              "小巧思"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 21:11"
+        },
+        {
+          "tid": 10960844276,
+          "title": "家人们稳啦  隔壁诡秘之主也是一坨",
+          "bar_name": "遗忘之海",
+          "url": "https://tieba.baidu.com/p/10960844276",
+          "reply_num": 46,
+          "view_num": 7050,
+          "agree_num": 70,
+          "score": 111.9,
+          "alert_level": "yellow",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "竞品对比",
+            "topic_terms": [
+              "隔壁"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 13:35"
+        }
+      ]
+    },
+    {
+      "name": "无限暖暖",
+      "tier": "B",
+      "heat_score": 63.9,
+      "feedback_score": 49.5,
+      "value_score": 56,
+      "thread_count": 22,
+      "valid_count": 16,
+      "water_count": 6,
+      "valid_reply": 4219,
+      "valid_view": 109176,
+      "total_agree": 1434,
+      "red_count": 7,
+      "yellow_count": 7,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.06,
+        "positive_pct": 4.0,
+        "negative_pct": 7.6,
+        "neutral_pct": 88.3,
+        "total": 720,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 29,
+            "pct": 4.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 636,
+            "pct": 88.3
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 36,
+            "pct": 5.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 19,
+            "pct": 2.6
+          }
+        }
+      },
+      "top_slang": [
+        "暖暖",
+        "版本",
+        "非",
+        "欧",
+        "纸",
+        "好看",
+        "开服",
+        "复刻"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 17,
+          "pct": 77.3
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 2,
+          "pct": 9.1
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 2,
+          "pct": 9.1
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 4.5
+        }
+      },
+      "risk_dist": {
+        "class_conflict": {
+          "count": 4,
+          "pct": 18.2
+        },
+        "community_conflict": {
+          "count": 1,
+          "pct": 4.5
+        },
+        "leak_privacy": {
+          "count": 1,
+          "pct": 4.5
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 8912765725,
+          "title": "【记录】自预约开始的碎碎念，既然开始就不会轻易停止。",
+          "bar_name": "无限暖暖",
+          "url": "https://tieba.baidu.com/p/8912765725",
+          "reply_num": 585,
+          "view_num": 20426,
+          "agree_num": 51,
+          "score": 175.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "class_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:12"
+        },
+        {
+          "tid": 9306714179,
+          "title": "出发，奇迹大陆！",
+          "bar_name": "无限暖暖",
+          "url": "https://tieba.baidu.com/p/9306714179",
+          "reply_num": 842,
+          "view_num": 21381,
+          "agree_num": 62,
+          "score": 175.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 22:25"
+        },
+        {
+          "tid": 9303941707,
+          "title": "【记录帖？】先开着",
+          "bar_name": "无限暖暖",
+          "url": "https://tieba.baidu.com/p/9303941707",
+          "reply_num": 1613,
+          "view_num": 18023,
+          "agree_num": 47,
+          "score": 145.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:09"
+        },
+        {
+          "tid": 10239908183,
+          "title": "回坑扔一个记录帖",
+          "bar_name": "无限暖暖",
+          "url": "https://tieba.baidu.com/p/10239908183",
+          "reply_num": 195,
+          "view_num": 11242,
+          "agree_num": 18,
+          "score": 126.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": [
+              "回坑"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 13:18"
+        },
+        {
+          "tid": 10694807049,
+          "title": "【个人记录向】Year N🌕🌖🌗",
+          "bar_name": "无限暖暖",
+          "url": "https://tieba.baidu.com/p/10694807049",
+          "reply_num": 202,
+          "view_num": 5227,
+          "agree_num": 6,
+          "score": 122.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:04"
+        }
+      ]
+    },
+    {
+      "name": "归环",
+      "tier": "B",
+      "heat_score": 60.0,
+      "feedback_score": 31.4,
+      "value_score": 24,
+      "thread_count": 7,
+      "valid_count": 7,
+      "water_count": 7,
+      "valid_reply": 9519,
+      "valid_view": 29606,
+      "total_agree": 896,
+      "red_count": 0,
+      "yellow_count": 0,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": 0.0,
+        "positive_pct": 0.0,
+        "negative_pct": 0.0,
+        "neutral_pct": 100.0,
+        "total": 345,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 345,
+            "pct": 100.0
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 0,
+            "pct": 0.0
+          }
+        }
+      },
+      "top_slang": [],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 7,
+          "pct": 100.0
+        }
+      },
+      "risk_dist": {},
+      "top_threads": [
+        {
+          "tid": 9783242745,
+          "title": "自建水楼争取早日黄牌",
+          "bar_name": "归环",
+          "url": "https://tieba.baidu.com/p/9783242745",
+          "reply_num": 3518,
+          "view_num": 10877,
+          "agree_num": 268,
+          "score": 43.8,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:26"
+        },
+        {
+          "tid": 9781960636,
+          "title": "开个水楼，欢迎一起水jy",
+          "bar_name": "归环",
+          "url": "https://tieba.baidu.com/p/9781960636",
+          "reply_num": 2796,
+          "view_num": 8010,
+          "agree_num": 288,
+          "score": 42.5,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 00:40"
+        },
+        {
+          "tid": 9777285792,
+          "title": "开个个人水楼",
+          "bar_name": "归环",
+          "url": "https://tieba.baidu.com/p/9777285792",
+          "reply_num": 1234,
+          "view_num": 4107,
+          "agree_num": 114,
+          "score": 35.0,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:26"
+        },
+        {
+          "tid": 10018787285,
+          "title": "开个水楼自用",
+          "bar_name": "归环",
+          "url": "https://tieba.baidu.com/p/10018787285",
+          "reply_num": 1320,
+          "view_num": 4143,
+          "agree_num": 157,
+          "score": 35.0,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:26"
+        },
+        {
+          "tid": 10595504458,
+          "title": "自建水贴喵",
+          "bar_name": "归环",
+          "url": "https://tieba.baidu.com/p/10595504458",
+          "reply_num": 258,
+          "view_num": 955,
+          "agree_num": 26,
+          "score": 29.1,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:26"
+        }
+      ]
+    },
+    {
+      "name": "世界之外",
+      "tier": "B",
+      "heat_score": 59.5,
+      "feedback_score": 72.0,
+      "value_score": 54,
+      "thread_count": 5,
+      "valid_count": 5,
+      "water_count": 0,
+      "valid_reply": 4610,
+      "valid_view": 164417,
+      "total_agree": 116,
+      "red_count": 5,
+      "yellow_count": 0,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.06,
+        "positive_pct": 2.8,
+        "negative_pct": 7.3,
+        "neutral_pct": 89.9,
+        "total": 248,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 7,
+            "pct": 2.8
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 223,
+            "pct": 89.9
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 15,
+            "pct": 6.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 3,
+            "pct": 1.2
+          }
+        }
+      },
+      "top_slang": [
+        "乐",
+        "歪",
+        "好看",
+        "养成",
+        "典",
+        "尬",
+        "非",
+        "上头"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 4,
+          "pct": 80.0
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 1,
+          "pct": 20.0
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 20.0
+        },
+        "class_conflict": {
+          "count": 2,
+          "pct": 40.0
+        },
+        "community_conflict": {
+          "count": 1,
+          "pct": 20.0
+        },
+        "leak_privacy": {
+          "count": 1,
+          "pct": 20.0
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 8867063326,
+          "title": "【记录帖】横屏真是地狱",
+          "bar_name": "世界之外",
+          "url": "https://tieba.baidu.com/p/8867063326",
+          "reply_num": 2808,
+          "view_num": 71385,
+          "agree_num": 34,
+          "score": 175.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-27 15:34"
+        },
+        {
+          "tid": 8890617459,
+          "title": "【记录】初见即重逢 世外日常",
+          "bar_name": "世界之外",
+          "url": "https://tieba.baidu.com/p/8890617459",
+          "reply_num": 590,
+          "view_num": 36464,
+          "agree_num": 39,
+          "score": 155.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "日常"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-27 19:50"
+        },
+        {
+          "tid": 10097506763,
+          "title": "【记录3.0】📝此刻静谧相拥.·*",
+          "bar_name": "世界之外",
+          "url": "https://tieba.baidu.com/p/10097506763",
+          "reply_num": 672,
+          "view_num": 20507,
+          "agree_num": 9,
+          "score": 150.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "political",
+            "class_conflict",
+            "community_conflict",
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 14:26"
+        },
+        {
+          "tid": 9929174962,
+          "title": "【记录】爱是无解的命题 你是最终的答案",
+          "bar_name": "世界之外",
+          "url": "https://tieba.baidu.com/p/9929174962",
+          "reply_num": 147,
+          "view_num": 18543,
+          "agree_num": 23,
+          "score": 136.8,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "class_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 23:46"
+        },
+        {
+          "tid": 10463979202,
+          "title": "【记录】崩坍冲分2.0",
+          "bar_name": "世界之外",
+          "url": "https://tieba.baidu.com/p/10463979202",
+          "reply_num": 393,
+          "view_num": 17518,
+          "agree_num": 11,
+          "score": 135.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 18:07"
+        }
+      ]
+    },
+    {
+      "name": "白银之城",
+      "tier": "B",
+      "heat_score": 56.2,
+      "feedback_score": 53.9,
+      "value_score": 52,
+      "thread_count": 21,
+      "valid_count": 11,
+      "water_count": 10,
+      "valid_reply": 631,
+      "valid_view": 115551,
+      "total_agree": 5296,
+      "red_count": 6,
+      "yellow_count": 4,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.01,
+        "positive_pct": 2.6,
+        "negative_pct": 2.3,
+        "neutral_pct": 95.1,
+        "total": 838,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 22,
+            "pct": 2.6
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 797,
+            "pct": 95.1
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 10,
+            "pct": 1.2
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 9,
+            "pct": 1.1
+          }
+        }
+      },
+      "top_slang": [
+        "和谐",
+        "好看",
+        "二游",
+        "绷",
+        "老婆",
+        "辣仙",
+        "欧",
+        "麻辣"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 18,
+          "pct": 85.7
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 1,
+          "pct": 4.8
+        },
+        "game/角色": {
+          "topic_l1": "game",
+          "topic_l2": "角色",
+          "count": 1,
+          "pct": 4.8
+        },
+        "meta/社区生态": {
+          "topic_l1": "meta",
+          "topic_l2": "社区生态",
+          "count": 1,
+          "pct": 4.8
+        }
+      },
+      "risk_dist": {
+        "political": {
+          "count": 1,
+          "pct": 4.8
+        },
+        "gender": {
+          "count": 3,
+          "pct": 14.3
+        },
+        "leak_privacy": {
+          "count": 1,
+          "pct": 4.8
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 10902105484,
+          "title": "感觉太多人拿灰姑娘和谐带节奏了",
+          "bar_name": "白银之城",
+          "url": "https://tieba.baidu.com/p/10902105484",
+          "reply_num": 96,
+          "view_num": 12210,
+          "agree_num": 702,
+          "score": 189.5,
+          "alert_level": "red",
+          "collection_tags": [
+            "涉政"
+          ],
+          "risk_tags": [
+            "political"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "社区生态",
+            "topic_terms": [
+              "带节奏",
+              "节奏",
+              "和谐"
+            ],
+            "entity_hits": [],
+            "slang_hints": [
+              "带节奏"
+            ]
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-27 12:46"
+        },
+        {
+          "tid": 10889013583,
+          "title": "这个扔子会不会太高了点",
+          "bar_name": "白银之城",
+          "url": "https://tieba.baidu.com/p/10889013583",
+          "reply_num": 76,
+          "view_num": 32551,
+          "agree_num": 364,
+          "score": 170.5,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:04"
+        },
+        {
+          "tid": 10892291230,
+          "title": "到底穿的什么",
+          "bar_name": "白银之城",
+          "url": "https://tieba.baidu.com/p/10892291230",
+          "reply_num": 119,
+          "view_num": 17873,
+          "agree_num": 552,
+          "score": 163.2,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "gender"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 23:12"
+        },
+        {
+          "tid": 10894494418,
+          "title": "留档zsbd",
+          "bar_name": "白银之城",
+          "url": "https://tieba.baidu.com/p/10894494418",
+          "reply_num": 53,
+          "view_num": 24671,
+          "agree_num": 312,
+          "score": 159.3,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [
+            "leak_privacy"
+          ],
+          "risk_level": "high",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-28 20:35"
+        },
+        {
+          "tid": 10905168686,
+          "title": "角色对侦探的印象会随着好感度变化",
+          "bar_name": "白银之城",
+          "url": "https://tieba.baidu.com/p/10905168686",
+          "reply_num": 79,
+          "view_num": 8539,
+          "agree_num": 271,
+          "score": 141.1,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "角色",
+            "topic_terms": [
+              "角色"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 17:09"
+        }
+      ]
+    },
+    {
+      "name": "光与夜之恋",
+      "tier": "C",
+      "heat_score": 47.7,
+      "feedback_score": 34.6,
+      "value_score": 42,
+      "thread_count": 8,
+      "valid_count": 3,
+      "water_count": 5,
+      "valid_reply": 527,
+      "valid_view": 38567,
+      "total_agree": 456,
+      "red_count": 1,
+      "yellow_count": 2,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.02,
+        "positive_pct": 2.4,
+        "negative_pct": 4.2,
+        "neutral_pct": 93.5,
+        "total": 337,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 8,
+            "pct": 2.4
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 315,
+            "pct": 93.5
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 13,
+            "pct": 3.9
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 1,
+            "pct": 0.3
+          }
+        }
+      },
+      "top_slang": [
+        "乐",
+        "开服",
+        "歪",
+        "欧",
+        "CV",
+        "养成",
+        "非",
+        "笑死"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 5,
+          "pct": 62.5
+        },
+        "game/玩法": {
+          "topic_l1": "game",
+          "topic_l2": "玩法",
+          "count": 2,
+          "pct": 25.0
+        },
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 1,
+          "pct": 12.5
+        }
+      },
+      "risk_dist": {
+        "class_conflict": {
+          "count": 1,
+          "pct": 12.5
+        }
+      },
+      "top_threads": [
+        {
+          "tid": 8428773192,
+          "title": "【记录】攒小熊之旅",
+          "bar_name": "光与夜之恋",
+          "url": "https://tieba.baidu.com/p/8428773192",
+          "reply_num": 473,
+          "view_num": 37944,
+          "agree_num": 135,
+          "score": 180.0,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 18:46"
+        },
+        {
+          "tid": 10909148119,
+          "title": "【记录】拾光与齐",
+          "bar_name": "光与夜之恋",
+          "url": "https://tieba.baidu.com/p/10909148119",
+          "reply_num": 39,
+          "view_num": 396,
+          "agree_num": 2,
+          "score": 66.1,
+          "alert_level": "yellow",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-27 08:29"
+        },
+        {
+          "tid": 10951564101,
+          "title": "记录帖 游戏日常哦耶",
+          "bar_name": "光与夜之恋",
+          "url": "https://tieba.baidu.com/p/10951564101",
+          "reply_num": 15,
+          "view_num": 227,
+          "agree_num": 0,
+          "score": 63.2,
+          "alert_level": "yellow",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "日常"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 22:59"
+        },
+        {
+          "tid": 7439174053,
+          "title": "【记录贴】让时间见证我们的相遇～",
+          "bar_name": "光与夜之恋",
+          "url": "https://tieba.baidu.com/p/7439174053",
+          "reply_num": 4367,
+          "view_num": 150533,
+          "agree_num": 204,
+          "score": 58.8,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 23:23"
+        },
+        {
+          "tid": 8165869990,
+          "title": "「记录贴」肝上长了个我",
+          "bar_name": "光与夜之恋",
+          "url": "https://tieba.baidu.com/p/8165869990",
+          "reply_num": 1321,
+          "view_num": 152237,
+          "agree_num": 36,
+          "score": 51.2,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [
+            "class_conflict"
+          ],
+          "risk_level": "low",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "玩法",
+            "topic_terms": [
+              "肝"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": true,
+          "last_reply": "2026-08-29 00:00"
+        }
+      ]
+    },
+    {
+      "name": "崩坏因缘精灵",
+      "tier": "C",
+      "heat_score": 39.7,
+      "feedback_score": 43.7,
+      "value_score": 31,
+      "thread_count": 17,
+      "valid_count": 2,
+      "water_count": 15,
+      "valid_reply": 97,
+      "valid_view": 21682,
+      "total_agree": 6745,
+      "red_count": 1,
+      "yellow_count": 1,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.0,
+        "positive_pct": 0.3,
+        "negative_pct": 0.4,
+        "neutral_pct": 99.3,
+        "total": 758,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 2,
+            "pct": 0.3
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 753,
+            "pct": 99.3
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 3,
+            "pct": 0.4
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 0,
+            "pct": 0.0
+          }
+        }
+      },
+      "top_slang": [
+        "急",
+        "好看",
+        "老登",
+        "皮肤",
+        "诡异",
+        "逆天",
+        "审核",
+        "帅"
+      ],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 16,
+          "pct": 94.1
+        },
+        "game/商业化": {
+          "topic_l1": "game",
+          "topic_l2": "商业化",
+          "count": 1,
+          "pct": 5.9
+        }
+      },
+      "risk_dist": {},
+      "top_threads": [
+        {
+          "tid": 10857024681,
+          "title": "据说这个项目全是新人做的",
+          "bar_name": "崩坏因缘精灵",
+          "url": "https://tieba.baidu.com/p/10857024681",
+          "reply_num": 77,
+          "view_num": 10802,
+          "agree_num": 282,
+          "score": 142.7,
+          "alert_level": "red",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-27 06:16"
+        },
+        {
+          "tid": 10586267857,
+          "title": "私密测试抽卡界面",
+          "bar_name": "崩坏因缘精灵内鬼",
+          "url": "https://tieba.baidu.com/p/10586267857",
+          "reply_num": 20,
+          "view_num": 10880,
+          "agree_num": 58,
+          "score": 102.9,
+          "alert_level": "yellow",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "商业化",
+            "topic_terms": [
+              "抽卡"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 01:36"
+        },
+        {
+          "tid": 9668698761,
+          "title": "【水楼】开始期待新游戏了",
+          "bar_name": "崩坏因缘精灵内鬼",
+          "url": "https://tieba.baidu.com/p/9668698761",
+          "reply_num": 5562,
+          "view_num": 115683,
+          "agree_num": 914,
+          "score": 57.5,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 09:56"
+        },
+        {
+          "tid": 9690804186,
+          "title": "吧务组特设氵楼",
+          "bar_name": "崩坏因缘精灵内鬼",
+          "url": "https://tieba.baidu.com/p/9690804186",
+          "reply_num": 6173,
+          "view_num": 92412,
+          "agree_num": 1023,
+          "score": 53.8,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-29 01:20"
+        },
+        {
+          "tid": 9669034166,
+          "title": "水帖在哪里",
+          "bar_name": "崩坏因缘精灵",
+          "url": "https://tieba.baidu.com/p/9669034166",
+          "reply_num": 2693,
+          "view_num": 58308,
+          "agree_num": 597,
+          "score": 52.5,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 15:14"
+        }
+      ]
+    },
+    {
+      "name": "弧光猎人",
+      "tier": "C",
+      "heat_score": 25.1,
+      "feedback_score": 21.0,
+      "value_score": 18,
+      "thread_count": 2,
+      "valid_count": 1,
+      "water_count": 1,
+      "valid_reply": 22,
+      "valid_view": 377,
+      "total_agree": 94,
+      "red_count": 0,
+      "yellow_count": 1,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": 0.0,
+        "positive_pct": 0.0,
+        "negative_pct": 0.0,
+        "neutral_pct": 100.0,
+        "total": 54,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 54,
+            "pct": 100.0
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 0,
+            "pct": 0.0
+          }
+        }
+      },
+      "top_slang": [
+        "环境"
+      ],
+      "topic_dist": {
+        "meta/厂商动态": {
+          "topic_l1": "meta",
+          "topic_l2": "厂商动态",
+          "count": 1,
+          "pct": 50.0
+        },
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 1,
+          "pct": 50.0
+        }
+      },
+      "risk_dist": {},
+      "top_threads": [
+        {
+          "tid": 10966457367,
+          "title": "救救萌新QAQ",
+          "bar_name": "arcraiders",
+          "url": "https://tieba.baidu.com/p/10966457367",
+          "reply_num": 22,
+          "view_num": 377,
+          "agree_num": 3,
+          "score": 64.5,
+          "alert_level": "yellow",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 19:24"
+        },
+        {
+          "tid": 10136611713,
+          "title": "【ARCRaiders吧官方水贴】斯佩兰扎酒馆",
+          "bar_name": "arcraiders",
+          "url": "https://tieba.baidu.com/p/10136611713",
+          "reply_num": 613,
+          "view_num": 3934,
+          "agree_num": 91,
+          "score": 32.5,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "厂商动态",
+            "topic_terms": [
+              "官方"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-28 16:08"
+        }
+      ]
+    },
+    {
+      "name": "凡应",
+      "tier": "C",
+      "heat_score": 24.7,
+      "feedback_score": 6.4,
+      "value_score": 10,
+      "thread_count": 2,
+      "valid_count": 1,
+      "water_count": 1,
+      "valid_reply": 15,
+      "valid_view": 557,
+      "total_agree": 3,
+      "red_count": 0,
+      "yellow_count": 0,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": -0.02,
+        "positive_pct": 0.0,
+        "negative_pct": 1.9,
+        "neutral_pct": 98.1,
+        "total": 54,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 53,
+            "pct": 98.1
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 1,
+            "pct": 1.9
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 0,
+            "pct": 0.0
+          }
+        }
+      },
+      "top_slang": [
+        "养成",
+        "二游",
+        "换皮"
+      ],
+      "topic_dist": {
+        "game/版本节奏": {
+          "topic_l1": "game",
+          "topic_l2": "版本节奏",
+          "count": 1,
+          "pct": 50.0
+        },
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 1,
+          "pct": 50.0
+        }
+      },
+      "risk_dist": {},
+      "top_threads": [
+        {
+          "tid": 10975543147,
+          "title": "有一测玩过的吗",
+          "bar_name": "凡应",
+          "url": "https://tieba.baidu.com/p/10975543147",
+          "reply_num": 15,
+          "view_num": 557,
+          "agree_num": 3,
+          "score": 58.2,
+          "alert_level": "none",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 16:51"
+        },
+        {
+          "tid": 10922710692,
+          "title": "凡应签到帖",
+          "bar_name": "凡应",
+          "url": "https://tieba.baidu.com/p/10922710692",
+          "reply_num": 107,
+          "view_num": 551,
+          "agree_num": 0,
+          "score": 24.1,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "game",
+            "topic_l2": "版本节奏",
+            "topic_terms": [
+              "签到"
+            ],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "consensus",
+          "review_route": false,
+          "last_reply": "2026-08-29 02:16"
+        }
+      ]
+    },
+    {
+      "name": "蓝色星原",
+      "tier": "C",
+      "heat_score": 22.1,
+      "feedback_score": 21.8,
+      "value_score": 9,
+      "thread_count": 2,
+      "valid_count": 1,
+      "water_count": 1,
+      "valid_reply": 1,
+      "valid_view": 4190,
+      "total_agree": 110,
+      "red_count": 0,
+      "yellow_count": 0,
+      "sentiment": {
+        "label": "中性",
+        "score_avg": 0.0,
+        "positive_pct": 0.0,
+        "negative_pct": 0.0,
+        "neutral_pct": 100.0,
+        "total": 50,
+        "dist_5": {
+          "strong_positive": {
+            "score": 2,
+            "label": "正面为主",
+            "count": 0,
+            "pct": 0.0
+          },
+          "positive": {
+            "score": 1,
+            "label": "偏正面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "neutral": {
+            "score": 0,
+            "label": "中性",
+            "count": 50,
+            "pct": 100.0
+          },
+          "negative": {
+            "score": -1,
+            "label": "偏负面",
+            "count": 0,
+            "pct": 0.0
+          },
+          "strong_negative": {
+            "score": -2,
+            "label": "负面为主",
+            "count": 0,
+            "pct": 0.0
+          }
+        }
+      },
+      "top_slang": [],
+      "topic_dist": {
+        "meta/泛讨论": {
+          "topic_l1": "meta",
+          "topic_l2": "泛讨论",
+          "count": 2,
+          "pct": 100.0
+        }
+      },
+      "risk_dist": {},
+      "top_threads": [
+        {
+          "tid": 10646239751,
+          "title": "蓝色星原吧水楼",
+          "bar_name": "蓝色星原",
+          "url": "https://tieba.baidu.com/p/10646239751",
+          "reply_num": 1009,
+          "view_num": 2243,
+          "agree_num": 94,
+          "score": 31.2,
+          "alert_level": "none",
+          "collection_tags": [
+            "疑似水帖"
+          ],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 01:04"
+        },
+        {
+          "tid": 10976051557,
+          "title": "星原吟游的图绘 | 枫糖",
+          "bar_name": "蓝色星原",
+          "url": "https://tieba.baidu.com/p/10976051557",
+          "reply_num": 1,
+          "view_num": 4190,
+          "agree_num": 16,
+          "score": 22.0,
+          "alert_level": "none",
+          "collection_tags": [],
+          "risk_tags": [],
+          "risk_level": "none",
+          "topic": {
+            "topic_l1": "meta",
+            "topic_l2": "泛讨论",
+            "topic_terms": [],
+            "entity_hits": [],
+            "slang_hints": []
+          },
+          "sentiment_5": 0,
+          "sentiment_label": "中性",
+          "judge_source": "rule",
+          "review_route": false,
+          "last_reply": "2026-08-28 12:58"
+        }
+      ]
+    }
+  ]
+}
