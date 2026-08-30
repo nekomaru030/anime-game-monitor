@@ -1,0 +1,2611 @@
+{
+  "meta": {
+    "reportDate": "2026-08-30",
+    "reportWeekday": "周日",
+    "generatedAt": "2026-08-30T07:00:00+08:00",
+    "coverage": {
+      "configuredGameCount": 13,
+      "reportedGameCount": 13,
+      "missingGames": [],
+      "extraGames": []
+    },
+    "sourceTierRules": "一级白名单(官方域名/官方公告平台)→二级白名单(NIKKE国际服nikke.gg/Blablalink/lootandwaifus,国服屑芙蒂)→三级辅助源(GameKee非NIKKE专区/灰机wiki/Fandom/HoneyHunter/Prydwen/Game8/Hakush/Karth/知乎/抖音/小红书/B站非官方)→黑名单(17173/游侠ali213/18183/游民星空/3DM/3h3/iuuu9/7724/4399/多玩/任玩堂/乐游网/GNN/百度百科贴吧/腾讯新闻+网易号+搜狐+新浪自媒体/gamerant/siliconera/gamesradar/pcgamer/IGN/dotesports/kotaku)",
+    "nikkeInternationalSpecialRule": "GameKee NIKKE专区(https://www.gamekee.com/nikke/)按一级信源处理; @NIKKE_japan与@NIKKE_en按一级来源; 日服与其他国际服按同步更新,优先@NIKKE_japan; 时间统一为UTC+9(JST)",
+    "versionChecklist": {
+      "all16Passed": true,
+      "details": "1.版本时间轴已建(13/13) 2.versionStatus正确(绝区零3.1 CURRENT→3.2 UPCOMING 9/9; 终末地1.4 CURRENT→1.5 UPCOMING 9/2; 蓝色星原PREVIEW) 3.版本号动态校验通过(全部不低于兜底下限,无回退; 原神7.0>=6.6 星铁4.5>=4.x 鸣潮3.6>=3.4 绝区零3.1>=3.0 重返3.9>=3.x 终末地1.4>=1.2) 4.卡池含起止+UP角色+来源URL(2个待确认项已标pendingTier1Confirm) 5.sourceUrl全部一级源(黑名单域名仅作线索未写入) 6.三级源仅用于角色定位/强度段 7.版更含版本号+日期+内容+URL 8.联动专项已跑(NIKKE国际Persona/重返B.Duck/异环无新联动/星铁无新联动/原神无新联动/终末地无新联动/燕云无新联动) 9.联动卡池结束=联动周期(NIKKE国际服9/10 04:59:59 JST=联动结束) 10.卡池结束≤T+3已进入预警(洛克王国星光对决8/31、NIKKE国服爱因9/2) 11.T+1红旗已标(洛克王国星光对决8/31 04:00明日截止; 绝区零兑换码CLARET0909今日失效; NIKKE双服协同作战今日截止) 12.NIKKE国际服(JST)/国服(UTC+8)分开记录 13.洛克王国仅《世界》(roco.qq.com页游内容已剔除) 14.覆盖率13/13 15.过期版本号已清 16.日期均为2026年"
+    },
+    "baselineCorrections": [
+      "原神7.0下半卡池起止修正为 2026-09-01T18:00 ~ 2026-09-22T14:59（官方活动速递口径，基线误记 09-02 11:00 ~ 09-22 17:59）",
+      "原神「险境征者竞锋大赛」结束时间补全为 2026-09-14T03:59（基线为 UNKNOWN）",
+      "鸣潮「第二索拉·诡影迷踪」结束时间修正为 2026-09-14T03:59（官方3.6版本说明口径，基线误记 09-22 04:00）",
+      "NIKKE国际服协同作战第三轮时间修正为 2026-08-28T12:00 ~ 2026-08-30T23:59:59 (JST)（基线误记 11:00–22:59）",
+      "蓝色星原：旅谣「旅迹测试」定档 2026-09-17T11:00，预下载 09-15T15:00（基线为「开测时间未公布」）",
+      "重返未来1999 赫多涅/纳西索斯明确为非限定活动角色（两版本后进常驻），B.Duck 仅活动层联动"
+    ]
+  },
+  "highlights": [
+    {
+      "game": "绝区零",
+      "type": "versionUpdate",
+      "title": "3.2「她与她的隐秘往事」定档 9 月 9 日：首个「锋御」代理人克拉蕾 + 洛克茜；前瞻兑换码 CLARET0909 今日 23:59:59 失效",
+      "date": "2026-09-09",
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936"
+    },
+    {
+      "game": "蓝色星原：旅谣",
+      "type": "testSchedule",
+      "title": "「旅迹测试」正式定档 2026-09-17 11:00（预下载 09-15 15:00），修正此前「开测时间未公布」口径；公测仍未官宣",
+      "date": "2026-09-17",
+      "sourceUrl": "https://azurpromilia.manjuu.com/home/"
+    },
+    {
+      "game": "燕云十六声",
+      "type": "milestone",
+      "title": "全球游侠突破 1 亿，9 月 4 日「一亿游侠庆典」开幕；获 2026 科隆游戏展最佳移动游戏，入选商务部「千帆出海」重点清单",
+      "date": "2026-09-04",
+      "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html"
+    },
+    {
+      "game": "胜利女神：NIKKE（国际服）",
+      "type": "roadmap",
+      "title": "官方开发者笔记确认 9 月规划：GREAT VILLAIN UNION（9 月初）+ 德雷克「终极反派」Pick Up 预告、COIN RUSH SHOWDOWN（9 月中）、限定时装与妮姬返场（9 月中）",
+      "date": "2026-09-01",
+      "sourceUrl": "https://www.gamekee.com/nikke/718907.html"
+    },
+    {
+      "game": "洛克王国：世界",
+      "type": "activityUpdate",
+      "title": "「星光对决」新一期官宣：嘉宾 版本答案「万事通」携双首领化恶魔狼王队，08-31 04:00 – 09-07 04:00",
+      "date": "2026-08-31",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+    },
+    {
+      "game": "重返未来1999",
+      "type": "correction",
+      "title": "官方 3.9 内容一览复核：赫多涅 / 纳西索斯为【非限定活动角色】，两版本后进常驻；B.Duck 仅为活动层品牌联动",
+      "date": "2026-08-13",
+      "sourceUrl": "https://re.bluepoch.com/home/"
+    }
+  ],
+  "banners": [
+    {
+      "id": "GN-B1",
+      "phase": "上半",
+      "name": "奥黛塔 / 阿蕾奇诺",
+      "startDate": "2026-08-12T08:00:00+08:00",
+      "endDate": "2026-09-01T17:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165690",
+      "note": "与下半在 09-01 17:59→18:00 无缝衔接",
+      "game": "原神",
+      "remainingDays": 2,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "GN-B2",
+      "phase": "下半",
+      "name": "弗林斯 / 伊内法",
+      "startDate": "2026-09-01T18:00:00+08:00",
+      "endDate": "2026-09-22T14:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691",
+      "note": "本日修正：官方活动速递口径为 09-01 18:00 开启（基线曾误记 09-02 11:00）",
+      "game": "原神",
+      "remainingDays": 23,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "HSR-B1",
+      "phase": "上半",
+      "name": "知更鸟·晴歌 / 风堇（复刻）",
+      "startDate": "2026-08-26T11:00:00+08:00",
+      "endDate": "2026-09-12T11:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "note": "光锥《唱响新篇》/《彩虹永驻之空》同期 UP",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 13,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "HSR-B2",
+      "phase": "下半",
+      "name": "砂金·戏浪 / 不死途（复刻）",
+      "startDate": "2026-09-12T12:00:00+08:00",
+      "endDate": "2026-09-28T05:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "note": "光锥《夏日乘风破浪》/《谎言的终局》同期 UP",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 29,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "EF-B1",
+      "phase": "1.4 当期",
+      "name": "梨诺",
+      "startDate": "2026-08-09T12:00:00+08:00",
+      "endDate": "2026-09-10T03:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+      "note": "1.4 版本角色寻访",
+      "game": "明日方舟：终末地",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "EF-B2",
+      "phase": "1.5 上半",
+      "name": "提弗洛斯「冬猎」",
+      "startDate": "2026-09-02T12:00:00+08:00",
+      "endDate": "2026-09-30T11:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+      "note": "同期武库申领 6★ 施术单元「寒夜幽影」概率 UP",
+      "game": "明日方舟：终末地",
+      "remainingDays": 31,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "EF-B3",
+      "phase": "1.5 下半",
+      "name": "重构寻访【绚丽异彩】伊冯（余烬/黎风/艾尔黛拉/别礼/骏卫）",
+      "startDate": "2026-09-24T12:00:00+08:00",
+      "endDate": "2026-10-15T11:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+      "note": "重构寻访继承：30/60/90 抽各得 10 次加速招募；前 120 抽必得当期 UP；每 240 抽得 UP 信物；进度可继承至后续同名卡池",
+      "game": "明日方舟：终末地",
+      "remainingDays": 46,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "WW-B1",
+      "phase": "上半",
+      "name": "清宵",
+      "startDate": "2026-08-20T11:00:00+08:00",
+      "endDate": "2026-09-10T11:00:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "note": "上半结束与下半开始同为 09-10 11:00",
+      "game": "鸣潮",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "WW-B2",
+      "phase": "下半",
+      "name": "景燃",
+      "startDate": "2026-09-10T11:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "isCollab": false,
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "pendingTier1Confirm": true,
+      "note": "下半接档时间按上半 09-10 11:00 结束推定；结束时间待官方公告确认",
+      "game": "鸣潮",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "ZZZ-B1",
+      "phase": "3.1 下半",
+      "name": "希格莉德",
+      "startDate": "2026-08-19T12:00:00+08:00",
+      "endDate": "2026-09-08T14:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://zzz.mihoyo.com/news/165925",
+      "note": "3.2 于 09-09 00:00 上线，与本期结束存在约 9 小时间隔",
+      "game": "绝区零",
+      "remainingDays": 9,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "ZZZ-B2",
+      "phase": "3.2 第一期",
+      "name": "克拉蕾 / 南宫羽（复刻）",
+      "startDate": "2026-09-09T00:00:00+08:00",
+      "endDate": "2026-09-30T11:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+      "note": "独家频段 Bloodmoon Rising；音擎 猩红渴望 / 霓虹妄想",
+      "game": "绝区零",
+      "remainingDays": 31,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "ZZZ-B3",
+      "phase": "3.2 第二期",
+      "name": "洛克茜 / 普罗米娅（复刻）",
+      "startDate": "2026-09-30T12:00:00+08:00",
+      "endDate": "2026-10-20T14:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+      "note": "独家频段 Cindernight Respite；音擎 绯月银棺 / 朔月裁霜。结束时间以 zzz.mihoyo.com 官方口径为准",
+      "game": "绝区零",
+      "remainingDays": 51,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "RK-B1",
+      "phase": "星光对决（当前期）",
+      "name": "嘉宾 皮卡（酷拉/爆焰喷喷/炽心勇狮/烟花伯爵/水泡壳/化蝶）",
+      "startDate": "2026-08-24T04:00:00+08:00",
+      "endDate": "2026-08-31T04:00:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "note": "明日 04:00 截止",
+      "game": "洛克王国：世界",
+      "remainingDays": 1,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-B2",
+      "phase": "星光对决（下期）",
+      "name": "嘉宾 版本答案「万事通」（恶魔狼王×2/卡瓦重/黑猫巫师/画间沉铁兽/岚鸟）",
+      "startDate": "2026-08-31T04:00:00+08:00",
+      "endDate": "2026-09-07T04:00:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "note": "S1 经典狼王队阵容，含两只首领化恶魔狼王",
+      "game": "洛克王国：世界",
+      "remainingDays": 8,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "DNA-B1",
+      "phase": "1.5 下半",
+      "name": "当期双 UP",
+      "startDate": "2026-08-18T10:00:00+08:00",
+      "endDate": "2026-09-29T05:00:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+      "note": "与版本结束同刻",
+      "game": "二重螺旋",
+      "remainingDays": 30,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-B1",
+      "phase": "上半",
+      "name": "残虹 / 娜娜莉（返场）",
+      "startDate": "2026-08-13T11:00:00+08:00",
+      "endDate": "2026-09-03T05:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "note": "官方口径 8/13 版本更新后开启；T+4 结束",
+      "game": "异环",
+      "remainingDays": 4,
+      "pendingTier1Confirm": false,
+      "warningLevel": "MEDIUM",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-B2",
+      "phase": "下半",
+      "name": "灵可 / 浔",
+      "startDate": "2026-09-03T11:00:00+08:00",
+      "endDate": "2026-09-24T05:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "note": "与版本结束同刻",
+      "game": "异环",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "R1999-B1",
+      "phase": "上半",
+      "name": "赫多涅（岩）· 征集「烈火悬流无尽」",
+      "startDate": "2026-08-13T10:00:00+08:00",
+      "endDate": "2026-09-03T04:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "pickupPool": "湖的涟漪",
+      "note": "本日修正：赫多涅为非限定活动角色，B.Duck 仅为活动层品牌联动，角色本身不是联动限定；两版本后进常驻。同池 5★ 金蜜儿（星）、和平乌鲁（岩）",
+      "game": "重返未来1999",
+      "remainingDays": 4,
+      "pendingTier1Confirm": false,
+      "warningLevel": "MEDIUM",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-B2",
+      "phase": "下半",
+      "name": "纳西索斯（兽）",
+      "startDate": "2026-09-03T05:00:00+08:00",
+      "endDate": "2026-09-24T04:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "pickupPool": "湖的涟漪",
+      "note": "非限定活动角色，两版本后进常驻",
+      "game": "重返未来1999",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "NKI-B1",
+      "phase": "联动全周期",
+      "name": "QUEEN（新岛真）",
+      "startDate": "2026-08-13T07:00:00+09:00",
+      "endDate": "2026-09-10T04:59:59+09:00",
+      "isCollab": true,
+      "collabPartner": "女神异闻录系列（P3R / P4G / P5R）",
+      "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "note": "联动卡池结束时间 = 联动周期结束时间（09-10 04:59:59 UTC+9）",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NKI-B2",
+      "phase": "联动全周期",
+      "name": "天城雪子",
+      "startDate": "2026-08-20T05:00:00+09:00",
+      "endDate": "2026-09-10T04:59:59+09:00",
+      "isCollab": true,
+      "collabPartner": "女神异闻录系列（P4G）",
+      "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "note": "联动卡池结束时间 = 联动周期结束时间",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NKI-B3",
+      "phase": "9 月新池",
+      "name": "SSR 德雷克：终极反派（预告）",
+      "startDate": "UNKNOWN",
+      "endDate": "UNKNOWN",
+      "isCollab": false,
+      "sourceUrl": "https://www.gamekee.com/nikke/719027.html",
+      "pendingTier1Confirm": true,
+      "note": "官方 Pick Up 招募预告已出，具体开始/结束时间待官方公告；与 GREAT VILLAIN UNION 事件配套",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "NKC-B1",
+      "phase": "当期",
+      "name": "SSR 爱因（JUVENILE DAYS 青春时光）",
+      "startDate": "2026-08-19T04:00:00+08:00",
+      "endDate": "2026-09-02T03:59:00+08:00",
+      "isCollab": false,
+      "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "note": "T+3 结束",
+      "game": "胜利女神：NIKKE（国服 / 新的希望）",
+      "remainingDays": 3,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": false,
+      "status": "ACTIVE"
+    }
+  ],
+  "activities": [
+    {
+      "id": "GN-A1",
+      "name": "险境征者竞锋大赛",
+      "startDate": "2026-08-28T10:00:00+08:00",
+      "endDate": "2026-09-14T03:59:00+08:00",
+      "reward": "原石等",
+      "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691",
+      "game": "原神",
+      "remainingDays": 15,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "GN-A2",
+      "name": "禁界拟想阵地战",
+      "startDate": "2026-09-07T10:00:00+08:00",
+      "endDate": "2026-09-17T03:59:00+08:00",
+      "reward": "原石等",
+      "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691",
+      "game": "原神",
+      "remainingDays": 18,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "GN-A3",
+      "name": "盛材移涌",
+      "startDate": "2026-09-14T04:00:00+08:00",
+      "endDate": "2026-09-21T03:59:00+08:00",
+      "reward": "材料双倍类",
+      "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691",
+      "game": "原神",
+      "remainingDays": 22,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "GN-A4",
+      "name": "幻想真境剧诗 更新",
+      "startDate": "2026-09-01T04:00:00+08:00",
+      "endDate": "2026-09-22T03:59:00+08:00",
+      "reward": "剧诗奖励",
+      "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691",
+      "game": "原神",
+      "remainingDays": 23,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "HSR-A1",
+      "name": "末日幻影·仙客天狼",
+      "startDate": "2026-08-31T04:00:00+08:00",
+      "endDate": "2026-10-05T03:59:00+08:00",
+      "reward": "星琼等",
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 36,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "HSR-A2",
+      "name": "超限狂飙大奖赛",
+      "startDate": "2026-08-26T11:00:00+08:00",
+      "endDate": "2026-09-28T03:59:00+08:00",
+      "reward": "星琼等",
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 29,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "HSR-A3",
+      "name": "巡星之礼（7 日签到）",
+      "startDate": "2026-08-26T11:00:00+08:00",
+      "endDate": "2026-09-28T03:59:00+08:00",
+      "reward": "星轨专票×10",
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 29,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "HSR-A4",
+      "name": "虚构叙事·立界开篇",
+      "startDate": "2026-09-14T04:00:00+08:00",
+      "endDate": "2026-10-19T03:59:00+08:00",
+      "reward": "星琼等",
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 50,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "HSR-A5",
+      "name": "方寸大冒险",
+      "startDate": "2026-09-12T12:00:00+08:00",
+      "endDate": "2026-09-28T03:59:00+08:00",
+      "reward": "星琼等（开拓等级≥21）",
+      "sourceUrl": "https://sr.mihoyo.com/news/165896",
+      "game": "崩坏：星穹铁道",
+      "remainingDays": 29,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "EF-A1",
+      "name": "《我们的大菲林！来袭！》（噗切娜免费获取）",
+      "startDate": "2026-09-02T12:00:00+08:00",
+      "endDate": "2026-10-15T11:59:00+08:00",
+      "reward": "5★ 噗切娜 + 专武「点心时刻」+ 满潜材料",
+      "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+      "game": "明日方舟：终末地",
+      "remainingDays": 46,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "EF-A2",
+      "name": "1.5 登录福利",
+      "startDate": "2026-09-02T12:00:00+08:00",
+      "endDate": "2026-10-15T11:59:00+08:00",
+      "reward": "嵌晶玉×1000",
+      "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+      "game": "明日方舟：终末地",
+      "remainingDays": 46,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "WW-A1",
+      "name": "第二索拉・诡影迷踪",
+      "startDate": "2026-08-27T04:00:00+08:00",
+      "endDate": "2026-09-14T03:59:00+08:00",
+      "reward": "星声×400",
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "note": "本日修正：官方 3.6 版本说明口径为 09-14 03:59（基线曾误记 09-22 04:00）",
+      "game": "鸣潮",
+      "remainingDays": 15,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "WW-A2",
+      "name": "群声共振模拟域",
+      "startDate": "2026-08-22T10:00:00+08:00",
+      "endDate": "2026-09-29T11:59:00+08:00",
+      "reward": "星声×1200",
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "game": "鸣潮",
+      "remainingDays": 30,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "WW-A3",
+      "name": "清弦纪流年",
+      "startDate": "2026-09-03T04:00:00+08:00",
+      "endDate": "2026-09-21T03:59:00+08:00",
+      "reward": "星声等",
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "game": "鸣潮",
+      "remainingDays": 22,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "WW-A4",
+      "name": "若梦仍有回声",
+      "startDate": "2026-09-10T10:00:00+08:00",
+      "endDate": "2026-09-29T03:59:00+08:00",
+      "reward": "星声等",
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "game": "鸣潮",
+      "remainingDays": 30,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "WW-A5",
+      "name": "潮汐觅闻",
+      "startDate": "2026-09-17T04:00:00+08:00",
+      "endDate": "2026-09-29T03:59:00+08:00",
+      "reward": "星声等",
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "game": "鸣潮",
+      "remainingDays": 30,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "WW-A6",
+      "name": "烟云赠礼（七日签到）",
+      "startDate": "2026-08-20T11:00:00+08:00",
+      "endDate": "2026-09-29T03:59:00+08:00",
+      "reward": "星声等",
+      "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "game": "鸣潮",
+      "remainingDays": 30,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "ZZZ-A1",
+      "name": "惊喜放映企划（14 天签到）",
+      "startDate": "2026-09-09T00:00:00+08:00",
+      "endDate": "2026-09-30T11:59:00+08:00",
+      "reward": "自选妄想天使时装",
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+      "game": "绝区零",
+      "remainingDays": 31,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "ZZZ-A2",
+      "name": "弹球勇者 哐哐当！（版本大活动）",
+      "startDate": "2026-09-09T00:00:00+08:00",
+      "endDate": "2026-09-30T11:59:00+08:00",
+      "reward": "挑战模式再领 1 件时装",
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+      "game": "绝区零",
+      "remainingDays": 31,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "ZZZ-A3",
+      "name": "全新放送 / 「嗯呢」从天降",
+      "startDate": "2026-09-09T00:00:00+08:00",
+      "endDate": "2026-09-30T11:59:00+08:00",
+      "reward": "加密母带×10 / 邦布券×10",
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+      "game": "绝区零",
+      "remainingDays": 31,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "RK-A1",
+      "name": "闪耀周末",
+      "startDate": "2026-08-28T04:00:00+08:00",
+      "endDate": "2026-08-31T04:00:00+08:00",
+      "reward": "双倍胜场 + 限免精灵",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "game": "洛克王国：世界",
+      "remainingDays": 1,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-A2",
+      "name": "500% 孵蛋加速日",
+      "startDate": "2026-08-28T04:00:00+08:00",
+      "endDate": "2026-08-31T04:00:00+08:00",
+      "reward": "孵化速度 500%",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "game": "洛克王国：世界",
+      "remainingDays": 1,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-A3",
+      "name": "地鼠大量出没",
+      "startDate": "2026-08-28T04:00:00+08:00",
+      "endDate": "2026-08-31T04:00:00+08:00",
+      "reward": "异色地鼠（枯水期/储水期）",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "game": "洛克王国：世界",
+      "remainingDays": 1,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-A4",
+      "name": "远行商人上新",
+      "startDate": "2026-08-28T04:00:00+08:00",
+      "endDate": "2026-08-30T04:00:00+08:00",
+      "reward": "淘沙球/残缺魔镜/适格钥匙/能力钥匙",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "note": "今日截止",
+      "game": "洛克王国：世界",
+      "remainingDays": 0,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-A5",
+      "name": "皮卡月刊「怎么可以用魔法扫帚当画笔」",
+      "startDate": "2026-08-28T04:00:00+08:00",
+      "endDate": "2026-09-10T04:00:00+08:00",
+      "reward": "时装 + 精灵（食尘短绒/捕尘长绒/秩序鱿墨/混乱鱿彩）",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "game": "洛克王国：世界",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-A6",
+      "name": "皮卡摄影委托",
+      "startDate": "2026-08-28T04:00:00+08:00",
+      "endDate": "2026-09-10T04:00:00+08:00",
+      "reward": "限定家具「精灵合影墙饰」",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "game": "洛克王国：世界",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "RK-A7",
+      "name": "「写给相遇的诗」落幕提醒",
+      "startDate": "2026-08-27T04:00:00+08:00",
+      "endDate": "2026-08-31T04:00:00+08:00",
+      "reward": "未领取奖励将无法补发",
+      "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "game": "洛克王国：世界",
+      "remainingDays": 1,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DNA-A1",
+      "name": "绯色梦魇（Crimson Mirage）",
+      "startDate": "2026-08-18T10:00:00+08:00",
+      "endDate": "2026-09-29T05:00:00+08:00",
+      "reward": "心意外观 惑夜伶人·希尔妲 / 卡米拉",
+      "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+      "game": "二重螺旋",
+      "remainingDays": 30,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DNA-A2",
+      "name": "星耀巡游（第二期）",
+      "startDate": "2026-08-20T10:00:00+08:00",
+      "endDate": "2026-09-01T05:00:00+08:00",
+      "reward": "累计区域联机在线时长领奖",
+      "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+      "note": "T+2 结束",
+      "game": "二重螺旋",
+      "remainingDays": 2,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "DNA-A3",
+      "name": "狩月人之阶",
+      "startDate": "2026-08-26T10:00:00+08:00",
+      "endDate": "2026-09-05T00:00:00+08:00",
+      "reward": "分组赛 + 巅峰排名奖励",
+      "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+      "note": "需完成夜航篇剧情【前往少女所说的宅邸】；本期敌人弱点水属性，水属性技能威力 >100% 后每超 40% 全属穿透 +5%（上限 50%，毕业线 500%）",
+      "game": "二重螺旋",
+      "remainingDays": 6,
+      "pendingTier1Confirm": false,
+      "warningLevel": "MEDIUM",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-A1",
+      "name": "夺金大作战",
+      "startDate": "2026-08-24T05:00:00+08:00",
+      "endDate": "2026-09-07T04:59:00+08:00",
+      "reward": "活动货币",
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "game": "异环",
+      "remainingDays": 8,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-A2",
+      "name": "遗舸寻珍",
+      "startDate": "2026-08-21T10:00:00+08:00",
+      "endDate": "2026-09-24T05:59:00+08:00",
+      "reward": "探索奖励",
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "game": "异环",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-A3",
+      "name": "环期赠礼（累签 7 日）",
+      "startDate": "2026-08-13T11:00:00+08:00",
+      "endDate": "2026-09-24T05:59:00+08:00",
+      "reward": "质实骰子×10",
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "game": "异环",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-A4",
+      "name": "争锋赏宴（新增玛门/墨菲克斯挑战）",
+      "startDate": "2026-08-13T11:00:00+08:00",
+      "endDate": "2026-09-24T05:59:00+08:00",
+      "reward": "挑战奖励",
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "game": "异环",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NTE-A5",
+      "name": "单骑破浪 / 排球之星 / 逐光破浪盲盒",
+      "startDate": "2026-08-13T11:00:00+08:00",
+      "endDate": "2026-09-24T05:59:00+08:00",
+      "reward": "多线活动奖励",
+      "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "game": "异环",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "AP-A1",
+      "name": "「旅迹测试」预下载",
+      "startDate": "2026-09-15T15:00:00+08:00",
+      "endDate": "2026-09-17T11:00:00+08:00",
+      "reward": "客户端预下载",
+      "sourceUrl": "https://azurpromilia.manjuu.com/home/",
+      "game": "蓝色星原：旅谣",
+      "remainingDays": 18,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "AP-A2",
+      "name": "「旅迹测试」开测",
+      "startDate": "2026-09-17T11:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "计费删档测试资格",
+      "sourceUrl": "https://azurpromilia.manjuu.com/home/",
+      "pendingTier1Confirm": true,
+      "note": "结束时间官方未公布",
+      "game": "蓝色星原：旅谣",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "R1999-A1",
+      "name": "箱中数鸭节（B.Duck 联动）",
+      "startDate": "2026-08-13T10:00:00+08:00",
+      "endDate": "2026-09-24T04:59:00+08:00",
+      "reward": "联动建筑「当世界还小的时候」+ 高阶秘物包裹（累登 3 日）",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "isCollabActivity": true,
+      "collabPartner": "B.Duck",
+      "game": "重返未来1999",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A2",
+      "name": "重燃！流金之海（故事模式）",
+      "startDate": "2026-08-13T10:00:00+08:00",
+      "endDate": "2026-09-21T04:59:00+08:00",
+      "reward": "一叶欢呼 → 纯雨滴 / 6★ 心相「宣告以弦鸣」",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 22,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A3",
+      "name": "重燃！流金之海（探索模式）",
+      "startDate": "2026-08-20T05:00:00+08:00",
+      "endDate": "2026-09-21T04:59:00+08:00",
+      "reward": "一叶欢呼",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 22,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A4",
+      "name": "双重谐振",
+      "startDate": "2026-08-28T05:00:00+08:00",
+      "endDate": "2026-09-07T04:59:00+08:00",
+      "reward": "尘埃运动双倍酬劳（共 20 次，日上限 4）",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 8,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A5",
+      "name": "洋葱头轶事·流行于世界",
+      "startDate": "2026-08-21T05:00:00+08:00",
+      "endDate": "2026-09-04T04:59:00+08:00",
+      "reward": "5★ 心相、贪欲",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 5,
+      "pendingTier1Confirm": false,
+      "warningLevel": "MEDIUM",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A6",
+      "name": "焦点闪回 / 缪斯碰碰盒",
+      "startDate": "2026-08-15T05:00:00+08:00",
+      "endDate": "2026-09-24T04:59:00+08:00",
+      "reward": "神思母本 / 洋葱头联动衣着「体育快讯」",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A7",
+      "name": "鬃毛邮报·特约观察（新增联合报道）",
+      "startDate": "2026-08-13T10:00:00+08:00",
+      "endDate": "2026-09-24T04:59:00+08:00",
+      "reward": "饕餮、共鸣晶匣等",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "R1999-A8",
+      "name": "黄昏的音序·声息回廊",
+      "startDate": "2026-09-03T05:00:00+08:00",
+      "endDate": "2026-09-24T04:59:00+08:00",
+      "reward": "限定头像「后日浮影」",
+      "sourceUrl": "https://re.bluepoch.com/home/",
+      "game": "重返未来1999",
+      "remainingDays": 25,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "NKI-A1",
+      "name": "协同作战 第三轮（Gatekeeper）",
+      "startDate": "2026-08-28T12:00:00+09:00",
+      "endDate": "2026-08-30T23:59:59+09:00",
+      "reward": "协同作战奖励",
+      "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "note": "本日修正：官方原文为 8/28 12:00:00 – 8/30 23:59:59（UTC+9）；今日截止",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": 0,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NKI-A2",
+      "name": "周末 FULL BURST DAY 第三轮",
+      "startDate": "2026-08-29T05:00:00+09:00",
+      "endDate": "2026-08-31T04:59:59+09:00",
+      "reward": "Full Burst 收益提升",
+      "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": 1,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NKI-A3",
+      "name": "PERSONA ON FRONTLINE（联动本体）",
+      "startDate": "2026-08-13T07:00:00+09:00",
+      "endDate": "2026-09-10T04:59:59+09:00",
+      "reward": "联动剧情 + 商店兑换 + SR 埃癸斯",
+      "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "isCollabActivity": true,
+      "collabPartner": "女神异闻录系列",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": 11,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NKI-A4",
+      "name": "9 月 Mission Pass（芙罗拉-妖精兔）",
+      "startDate": "2026-09-01T00:00:00+09:00",
+      "endDate": "2026-09-30T23:59:00+09:00",
+      "reward": "Mission Pass 奖励",
+      "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": 31,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    },
+    {
+      "id": "NKI-A5",
+      "name": "GREAT VILLAIN UNION",
+      "startDate": "2026-09-01T00:00:00+09:00",
+      "endDate": "UNKNOWN",
+      "reward": "故事活动奖励",
+      "sourceUrl": "https://www.gamekee.com/nikke/718907.html",
+      "pendingTier1Confirm": true,
+      "note": "官方仅公布「9 月初」，具体时刻待公告",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "NKI-A6",
+      "name": "COIN RUSH SHOWDOWN（兔女郎活动）",
+      "startDate": "2026-09-15T00:00:00+09:00",
+      "endDate": "UNKNOWN",
+      "reward": "活动奖励",
+      "sourceUrl": "https://www.gamekee.com/nikke/718907.html",
+      "pendingTier1Confirm": true,
+      "note": "9 月中；主角为 2025 年前登场的妮姬，官方未公布人选",
+      "game": "胜利女神：NIKKE（国际服）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "NKC-A1",
+      "name": "协同作战·捍卫者Ⅲ",
+      "startDate": "2026-08-28T12:00:00+08:00",
+      "endDate": "2026-08-30T23:59:59+08:00",
+      "reward": "协同作战奖励",
+      "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "note": "今日截止",
+      "game": "胜利女神：NIKKE（国服 / 新的希望）",
+      "remainingDays": 0,
+      "pendingTier1Confirm": false,
+      "warningLevel": "HIGH",
+      "urgent": true,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "NKC-A2",
+      "name": "ABSOLUTE 特种部队",
+      "startDate": "2026-09-02T04:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "艾玛/银华/贝斯蒂 战术升级",
+      "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "pendingTier1Confirm": true,
+      "note": "上线时间已官宣，结束时间待公告",
+      "game": "胜利女神：NIKKE（国服 / 新的希望）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "NKC-A3",
+      "name": "COLORLESS 褪色青春",
+      "startDate": "2026-09-10T04:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "SSR 茨瓦伊",
+      "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "pendingTier1Confirm": true,
+      "note": "上线时间已官宣，结束时间待公告",
+      "game": "胜利女神：NIKKE（国服 / 新的希望）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "NKC-A4",
+      "name": "WISDOM SPRING 智慧之源",
+      "startDate": "2026-09-24T04:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "SSR 玛娜",
+      "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "pendingTier1Confirm": true,
+      "note": "上线时间已官宣，结束时间待公告",
+      "game": "胜利女神：NIKKE（国服 / 新的希望）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "NKC-A5",
+      "name": "灵姬夜话（护航计划 DAY BY DAY）",
+      "startDate": "2026-09-10T04:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "SSR 特工妮姬 画皮 与 婴宁",
+      "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "pendingTier1Confirm": true,
+      "note": "上线时间已官宣，结束时间待公告",
+      "game": "胜利女神：NIKKE（国服 / 新的希望）",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "YY-A1",
+      "name": "中式志怪主题月",
+      "startDate": "2026-08-28T05:00:00+08:00",
+      "endDate": "2026-09-15T23:59:00+08:00",
+      "reward": "主题月奖励",
+      "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+      "game": "燕云十六声",
+      "remainingDays": 16,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "YY-A2",
+      "name": "照影庙",
+      "startDate": "2026-08-27T05:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "玩法奖励",
+      "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+      "pendingTier1Confirm": true,
+      "note": "08-27 上线，结束时间待官方公告",
+      "game": "燕云十六声",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "YY-A3",
+      "name": "渡尘墟 AI 对局",
+      "startDate": "2026-08-28T05:00:00+08:00",
+      "endDate": "UNKNOWN",
+      "reward": "对局奖励",
+      "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+      "pendingTier1Confirm": true,
+      "note": "08-28 上线，结束时间待官方公告",
+      "game": "燕云十六声",
+      "remainingDays": -1,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "PENDING"
+    },
+    {
+      "id": "YY-A4",
+      "name": "一亿游侠庆典",
+      "startDate": "2026-09-04T05:00:00+08:00",
+      "endDate": "2026-10-04T23:59:00+08:00",
+      "reward": "30+ 抽和鸣道具、鸣道道具、侠名、限定配饰；连续七日 10 枚袅袅之音·绑",
+      "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+      "game": "燕云十六声",
+      "remainingDays": 35,
+      "pendingTier1Confirm": false,
+      "warningLevel": "NONE",
+      "urgent": false,
+      "status": "UPCOMING"
+    }
+  ],
+  "codes": [
+    {
+      "game": "绝区零",
+      "code": "CLARET0909",
+      "reward": "3.2 前瞻特别节目兑换码",
+      "expireDate": "2026-08-30T23:59:59+08:00",
+      "urgent": true,
+      "remainingDays": 0,
+      "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+      "note": "今日 23:59:59 失效，为本日唯一红色截止兑换码。其余 12 款游戏本日未抓到可验证的一级源兑换码，按规则不予编造。"
+    }
+  ],
+  "games": [
+    {
+      "name": "原神",
+      "version": "7.0",
+      "versionName": "",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-12T08:00:00+08:00",
+      "versionEnd": "2026-09-22T14:59:00+08:00",
+      "nextVersion": "7.1",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://ys.mihoyo.com/main/news/detail/165690",
+      "versionConfidence": "HIGH",
+      "server": "国服/全球同步",
+      "updates": [
+        {
+          "date": "2026-08-28",
+          "title": "「险境征者竞锋大赛」开启（10:00 ~ 09-14 03:59）",
+          "content": "7.0 版本挑战型活动，按官方活动速递口径结束时间为 2026/09/14 03:59（服务器时间）。",
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691"
+        },
+        {
+          "date": "2026-09-01",
+          "title": "下半卡池「弗林斯 / 伊内法」定档 09-01 18:00",
+          "content": "官方活动速递第 2 期确认：下半祈愿 2026/09/01 18:00 ~ 2026/09/22 14:59；上半祈愿于 09/01 17:59 结束。",
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691"
+        }
+      ],
+      "banners": [
+        {
+          "id": "GN-B1",
+          "phase": "上半",
+          "name": "奥黛塔 / 阿蕾奇诺",
+          "startDate": "2026-08-12T08:00:00+08:00",
+          "endDate": "2026-09-01T17:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165690",
+          "note": "与下半在 09-01 17:59→18:00 无缝衔接"
+        },
+        {
+          "id": "GN-B2",
+          "phase": "下半",
+          "name": "弗林斯 / 伊内法",
+          "startDate": "2026-09-01T18:00:00+08:00",
+          "endDate": "2026-09-22T14:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691",
+          "note": "本日修正：官方活动速递口径为 09-01 18:00 开启（基线曾误记 09-02 11:00）"
+        }
+      ],
+      "activities": [
+        {
+          "id": "GN-A1",
+          "name": "险境征者竞锋大赛",
+          "startDate": "2026-08-28T10:00:00+08:00",
+          "endDate": "2026-09-14T03:59:00+08:00",
+          "reward": "原石等",
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691"
+        },
+        {
+          "id": "GN-A2",
+          "name": "禁界拟想阵地战",
+          "startDate": "2026-09-07T10:00:00+08:00",
+          "endDate": "2026-09-17T03:59:00+08:00",
+          "reward": "原石等",
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691"
+        },
+        {
+          "id": "GN-A3",
+          "name": "盛材移涌",
+          "startDate": "2026-09-14T04:00:00+08:00",
+          "endDate": "2026-09-21T03:59:00+08:00",
+          "reward": "材料双倍类",
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691"
+        },
+        {
+          "id": "GN-A4",
+          "name": "幻想真境剧诗 更新",
+          "startDate": "2026-09-01T04:00:00+08:00",
+          "endDate": "2026-09-22T03:59:00+08:00",
+          "reward": "剧诗奖励",
+          "sourceUrl": "https://ys.mihoyo.com/main/news/detail/165691"
+        }
+      ],
+      "summary": "7.0 版本稳态运行中。下半卡池起止已按官方活动速递口径修正为 09-01 18:00 至 09-22 14:59；上半明日 17:59 结束，衔接紧密。7.1 上线时间官方尚未公布，网络流传的 09-11 前瞻日期为社区推测，未写入事实。",
+      "characterAnalysis": "弗林斯 / 伊内法为 7.0 下半双 UP。定位以社区讨论为主：弗林斯偏主 C 输出，伊内法偏后台副 C / 增伤辅助；二人同池使得原石规划需在「补主 C」与「补辅助」间取舍。7.1 前瞻未官宣，若计划抽取下半，建议在前瞻直播后再确认是否与新角色冲突。",
+      "pickupPool": "",
+      "channel": "官方"
+    },
+    {
+      "name": "崩坏：星穹铁道",
+      "version": "4.5",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-26T11:00:00+08:00",
+      "versionEnd": "2026-09-28T06:00:00+08:00",
+      "nextVersion": "4.6",
+      "nextVersionStart": "2026-09-28T06:00:00+08:00",
+      "versionSourceUrl": "https://sr.mihoyo.com/news/165896",
+      "versionConfidence": "MEDIUM",
+      "server": "国服/全球同步",
+      "updates": [
+        {
+          "date": "2026-08-31",
+          "title": "「末日幻影·仙客天狼」明日 04:00 开启（至 10-05 03:59）",
+          "content": "4.5 版本周期挑战。同期「超限狂飙大奖赛」「巡星之礼」7 日签到持续至 09-28 03:59。",
+          "sourceUrl": "https://sr.mihoyo.com/news/165896"
+        }
+      ],
+      "banners": [
+        {
+          "id": "HSR-B1",
+          "phase": "上半",
+          "name": "知更鸟·晴歌 / 风堇（复刻）",
+          "startDate": "2026-08-26T11:00:00+08:00",
+          "endDate": "2026-09-12T11:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://sr.mihoyo.com/news/165896",
+          "note": "光锥《唱响新篇》/《彩虹永驻之空》同期 UP"
+        },
+        {
+          "id": "HSR-B2",
+          "phase": "下半",
+          "name": "砂金·戏浪 / 不死途（复刻）",
+          "startDate": "2026-09-12T12:00:00+08:00",
+          "endDate": "2026-09-28T05:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://sr.mihoyo.com/news/165896",
+          "note": "光锥《夏日乘风破浪》/《谎言的终局》同期 UP"
+        }
+      ],
+      "activities": [
+        {
+          "id": "HSR-A1",
+          "name": "末日幻影·仙客天狼",
+          "startDate": "2026-08-31T04:00:00+08:00",
+          "endDate": "2026-10-05T03:59:00+08:00",
+          "reward": "星琼等",
+          "sourceUrl": "https://sr.mihoyo.com/news/165896"
+        },
+        {
+          "id": "HSR-A2",
+          "name": "超限狂飙大奖赛",
+          "startDate": "2026-08-26T11:00:00+08:00",
+          "endDate": "2026-09-28T03:59:00+08:00",
+          "reward": "星琼等",
+          "sourceUrl": "https://sr.mihoyo.com/news/165896"
+        },
+        {
+          "id": "HSR-A3",
+          "name": "巡星之礼（7 日签到）",
+          "startDate": "2026-08-26T11:00:00+08:00",
+          "endDate": "2026-09-28T03:59:00+08:00",
+          "reward": "星轨专票×10",
+          "sourceUrl": "https://sr.mihoyo.com/news/165896"
+        },
+        {
+          "id": "HSR-A4",
+          "name": "虚构叙事·立界开篇",
+          "startDate": "2026-09-14T04:00:00+08:00",
+          "endDate": "2026-10-19T03:59:00+08:00",
+          "reward": "星琼等",
+          "sourceUrl": "https://sr.mihoyo.com/news/165896"
+        },
+        {
+          "id": "HSR-A5",
+          "name": "方寸大冒险",
+          "startDate": "2026-09-12T12:00:00+08:00",
+          "endDate": "2026-09-28T03:59:00+08:00",
+          "reward": "星琼等（开拓等级≥21）",
+          "sourceUrl": "https://sr.mihoyo.com/news/165896"
+        }
+      ],
+      "summary": "4.5 为缩短的 5 周版本，09-28 06:00 结束，4.6 预计同日接档。明日 04:00 开「末日幻影·仙客天狼」。本版本新增「对话加速」与「贪饕」侵蚀机制。",
+      "characterAnalysis": "上半知更鸟·晴歌（风·记忆）为记忆命途主 C/副 C 定位，风堇为复刻生存位；下半砂金·戏浪（量子·欢愉）为欢愉体系核心，不死途为复刻。4.5 周期短、星琼发放密度高，抽取优先级建议按「体系完整性」而非「角色强度单点」判断。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "明日方舟：终末地",
+      "version": "1.4",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-07-22T10:00:00+08:00",
+      "versionEnd": "2026-09-02T11:59:00+08:00",
+      "nextVersion": "1.5",
+      "nextVersionStart": "2026-09-02T12:00:00+08:00",
+      "versionSourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+      "versionConfidence": "HIGH",
+      "server": "国服/全球同步",
+      "updates": [
+        {
+          "date": "2026-09-02",
+          "title": "1.5「雪淞幽梦」定档 09-02 上线，持续至 10-15",
+          "content": "新区域雪松林；遂明城 09-24 解锁（时间循环解谜）；上半 6★ 提弗洛斯（自然/巨弓）+ 专武「寒夜幽影」；下半重构寻访【绚丽异彩】复刻伊冯 09-24 起；噗切娜（5★ 物理重装）通过活动免费获取并可满潜；登录送 1000 嵌晶玉；即将登陆 Steam。",
+          "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481"
+        }
+      ],
+      "banners": [
+        {
+          "id": "EF-B1",
+          "phase": "1.4 当期",
+          "name": "梨诺",
+          "startDate": "2026-08-09T12:00:00+08:00",
+          "endDate": "2026-09-10T03:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+          "note": "1.4 版本角色寻访"
+        },
+        {
+          "id": "EF-B2",
+          "phase": "1.5 上半",
+          "name": "提弗洛斯「冬猎」",
+          "startDate": "2026-09-02T12:00:00+08:00",
+          "endDate": "2026-09-30T11:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+          "note": "同期武库申领 6★ 施术单元「寒夜幽影」概率 UP"
+        },
+        {
+          "id": "EF-B3",
+          "phase": "1.5 下半",
+          "name": "重构寻访【绚丽异彩】伊冯（余烬/黎风/艾尔黛拉/别礼/骏卫）",
+          "startDate": "2026-09-24T12:00:00+08:00",
+          "endDate": "2026-10-15T11:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481",
+          "note": "重构寻访继承：30/60/90 抽各得 10 次加速招募；前 120 抽必得当期 UP；每 240 抽得 UP 信物；进度可继承至后续同名卡池"
+        }
+      ],
+      "activities": [
+        {
+          "id": "EF-A1",
+          "name": "《我们的大菲林！来袭！》（噗切娜免费获取）",
+          "startDate": "2026-09-02T12:00:00+08:00",
+          "endDate": "2026-10-15T11:59:00+08:00",
+          "reward": "5★ 噗切娜 + 专武「点心时刻」+ 满潜材料",
+          "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481"
+        },
+        {
+          "id": "EF-A2",
+          "name": "1.5 登录福利",
+          "startDate": "2026-09-02T12:00:00+08:00",
+          "endDate": "2026-10-15T11:59:00+08:00",
+          "reward": "嵌晶玉×1000",
+          "sourceUrl": "https://endfield.gryphline.com/zh-tw/news/4481"
+        }
+      ],
+      "summary": "1.4 于 09-02 结束，1.5「雪淞幽梦」同日 12:00 接档。1.5 内容量大：新区域、时间循环解谜、免费满潜 5★、重构寻访复刻机制。",
+      "characterAnalysis": "提弗洛斯（6★ 自然/突击，巨弓）定位高频单体远程主 C，配 1.5 上半专武「寒夜幽影」收益最高；噗切娜为免费满潜 5★ 物理重装，对缺前排的账号性价比极高，不必额外抽卡。重构寻访【绚丽异彩】复刻伊冯，属「补齐型」而非「必抽型」，除非缺自然系输出。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "鸣潮",
+      "version": "3.6",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-20T11:00:00+08:00",
+      "versionEnd": "2026-09-29T03:59:00+08:00",
+      "nextVersion": "3.7",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+      "versionConfidence": "MEDIUM",
+      "server": "国服/全球同步",
+      "updates": [
+        {
+          "date": "2026-08-20",
+          "title": "3.6 版本更新（维护 04:00–11:00）",
+          "content": "维护补偿 星声×300 + 结晶溶剂×2；问题修复补偿 星声×300。版本结束时间按活动最晚结束（09-29 03:59）推定。",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354"
+        }
+      ],
+      "banners": [
+        {
+          "id": "WW-B1",
+          "phase": "上半",
+          "name": "清宵",
+          "startDate": "2026-08-20T11:00:00+08:00",
+          "endDate": "2026-09-10T11:00:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+          "note": "上半结束与下半开始同为 09-10 11:00"
+        },
+        {
+          "id": "WW-B2",
+          "phase": "下半",
+          "name": "景燃",
+          "startDate": "2026-09-10T11:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "isCollab": false,
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+          "pendingTier1Confirm": true,
+          "note": "下半接档时间按上半 09-10 11:00 结束推定；结束时间待官方公告确认"
+        }
+      ],
+      "activities": [
+        {
+          "id": "WW-A1",
+          "name": "第二索拉・诡影迷踪",
+          "startDate": "2026-08-27T04:00:00+08:00",
+          "endDate": "2026-09-14T03:59:00+08:00",
+          "reward": "星声×400",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354",
+          "note": "本日修正：官方 3.6 版本说明口径为 09-14 03:59（基线曾误记 09-22 04:00）"
+        },
+        {
+          "id": "WW-A2",
+          "name": "群声共振模拟域",
+          "startDate": "2026-08-22T10:00:00+08:00",
+          "endDate": "2026-09-29T11:59:00+08:00",
+          "reward": "星声×1200",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354"
+        },
+        {
+          "id": "WW-A3",
+          "name": "清弦纪流年",
+          "startDate": "2026-09-03T04:00:00+08:00",
+          "endDate": "2026-09-21T03:59:00+08:00",
+          "reward": "星声等",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354"
+        },
+        {
+          "id": "WW-A4",
+          "name": "若梦仍有回声",
+          "startDate": "2026-09-10T10:00:00+08:00",
+          "endDate": "2026-09-29T03:59:00+08:00",
+          "reward": "星声等",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354"
+        },
+        {
+          "id": "WW-A5",
+          "name": "潮汐觅闻",
+          "startDate": "2026-09-17T04:00:00+08:00",
+          "endDate": "2026-09-29T03:59:00+08:00",
+          "reward": "星声等",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354"
+        },
+        {
+          "id": "WW-A6",
+          "name": "烟云赠礼（七日签到）",
+          "startDate": "2026-08-20T11:00:00+08:00",
+          "endDate": "2026-09-29T03:59:00+08:00",
+          "reward": "星声等",
+          "sourceUrl": "https://mc.kurogames.com/main/news/detail/5354"
+        }
+      ],
+      "summary": "3.6 稳态运行，版本末集中在 09-29 03:59。本日按官方版本说明修正「诡影迷踪」结束时间为 09-14 03:59。下半景燃接档时间与结束时间仍待官方公告。",
+      "characterAnalysis": "清宵为 3.6 上半限定，定位偏向高机动热熔/导电输出主轴（具体属性以官方实装为准）；下半景燃为另一体系核心。3.6 星声发放（群声共振模拟域 1200 + 诡影迷踪 400 + 签到）较充裕，但集中在版本后半段，建议先跑完 09-03 起的清弦纪流年再决定下半投入。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "绝区零",
+      "version": "3.1",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-19T11:00:00+08:00",
+      "versionEnd": "2026-09-08T14:59:00+08:00",
+      "nextVersion": "3.2",
+      "nextVersionStart": "2026-09-09T00:00:00+08:00",
+      "versionSourceUrl": "https://zzz.mihoyo.com/news/165925",
+      "versionConfidence": "HIGH",
+      "server": "国服/全球同步",
+      "updates": [
+        {
+          "date": "2026-09-09",
+          "title": "3.2「她与她的隐秘往事」官宣 09-09 上线",
+          "content": "首个「锋御」命途代理人克拉蕾（S 级电）与洛克茜（S 级风·击破）。新机制「锋御」：残痕值→残痕→毁伤，防御为伤害倍率基底，暴击率超 100% 溢出转多重暴击。版本福利含 14 天签到自选妄想天使时装、版本大活动「弹球勇者 哐哐当！」、加密母带×10、邦布券×10。珂蕾妲开放「潜能影像」。新人绳匠指南更新（限定 S 级代理人三选一 + 限定 S 级音擎三选一常驻化）。",
+          "sourceUrl": "https://zzz.mihoyo.com/news/165936"
+        }
+      ],
+      "banners": [
+        {
+          "id": "ZZZ-B1",
+          "phase": "3.1 下半",
+          "name": "希格莉德",
+          "startDate": "2026-08-19T12:00:00+08:00",
+          "endDate": "2026-09-08T14:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://zzz.mihoyo.com/news/165925",
+          "note": "3.2 于 09-09 00:00 上线，与本期结束存在约 9 小时间隔"
+        },
+        {
+          "id": "ZZZ-B2",
+          "phase": "3.2 第一期",
+          "name": "克拉蕾 / 南宫羽（复刻）",
+          "startDate": "2026-09-09T00:00:00+08:00",
+          "endDate": "2026-09-30T11:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+          "note": "独家频段 Bloodmoon Rising；音擎 猩红渴望 / 霓虹妄想"
+        },
+        {
+          "id": "ZZZ-B3",
+          "phase": "3.2 第二期",
+          "name": "洛克茜 / 普罗米娅（复刻）",
+          "startDate": "2026-09-30T12:00:00+08:00",
+          "endDate": "2026-10-20T14:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://zzz.mihoyo.com/news/165936",
+          "note": "独家频段 Cindernight Respite；音擎 绯月银棺 / 朔月裁霜。结束时间以 zzz.mihoyo.com 官方口径为准"
+        }
+      ],
+      "activities": [
+        {
+          "id": "ZZZ-A1",
+          "name": "惊喜放映企划（14 天签到）",
+          "startDate": "2026-09-09T00:00:00+08:00",
+          "endDate": "2026-09-30T11:59:00+08:00",
+          "reward": "自选妄想天使时装",
+          "sourceUrl": "https://zzz.mihoyo.com/news/165936"
+        },
+        {
+          "id": "ZZZ-A2",
+          "name": "弹球勇者 哐哐当！（版本大活动）",
+          "startDate": "2026-09-09T00:00:00+08:00",
+          "endDate": "2026-09-30T11:59:00+08:00",
+          "reward": "挑战模式再领 1 件时装",
+          "sourceUrl": "https://zzz.mihoyo.com/news/165936"
+        },
+        {
+          "id": "ZZZ-A3",
+          "name": "全新放送 / 「嗯呢」从天降",
+          "startDate": "2026-09-09T00:00:00+08:00",
+          "endDate": "2026-09-30T11:59:00+08:00",
+          "reward": "加密母带×10 / 邦布券×10",
+          "sourceUrl": "https://zzz.mihoyo.com/news/165936"
+        }
+      ],
+      "summary": "3.2 前瞻特别节目于 08-28 发布，确认 09-09 上线。前瞻兑换码 CLARET0909 今日 23:59:59 失效，为本日唯一红色截止项。",
+      "characterAnalysis": "克拉蕾（S 级电·锋御，弗林特工坊家主）为 3.2 全新机制「锋御」首位代理人，防御值直接作为伤害倍率基底，暴击率溢出 100% 的部分转为多重暴击，属「新体系开创者」定位，推荐优先度高于同期复刻。洛克茜（S 级风·击破，首席锻造师）为击破位，普罗米娅（S 级冰·异常）为复刻异常位，二者偏体系补强。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "洛克王国：世界",
+      "version": "S3赛季 铅字幻梦",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-07-15T04:00:00+08:00",
+      "versionEnd": "UNKNOWN",
+      "nextVersion": "S4赛季",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+      "versionConfidence": "MEDIUM",
+      "server": "国服",
+      "updates": [
+        {
+          "date": "2026-08-27",
+          "title": "8 月 27 日版本更新：草系试炼结算优化、命定花种减负",
+          "content": "命定花种精灵每只可完成一次首通（首通得分光水晶×400）。S4 更新后图鉴「命定勇者」奖牌课题改为仅产出课题研究点数，未领取的分光水晶需在更新前领取。时光回溯已于 08-27 04:00 关闭。",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        },
+        {
+          "date": "2026-08-31",
+          "title": "「星光对决」新一期官宣：嘉宾 版本答案「万事通」",
+          "content": "2026-08-31 04:00 – 2026-09-07 04:00。携带精灵：恶魔狼王×2、卡瓦重、黑猫巫师、画间沉铁兽、岚鸟。",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        }
+      ],
+      "banners": [
+        {
+          "id": "RK-B1",
+          "phase": "星光对决（当前期）",
+          "name": "嘉宾 皮卡（酷拉/爆焰喷喷/炽心勇狮/烟花伯爵/水泡壳/化蝶）",
+          "startDate": "2026-08-24T04:00:00+08:00",
+          "endDate": "2026-08-31T04:00:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+          "note": "明日 04:00 截止"
+        },
+        {
+          "id": "RK-B2",
+          "phase": "星光对决（下期）",
+          "name": "嘉宾 版本答案「万事通」（恶魔狼王×2/卡瓦重/黑猫巫师/画间沉铁兽/岚鸟）",
+          "startDate": "2026-08-31T04:00:00+08:00",
+          "endDate": "2026-09-07T04:00:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+          "note": "S1 经典狼王队阵容，含两只首领化恶魔狼王"
+        }
+      ],
+      "activities": [
+        {
+          "id": "RK-A1",
+          "name": "闪耀周末",
+          "startDate": "2026-08-28T04:00:00+08:00",
+          "endDate": "2026-08-31T04:00:00+08:00",
+          "reward": "双倍胜场 + 限免精灵",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        },
+        {
+          "id": "RK-A2",
+          "name": "500% 孵蛋加速日",
+          "startDate": "2026-08-28T04:00:00+08:00",
+          "endDate": "2026-08-31T04:00:00+08:00",
+          "reward": "孵化速度 500%",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        },
+        {
+          "id": "RK-A3",
+          "name": "地鼠大量出没",
+          "startDate": "2026-08-28T04:00:00+08:00",
+          "endDate": "2026-08-31T04:00:00+08:00",
+          "reward": "异色地鼠（枯水期/储水期）",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        },
+        {
+          "id": "RK-A4",
+          "name": "远行商人上新",
+          "startDate": "2026-08-28T04:00:00+08:00",
+          "endDate": "2026-08-30T04:00:00+08:00",
+          "reward": "淘沙球/残缺魔镜/适格钥匙/能力钥匙",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60",
+          "note": "今日截止"
+        },
+        {
+          "id": "RK-A5",
+          "name": "皮卡月刊「怎么可以用魔法扫帚当画笔」",
+          "startDate": "2026-08-28T04:00:00+08:00",
+          "endDate": "2026-09-10T04:00:00+08:00",
+          "reward": "时装 + 精灵（食尘短绒/捕尘长绒/秩序鱿墨/混乱鱿彩）",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        },
+        {
+          "id": "RK-A6",
+          "name": "皮卡摄影委托",
+          "startDate": "2026-08-28T04:00:00+08:00",
+          "endDate": "2026-09-10T04:00:00+08:00",
+          "reward": "限定家具「精灵合影墙饰」",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        },
+        {
+          "id": "RK-A7",
+          "name": "「写给相遇的诗」落幕提醒",
+          "startDate": "2026-08-27T04:00:00+08:00",
+          "endDate": "2026-08-31T04:00:00+08:00",
+          "reward": "未领取奖励将无法补发",
+          "sourceUrl": "https://pd.qq.com/g/roco135790/post/B_e6d58e6aabb702001441152196270699980X60"
+        }
+      ],
+      "summary": "S3「铅字幻梦」赛季末冲刺期：排位加星、捕捉加速、耗球返还三项增益进行中。星光对决当前期明日 04:00 切换，新期为「万事通」狼王队。多项周末活动（闪耀周末/孵蛋加速/地鼠出没）同步于明日 04:00 结束。",
+      "characterAnalysis": "（本条不涉及抽卡角色）星光对决为固定嘉宾挑战玩法，本期皮卡阵容偏火/虫系；下期「万事通」携带双首领化恶魔狼王 + 卡瓦重 + 黑猫巫师，属 S1 经典狼王队配置，对缺少群体压制手段的阵容挑战难度更高，建议提前准备水系/地面系应对位。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "二重螺旋",
+      "version": "1.5",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-07-28T10:00:00+08:00",
+      "versionEnd": "2026-09-29T05:00:00+08:00",
+      "nextVersion": "1.6",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://www.dnabbs.yingxiong.com/",
+      "versionConfidence": "MEDIUM",
+      "server": "国服",
+      "updates": [
+        {
+          "date": "2026-08-18",
+          "title": "1.5 下半开启 + 「绯色梦魇」上线",
+          "content": "下半卡池 08-18 10:00 – 09-29 05:00。绯色梦魇同期开放，心意外观「惑夜伶人·希尔妲 / 惑夜伶人·卡米拉」，用「星辉丝线」编织（90 Phoxene → 1 Starweave Thread），共 2 轮各 8 项奖励。",
+          "sourceUrl": "https://www.dnabbs.yingxiong.com/"
+        }
+      ],
+      "banners": [
+        {
+          "id": "DNA-B1",
+          "phase": "1.5 下半",
+          "name": "当期双 UP",
+          "startDate": "2026-08-18T10:00:00+08:00",
+          "endDate": "2026-09-29T05:00:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+          "note": "与版本结束同刻"
+        }
+      ],
+      "activities": [
+        {
+          "id": "DNA-A1",
+          "name": "绯色梦魇（Crimson Mirage）",
+          "startDate": "2026-08-18T10:00:00+08:00",
+          "endDate": "2026-09-29T05:00:00+08:00",
+          "reward": "心意外观 惑夜伶人·希尔妲 / 卡米拉",
+          "sourceUrl": "https://www.dnabbs.yingxiong.com/"
+        },
+        {
+          "id": "DNA-A2",
+          "name": "星耀巡游（第二期）",
+          "startDate": "2026-08-20T10:00:00+08:00",
+          "endDate": "2026-09-01T05:00:00+08:00",
+          "reward": "累计区域联机在线时长领奖",
+          "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+          "note": "T+2 结束"
+        },
+        {
+          "id": "DNA-A3",
+          "name": "狩月人之阶",
+          "startDate": "2026-08-26T10:00:00+08:00",
+          "endDate": "2026-09-05T00:00:00+08:00",
+          "reward": "分组赛 + 巅峰排名奖励",
+          "sourceUrl": "https://www.dnabbs.yingxiong.com/",
+          "note": "需完成夜航篇剧情【前往少女所说的宅邸】；本期敌人弱点水属性，水属性技能威力 >100% 后每超 40% 全属穿透 +5%（上限 50%，毕业线 500%）"
+        }
+      ],
+      "summary": "1.5 长版本（07-28 – 09-29）。星耀巡游第二期 09-01 05:00 结束，狩月人之阶 09-05 00:00 结束，二者为本版本内需优先清的限时目标。",
+      "characterAnalysis": "（本期无新增限定角色公告）1.5 下半为当期双 UP，建议在星耀巡游与狩月人之阶奖励结算前完成角色强度验证再决定是否投入；狩月人之阶本期为水属性弱点环境，水属性输出角色优先级相对提升。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "异环",
+      "version": "1.3",
+      "versionName": "雾中朔望星回",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-13T11:00:00+08:00",
+      "versionEnd": "2026-09-24T05:59:00+08:00",
+      "nextVersion": "1.4",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+      "versionConfidence": "HIGH",
+      "server": "国服",
+      "updates": [
+        {
+          "date": "2026-08-13",
+          "title": "1.3「雾中朔望星回」版本更新（官方公告口径）",
+          "content": "上半残虹 + 娜娜莉返场 8/13 版本更新后 – 9/3 05:59；限定 S 级弧盘「噬心诡刃」与「预备备」返场同期。下半灵可 + 浔 9/3 11:00 – 9/24 05:59。（攻略站的 8/19–9/9 为非官方/海外口径，不予采信）",
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html"
+        }
+      ],
+      "banners": [
+        {
+          "id": "NTE-B1",
+          "phase": "上半",
+          "name": "残虹 / 娜娜莉（返场）",
+          "startDate": "2026-08-13T11:00:00+08:00",
+          "endDate": "2026-09-03T05:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+          "note": "官方口径 8/13 版本更新后开启；T+4 结束"
+        },
+        {
+          "id": "NTE-B2",
+          "phase": "下半",
+          "name": "灵可 / 浔",
+          "startDate": "2026-09-03T11:00:00+08:00",
+          "endDate": "2026-09-24T05:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html",
+          "note": "与版本结束同刻"
+        }
+      ],
+      "activities": [
+        {
+          "id": "NTE-A1",
+          "name": "夺金大作战",
+          "startDate": "2026-08-24T05:00:00+08:00",
+          "endDate": "2026-09-07T04:59:00+08:00",
+          "reward": "活动货币",
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html"
+        },
+        {
+          "id": "NTE-A2",
+          "name": "遗舸寻珍",
+          "startDate": "2026-08-21T10:00:00+08:00",
+          "endDate": "2026-09-24T05:59:00+08:00",
+          "reward": "探索奖励",
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html"
+        },
+        {
+          "id": "NTE-A3",
+          "name": "环期赠礼（累签 7 日）",
+          "startDate": "2026-08-13T11:00:00+08:00",
+          "endDate": "2026-09-24T05:59:00+08:00",
+          "reward": "质实骰子×10",
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html"
+        },
+        {
+          "id": "NTE-A4",
+          "name": "争锋赏宴（新增玛门/墨菲克斯挑战）",
+          "startDate": "2026-08-13T11:00:00+08:00",
+          "endDate": "2026-09-24T05:59:00+08:00",
+          "reward": "挑战奖励",
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html"
+        },
+        {
+          "id": "NTE-A5",
+          "name": "单骑破浪 / 排球之星 / 逐光破浪盲盒",
+          "startDate": "2026-08-13T11:00:00+08:00",
+          "endDate": "2026-09-24T05:59:00+08:00",
+          "reward": "多线活动奖励",
+          "sourceUrl": "https://yh.wanmei.com/m/news/gamebroad/20260812/263537.html"
+        }
+      ],
+      "summary": "1.3 于 09-24 05:59 结束。上半卡池 09-03 05:59 结束（T+4），下半灵可/浔同日 11:00 接档。本日已按官方 08-12 更新公告口径复核，排除攻略站的 8/19–9/9 说法。",
+      "characterAnalysis": "残虹为 1.3 上半主推，娜娜莉为返场补位；下半灵可与浔为第二波核心。1.3 官方未标注任何联动限定，本版本卡池均属常规限定。上半剩余 4 天，若目标为下半角色建议直接留存资源。",
+      "pickupPool": "",
+      "channel": "官方"
+    },
+    {
+      "name": "蓝色星原：旅谣",
+      "version": "PREVIEW（旅迹测试）",
+      "versionStatus": "PREVIEW",
+      "versionStart": "未上线",
+      "versionEnd": "未上线",
+      "nextVersion": "公测（未官宣）",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://azurpromilia.manjuu.com/home/",
+      "versionConfidence": "PREVIEW",
+      "server": "国服",
+      "updates": [
+        {
+          "date": "2026-08-28",
+          "title": "「旅迹测试」定档：2026-09-17 11:00（UTC+8）",
+          "content": "限量计费删档测试。预下载 2026-09-15 15:00（UTC+8）。平台 PC（Windows）/ 安卓 / iOS。未成年无法参与。预约里程碑解锁四重好礼（最高 纯粹忆痕×20、角色艾妮丝、奇波星彩·浮云）。公测时间仍未官宣。",
+          "sourceUrl": "https://azurpromilia.manjuu.com/home/"
+        }
+      ],
+      "activities": [
+        {
+          "id": "AP-A1",
+          "name": "「旅迹测试」预下载",
+          "startDate": "2026-09-15T15:00:00+08:00",
+          "endDate": "2026-09-17T11:00:00+08:00",
+          "reward": "客户端预下载",
+          "sourceUrl": "https://azurpromilia.manjuu.com/home/"
+        },
+        {
+          "id": "AP-A2",
+          "name": "「旅迹测试」开测",
+          "startDate": "2026-09-17T11:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "计费删档测试资格",
+          "sourceUrl": "https://azurpromilia.manjuu.com/home/",
+          "pendingTier1Confirm": true,
+          "note": "结束时间官方未公布"
+        }
+      ],
+      "summary": "本日为重大更新：官方 08-28 在官网公告「旅迹测试」定档 2026-09-17 11:00（预下载 09-15 15:00），修正了此前「开测时间未公布」的口径。公测仍未官宣，版本号维持 PREVIEW。",
+      "characterAnalysis": "（未上线，无抽取内容）三测为限量计费删档测试，预约里程碑奖励（纯粹忆痕×20 / 角色艾妮丝 / 奇波星彩·浮云）需在公测前完成预约解锁。",
+      "banners": [],
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "重返未来1999",
+      "version": "3.9",
+      "versionName": "重燃！流金之海",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-13T10:00:00+08:00",
+      "versionEnd": "2026-09-24T04:59:00+08:00",
+      "nextVersion": "3.10",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://re.bluepoch.com/home/",
+      "versionConfidence": "HIGH",
+      "server": "国服",
+      "updates": [
+        {
+          "date": "2026-08-13",
+          "title": "3.9「重燃！流金之海」上线（维护 06:00–10:00）",
+          "content": "维护补偿 纯雨滴×240 + 苦目糖罐×1；问题修复补偿 纯雨滴×180。新增 6★ 赫多涅（岩）、6★ 纳西索斯（兽）；官方明确二者为【新增非限定活动角色】，将在两个版本后加入常驻征集。新增 6★ 心相「宣告以弦鸣」（赫多涅的宝库兑换）、「拢于心潮间」（09-03 05:00 后心相观测商店）、5★「以饰真相」（轶事活动）。狂想增幅角色：莫莉德尔、菲林士多。",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "date": "2026-08-28",
+          "title": "「双重谐振」开启（08-28 05:00 – 09-07 04:59）",
+          "content": "挑战成功【尘埃运动】可获得双倍酬劳，共 20 次，每日最多 4 次。",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        }
+      ],
+      "banners": [
+        {
+          "id": "R1999-B1",
+          "phase": "上半",
+          "name": "赫多涅（岩）· 征集「烈火悬流无尽」",
+          "startDate": "2026-08-13T10:00:00+08:00",
+          "endDate": "2026-09-03T04:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://re.bluepoch.com/home/",
+          "pickupPool": "湖的涟漪",
+          "note": "本日修正：赫多涅为非限定活动角色，B.Duck 仅为活动层品牌联动，角色本身不是联动限定；两版本后进常驻。同池 5★ 金蜜儿（星）、和平乌鲁（岩）"
+        },
+        {
+          "id": "R1999-B2",
+          "phase": "下半",
+          "name": "纳西索斯（兽）",
+          "startDate": "2026-09-03T05:00:00+08:00",
+          "endDate": "2026-09-24T04:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://re.bluepoch.com/home/",
+          "pickupPool": "湖的涟漪",
+          "note": "非限定活动角色，两版本后进常驻"
+        }
+      ],
+      "activities": [
+        {
+          "id": "R1999-A1",
+          "name": "箱中数鸭节（B.Duck 联动）",
+          "startDate": "2026-08-13T10:00:00+08:00",
+          "endDate": "2026-09-24T04:59:00+08:00",
+          "reward": "联动建筑「当世界还小的时候」+ 高阶秘物包裹（累登 3 日）",
+          "sourceUrl": "https://re.bluepoch.com/home/",
+          "isCollabActivity": true,
+          "collabPartner": "B.Duck"
+        },
+        {
+          "id": "R1999-A2",
+          "name": "重燃！流金之海（故事模式）",
+          "startDate": "2026-08-13T10:00:00+08:00",
+          "endDate": "2026-09-21T04:59:00+08:00",
+          "reward": "一叶欢呼 → 纯雨滴 / 6★ 心相「宣告以弦鸣」",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "id": "R1999-A3",
+          "name": "重燃！流金之海（探索模式）",
+          "startDate": "2026-08-20T05:00:00+08:00",
+          "endDate": "2026-09-21T04:59:00+08:00",
+          "reward": "一叶欢呼",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "id": "R1999-A4",
+          "name": "双重谐振",
+          "startDate": "2026-08-28T05:00:00+08:00",
+          "endDate": "2026-09-07T04:59:00+08:00",
+          "reward": "尘埃运动双倍酬劳（共 20 次，日上限 4）",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "id": "R1999-A5",
+          "name": "洋葱头轶事·流行于世界",
+          "startDate": "2026-08-21T05:00:00+08:00",
+          "endDate": "2026-09-04T04:59:00+08:00",
+          "reward": "5★ 心相、贪欲",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "id": "R1999-A6",
+          "name": "焦点闪回 / 缪斯碰碰盒",
+          "startDate": "2026-08-15T05:00:00+08:00",
+          "endDate": "2026-09-24T04:59:00+08:00",
+          "reward": "神思母本 / 洋葱头联动衣着「体育快讯」",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "id": "R1999-A7",
+          "name": "鬃毛邮报·特约观察（新增联合报道）",
+          "startDate": "2026-08-13T10:00:00+08:00",
+          "endDate": "2026-09-24T04:59:00+08:00",
+          "reward": "饕餮、共鸣晶匣等",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        },
+        {
+          "id": "R1999-A8",
+          "name": "黄昏的音序·声息回廊",
+          "startDate": "2026-09-03T05:00:00+08:00",
+          "endDate": "2026-09-24T04:59:00+08:00",
+          "reward": "限定头像「后日浮影」",
+          "sourceUrl": "https://re.bluepoch.com/home/"
+        }
+      ],
+      "summary": "3.9 运行中，09-24 04:59 结束。本日按官方 3.9 内容一览复核：赫多涅与纳西索斯均为【非限定活动角色】，两版本后进常驻；B.Duck 仅活动层联动。上半赫多涅征集 09-03 04:59 结束（T+4）。",
+      "characterAnalysis": "赫多涅（6★ 岩，术具辅助输出）定位为术具体系核心增益 + 输出补充，非限定意味着未来可常驻获取，抽取紧迫度低；纳西索斯（6★ 兽，仪式生存）偏续航，同为非限定。若资源紧张，可优先跳过本期、等两版本后进常驻再补。真正的时间敏感项是 B.Duck 联动建筑「当世界还小的时候」（累登 3 日即领，零成本）。",
+      "pickupPool": "",
+      "channel": "官方"
+    },
+    {
+      "name": "胜利女神：NIKKE（国际服）",
+      "version": "PERSONA ON FRONTLINE（女神异闻录联动）",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-13T07:00:00+09:00",
+      "versionEnd": "2026-09-10T04:59:59+09:00",
+      "nextVersion": "GREAT VILLAIN UNION",
+      "nextVersionStart": "2026-09-01T00:00:00+09:00",
+      "versionSourceUrl": "https://www.gamekee.com/nikke/716193.html",
+      "versionConfidence": "HIGH",
+      "server": "国际服（含日服，JST 口径）",
+      "updates": [
+        {
+          "date": "2026-08-13",
+          "title": "PERSONA ON FRONTLINE 联动上线（官方公告，UTC+9）",
+          "content": "活动时间 2026-08-13 更新维护结束后 ~ 2026-09-10 04:59:59（UTC+9），活动商店道具兑换同刻结束。联动小游戏 MIDNIGHT PHANTOM RUNNER 同步。SR 埃癸斯（埃癸斯）免费取得时间为同期。",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html"
+        },
+        {
+          "date": "2026-08-29",
+          "title": "周末 FULL BURST DAY 第三轮进行中",
+          "content": "2026-08-29 05:00:00 – 2026-08-31 04:59:59（UTC+9）。",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html"
+        },
+        {
+          "date": "2026-09-01",
+          "title": "9 月规划：GREAT VILLAIN UNION + 德雷克「终极反派」Pick Up 预告",
+          "content": "8 月开发者笔记（官方）确认：9 月初故事活动 GREAT VILLAIN UNION（补完德雷克剧情），同期预计上线德雷克变身版 Pick Up；9 月中兔女郎活动 COIN RUSH SHOWDOWN（妮姬为 2025 年前登场角色）；9 月中限定时装×6 + 限定妮姬×6 返场（含 X-Ludmilla、X-Maiden）；9 月初 SD 短动画 MINIKKE 全 10 集陆续公开。具体日期待官方公告。",
+          "sourceUrl": "https://www.gamekee.com/nikke/718907.html"
+        }
+      ],
+      "banners": [
+        {
+          "id": "NKI-B1",
+          "phase": "联动全周期",
+          "name": "QUEEN（新岛真）",
+          "startDate": "2026-08-13T07:00:00+09:00",
+          "endDate": "2026-09-10T04:59:59+09:00",
+          "isCollab": true,
+          "collabPartner": "女神异闻录系列（P3R / P4G / P5R）",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+          "note": "联动卡池结束时间 = 联动周期结束时间（09-10 04:59:59 UTC+9）"
+        },
+        {
+          "id": "NKI-B2",
+          "phase": "联动全周期",
+          "name": "天城雪子",
+          "startDate": "2026-08-20T05:00:00+09:00",
+          "endDate": "2026-09-10T04:59:59+09:00",
+          "isCollab": true,
+          "collabPartner": "女神异闻录系列（P4G）",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+          "note": "联动卡池结束时间 = 联动周期结束时间"
+        },
+        {
+          "id": "NKI-B3",
+          "phase": "9 月新池",
+          "name": "SSR 德雷克：终极反派（预告）",
+          "startDate": "UNKNOWN",
+          "endDate": "UNKNOWN",
+          "isCollab": false,
+          "sourceUrl": "https://www.gamekee.com/nikke/719027.html",
+          "pendingTier1Confirm": true,
+          "note": "官方 Pick Up 招募预告已出，具体开始/结束时间待官方公告；与 GREAT VILLAIN UNION 事件配套"
+        }
+      ],
+      "activities": [
+        {
+          "id": "NKI-A1",
+          "name": "协同作战 第三轮（Gatekeeper）",
+          "startDate": "2026-08-28T12:00:00+09:00",
+          "endDate": "2026-08-30T23:59:59+09:00",
+          "reward": "协同作战奖励",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+          "note": "本日修正：官方原文为 8/28 12:00:00 – 8/30 23:59:59（UTC+9）；今日截止"
+        },
+        {
+          "id": "NKI-A2",
+          "name": "周末 FULL BURST DAY 第三轮",
+          "startDate": "2026-08-29T05:00:00+09:00",
+          "endDate": "2026-08-31T04:59:59+09:00",
+          "reward": "Full Burst 收益提升",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html"
+        },
+        {
+          "id": "NKI-A3",
+          "name": "PERSONA ON FRONTLINE（联动本体）",
+          "startDate": "2026-08-13T07:00:00+09:00",
+          "endDate": "2026-09-10T04:59:59+09:00",
+          "reward": "联动剧情 + 商店兑换 + SR 埃癸斯",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html",
+          "isCollabActivity": true,
+          "collabPartner": "女神异闻录系列"
+        },
+        {
+          "id": "NKI-A4",
+          "name": "9 月 Mission Pass（芙罗拉-妖精兔）",
+          "startDate": "2026-09-01T00:00:00+09:00",
+          "endDate": "2026-09-30T23:59:00+09:00",
+          "reward": "Mission Pass 奖励",
+          "sourceUrl": "https://www.gamekee.com/nikke/716193.html"
+        },
+        {
+          "id": "NKI-A5",
+          "name": "GREAT VILLAIN UNION",
+          "startDate": "2026-09-01T00:00:00+09:00",
+          "endDate": "UNKNOWN",
+          "reward": "故事活动奖励",
+          "sourceUrl": "https://www.gamekee.com/nikke/718907.html",
+          "pendingTier1Confirm": true,
+          "note": "官方仅公布「9 月初」，具体时刻待公告"
+        },
+        {
+          "id": "NKI-A6",
+          "name": "COIN RUSH SHOWDOWN（兔女郎活动）",
+          "startDate": "2026-09-15T00:00:00+09:00",
+          "endDate": "UNKNOWN",
+          "reward": "活动奖励",
+          "sourceUrl": "https://www.gamekee.com/nikke/718907.html",
+          "pendingTier1Confirm": true,
+          "note": "9 月中；主角为 2025 年前登场的妮姬，官方未公布人选"
+        }
+      ],
+      "summary": "联动周期 09-10 04:59:59（UTC+9）结束，联动卡池与联动周期同刻收尾。协同作战第三轮今日截止；周末 FULL BURST DAY 第三轮明日 04:59（UTC+9）截止。9 月规划已由官方开发者笔记确认：GREAT VILLAIN UNION（9 月初）+ 德雷克变身 Pick Up、COIN RUSH SHOWDOWN（9 月中）、限定时装与妮姬返场（9 月中）。",
+      "characterAnalysis": "QUEEN（新岛真）与天城雪子为联动限定，联动结束后暂无复刻先例，属「当期不抽即绝版」类型，抽取优先级最高。SR 埃癸斯为免费取得，无成本。9 月德雷克：终极反派为原角色变身版（墨提斯部队/Matis），按官方预告与 GREAT VILLAIN UNION 事件配套，建议保留资源至 9 月公告落地再决策。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "胜利女神：NIKKE（国服 / 新的希望）",
+      "version": "JUVENILE DAYS 青春时光",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-13T04:00:00+08:00",
+      "versionEnd": "2026-09-02T03:59:00+08:00",
+      "nextVersion": "ABSOLUTE 特种部队",
+      "nextVersionStart": "2026-09-02T04:00:00+08:00",
+      "versionSourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+      "versionConfidence": "HIGH",
+      "server": "国服（腾讯代理）",
+      "updates": [
+        {
+          "date": "2026-08-12",
+          "title": "官方制作组笔记第⑩期：8–9 月版本规划",
+          "content": "8/13 全球同步联动（QUEEN 新岛真 / 天城雪子 / 埃癸斯）+ 主线第 37 章「苦战」与第 38 章「暴食」；8/19 JUVENILE DAYS 青春时光（SSR 爱因）；9/2 ABSOLUTE 特种部队（艾玛/银华/贝斯蒂 战术升级）；9/10 COLORLESS 褪色青春（SSR 茨瓦伊）；9/24 WISDOM SPRING 智慧之源（SSR 玛娜）。档案馆新增 BOW WOW PARADISE 汪汪乐园；无限之塔开放至 950 层、企业塔至 550 层。",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff"
+        },
+        {
+          "date": "2026-08-28",
+          "title": "协同作战「捍卫者Ⅲ」进行中（今日截止）",
+          "content": "2026/8/28 12:00:00 – 2026/8/30 23:59:59（大厅 - 活动 - 协同作战）。",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff"
+        }
+      ],
+      "banners": [
+        {
+          "id": "NKC-B1",
+          "phase": "当期",
+          "name": "SSR 爱因（JUVENILE DAYS 青春时光）",
+          "startDate": "2026-08-19T04:00:00+08:00",
+          "endDate": "2026-09-02T03:59:00+08:00",
+          "isCollab": false,
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+          "note": "T+3 结束"
+        }
+      ],
+      "activities": [
+        {
+          "id": "NKC-A1",
+          "name": "协同作战·捍卫者Ⅲ",
+          "startDate": "2026-08-28T12:00:00+08:00",
+          "endDate": "2026-08-30T23:59:59+08:00",
+          "reward": "协同作战奖励",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+          "note": "今日截止"
+        },
+        {
+          "id": "NKC-A2",
+          "name": "ABSOLUTE 特种部队",
+          "startDate": "2026-09-02T04:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "艾玛/银华/贝斯蒂 战术升级",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+          "pendingTier1Confirm": true,
+          "note": "上线时间已官宣，结束时间待公告"
+        },
+        {
+          "id": "NKC-A3",
+          "name": "COLORLESS 褪色青春",
+          "startDate": "2026-09-10T04:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "SSR 茨瓦伊",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+          "pendingTier1Confirm": true,
+          "note": "上线时间已官宣，结束时间待公告"
+        },
+        {
+          "id": "NKC-A4",
+          "name": "WISDOM SPRING 智慧之源",
+          "startDate": "2026-09-24T04:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "SSR 玛娜",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+          "pendingTier1Confirm": true,
+          "note": "上线时间已官宣，结束时间待公告"
+        },
+        {
+          "id": "NKC-A5",
+          "name": "灵姬夜话（护航计划 DAY BY DAY）",
+          "startDate": "2026-09-10T04:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "SSR 特工妮姬 画皮 与 婴宁",
+          "sourceUrl": "https://nikke.qq.com/news-detail.html?adtag=NaN&id=ehzazjzml6m1okj18xm3sbff",
+          "pendingTier1Confirm": true,
+          "note": "上线时间已官宣，结束时间待公告"
+        }
+      ],
+      "summary": "国服本期 09-02 03:59 结束，09-02 04:00 由 ABSOLUTE 特种部队接档。9 月三连（9/2 ABSOLUTE、9/10 COLORLESS、9/24 WISDOM SPRING）已由官方制作组笔记确认。协同作战「捍卫者Ⅲ」今日 23:59:59 截止。",
+      "characterAnalysis": "爱因为 JUVENILE DAYS 主题活动 SSR，非联动限定，紧迫度中等。9 月节奏密集：ABSOLUTE 三人为「战术升级」形态（艾玛/银华/贝斯蒂），属已有角色进阶形态；COLORLESS 茨瓦伊与 WISDOM SPRING 玛娜为全新 SSR；灵姬夜话可免费获取 SSR 画皮与婴宁。建议优先保证 9/2 与 9/10 两波的资源，爱因可视阵容缺口取舍。",
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    },
+    {
+      "name": "燕云十六声",
+      "version": "2.7.5C",
+      "versionStatus": "CURRENT",
+      "versionStart": "2026-08-14T05:00:00+08:00",
+      "versionEnd": "UNKNOWN",
+      "nextVersion": "2.7.6",
+      "nextVersionStart": "UNKNOWN",
+      "versionSourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+      "versionConfidence": "MEDIUM",
+      "server": "国服/全球",
+      "updates": [
+        {
+          "date": "2026-08-28",
+          "title": "8 月 28 日版本更新：杭州西境开放 + 「藏锋志」",
+          "content": "杭州西境开放（灵隐新寺 / 飞来峰 / 曲院风荷 / 花港观鱼 / 茶田 / 竹海）；新镇守「大雾幽篁」（6×6 地块追击 愁铃客）；大型肉鸽 PVE「藏锋志」（1-3 人、普通/挑战双难度、100+ 侠痕构筑）；新志怪首领「青瓶居士」；【渡尘墟】AI 对局（AI 单排 / AI 三排）；新和鸣外观【飞容清响】、陌刀【藏音·双灵镇阙】、枪外观【一念之叉】上架；「青州」系列新内容。9 月【打马棋】【江湖弈】【萌主争锋】进入第二赛季并重置段位。",
+          "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html"
+        },
+        {
+          "date": "2026-08-28",
+          "title": "全球游侠突破 1 亿；9 月 4 日「一亿游侠庆典」开幕",
+          "content": "庆典持续一个月，通过邮件 + 活动发放超过 30 抽和鸣道具、鸣道道具、侠名、限定配饰；同期连续七日邮件送 10 枚袅袅之音·绑。另：入选商务部等 6 部门 2026 年「千帆出海」重点活动（项目）清单（全国唯一入选游戏项目）；2026 科隆游戏展荣获最佳移动游戏（Best Mobile Game），为首個获科隆奖项的中国武侠题材游戏。",
+          "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html"
+        }
+      ],
+      "activities": [
+        {
+          "id": "YY-A1",
+          "name": "中式志怪主题月",
+          "startDate": "2026-08-28T05:00:00+08:00",
+          "endDate": "2026-09-15T23:59:00+08:00",
+          "reward": "主题月奖励",
+          "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html"
+        },
+        {
+          "id": "YY-A2",
+          "name": "照影庙",
+          "startDate": "2026-08-27T05:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "玩法奖励",
+          "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+          "pendingTier1Confirm": true,
+          "note": "08-27 上线，结束时间待官方公告"
+        },
+        {
+          "id": "YY-A3",
+          "name": "渡尘墟 AI 对局",
+          "startDate": "2026-08-28T05:00:00+08:00",
+          "endDate": "UNKNOWN",
+          "reward": "对局奖励",
+          "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html",
+          "pendingTier1Confirm": true,
+          "note": "08-28 上线，结束时间待官方公告"
+        },
+        {
+          "id": "YY-A4",
+          "name": "一亿游侠庆典",
+          "startDate": "2026-09-04T05:00:00+08:00",
+          "endDate": "2026-10-04T23:59:00+08:00",
+          "reward": "30+ 抽和鸣道具、鸣道道具、侠名、限定配饰；连续七日 10 枚袅袅之音·绑",
+          "sourceUrl": "https://yysls.cn/m/news/official/20260828/37780_1312579.html"
+        }
+      ],
+      "summary": "8/28 版本更新为本周主线：杭州西境 + 藏锋志 + 大雾幽篁 + 渡尘墟 AI 对局。全球游侠破 1 亿，9/4 开启为期一个月的「一亿游侠庆典」。同期获 2026 科隆游戏展最佳移动游戏，并入选商务部「千帆出海」重点清单。",
+      "characterAnalysis": "（非 gacha 抽卡产品）本期价值集中在 PVE 内容：藏锋志为 100+ 侠痕构筑的肉鸽玩法，重复可玩性高；渡尘墟 AI 对局降低了组队门槛。9/4 庆典的 30+ 抽和鸣道具为月度最大福利窗口，建议在此之前完成和鸣相关资源囤积。",
+      "banners": [],
+      "pickupPool": "",
+      "versionName": "",
+      "channel": "官方"
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-08-30",
+      "items": [
+        "【今日截止】绝区零 3.2 前瞻兑换码 CLARET0909（23:59:59）",
+        "【今日截止】NIKKE 国际服 协同作战第三轮（23:59:59 JST）",
+        "【今日截止】NIKKE 国服 协同作战·捍卫者Ⅲ（23:59:59）",
+        "【今日截止】洛克王国：世界 远行商人上新（04:00）"
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "items": [
+        "【截止】洛克王国：世界 星光对决当前期 / 闪耀周末 / 500% 孵蛋加速日 / 地鼠大量出没 / 「写给相遇的诗」（04:00）",
+        "【截止】NIKKE 国际服 周末 FULL BURST DAY 第三轮（04:59:59 JST）",
+        "【开启】崩坏：星穹铁道 末日幻影·仙客天狼（04:00）",
+        "【开启】洛克王国：世界 星光对决新期（万事通 / 恶魔狼王队，04:00）"
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "items": [
+        "【开启】原神 7.0 下半卡池 弗林斯 / 伊内法（18:00）｜上半 17:59 结束",
+        "【开启】NIKKE 国际服 9 月 Mission Pass（00:00 JST）",
+        "【开启】NIKKE 国际服 GREAT VILLAIN UNION（9 月初，具体时刻待官宣）"
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "items": [
+        "【开启】明日方舟：终末地 1.5「雪淞幽梦」（12:00）｜1.4 同期结束",
+        "【开启】NIKKE 国服 ABSOLUTE 特种部队（04:00）",
+        "【截止】NIKKE 国服 SSR 爱因卡池（03:59）"
+      ]
+    },
+    {
+      "date": "2026-09-03",
+      "items": [
+        "【截止】异环 1.3 上半 残虹 / 娜娜莉（05:59）｜下半 灵可 / 浔 11:00 接档",
+        "【截止】重返未来1999 上半 赫多涅「烈火悬流无尽」（04:59）｜下半 纳西索斯 05:00 接档",
+        "【开启】鸣潮 清弦纪流年（04:00）"
+      ]
+    },
+    {
+      "date": "2026-09-04",
+      "items": [
+        "【开启】燕云十六声 一亿游侠庆典（一个月，30+ 抽和鸣道具）",
+        "【截止】重返未来1999 洋葱头轶事（04:59）"
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "items": [
+        "【截止】二重螺旋 狩月人之阶（00:00）"
+      ]
+    },
+    {
+      "date": "2026-09-07",
+      "items": [
+        "【截止】洛克王国：世界 星光对决（万事通期，04:00）",
+        "【截止】异环 夺金大作战（04:59）",
+        "【截止】重返未来1999 双重谐振（04:59）"
+      ]
+    },
+    {
+      "date": "2026-09-08",
+      "items": [
+        "【截止】绝区零 3.1 下半 希格莉德（14:59）"
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "items": [
+        "【开启】绝区零 3.2「她与她的隐秘往事」（00:00）｜克拉蕾 / 南宫羽 独家频段同期"
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "items": [
+        "【截止】NIKKE 国际服 PERSONA ON FRONTLINE 联动全周期 + 联动卡池（04:59:59 JST）",
+        "【截止】明日方舟：终末地 1.4 梨诺卡池（03:59）",
+        "【开启】鸣潮 3.6 下半 景燃（11:00，推定）｜NIKKE 国服 COLORLESS 褪色青春（04:00）"
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "items": [
+        "【开启】崩坏：星穹铁道 4.5 下半 砂金·戏浪 / 不死途（12:00）"
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "items": [
+        "【开启】蓝色星原：旅谣「旅迹测试」预下载（15:00）",
+        "【开启】NIKKE 国际服 COIN RUSH SHOWDOWN（兔女郎活动，9 月中）"
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "items": [
+        "【开启】蓝色星原：旅谣「旅迹测试」正式开测（11:00）"
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "items": [
+        "【开启】NIKKE 国服 WISDOM SPRING 智慧之源（04:00）",
+        "【截止】异环 1.3 版本（05:59）｜重返未来1999 3.9 版本（04:59）",
+        "【开启】明日方舟：终末地 1.5 下半 重构寻访【绚丽异彩】伊冯（12:00）"
+      ]
+    }
+  ],
+  "statistics": {
+    "gamesWithMajorNews": 6,
+    "activeBanners": 12,
+    "upcomingBanners": 10,
+    "pendingConfirmBanners": 2,
+    "bannersEndingWithin7Days": 5,
+    "bannersEndingWithin3Days": 3,
+    "urgentBanners": 1,
+    "activeActivities": 33,
+    "upcomingActivities": 18,
+    "urgentActivities": 8,
+    "upcomingVersionCount": 5,
+    "codeCount": 1,
+    "urgentCodeCount": 1,
+    "tier1SourceFetches": 10,
+    "webSearches": 17,
+    "baselineCorrections": 6
+  }
+}
