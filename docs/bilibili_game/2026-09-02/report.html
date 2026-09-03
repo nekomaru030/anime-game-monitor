@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B站游戏舆情日报 2026-09-02</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#333;line-height:1.6;padding:16px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{background:#111;color:#fff;padding:28px 32px;border-radius:14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+        .header-left{display:flex;flex-direction:column;gap:10px}
+        .header h1{font-size:26px;font-weight:700;letter-spacing:-.3px;line-height:1.2}
+        .header .meta{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.2px}
+        .stats{display:flex;gap:10px;flex-wrap:wrap}
+        .stat-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:8px 16px;border-radius:8px;display:flex;flex-direction:column;gap:2px;min-width:72px}
+        .stat-box .num{font-size:20px;font-weight:700;display:block;line-height:1.1}
+        .stat-box .label{font-size:11px;color:rgba(255,255,255,.45)}
+        .header-date{font-size:12px;color:rgba(255,255,255,.35);white-space:nowrap;align-self:flex-start;letter-spacing:.3px}
+        .section{background:#fff;border-radius:10px;padding:18px 22px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+        .section h2{font-size:15px;font-weight:600;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #eee}
+        .video-card{border-left:4px solid #e74c3c;padding:16px 18px;margin-bottom:14px;border-radius:0 8px 8px 0;background:#fff5f5}
+        .video-card.yellow{border-left-color:#f39c12;background:#fffdf5}
+        .title-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+        .game-tag{background:#2d3436;color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;white-space:nowrap}
+        .score-badge{font-size:12px;padding:3px 10px;border-radius:4px;font-weight:700}
+        .score-red{background:#e74c3c;color:#fff}
+        .score-yellow{background:#f39c12;color:#fff}
+        .video-title{font-size:16px;font-weight:700;flex:1;line-height:1.45;letter-spacing:.2px}
+        .video-title a{color:#1a1a2e;text-decoration:none}
+        .video-title a:hover{color:#0984e3;text-decoration:underline}
+        .card-header{display:flex;gap:16px;align-items:flex-start;margin-bottom:10px}
+        .title-section{flex:1}
+        .heat-mini{display:flex;gap:18px;align-items:flex-start}
+        .heat-mini-item{display:flex;flex-direction:column;align-items:center;gap:0;text-align:center;min-width:46px}
+        .heat-mini-item .hm-val{font-size:20px;font-weight:700;color:#2d3436;line-height:1.2}
+        .heat-mini-item .hm-lbl{font-size:12px;color:#888;margin-top:2px;line-height:1.2}
+        .heat-mini-item .hm-rate{font-size:12px;font-weight:700;color:#e17055;margin-top:3px;line-height:1.2}
+        .heat-mini-sep{width:1px;background:#eee;align-self:stretch;margin:2px 0}
+        .content-section{margin-top:8px}
+        .view-toggle{display:flex;gap:6px}
+        .toggle-btn{padding:5px 14px;border-radius:20px;border:1.5px solid #ddd;background:#fff;font-size:13px;cursor:pointer;color:#666;font-weight:500;transition:all .15s}
+        .toggle-btn.active{background:#1a1a2e;border-color:#1a1a2e;color:#fff}
+        .toggle-btn:hover:not(.active){background:#f5f7fa;border-color:#bbb}
+        .sentiment-box{display:flex;align-items:flex-start;gap:8px;font-size:13px;flex-wrap:wrap}
+        @media(max-width:760px){.card-header{flex-direction:column}.heat-mini{width:100%}}
+        .sentiment-bar{height:18px;border-radius:9px;overflow:hidden;display:flex;margin:8px 0}
+        .sentiment-bar .seg-pos{background:#27ae60}
+        .sentiment-bar .seg-neu{background:#bdc3c7}
+        .sentiment-bar .seg-neg{background:#e74c3c}
+        .sentiment-label{font-size:15px;font-weight:700;margin-bottom:6px}
+        .sentiment-label.neg{color:#e74c3c}
+        .sentiment-label.pos{color:#27ae60}
+        .sentiment-label.mixed{color:#f39c12}
+        .sentiment-label.neutral{color:#7f8c8d}
+        .sentiment-pct{font-size:12px;color:#666;margin-top:2px}
+        .slang-hits{margin-top:8px}
+        .slang-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:12px;margin:2px 3px 2px 0;font-weight:500}
+        .slang-tag.neg{background:#ffe0e0;color:#c0392b}
+        .slang-tag.pos{background:#d4edda;color:#155724}
+        .slang-tag.neu{background:#e8e8e8;color:#555}
+        .risk-tags{margin-top:10px;padding-top:10px;border-top:1px dashed #e0e0e0}
+        .risk-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:12px;margin:2px 3px 2px 0;font-weight:500}
+        .risk-tag.political{background:#ffeaa7;color:#d35400}
+        .risk-tag.gender{background:#fab1a0;color:#c0392b}
+        .risk-tag.class_conflict{background:#dfe6e9;color:#2d3436}
+        .risk-tag.community_conflict{background:#e0c3fc;color:#6c5ce7}
+        .risk-tag.product_incident{background:#ff7675;color:#fff}
+        .trend-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;margin-left:6px}
+        .trend-tag.new{background:#e8f5e9;color:#2e7d32}
+        .trend-tag.rising{background:#fff3e0;color:#e65100;animation:pulse 2s infinite}
+        .trend-tag.falling{background:#e0e0e0;color:#757575}
+        .trend-tag.staying{background:#e3f2fd;color:#1565c0}
+        .trend-delta{font-size:11px;color:#888;margin-left:4px}
+        .trend-delta .up{color:#e74c3c;font-weight:600}
+        .trend-delta .down{color:#27ae60}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+        .reply-sample{font-size:12px;color:#666;margin-top:10px;border-top:1px dashed #e0e0e0;padding-top:8px;line-height:1.5}
+        .reply-sample .r-item{margin-bottom:5px}
+        .reply-sample .r-like{color:#e17055;font-size:11px;font-weight:600;margin-right:4px}
+        .reply-sample .r-hits{font-size:11px;color:#6c5ce7}
+        .table-scroll{overflow-x:auto}
+        .overview-table{width:100%;border-collapse:collapse;font-size:13px;min-width:1040px}
+        .overview-table th{background:#f8f9fa;padding:8px 10px;text-align:left;font-weight:600;border-bottom:2px solid #dee2e6;white-space:nowrap}
+        .overview-table td{padding:7px 10px;border-bottom:1px solid #eee;white-space:nowrap}
+        .overview-table tr:hover td{background:#f8f9fa}
+        .overview-note{font-size:12px;color:#888;margin:-4px 0 10px}
+        .category-block{border:1px solid #edf0f3;border-radius:10px;margin:10px 0;background:#fff;overflow:hidden}
+        .category-block summary{cursor:pointer;list-style:none;padding:10px 12px;background:#fafbfc;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;font-weight:600;color:#2d3436}
+        .category-block summary::-webkit-details-marker{display:none}
+        .category-block summary:before{content:"▶";font-size:10px;color:#999;margin-right:6px;transition:transform .15s ease}
+        .category-block[open] summary:before{transform:rotate(90deg)}
+        .category-summary-main{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .category-summary-sub{font-size:12px;color:#888;font-weight:400}
+        .category-badge{display:inline-flex;align-items:center;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:600;background:#eef2ff;color:#3949ab;white-space:nowrap}
+        .category-badge.cat-二次元{background:#f3e8ff;color:#7e22ce}
+        .category-badge.cat-女性向{background:#ffe4f0;color:#be185d}
+        .category-badge.cat-射击{background:#e0f2fe;color:#0369a1}
+        .category-badge.cat-非对称{background:#ecfdf5;color:#047857}
+        .rank-cell{color:#999;font-variant-numeric:tabular-nums;text-align:center}
+        .rank-change{font-weight:700;font-variant-numeric:tabular-nums;text-align:center}
+        .rank-change.up{color:#e74c3c}
+        .rank-change.down{color:#27ae60}
+        .rank-change.new{color:#6c5ce7}
+        .rank-change.flat{color:#aaa}
+        .heat-score{font-weight:700;color:#2d3436;font-variant-numeric:tabular-nums}
+        .tier-badge{display:inline-flex;align-items:center;justify-content:center;min-width:54px;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700}
+        .tier-s{background:#ffe0e0;color:#c0392b}
+        .tier-a{background:#fff3cd;color:#b7791f}
+        .tier-b{background:#e3f2fd;color:#1565c0}
+        .tier-c{background:#eeeeee;color:#777}
+        .heat-sub{font-size:11px;color:#999;margin-left:4px;font-weight:400}
+        .empty{color:#999;font-size:13px;padding:16px;text-align:center}
+        .footer{text-align:center;color:#999;font-size:11px;padding:12px;margin-top:8px}
+        .meta-row{font-size:12px;color:#888;margin-top:2px}
+        .more-videos{margin-top:10px;border:1px dashed #e4e7eb;border-radius:8px;background:#fafbfc;overflow:hidden}
+        .more-videos summary{cursor:pointer;list-style:none;padding:10px 14px;font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;justify-content:center;gap:6px}
+        .more-videos summary::-webkit-details-marker{display:none}
+        .more-videos summary:before{content:"▶";font-size:10px;color:#999;transition:transform .15s ease}
+        .more-videos[open] summary:before{transform:rotate(90deg)}
+        .more-videos-list{padding:0 12px 2px}
+        .back-to-top{position:fixed;right:22px;bottom:28px;z-index:20;border:0;border-radius:999px;background:#1a1a2e;color:#fff;padding:10px 14px;font-size:13px;font-weight:700;box-shadow:0 8px 20px rgba(26,26,46,.22);cursor:pointer;opacity:.88;transition:opacity .15s ease,transform .15s ease}
+        .back-to-top:hover{opacity:1;transform:translateY(-2px)}
+        @media(max-width:760px){.back-to-top{right:14px;bottom:18px;padding:9px 12px;font-size:12px}}
+    </style>
+</head>
+<body>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶端">↑ 顶端</button>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <h1>B站二游舆情日报</h1>
+            <div class="stats">
+                <div class="stat-box"><span class="num" style="color:#ff6b6b">0</span><span class="label">高热度</span></div>
+                <div class="stat-box"><span class="num" style="color:#ffa94d">0</span><span class="label">中热度</span></div>
+                <div class="stat-box"><span class="num">0</span><span class="label">候选视频</span></div>
+                <div class="stat-box"><span class="num">0</span><span class="label">评论分析</span></div>
+            </div>
+            <div class="meta">监控 35 款游戏 · 采集窗口 48h · 词典 v2026.05.7</div>
+        </div>
+        <div class="header-date">2026-09-02 报告</div>
+    </div>
+
+    
+
+    <div class="section">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid #eee">
+            <h2 style="margin:0;border:none;padding:0">全部游戏概览</h2>
+            <div class="view-toggle">
+                <button id="btn-rank" class="toggle-btn active" onclick="switchView('rank')">📊 按排名</button>
+                <button id="btn-category" class="toggle-btn" onclick="switchView('category')">🏷 按品类</button>
+            </div>
+        </div>
+        <div class="overview-note">按当日候选池总流量综合排序：40%总播放 + 25%总互动 + 15%候选数 + 10%高中热视频数 + 10%头部峰值；变化列为较昨日排名升降，仅代表本日B站候选样本内相对热度。</div>
+
+        <!-- 按排名视图 -->
+        <div id="view-rank">
+            <div class="table-scroll" style="margin-top:12px">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                
+                
+                <tr >
+                    <td class="rank-cell">#1</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/94ec240e.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">原神</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#2</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/a39b50b4.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">鸣潮</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#3</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5ac90421.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">崩坏星穹铁道</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#4</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5d2b985a.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">绝区零</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#5</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/421f1c5b.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">明日方舟</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#6</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/bbd168ce.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">明日方舟终末地</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#7</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/4b90f646.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">NIKKE国服</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#8</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/74ef9432.png" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">NIKKE国际服</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#9</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/24333034.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">异环</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#10</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5590718f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">归环</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#11</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/1985574f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">洛克王国世界</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#12</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/9971eb1d.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">蓝色星原</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#13</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5ee4c9b9.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">无限大</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#14</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/fce64b06.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">二重螺旋</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#15</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/2508782c.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">重返未来1999</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#16</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/38a6bec7.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">望月</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#17</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/98aa1812.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">雨之城</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#18</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/14c26369.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">恋与深空</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#19</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/d07b247f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">世界之外</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#20</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/f737adb7.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">光与夜之恋</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#21</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/7736758f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">无限暖暖</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#22</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/636914e9.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">三角洲行动</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#23</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/3ff51062.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">无畏契约</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#24</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <div style="width:24px;height:24px;border-radius:5px;background:#ddd;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#666">弧</div>
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">弧光猎人</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#25</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/98da0643.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">暗区突围</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#26</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/736417eb.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">第五人格</span>
+                    </td>
+                    <td><span class="category-badge cat-非对称">非对称</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#27</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/d0a299fc.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">超自然行动组</span>
+                    </td>
+                    <td><span class="category-badge cat-非对称">非对称</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#28</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/8308691c.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">遗忘之海</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#29</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/7780ef30.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">饥困荒野</span>
+                    </td>
+                    <td><span class="category-badge cat-生存沙盒">生存沙盒</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#30</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/039fe5f9.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">卡厄思梦境</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#31</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/63c096e7.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">燕云十六声</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#32</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/f2ab0734.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">崩坏：因缘精灵</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#33</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/bfc99775.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">凡应</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#34</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/11d6f2c4.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">白银之城</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#35</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/a3a3110d.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">诡秘之主</span>
+                    </td>
+                    <td><span class="category-badge cat-MMO">MMO</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </div>
+
+        <!-- 按品类视图 -->
+        <div id="view-category" style="display:none;margin-top:12px">
+        
+        <details class="category-block" open>
+            <summary>
+                <span class="category-summary-main">
+                    <span class="category-badge cat-二次元">二次元</span>
+                    <span>23款产品</span>
+                </span>
+                <span class="category-summary-sub">活跃 0 款 / 有高或中热度 0 款</span>
+            </summary>
+            <div class="table-scroll">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                <tr >
+                    <td class="rank-cell">#1</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/94ec240e.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">原神</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#2</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/a39b50b4.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">鸣潮</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#3</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5ac90421.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">崩坏星穹铁道</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#4</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5d2b985a.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">绝区零</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#5</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/421f1c5b.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">明日方舟</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#6</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/bbd168ce.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">明日方舟终末地</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#7</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/4b90f646.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">NIKKE国服</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#8</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/74ef9432.png" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">NIKKE国际服</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#9</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/24333034.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">异环</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#10</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5590718f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">归环</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#11</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/1985574f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">洛克王国世界</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#12</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/9971eb1d.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">蓝色星原</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#13</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/5ee4c9b9.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">无限大</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#14</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/fce64b06.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">二重螺旋</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#15</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/2508782c.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">重返未来1999</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#16</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/38a6bec7.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">望月</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#17</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/98aa1812.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">雨之城</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#28</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/8308691c.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">遗忘之海</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#30</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/039fe5f9.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">卡厄思梦境</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#31</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/63c096e7.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">燕云十六声</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#32</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/f2ab0734.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">崩坏：因缘精灵</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#33</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/bfc99775.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">凡应</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#34</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/11d6f2c4.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">白银之城</span>
+                    </td>
+                    <td><span class="category-badge cat-二次元">二次元</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </details>
+        
+        <details class="category-block" >
+            <summary>
+                <span class="category-summary-main">
+                    <span class="category-badge cat-女性向">女性向</span>
+                    <span>4款产品</span>
+                </span>
+                <span class="category-summary-sub">活跃 0 款 / 有高或中热度 0 款</span>
+            </summary>
+            <div class="table-scroll">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                <tr >
+                    <td class="rank-cell">#18</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/14c26369.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">恋与深空</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#19</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/d07b247f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">世界之外</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#20</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/f737adb7.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">光与夜之恋</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#21</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/7736758f.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">无限暖暖</span>
+                    </td>
+                    <td><span class="category-badge cat-女性向">女性向</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </details>
+        
+        <details class="category-block" >
+            <summary>
+                <span class="category-summary-main">
+                    <span class="category-badge cat-射击">射击</span>
+                    <span>4款产品</span>
+                </span>
+                <span class="category-summary-sub">活跃 0 款 / 有高或中热度 0 款</span>
+            </summary>
+            <div class="table-scroll">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                <tr >
+                    <td class="rank-cell">#22</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/636914e9.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">三角洲行动</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#23</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/3ff51062.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">无畏契约</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#24</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <div style="width:24px;height:24px;border-radius:5px;background:#ddd;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#666">弧</div>
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">弧光猎人</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#25</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/98da0643.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">暗区突围</span>
+                    </td>
+                    <td><span class="category-badge cat-射击">射击</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </details>
+        
+        <details class="category-block" >
+            <summary>
+                <span class="category-summary-main">
+                    <span class="category-badge cat-非对称">非对称</span>
+                    <span>2款产品</span>
+                </span>
+                <span class="category-summary-sub">活跃 0 款 / 有高或中热度 0 款</span>
+            </summary>
+            <div class="table-scroll">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                <tr >
+                    <td class="rank-cell">#26</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/736417eb.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">第五人格</span>
+                    </td>
+                    <td><span class="category-badge cat-非对称">非对称</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+                <tr >
+                    <td class="rank-cell">#27</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/d0a299fc.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">超自然行动组</span>
+                    </td>
+                    <td><span class="category-badge cat-非对称">非对称</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </details>
+        
+        <details class="category-block" >
+            <summary>
+                <span class="category-summary-main">
+                    <span class="category-badge cat-生存沙盒">生存沙盒</span>
+                    <span>1款产品</span>
+                </span>
+                <span class="category-summary-sub">活跃 0 款 / 有高或中热度 0 款</span>
+            </summary>
+            <div class="table-scroll">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                <tr >
+                    <td class="rank-cell">#29</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/7780ef30.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">饥困荒野</span>
+                    </td>
+                    <td><span class="category-badge cat-生存沙盒">生存沙盒</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </details>
+        
+        <details class="category-block" >
+            <summary>
+                <span class="category-summary-main">
+                    <span class="category-badge cat-MMO">MMO</span>
+                    <span>1款产品</span>
+                </span>
+                <span class="category-summary-sub">活跃 0 款 / 有高或中热度 0 款</span>
+            </summary>
+            <div class="table-scroll">
+            <table class="overview-table">
+                <tr><th>排名</th><th>变化</th><th></th><th>游戏</th><th>品类</th><th>梯队</th><th>热度分</th><th>候选</th><th>总播放</th><th>总互动</th><th>高/中热度</th><th>头部播放</th><th>简报</th></tr>
+                
+                <tr >
+                    <td class="rank-cell">#35</td>
+                    <td class="rank-change flat">—</td>
+                    <td style="width:28px;padding:4px">
+                        <img src="../../icons/a3a3110d.jpg" style="width:24px;height:24px;border-radius:5px;vertical-align:middle" alt="" onerror="this.style.visibility='hidden'">
+                        
+                    </td>
+                    <td style="font-weight:500">
+                        <span style="color:#999">诡秘之主</span>
+                    </td>
+                    <td><span class="category-badge cat-MMO">MMO</span></td>
+                    <td><span class="tier-badge tier-c">C档</span><span class="heat-sub">低热/背景</span></td>
+                    <td class="heat-score">0.0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        
+                        
+                        <span style="color:#999">-</span>
+                    </td>
+                    <td>0</td>
+                    <td style="font-size:12px;color:#666;white-space:normal;min-width:150px">暂无异常</td>
+                </tr>
+                
+            </table>
+            </div>
+        </details>
+        
+        </div>
+    </div>
+
+    <script>
+    function switchView(mode) {
+        var rankView = document.getElementById('view-rank');
+        var catView = document.getElementById('view-category');
+        var btnRank = document.getElementById('btn-rank');
+        var btnCat = document.getElementById('btn-category');
+        if (mode === 'rank') {
+            rankView.style.display = '';
+            catView.style.display = 'none';
+            btnRank.classList.add('active');
+            btnCat.classList.remove('active');
+        } else {
+            rankView.style.display = 'none';
+            catView.style.display = '';
+            btnRank.classList.remove('active');
+            btnCat.classList.add('active');
+        }
+    }
+    </script>
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="footer">
+        B站游戏舆情爆发预警系统 v2 | 生成时间: 2026-09-03 09:38:06
+    </div>
+</div>
+</body>
+</html>
