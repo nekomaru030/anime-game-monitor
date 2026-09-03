@@ -632,57 +632,126 @@
         return null;
     }
 
-    // ===== 提取 banners（兼容 v1/v3）=====
+    // ===== 提取 banners（兼容 v1/v3：game/name/tips/remainingDays → gameName/title/suggestion/daysLeft）=====
     function extractBanners(data) {
+        const normBanner = (b, g) => Object.assign({}, b, {
+            gameName: b.gameName || b.game || (g ? (g.gameName || g.name || g.gameId) : '') || b.gameId || '',
+            gameId:   b.gameId   || (g ? g.gameId : '') || '',
+            title:    b.title    || b.name || '',
+            suggestion: b.suggestion || b.tips || '',
+            // remainingDays=-1 表示未知，不映射为天数（交由 endDate 推算）
+            daysLeft: (typeof b.daysLeft === 'number') ? b.daysLeft
+                    : (typeof b.remainingDays === 'number' && b.remainingDays !== -1) ? b.remainingDays
+                    : undefined
+        });
         const top = data.banners || [];
-        if (top.length > 0) return top;
+        if (top.length > 0) return top.map(b => normBanner(b));
         const games = Array.isArray(data.games) ? data.games : Object.values(data.games || {});
         const result = [];
         games.forEach(g => {
-            (g.banners || []).forEach(b => result.push(Object.assign({}, b, {
-                gameName: b.gameName || g.gameName || g.gameId || '',
-                gameId:   b.gameId   || g.gameId  || ''
-            })));
+            (g.banners || []).forEach(b => result.push(normBanner(b, g)));
         });
         return result;
     }
 
-    // ===== 提取版本排期 =====
+    // ===== 游戏名归一化：从 data.games 动态构建 + 常用短别名 =====
+    const GAME_ALIAS_TABLE = {
+        '原神': ['原神'],
+        '崩坏：星穹铁道': ['崩坏：星穹铁道', '星穹铁道', '星铁', '崩铁'],
+        '明日方舟：终末地': ['明日方舟：终末地', '终末地'],
+        '鸣潮': ['鸣潮'],
+        '绝区零': ['绝区零'],
+        '洛克王国：世界': ['洛克王国：世界', '洛克王国'],
+        '二重螺旋': ['二重螺旋'],
+        '异环': ['异环'],
+        '蓝色星原：旅谣': ['蓝色星原：旅谣', '蓝色星原'],
+        '重返未来1999': ['重返未来1999', '重返未来：1999', '重返未来', '1999'],
+        '胜利女神：NIKKE（国际服）': ['胜利女神：NIKKE（国际服）', 'NIKKE 国际服', 'NIKKE国际服', 'NIKKE(en)', '国际服 NIKKE'],
+        '胜利女神：NIKKE（国服 / 新的希望）': ['胜利女神：NIKKE（国服 / 新的希望）', '胜利女神：NIKKE（国服）', 'NIKKE 国服', 'NIKKE国服', '国服 NIKKE'],
+        '燕云十六声': ['燕云十六声', '燕云']
+    };
+
+    // 按文本归属游戏：长别名优先（避免「NIKKE 国服」抢匹配「NIKKE 国际服」）
+    function buildGameMatcher(data) {
+        const names = (Array.isArray(data.games) ? data.games : Object.values(data.games || {}))
+            .map(g => g.name || g.gameName || g.gameId || '').filter(Boolean);
+        const pairs = [];
+        names.forEach(n => {
+            const aliases = GAME_ALIAS_TABLE[n] || [n];
+            aliases.forEach(a => pairs.push({ alias: a, game: n }));
+        });
+        pairs.sort((x, y) => y.alias.length - x.alias.length);
+        return text => {
+            if (!text) return '';
+            for (const p of pairs) { if (text.includes(p.alias)) return p.game; }
+            return '';
+        };
+    }
+
+    // ===== 提取版本排期（兼容 day.events[] 与扁平 {date,event} 两种 calendar）=====
     function extractSchedule(data) {
         const events = [];
         const seen = new Set();
+        const matchGame = buildGameMatcher(data);
+        const today = new Date();
+        const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
         (data.calendar || []).forEach(day => {
-            (day.events || []).forEach(e => {
-                const key = `${day.date}|${e.gameId||e.gameName}|${e.event||e.title||''}`;
+            if (Array.isArray(day.events)) {
+                // v1 结构：{ date, events: [{gameName, event/title, important, type}] }
+                (day.events || []).forEach(e => {
+                    const key = `${day.date}|${e.gameId||e.gameName}|${e.event||e.title||''}`;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        events.push({ date: day.date, gameName: e.gameName||'', gameId: e.gameId||'', title: e.event||e.title||'', important: !!e.important, type: e.type||'' });
+                    }
+                });
+            } else if (day.event) {
+                // v3 扁平结构：{ date, event: '【今日】xxx ……' }，按文本归属游戏，过期日期不进排期
+                if ((day.date || '') < todayStr) return;
+                const m = (day.event || '').match(/^【(.+?)】\s*/);
+                const tag = m ? m[1] : '';
+                const title = (day.event || '').replace(/^【.+?】\s*/, '');
+                const gname = matchGame(title);
+                const key = `${day.date}|${gname}|${title}`;
                 if (!seen.has(key)) {
                     seen.add(key);
-                    events.push({ date: day.date, gameName: e.gameName||'', gameId: e.gameId||'', title: e.event||e.title||'', important: !!e.important, type: e.type||'' });
+                    events.push({ date: day.date, gameName: gname, gameId: '', title, important: tag.includes('今日'), type: '' });
                 }
-            });
+            }
         });
         (data.activities || []).forEach(a => {
             if (a.status !== 'UPCOMING') return;
             const date = (a.startDate||'').substring(0,10);
             if (!date) return;
-            const key = `${date}|${a.gameId||a.gameName}|${a.title||''}`;
+            const gname = a.gameName || a.game || a.gameId || '';
+            const title = a.title || a.name || '';
+            const key = `${date}|${a.gameId||gname}|${title}`;
             if (!seen.has(key)) {
                 seen.add(key);
-                events.push({ date, gameName: a.gameName||a.gameId||'', gameId: a.gameId||'', title: a.title||'', important: a.priority==='HIGH', type: a.type||'' });
+                events.push({ date, gameName: gname, gameId: a.gameId||'', title, important: a.priority==='HIGH' || a.warningLevel==='HIGH', type: a.type||'' });
             }
         });
         events.sort((a,b) => (a.date||'').localeCompare(b.date||''));
         return events;
     }
 
-    // ===== 重点动态渲染（每游戏一条）=====
+    // ===== 重点动态渲染（每游戏一条；兼容 games/level/detail 与 gameList/priority/description）=====
     function renderHighlights(highlights) {
         if (!highlights || highlights.length === 0) return '<div class="empty-state">暂无重点动态</div>';
+
+        // 字段归一化
+        const norm = item => Object.assign({}, item, {
+            gameList: (item.gameList && item.gameList.length > 0) ? item.gameList
+                    : (item.games && item.games.length > 0) ? item.games : [],
+            priority: item.priority || (item.level === 'P0' ? 'HIGH' : 'NORMAL'),
+            description: item.description || item.detail || ''
+        });
 
         // 每个游戏只取优先级最高的一条
         const seen = new Set();
         const deduped = [];
-        highlights.forEach(item => {
-            const games = (item.gameList && item.gameList.length > 0) ? item.gameList : [item.title];
+        highlights.map(norm).forEach(item => {
+            const games = item.gameList.length > 0 ? item.gameList : [item.title];
             const key = games[0];
             if (!seen.has(key)) {
                 seen.add(key);
@@ -696,11 +765,13 @@
             const priTxt = item.priority === 'HIGH' ? '重要' : '关注';
             const timeStr = item.time || item.eventDate || '';
             const srcLink = item.sourceUrl ? `<a class="hi-src" href="${item.sourceUrl}" target="_blank" rel="noopener">来源↗</a>` : '';
+            // 多游戏条目在游戏名处并列展示
+            const gameLabel = item.gameList.length > 1 ? item.gameList.join(' / ') : gname;
             return `<div class="hi-row">
                 ${gameIconHTML(gname, 28)}
                 <div class="hi-body">
                     <div class="hi-row1">
-                        <span class="hi-game">${gname}</span>
+                        <span class="hi-game">${gameLabel}</span>
                         <span class="badge ${priCls}">${priTxt}</span>
                     </div>
                     ${timeStr ? `<div class="hi-time">${fmtDate(timeStr)}</div>` : ''}
@@ -818,7 +889,9 @@
         const schedule = extractSchedule(data);
 
         const meta = data.meta || {};
-        const gameCount = meta.gameCount || meta.reportedGameCount || meta.configuredGameCount || '?';
+        const cov = meta.coverage || {};
+        const gameCount = meta.gameCount || meta.reportedGameCount || meta.configuredGameCount
+            || cov.reportedGameCount || cov.configuredGameCount || '?';
         const reportDate = meta.reportDate || '';
         document.getElementById('left-meta').textContent = `${reportDate} · ${gameCount} 款游戏`;
 
