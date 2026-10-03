@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态 · 2026年10月3日（周六）</title>
+<style>
+:root {
+  --bg: #0f1419;
+  --panel: #1a1f2e;
+  --panel-2: #232a3d;
+  --text: #e6e6e6;
+  --text-dim: #9aa4b2;
+  --accent: #5b9bd5;
+  --accent-2: #ff6b6b;
+  --warn: #f7c948;
+  --urgent: #ff5252;
+  --border: #2a3142;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  background: linear-gradient(135deg, #1e2a3a 0%, #2a3142 100%);
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+h1 { font-size: 1.6em; margin-bottom: 8px; }
+h2 {
+  font-size: 1.2em;
+  margin: 24px 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+}
+.meta-bar { color: var(--text-dim); font-size: 0.95em; }
+.highlights { display: grid; gap: 12px; margin-bottom: 20px; }
+.highlight {
+  background: var(--panel);
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+}
+.highlight.P0 { border-left-color: var(--urgent); }
+.highlight.P1 { border-left-color: var(--warn); }
+.hl-title { font-weight: 600; margin-bottom: 6px; }
+.hl-detail { color: var(--text-dim); font-size: 0.92em; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-size: 0.92em;
+}
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--panel-2); color: var(--accent); font-weight: 600; }
+tr.urgent { background: rgba(255,82,82,0.12); }
+tr.warn { background: rgba(247,201,72,0.10); }
+tr.notice { background: rgba(91,155,213,0.08); }
+tr.ended td { color: var(--text-dim); text-decoration: line-through; }
+tr.upcoming td { color: var(--text-dim); font-style: italic; }
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.game-card {
+  background: var(--panel);
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.game-card h3 { font-size: 1.05em; margin-bottom: 6px; }
+.game-card .ver { color: var(--accent); font-weight: 400; font-size: 0.9em; }
+.game-card .status {
+  display: inline-block;
+  background: var(--panel-2);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.78em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.game-card .summary { font-size: 0.92em; margin-bottom: 6px; }
+.game-card .details { color: var(--text-dim); font-size: 0.86em; margin-bottom: 8px; }
+.game-card .src { color: var(--accent); font-size: 0.82em; text-decoration: none; }
+.codes-box, .activities-box { background: var(--panel); padding: 14px 16px; border-radius: 10px; margin-bottom: 20px; }
+.codes-box ul, .activities-box ul { padding-left: 20px; font-size: 0.92em; }
+.codes-box li, .activities-box li { margin-bottom: 4px; }
+footer { text-align: center; color: var(--text-dim); font-size: 0.85em; margin-top: 30px; padding: 16px; }
+.kpi-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
+.kpi { background: var(--panel-2); padding: 8px 14px; border-radius: 8px; font-size: 0.88em; }
+.kpi b { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+<h1>🎮 二次元游戏动态速报</h1>
+<div class="meta-bar">2026年10月3日（周六）· 13 款游戏全覆盖 · 数据截至 2026-10-03 07:00 CST</div>
+<div class="kpi-row">
+<div class="kpi">卡池总数 <b>20</b></div>
+<div class="kpi">进行中 <b>14</b></div>
+<div class="kpi">即将开启 <b>6</b></div>
+<div class="kpi">活动数 <b>44</b></div>
+<div class="kpi">兑换码 <b>0</b></div>
+<div class="kpi">覆盖率 <b>100%</b></div>
+</div>
+</header>
+
+<h2>🔴 今日重点更新</h2>
+<div class="highlights">
+<div class="highlight P0">
+<div class="hl-title">NIKKE国际服FULL BURST DAY第二轮今日05:00 JST开启（模拟室/拦截战双倍）</div>
+<div class="hl-detail">FULL BURST DAY第二轮10-03 05:00~10-05 04:59 JST，模拟室+拦截战奖励双倍。COIN RUSH SHOWDOWN全配音剧情活动至10-08 04:59 JST（剩5天），Guilty: Mighty Bunny池剩5天⭐⭐。一级源nikke.gg September 17 Patch Notes（活动周期10-08 JST结束）。</div>
+</div>
+<div class="highlight P0">
+<div class="hl-title">绝区零跛脚乌鸦奇探录今日10:00开启（360菲林）+ 3.2下半剩17天</div>
+<div class="hl-detail">3.2下半洛克茜（S级 风·击破，全队暴击暴伤拐）+普罗米娅复刻进行中（剩17天，至10-20 14:59）。跛脚乌鸦奇探录10-03 10:00~10-19 03:59开启，360菲林奖励。10-09 3.3版本前瞻直播（菲欧妮+赛维里安）。一级源zzz.mihoyo.com/news/166026。</div>
+</div>
+<div class="highlight P0">
+<div class="hl-title">重返未来1999迭奏之夜·开幕赠礼今日05:00起送星锑衣着+纪念建筑</div>
+<div class="hl-detail">4.0应门者庆典版第十日。今日10-03 5:00~11-05 4:59登录即领星锑主题衣着「最强音」+纪念建筑「晴夜与幻昼」。下半德雷克+湖心追述10-15 5:00开启UPCOMING。贝丽尔复刻剩11天（10-14 4:59截止）。一级源sina.cn/news/detail/5345646057359223.html。</div>
+</div>
+<div class="highlight P1">
+<div class="hl-title">燕云十六声棘轮之试+机巧之搏今日开启；中秋邮件昨日已结束</div>
+<div class="hl-detail">山中逢秋活动9-26~11-07进行中，今日10-03起追加开启棘轮之试（破解棘轮机关）+机巧之搏（火药桶/磁石守仓大战）；完成活动前往重九坊兑换限定外观山中人+配饰千乘玦+袅袅之音。中秋邮件（袅袅之音×3+绕梁之音×3）昨日10-02为最后领取日，今日已结束。老金翻翻乐10-06起。一级源yysls.cn、网易大神ds.163.com。</div>
+</div>
+<div class="highlight P1">
+<div class="hl-title">NIKKE国服玛娜池剩5天⭐⭐ + 米哈拉:羁绊锁链10-07开启UPCOMING</div>
+<div class="hl-detail">玛娜特殊招募9-24~10-08（剩5天，今日10-03为关键预警点）。小美人鱼特殊招募9-30~10-21进行中（剩18天）。米哈拉:羁绊锁链特殊招募10-07 4:00~10-28 3:59 UPCOMING（剩4天）。莉可丽丝联动（锦木千束/井上泷奈/胡桃）10-21登场。一级源nikke.qq.com、taptap。</div>
+</div>
+<div class="highlight P1">
+<div class="hl-title">异环×罗森联动10-05开启（剩2天）+ 异环×Porsche联动进行中</div>
+<div class="hl-detail">异环×罗森「秋日环游，美味食刻」10-05~11-01开启（剩2天），联名鲜食+周边+主题店+限时集点。1.4版本「祷歌为谁而诵」9-24上线，新区域噗卡乐园+新正篇剧情魔女；异环×Porsche联动二期进行中（9-24~11-5 05:59）。一级源yh.wanmei.com/news/gamebroad/20260923/264278.html。</div>
+</div>
+<div class="highlight P2">
+<div class="hl-title">原神7.1上半剩10天 + 星铁4.6上半绯英复刻剩18天</div>
+<div class="hl-detail">原神7.1上半薇斯纳+沃雅妮莎双新角色同池至10-13 17:59（剩10天），下半丝柯克+爱可菲复刻10-13~11-03 UPCOMING。星铁4.6真珠全版本UP至11-10 15:00（剩38天），绯英复刻至10-21 11:59（剩18天）。一级源ys.mihoyo.com/main/news/detail/166385、sr.mihoyo.com/news/166487。</div>
+</div>
+<div class="highlight P2">
+<div class="hl-title">洛克王国秋、丰收与机器人第三日 + 二重螺旋法露茜免费获取进行中</div>
+<div class="hl-detail">洛克王国S4月涌狂想9-24~11-04，秋、丰收与机器人活动10-01起首日至今三日（果实立方人登场+5只纪念精灵）；月幕下的决斗10-02 20:00起每晚8点（至10-15）；龙息帕尔返场至11-04。二重螺旋「第22只乐园的白兔」9-08起法露茜（火属性输出）通过委托密函免费获得；微茫珍藏至10-13、星耀纪念·Ⅰ至10-11、10-07狩月人之阶开启。一级源pd.qq.com、dnabbs.yingxiong.com。</div>
+</div>
+<div class="highlight P2">
+<div class="hl-title">蓝色星原旅迹测试剩4天关服（10-07 16:00）</div>
+<div class="hl-detail">蓝色星原旅迹删档付费测试9-17 11:00~10-07 16:00（剩4天）；充值按比例返还（2000元以内200%），公测后用同一蛮啾通行证登录邮件365天内领取；公测时间未定档（仍为PREVIEW）。一级源azurpromilia.manjuu.com/home。</div>
+</div>
+</div>
+
+<h2>⏰ 卡池预警（按剩余天数着色）</h2>
+<table>
+<thead><tr><th>状态</th><th>游戏</th><th>卡池</th><th>上下半</th><th>起止</th><th>剩余</th></tr></thead>
+<tbody>
+<tr class="normal">
+<td>ACTIVE</td><td>原神</td><td>判测胜券本征·薇斯纳</td><td>上半</td>
+<td>2026-09-23 ~ 2026-10-13</td><td>剩10天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>原神</td><td>角色活动折愿·沃雅妮莎</td><td>上半</td>
+<td>2026-09-23 ~ 2026-10-13</td><td>剩10天</td></tr>
+<tr class="upcoming">
+<td>UPCOMING</td><td>原神</td><td>角色活动折愿-2·丝柯克+爱可菲复刻</td><td>下半</td>
+<td>2026-10-13 ~ 2026-11-03</td><td>—</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>崩坏：星穹铁道</td><td>沧海萃珠·真珠</td><td>全周期</td>
+<td>2026-09-28 ~ 2026-11-10</td><td>剩38天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>崩坏：星穹铁道</td><td>韶艾裁英·绯英复刻</td><td>上半</td>
+<td>2026-09-28 ~ 2026-10-21</td><td>剩18天</td></tr>
+<tr class="upcoming">
+<td>UPCOMING</td><td>崩坏：星穹铁道</td><td>千冶·刃复刻</td><td>下半</td>
+<td>2026-10-21 ~ 2026-11-10</td><td>—</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>明日方舟：终末地</td><td>绚丽异彩·伊冯重构寻访</td><td>全周期</td>
+<td>2026-09-24 ~ 2026-10-15</td><td>剩12天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>鸣潮</td><td>心+千咲/尤诺复刻</td><td>上半</td>
+<td>2026-09-30 ~ 2026-10-21</td><td>剩18天</td></tr>
+<tr class="upcoming">
+<td>UPCOMING</td><td>鸣潮</td><td>锁暝+琳奈/洛瑟菈复刻</td><td>下半</td>
+<td>2026-10-22 ~ 2026-11-11</td><td>—</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>绝区零</td><td>烬夜安眠·洛克茜+冷雨将尽之夜·普罗米娅复刻</td><td>下半</td>
+<td>2026-09-30 ~ 2026-10-20</td><td>剩17天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>异环</td><td>栖羽特刊·黑羽+夜曲特刊·安魂曲复刻</td><td>上半</td>
+<td>2026-09-24 ~ 2026-10-15</td><td>剩12天</td></tr>
+<tr class="upcoming">
+<td>UPCOMING</td><td>异环</td><td>日月星特刊·明音凛</td><td>下半</td>
+<td>2026-10-15 ~ 2026-11-05</td><td>—</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>重返未来1999</td><td>狩勋女巫红弩箭</td><td>上半</td>
+<td>2026-09-24 ~ 2026-11-05</td><td>剩33天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>重返未来1999</td><td>贝丽尔复刻</td><td>上半</td>
+<td>2026-09-25 ~ 2026-10-14</td><td>剩11天</td></tr>
+<tr class="upcoming">
+<td>UPCOMING</td><td>重返未来1999</td><td>德雷克+湖心追述</td><td>下半</td>
+<td>2026-10-15 ~ 2026-11-05</td><td>—</td></tr>
+<tr class="notice">
+<td>ACTIVE</td><td>胜利女神：NIKKE（国际服）</td><td>Guilty: Mighty Bunny</td><td>全周期</td>
+<td>2026-09-17 ~ 2026-10-08</td><td>⭐⭐剩5天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>胜利女神：NIKKE（国际服）</td><td>Sin: Swift Bunny</td><td>全周期</td>
+<td>2026-09-24 ~ 2026-10-15</td><td>剩12天</td></tr>
+<tr class="normal">
+<td>ACTIVE</td><td>胜利女神：NIKKE（国服 / 新的希望）</td><td>小美人鱼特殊招募</td><td>全周期</td>
+<td>2026-09-30 ~ 2026-10-21</td><td>剩18天</td></tr>
+<tr class="notice">
+<td>ACTIVE</td><td>胜利女神：NIKKE（国服 / 新的希望）</td><td>玛娜特殊招募</td><td>全周期</td>
+<td>2026-09-24 ~ 2026-10-08</td><td>⭐⭐剩5天</td></tr>
+<tr class="upcoming">
+<td>UPCOMING</td><td>胜利女神：NIKKE（国服 / 新的希望）</td><td>米哈拉:羁绊锁链特殊招募</td><td>全周期</td>
+<td>2026-10-07 ~ 2026-10-28</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h2>🎟️ 兑换码</h2>
+<div class="codes-box">
+<p>无可用兑换码（原神7.1、星铁4.6、异环1.4、鸣潮3.7前瞻码均已过期）</p>
+</div>
+
+<h2>📌 进行中活动</h2>
+<div class="activities-box">
+<ul>
+<li><b>原神</b> 耀星烁熠7日签到（2026-10-01~2026-10-19）：纠缠之缘×10</li>
+<li><b>原神</b> 六周年双自选(限定6选1+常驻8选1)（2026-09-23~2026-11-03）：自选限定五星+自选常驻五星</li>
+<li><b>原神</b> 砺行修远命座选取（2026-09-04~2026-10-30）：免费命星</li>
+<li><b>原神</b> 幽境危战（2026-09-30~2026-10-10）：450原石</li>
+<li><b>崩坏：星穹铁道</b> 巡星之礼7日签到（2026-09-28~2026-11-10）：星轨专票×10</li>
+<li><b>崩坏：星穹铁道</b> 爱·幽灵与机器人(大活动)（2026-09-28~2026-11-11）：自塑尘脂×1+命运的足迹×2+星琼×1200</li>
+<li><b>崩坏：星穹铁道</b> 镇伏贪饕汇聚愿力（2026-09-28~2026-11-11）：潮玩礼券×18+星琼×500</li>
+<li><b>崩坏：星穹铁道</b> 次元分裂(双倍遗器)（2026-10-12~2026-10-25）：次元饰品双倍</li>
+<li><b>明日方舟：终末地</b> 跑者运动会（2026-10-01~2026-10-15）：赤晶玉等奖励</li>
+<li><b>明日方舟：终末地</b> 影拓丰碑·幽影刻形+丰碑留名·刻影（2026-10-05~2026-10-19）：嵌晶玉×1200+高阶培养自选箱</li>
+<li><b>明日方舟：终末地</b> 我们的大菲林!来袭!(噗切娜免费获取)（2026-09-24~2026-10-15）：五星重装物理干员噗切娜+五星单手剑</li>
+<li><b>鸣潮</b> 朝月赠礼7日签到（2026-09-30~2026-11-11）：签到奖励</li>
+<li><b>鸣潮</b> 团团勇者大乱斗(1200星声)（2026-09-30~2026-11-11）：1200星声</li>
+<li><b>鸣潮</b> 梦构匣中(区域探索)（2026-09-30~2026-11-11）：探索奖励</li>
+<li><b>鸣潮</b> 天工寻物(限时战斗)（2026-10-08~2026-10-26）：星声等奖励</li>
+<li><b>绝区零</b> 跛脚乌鸦奇探录(侦探活动)（2026-10-03~2026-10-19）：360菲林</li>
+<li><b>绝区零</b> 数据悬赏-实战模拟(双倍)（2026-10-14~2026-10-19）：实战模拟室奖励翻倍</li>
+<li><b>洛克王国：世界</b> 秋、丰收与机器人(果实立方人登场)（2026-10-01~2026-11-05）：果实立方人的蛋+典藏卡牌+秋日兑换币</li>
+<li><b>洛克王国：世界</b> 龙息帕尔返场+S1赛季异色图鉴（2026-10-01~2026-11-04）：小帕尔的蛋+异色小帕尔的蛋</li>
+<li><b>洛克王国：世界</b> 月幕下的决斗(每晚8点)（2026-10-02~2026-10-15）：月幕下观赛名片+随机异色蛋+月涌代币+失重球</li>
+<li><b>二重螺旋</b> 微茫珍藏（2026-10-01~2026-10-13）：华彩沙漏×4+月石×600+增幅激化器</li>
+<li><b>二重螺旋</b> 狩月人之阶（2026-10-07~2026-10-16）：增幅激化器+熔炼模具</li>
+<li><b>二重螺旋</b> 舞者不断旋转（2026-09-29~2026-11-09）：活动奖励</li>
+<li><b>二重螺旋</b> 星耀纪念·Ⅰ（2026-09-24~2026-10-11）：华彩沙漏+月石+星辉丝线+城市守则·妮弗尔夫人</li>
+<li><b>异环</b> 异环×罗森联动（2026-10-05~2026-11-01）：联动周边+集点兑换+主题店</li>
+<li><b>异环</b> 异环×Porsche联动二期(骏影疾驰盲盒)（2026-09-24~2026-11-05）：Porsche Taycan Turbo GT+911 Turbo(930)+918 Spyder</li>
+<li><b>异环</b> 噗卡游园季特别赠礼(200万方斯+明音凛时装)（2026-10-15~2026-11-05）：200万方斯+明音凛时装吧台特调</li>
+<li><b>异环</b> 环期赠礼(签到)（2026-09-24~2026-11-05）：质实骰子×10</li>
+<li><b>重返未来1999</b> 迭奏之夜(庆典核心)（2026-09-24~2026-11-05）：奇闻邀请函+箱装友谊·益友的启发+独一调等</li>
+<li><b>重返未来1999</b> 迭奏之夜·开幕赠礼(星锑衣着)（2026-10-03~2026-11-05）：星锑主题衣着最强音+纪念建筑晴夜与幻昼</li>
+<li><b>重返未来1999</b> 光影栖息处（2026-10-01~2026-11-05）：收藏品闪烁之夜万花筒+纪念建筑</li>
+<li><b>重返未来1999</b> 众声的谱成（2026-10-01~2026-10-15）：纪念动态头像卡美洛迷梦+养成材料</li>
+<li><b>胜利女神：NIKKE（国际服）</b> COIN RUSH SHOWDOWN(全配音剧情活动)（2026-09-17~2026-10-08）：高级招募券+养成材料</li>
+<li><b>胜利女神：NIKKE（国际服）</b> EXPO CHECK-IN(14日签到)（2026-09-17~2026-10-08）：高级招募券+养成材料</li>
+<li><b>胜利女神：NIKKE（国际服）</b> FULL BURST DAY第二轮(模拟室/拦截战双倍)（2026-10-03~2026-10-05）：模拟室+拦截战奖励双倍</li>
+<li><b>胜利女神：NIKKE（国服 / 新的希望）</b> WITH BUBBLE 14日签到(SSR自选)（2026-09-30~2026-10-21）：SSR自选宝箱(莫莉/吉洛/莱伊)+高级招募券</li>
+<li><b>胜利女神：NIKKE（国服 / 新的希望）</b> Swing Into Autumn 21日签到(托比时装)（2026-09-30~2026-10-28）：托比时装我爱棒球+养成材料</li>
+<li><b>胜利女神：NIKKE（国服 / 新的希望）</b> Rebirth Celebration Party(莫莉免费获取)（2026-09-30~2026-10-21）：SSR妮姬莫莉+高级招募券×10</li>
+<li><b>胜利女神：NIKKE（国服 / 新的希望）</b> 10月Mission Pass(罗珊娜-危险小姐时装)（2026-10-01~2026-10-31）：罗珊娜危险小姐时装</li>
+<li><b>燕云十六声</b> 山中逢秋(奇案之录+棘轮之试+机巧之搏)（2026-09-26~2026-11-07）：限定外观山中人+配饰千乘玦+袅袅之音</li>
+<li><b>燕云十六声</b> 老金翻翻乐（2026-10-06~2026-10-13）：绕梁之音+心法心得自选散本+长鸣玉</li>
+<li><b>燕云十六声</b> 麦当劳麦麦顶瓜瓜套餐（2026-09-25~2026-10-07）：联名套餐(全国限量60万份)</li>
+<li><b>燕云十六声</b> 金秋共贺签到(舒云缀耳饰)（2026-09-25~2026-10-10）：耳饰舒云缀+袅袅之音</li>
+<li><b>蓝色星原：旅谣</b> 旅迹测试(删档付费)（2026-09-17~2026-10-07）：充值按比例返还(公测后)</li>
+</ul>
+</div>
+
+<h2>🗂️ 未来活动日历</h2>
+<table>
+<thead><tr><th>日期</th><th>事件</th><th>游戏</th></tr></thead>
+<tbody>
+<tr><td>2026-10-03</td><td>NIKKE国际服FULL BURST DAY第二轮05:00 JST开启</td><td>胜利女神：NIKKE（国际服）</td></tr>
+<tr><td>2026-10-03</td><td>绝区零跛脚乌鸦奇探录活动10:00开启</td><td>绝区零</td></tr>
+<tr><td>2026-10-03</td><td>重返未来1999迭奏之夜开幕赠礼05:00起送星锑衣着</td><td>重返未来1999</td></tr>
+<tr><td>2026-10-03</td><td>燕云十六声棘轮之试+机巧之搏开启</td><td>燕云十六声</td></tr>
+<tr><td>2026-10-05</td><td>异环×罗森联动正式开启</td><td>异环</td></tr>
+<tr><td>2026-10-05</td><td>终末地影拓丰碑·幽影刻形开启</td><td>明日方舟：终末地</td></tr>
+<tr><td>2026-10-06</td><td>燕云十六声老金翻翻乐开启</td><td>燕云十六声</td></tr>
+<tr><td>2026-10-07</td><td>NIKKE国际服Guilty池+COIN RUSH SHOWDOWN活动截止(JST)</td><td>胜利女神：NIKKE（国际服）</td></tr>
+<tr><td>2026-10-07</td><td>NIKKE国服玛娜池截止</td><td>胜利女神：NIKKE（国服 / 新的希望）</td></tr>
+<tr><td>2026-10-07</td><td>NIKKE国服米哈拉特殊招募开启</td><td>胜利女神：NIKKE（国服 / 新的希望）</td></tr>
+<tr><td>2026-10-07</td><td>蓝色星原旅迹测试关服</td><td>蓝色星原：旅谣</td></tr>
+<tr><td>2026-10-07</td><td>二重螺旋狩月人之阶开启</td><td>二重螺旋</td></tr>
+<tr><td>2026-10-07</td><td>燕云麦当劳麦麦顶瓜瓜套餐截止</td><td>燕云十六声</td></tr>
+<tr><td>2026-10-08</td><td>鸣潮天工寻物限时战斗开启</td><td>鸣潮</td></tr>
+<tr><td>2026-10-09</td><td>绝区零3.3版本前瞻直播19:30</td><td>绝区零</td></tr>
+<tr><td>2026-10-12</td><td>星铁次元分裂双倍遗器开启</td><td>崩坏：星穹铁道</td></tr>
+<tr><td>2026-10-13</td><td>原神上半薇斯纳+沃雅妮莎池截止17:59</td><td>原神</td></tr>
+<tr><td>2026-10-13</td><td>原神下半丝柯克+爱可菲复刻开启18:00</td><td>原神</td></tr>
+<tr><td>2026-10-14</td><td>重返未来1999贝丽尔复刻池截止</td><td>重返未来1999</td></tr>
+<tr><td>2026-10-14</td><td>绝区零数据悬赏实战模拟双倍开启</td><td>绝区零</td></tr>
+<tr><td>2026-10-15</td><td>终末地1.6版本预计上线</td><td>明日方舟：终末地</td></tr>
+<tr><td>2026-10-15</td><td>重返未来1999下半德雷克+湖心追述开启</td><td>重返未来1999</td></tr>
+<tr><td>2026-10-15</td><td>异环下半明音凛开启</td><td>异环</td></tr>
+<tr><td>2026-10-15</td><td>异环噗卡游园季特别赠礼(200万方斯+明音凛时装)</td><td>异环</td></tr>
+<tr><td>2026-10-15</td><td>NIKKE国际服新版本预计上线</td><td>胜利女神：NIKKE（国际服）</td></tr>
+<tr><td>2026-10-21</td><td>鸣潮下半锁暝+琳奈/洛瑟菈复刻开启</td><td>鸣潮</td></tr>
+<tr><td>2026-10-21</td><td>星铁下半千冶·刃复刻开启</td><td>崩坏：星穹铁道</td></tr>
+<tr><td>2026-10-21</td><td>NIKKE国服莉可丽丝联动登场(锦木千束/井上泷奈/胡桃)</td><td>胜利女神：NIKKE（国服 / 新的希望）</td></tr>
+</tbody>
+</table>
+
+<h2>📚 分游戏详细动态</h2>
+<div class="games-grid">
+<div class="game-card">
+<h3>原神 <span class="ver">v7.1「往冥府的安魂歌」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">六周年版本第三日；耀星烁熠7日签到进行中送10纠缠之缘；双自选(限定6选1+常驻8选1)至11/3；砺行修远命座可领；幽境危战进行中(450原石)；7.2前瞻直播10/23。</p>
+<p class="details">上半薇斯纳+沃雅妮莎池剩10天(10/13 17:59截止);下半丝柯克+爱可菲复刻10/13 18:00~11/3 14:59。六周年1600原石邮件已发完。10/12有420原石小活动,10/16深境螺旋更新,10/26圣遗物双倍。</p>
+<a class="src" href="https://ys.mihoyo.com/main/news/detail/166385" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>崩坏：星穹铁道 <span class="ver">v4.6「月升之前，与兽共舞」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">4.6版本第六日；真珠全周期UP+绯英复刻上半进行中；巡星之礼7日签到送10连；大活动爱·幽灵与机器人送1200星琼；镇伏贪饕送500星琼+18潮玩礼券；星际幻宠新玩法上线。</p>
+<p class="details">真珠(冰·欢愉)全版本UP至11/10 15:00;绯英复刻至10/21 11:59;下半千冶·刃复刻10/21 12:00~11/10 15:00。次元分裂双倍遗器10/12~10/25。4.8版本将联动绝区零(艾莲+耀嘉音)。</p>
+<a class="src" href="https://sr.mihoyo.com/news/166487" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>明日方舟：终末地 <span class="ver">v1.5「雪凇幽梦」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">1.5版本后半段；伊冯重构寻访进行中(剩12天);跑者运动会进行中;10/5影拓丰碑·幽影刻形+丰碑留名·刻影限时挑战(嵌晶玉×1200);噗切娜免费获取活动进行中。</p>
+<p class="details">提弗洛斯冬猎池已于9/30截止(ENDED)。伊冯重构寻访至10/15。1.6版本预计10/15上线，上半祀(热能·术师)下半夜明晦(电能·先锋)——属性/职业为爆料信息(PREVIEW)，以官方公告为准。</p>
+<a class="src" href="https://endfield.gryphline.com" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>鸣潮 <span class="ver">v3.7「镜锁妄世，心照红尘」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">3.7版本第四日；上半心+千咲/尤诺复刻进行中(剩18天);团团勇者大乱斗送1200星声+朝月赠礼7日签到+梦构匣中区域探索均在进行;10/8天工寻物限时战斗开启。</p>
+<p class="details">新区域梦枢天罗+同奏体系。下半锁暝+琳奈/洛瑟菈复刻10/22~11/11。逆境深塔S40至10/12，冥歌海墟S22至10/26。10/15回音盈域材料双倍，10/22凭栏听雨之礼送10抽。</p>
+<a class="src" href="https://mc.kurogames.com/main" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>绝区零 <span class="ver">v3.2「她与她的隐秘往事」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">3.2下半第四日；洛克茜(风·击破)+普罗米娅复刻进行中(剩17天);今日(10/3)10:00起跛脚乌鸦奇探录活动开启(360菲林);10/9 3.3版本前瞻直播(菲欧妮+赛维里安)。</p>
+<p class="details">洛克茜为首位风属性击破角色，全队暴击暴伤拐。10/14数据悬赏实战模拟双倍。3.3上半菲欧妮(火·异常)10/21 UP。3.4预计开启与星铁联动。</p>
+<a class="src" href="https://zzz.mihoyo.com/news/166026" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>洛克王国：世界 <span class="ver">vS4「月涌狂想」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">S4赛季进行中;秋、丰收与机器人活动今日第三日(果实立方人登场+5只纪念精灵)；月幕下的决斗第二日(每晚8点,可获随机异色蛋)；龙息帕尔返场+S1赛季异色图鉴陆续返场。</p>
+<p class="details">果实立方人活动10/1~11/5。精灵印象·秋日纪5只纪念精灵可用秋日兑换币或许愿星兑换。10/9璇眼仔大量出没。10/12大世界观察笔记。10/19月满狂想赛季冲刺。</p>
+<a class="src" href="https://pd.qq.com/g/roco135790/post/B_f0bfb36acddd05001441152196270699980X60" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>二重螺旋 <span class="ver">v第22只乐园的白兔「第22只乐园的白兔」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">版本后半段;微茫珍藏活动进行中(至10/13);星耀纪念·Ⅰ至10/11;10/7狩月人之阶开启;法露茜免费获取(委托密函);吟游诗集·雪幕夜曲至10/19。</p>
+<p class="details">新角色法露茜(火属性输出)通过委托密函免费获得。万华-长路何所向活动至10/19可获法露茜缄默猎手限定形象。沉浸式戏剧·联袂演绎至10/15。</p>
+<a class="src" href="https://dnabbs.yingxiong.com/pc/detail/876890907809416277" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>异环 <span class="ver">v1.4「祷歌为谁而诵」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">1.4版本第十日;上半黑羽+安魂曲复刻进行中(剩12天);异环×罗森联动10/5开启(剩2天);异环×Porsche联动二期进行中;10/15噗卡游园季特别赠礼(200万方斯+明音凛时装)。</p>
+<p class="details">新区域噗卡乐园+新正篇剧情魔女+番外致那一天的我们。新角色黑羽理属性S级。下半明音凛相属性S级 10/15维护后~11/5 05:59。异环×Porsche联动二期进行中(9/24-11/5 05:59)。</p>
+<a class="src" href="https://yh.wanmei.com/news/gamebroad/20260923/264278.html" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>蓝色星原：旅谣 <span class="ver">v旅迹测试「旅迹测试」</span></h3>
+<div class="status">PREVIEW</div>
+<p class="summary">旅迹删档付费测试进行中，10/7 16:00关服(剩4天);充值按比例返还(2000元以内200%);22名可玩角色+200+奇波;公测时间未定档。</p>
+<p class="details">删档测试不歪池90抽大保底。B站UP主激励计划进行中(至10/14)。星彩奇波浮云关服前务必领取。公测后用同一蛮啾通行证登录才发返还，邮件365天内领取。</p>
+<a class="src" href="https://azurpromilia.manjuu.com/home" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>重返未来1999 <span class="ver">v4.0「应门者」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">4.0庆典版第十日;狩勋女巫红弩箭UP进行中;贝丽尔复刻剩11天(10/14截止);迭奏之夜庆典核心活动(送必New六星+自选狂想六星);今日(10/3)迭奏之夜·开幕赠礼送星锑衣着。</p>
+<p class="details">下半德雷克(兽)+湖心追述10/15~11/5。10/1~10/15众声的谱成送动态头像。10/3~10/5上海音乐会众声漫游夜。10/29泰晤士剪影活动送400纯雨滴。</p>
+<a class="src" href="https://www.sina.cn/news/detail/5345646057359223.html" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>胜利女神：NIKKE（国际服） <span class="ver">vCOIN RUSH SHOWDOWN「COIN RUSH SHOWDOWN」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">COIN RUSH SHOWDOWN全配音剧情活动进行中(至10/8 JST,剩5天);Guilty: Mighty Bunny池剩5天⭐⭐;Sin: Swift Bunny池剩12天;FULL BURST DAY第二轮今日05:00 JST开启(模拟室/拦截战双倍,至10/5)。</p>
+<p class="details">EXPO CHECK-IN 14日签到至10/8。THREE COMPANY RUMBLE小游戏至10/8。Crust Treat Chef时装10月Mission Pass(10/1~10/31)。Simulation Room Overclock Season 10至12/15。下版本预计10/15。</p>
+<a class="src" href="https://nikke.gg/?p=38166" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>胜利女神：NIKKE（国服 / 新的希望） <span class="ver">v9月30日更新版「小美人鱼版本」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">小美人鱼特殊招募进行中(剩18天);玛娜池剩5天⭐⭐(10/8截止);WITH BUBBLE 14日签到送SSR自选(莫莉/吉洛/莱伊);Swing Into Autumn 21日签到送托比时装;莫莉免费获取活动进行中。</p>
+<p class="details">米哈拉:羁绊锁链特殊招募10/7 4:00~10/28 3:59(UPCOMING,剩4天)。小美人鱼-深渊之花时装抽取至10/21。10月Mission Pass罗珊娜危险小姐时装(10/1~10/31)。莉可丽丝联动(锦木千束/井上泷奈/胡桃)10/21登场。</p>
+<a class="src" href="https://nikke.qq.com" target="_blank">一级源</a>
+</div>
+<div class="game-card">
+<h3>燕云十六声 <span class="ver">v2.2「危峰兀立」</span></h3>
+<div class="status">CURRENT</div>
+<p class="summary">中式志怪主题月+一亿游侠庆典进行中;山中逢秋活动进行中(今日10/3棘轮之试+机巧之搏开启);中秋邮件昨日已结束;麦当劳麦麦顶瓜瓜套餐剩4天(10/7截止)。</p>
+<p class="details">山中逢秋活动至11/7,重九坊兑换限定外观山中人。老金翻翻乐10/6~10/13。金秋共贺签到至10/10送耳饰舒云缀。寻宝之旅至10/15。同燕行新老玩家结伴活动进行中。</p>
+<a class="src" href="https://yysls.cn/" target="_blank">一级源</a>
+</div>
+</div>
+
+<footer>
+生成时间：2026-10-03 07:00:00 UTC+08:00 | 三层输出：JSON + Markdown + HTML | 信源：一级白名单为主
+</footer>
+</body>
+</html>
