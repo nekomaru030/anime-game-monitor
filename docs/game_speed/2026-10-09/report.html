@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次元游戏动态看板 · 2026年10月9日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #21262d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --p0: #f85149;
+    --p1: #ffb75e;
+    --p2: #56d364;
+    --red: #f85149;
+    --yellow: #d29922;
+    --green: #3fb950;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.6em; margin-bottom: 5px; }
+  .header {
+    background: linear-gradient(135deg, #1a1f2e, #0d1117);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .header p { color: var(--text-dim); font-size: 0.85em; }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+  }
+  .section h2 { font-size: 1.15em; margin-bottom: 10px; color: var(--accent); }
+  .highlights { display: grid; gap: 10px; }
+  .highlight {
+    border-left: 3px solid var(--p2);
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 0 8px 8px 0;
+  }
+  .highlight.p0 { border-color: var(--p0); }
+  .highlight.p1 { border-color: var(--p1); }
+  .highlight .level { font-size: 0.7em; font-weight: 700; padding: 2px 6px; border-radius: 4px; margin-right: 6px; }
+  .highlight.p0 .level { background: var(--p0); color: #fff; }
+  .highlight.p1 .level { background: var(--p1); color: #000; }
+  .highlight.p2 .level { background: var(--p2); color: #000; }
+  .highlight .title { font-weight: 600; }
+  .highlight .detail { font-size: 0.82em; color: var(--text-dim); margin-top: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.83em; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 0.75em; font-weight: 600; }
+  .badge.red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .badge.yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .badge.green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .code { font-family: "Cascadia Code", Consolas, monospace; background: rgba(88,166,255,0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .stat { text-align: center; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+  .stat .num { font-size: 1.5em; font-weight: 700; color: var(--accent); }
+  .stat .label { font-size: 0.72em; color: var(--text-dim); }
+  footer { text-align: center; color: var(--text-dim); font-size: 0.78em; margin-top: 20px; padding: 15px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🎮 二次元游戏动态看板</h1>
+  <p>2026年10月9日（周五） · 13款游戏全覆盖 · 三级信源校验 · 生成时间 2026-10-09T07:00:00+08:00</p>
+</div>
+
+<div class="section">
+  <h2>🔴 今日更新</h2>
+  <table>
+    <tr><th>游戏</th><th>内容</th><th>来源</th></tr>
+    <tr><td>绝区零</td><td>3.3版本「重返天空的旅程」前瞻直播今晚19:30开播</td><td>zzz.mihoyo.com</td></tr>
+    <tr><td>NIKKE国际服</td><td>Union Raid S42今日05:00 JST已开启 + Coordinated Operation同步开启</td><td>nikke.gg</td></tr>
+    <tr><td>洛克王国</td><td>10/9 04:00多项更新：瑰眼仔+公平鸽+怪奇实验室+命定花种+500%孵蛋加速</td><td>news.qq.com/rain</td></tr>
+    <tr><td>NIKKE国际服</td><td>Belorta: Pumpkin Witch + LITTLE WITCH TRICK + Cinderella Special 进行中</td><td>nikke-en.com</td></tr>
+    <tr><td>终末地</td><td>1.6干员名修正为「明河」(6★·电磁·近卫)</td><td>endfield.hypergryph.com</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>⏰ 卡池预警</h2>
+  <table>
+    <tr><th>状态</th><th>游戏</th><th>卡池</th><th>截止时间</th><th>建议</th></tr>
+    <tr><td><span class="badge red">🔴剩4天</span></td><td>原神</td><td>薇斯纳+沃雅妮莎（上半）</td><td>10/13 17:59</td><td>⭐⭐ 周年版本角色</td></tr>
+    <tr><td><span class="badge yellow">🟡剩6天</span></td><td>异环</td><td>黑羽+安魂曲复刻（上半）</td><td>10/15 05:59</td><td>⭐⭐ 下半明音凛即将入池</td></tr>
+    <tr><td><span class="badge yellow">🟡剩6天</span></td><td>重返1999</td><td>狩勋女巫红弩箭+贝丽尔（上半）</td><td>10/15 05:00</td><td>⭐⭐ 下半德雷克即将入池</td></tr>
+    <tr><td><span class="badge yellow">🟡剩6天</span></td><td>NIKKE国际服</td><td>Sin: Swift Bunny</td><td>10/15 04:59 JST</td><td>⭐ 水属性火力角色</td></tr>
+    <tr><td><span class="badge yellow">🟡剩11天</span></td><td>绝区零</td><td>洛克茜（3.2下半）</td><td>10/20 14:59</td><td>⭐ 风·击破S级</td></tr>
+    <tr><td><span class="badge yellow">🟡剩12天</span></td><td>星铁</td><td>绯英复刻</td><td>10/21</td><td>⭐ 物理·欢愉复刻</td></tr>
+    <tr><td><span class="badge yellow">🟡剩13天</span></td><td>鸣潮</td><td>心（上半）</td><td>10/22 03:59</td><td>⭐⭐ 导电·音感仪新限定</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>🎬 重磅联动/版更</h2>
+  <table>
+    <tr><th>事件</th><th>时间</th><th>详情</th></tr>
+    <tr><td>绝区零3.3前瞻直播</td><td>今晚10/9 19:30</td><td>菲欧妮(火·异常·S级)+赛维里安(风·强攻·S级)</td></tr>
+    <tr><td>终末地1.6「丹青渡」</td><td>10/15上线</td><td>祀(6★·寒冷·辅助)+明河(6★·电磁·近卫)</td></tr>
+    <tr><td>NIKKE国际服4周年直播</td><td>10/24</td><td>"Here We Stand, Goddesses of Victory"</td></tr>
+    <tr><td>原神7.2前瞻直播</td><td>10/23 20:00</td><td>新角色米提亚(雷·五星)+瓦列里(四星·雷)</td></tr>
+    <tr><td>终末地×汉堡王+八达岭长城</td><td>11/5~12/4</td><td>联名周边+庄方宜新衣服</td></tr>
+    <tr><td>异环×罗森联动</td><td>10/5~11/1 进行中</td><td>10/10-10/11 COSER活动+10/12起鲜食上架</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>📺 必看直播</h2>
+  <table>
+    <tr><th>直播</th><th>时间</th><th>平台</th></tr>
+    <tr><td>绝区零3.3前瞻特别节目</td><td>今晚10/9 19:30</td><td>B站官方直播间</td></tr>
+    <tr><td>原神7.2前瞻特别节目</td><td>10/23 20:00</td><td>B站/斗鱼/快手/抖音/微博/米游社</td></tr>
+    <tr><td>NIKKE国际服4周年直播</td><td>10/24</td><td>YouTube</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>🎟️ 兑换码速领</h2>
+  <table>
+    <tr><th>兑换码</th><th>游戏</th><th>奖励</th><th>截止时间</th></tr>
+    <tr><td><span class="code">ENDFIELDSTEAM</span></td><td>明日方舟：终末地</td><td>折金票×8000+养成材料+头像框</td><td>2026-11-25 23:59</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>📊 数据统计</h2>
+  <div class="stat-grid">
+    <div class="stat"><div class="num">20</div><div class="label">卡池总数</div></div>
+    <div class="stat"><div class="num">13</div><div class="label">进行中卡池</div></div>
+    <div class="stat"><div class="num">55</div><div class="label">活动总数</div></div>
+    <div class="stat"><div class="num">30</div><div class="label">进行中活动</div></div>
+    <div class="stat"><div class="num">13/13</div><div class="label">覆盖率</div></div>
+    <div class="stat"><div class="num">16/16</div><div class="label">Checklist全过</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🗓️ 近7天活动日历</h2>
+  <table>
+    <tr><th>日期</th><th>事件</th></tr>
+    <tr><td><strong>10/9</strong></td><td>绝区零3.3前瞻直播19:30 / 洛克王国多项更新 / NIKKE Union Raid开启</td></tr>
+    <tr><td>10/10</td><td>异环COSER活动 / 重返1999双重解析</td></tr>
+    <tr><td>10/11</td><td>洛克王国瑰眼仔截止 / NIKKE Coordinated Operation截止</td></tr>
+    <tr><td>10/12</td><td>星铁双倍次元分裂 / 鸣潮逆境深塔 / 异环罗森鲜食上架</td></tr>
+    <tr><td><strong>10/13</strong></td><td><strong>原神7.1上半截止</strong> / 燕云多项活动截止</td></tr>
+    <tr><td><strong>10/15</strong></td><td><strong>终末地1.6上线</strong> / 异环+重返1999上下半切换</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p>本日报告基于一级白名单官方源校验 | 三级辅助源仅用于角色定位/抽卡建议 | 16项Checklist全部通过</p>
+  <p>覆盖率 13/13 · 黑名单URL 0 · null值 0 · 非2026日期 0</p>
+</footer>
+
+</body>
+</html>
