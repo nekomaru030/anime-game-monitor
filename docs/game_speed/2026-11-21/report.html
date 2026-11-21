@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>二次元游戏动态 · 2026年11月21日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --red: #f85149;
+  --orange: #d29922;
+  --yellow: #e3b341;
+  --green: #3fb950;
+  --purple: #bc8cff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h1 { font-size: 24px; margin-bottom: 8px; }
+h2 { font-size: 18px; margin: 24px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 16px; margin: 16px 0 8px; }
+.meta { color: var(--text-dim); font-size: 12px; margin-bottom: 16px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.stat-card .label { color: var(--text-dim); font-size: 12px; }
+.stat-card .value { font-size: 24px; font-weight: bold; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+.card.warn { border-color: var(--red); }
+.card.urgent { border-color: var(--orange); }
+table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
+th { color: var(--text-dim); font-weight: 600; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+.badge-red { background: rgba(248,81,73,0.2); color: var(--red); }
+.badge-orange { background: rgba(210,153,34,0.2); color: var(--orange); }
+.badge-yellow { background: rgba(227,179,65,0.2); color: var(--yellow); }
+.badge-green { background: rgba(63,185,80,0.2); color: var(--green); }
+.badge-blue { background: rgba(88,166,255,0.2); color: var(--accent); }
+.badge-gray { background: rgba(139,148,158,0.2); color: var(--text-dim); }
+.game-section { margin-bottom: 24px; }
+.game-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.game-version { color: var(--text-dim); font-size: 12px; }
+.summary { color: var(--text); margin-bottom: 12px; font-size: 13px; }
+.highlight-item { padding: 8px 12px; margin-bottom: 6px; border-left: 3px solid var(--accent); background: var(--card); border-radius: 0 4px 4px 0; }
+.highlight-item.red { border-color: var(--red); }
+.highlight-item.orange { border-color: var(--orange); }
+.highlight-item.green { border-color: var(--green); }
+.hl-game { font-weight: bold; color: var(--accent); margin-right: 8px; }
+.cal-row { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.cal-date { color: var(--text-dim); min-width: 100px; font-size: 12px; }
+.cal-game { color: var(--accent); min-width: 120px; font-size: 13px; }
+.cal-event { flex: 1; font-size: 13px; }
+@media (max-width: 768px) {
+  body { padding: 12px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  table { font-size: 12px; }
+  th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+<h1>🎮 二次元游戏动态 · 2026年11月21日（周六）</h1>
+<div class='meta'>执行期数：第75次 | 生成时间：2026-11-21 07:00 CST | 覆盖率：13/13 | Checklist：16/16</div>
+<h2>📊 数据概览</h2>
+<div class='stats-grid'>
+<div class='stat-card'><div class='label'>卡池 Active</div><div class='value'>11</div></div>
+<div class='stat-card'><div class='label'>卡池 Upcoming</div><div class='value'>4</div></div>
+<div class='stat-card'><div class='label'>活动 Active</div><div class='value'>39</div></div>
+<div class='stat-card'><div class='label'>活动 Upcoming</div><div class='value'>8</div></div>
+<div class='stat-card'><div class='label'>兑换码 Active</div><div class='value'>1</div></div>
+<div class='stat-card'><div class='label'>联动活动</div><div class='value'>4</div></div>
+<div class='stat-card'><div class='label'>T+3 卡池预警</div><div class='value' style='color:var(--orange)'>1</div></div>
+<div class='stat-card'><div class='label'>T+1 卡池预警</div><div class='value' style='color:var(--red)'>0</div></div>
+</div>
+<h2>🔴 今日亮点</h2>
+<div class='highlight-item red'><span class='hl-game'>原神</span>7.2上半米提亚+芙宁娜+瓦列里剩3天🟡(11/24 17:59截止,T+3预警);下半兹白+莉奈娅11/25开启(剩4天)</div>
+<div class='highlight-item red'><span class='hl-game'>二重螺旋</span>永恒梦魇(组队挑战)明日11/22 17:00截止🟡(剩1天,T+1预警);黎瑟·浴火+万华+帽匠宴会Active(均剩9天,11/30截止)</div>
+<div class='highlight-item orange'><span class='hl-game'>NIKKE国际服</span>4周年大型更新已于11/19全部截止→Ended;Scarlet: Goddeath+Marian: Queen-Last Affection婚纱Active(均剩5天,11/26 JST截止);Cinderella Special免费时装(剩12天)</div>
+<div class='highlight-item orange'><span class='hl-game'>终末地</span>下半明河+汤汤+战争回响+烟火生缘均已于11/19截止→Ended;汉堡王联动Active(剩13天);Steam兑换码ENDFIELDSTEAM(剩4天🟡,11/25截止)</div>
+<div class='highlight-item orange'><span class='hl-game'>鸣潮</span>3.8第10天!全息战略·天傀劫煞+拉海洛方块·逆转11/19已开启→Active;冥歌海墟第23期剩2天🟡(11/23截止);上半莉莉Active(剩30天);下半秧秧·玄翎+穗穗+绯雪11/26开启(剩5天)</div>
+<div class='highlight-item orange'><span class='hl-game'>NIKKE国服</span>1.5周年庆典GODDESS FALL第4天!娜由塔PickUp Active(剩18天);莉贝雷利奥+Rapi:Red Hood Special 11/25开启(均剩4天);14日签到自选宝箱+SSR钟鸣免费</div>
+<div class='highlight-item green'><span class='hl-game'>崩铁</span>4.7第11天!首位星神★阿哈Active(剩11天);幻乐秀场阿哈时装(剩32天);4.7下半黄泉+丹恒·饮月+景元复刻11/25开启(剩4天)</div>
+<div class='highlight-item green'><span class='hl-game'>重返1999</span>轶事·阿莱夫Active(剩7天,11/28 4:59截止,5星心相·贪欲);佩施塔上半Active(剩5天);4.2预告「亲爱的绿意之地」12/3(剩12天)</div>
+<div class='highlight-item green'><span class='hl-game'>蓝色星原</span>公测定档11月26日(剩5天)!预约里程碑最高20抽+角色艾妮丝+奇波星彩·浮云</div>
+<h2>⏰ 卡池预警（T+3）</h2>
+<table><thead><tr><th>状态</th><th>游戏</th><th>阶段</th><th>角色</th><th>截止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-orange'>🟡剩3天</span></td><td>原神</td><td>7.2上半</td><td>米提亚(5★雷·法器·新·星超导体系前台精通主C), 芙宁娜(5★水·单手剑·复</td><td>2026-11-24</td><td>3天</td></tr>
+</tbody></table>
+<h2>⚠️ 活动预警（T+3）</h2>
+<table><thead><tr><th>状态</th><th>游戏</th><th>活动</th><th>截止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-orange'>🟡剩2天</span></td><td>鸣潮</td><td>冥歌海墟(周期挑战)</td><td>2026-11-23</td><td>2天</td></tr>
+<tr><td><span class='badge badge-red'>🟡明日截止</span></td><td>二重螺旋</td><td>永恒梦魇(组队挑战)</td><td>2026-11-22</td><td>1天</td></tr>
+</tbody></table>
+<h2>🗓️ 活动日历</h2>
+<table><thead><tr><th>日期</th><th>游戏</th><th>事件</th></tr></thead><tbody>
+<tr><td>2026-11-21</td><td>原神</td><td>7.2上半米提亚+芙宁娜卡池剩3天🟡(11/24 17:59截止,T+3预警)</td></tr>
+<tr><td>2026-11-21</td><td>二重螺旋</td><td>永恒梦魇(组队挑战)明日11/22 17:00截止🟡(剩1天,T+1预警)</td></tr>
+<tr><td>2026-11-22</td><td>二重螺旋</td><td>永恒梦魇(组队挑战)17:00截止</td></tr>
+<tr><td>2026-11-23</td><td>鸣潮</td><td>冥歌海墟第23期截止(03:59)</td></tr>
+<tr><td>2026-11-25</td><td>原神</td><td>7.2上半米提亚+芙宁娜卡池截止 + 下半兹白+莉奈娅开启(至12/16)</td></tr>
+<tr><td>2026-11-25</td><td>NIKKE国服</td><td>莉贝雷利奥上线 + Rapi:Red Hood Special特别活动开启(至12/16)</td></tr>
+<tr><td>2026-11-25</td><td>终末地</td><td>Steam兑换码ENDFIELDSTEAM截止</td></tr>
+<tr><td>2026-11-25</td><td>崩铁</td><td>4.7下半黄泉+丹恒·饮月+景元复刻开启(至12/2)</td></tr>
+<tr><td>2026-11-26</td><td>NIKKE国际服</td><td>Scarlet: Goddeath特殊招募截止 + Marian: Queen-Last Affection婚纱gacha截止(JST 04:59)</td></tr>
+<tr><td>2026-11-26</td><td>重返1999</td><td>4.1上半佩施塔截止 + 下半伊芙琳开启</td></tr>
+<tr><td>2026-11-26</td><td>异环</td><td>1.5曳尔沐卡池截止</td></tr>
+<tr><td>2026-11-26</td><td>蓝色星原</td><td>公测正式上线🔴</td></tr>
+<tr><td>2026-11-27</td><td>燕云十六声</td><td>长乐夜未央·未央城版本内容截止</td></tr>
+<tr><td>2026-11-27</td><td>绝区零</td><td>绝区零FES 2026 杭州线下(11/27-29)</td></tr>
+<tr><td>2026-11-28</td><td>重返1999</td><td>轶事·阿莱夫「奇遇之夜」截止(4:59)</td></tr>
+<tr><td>2026-11-30</td><td>二重螺旋</td><td>黎瑟·浴火卡池+万华+帽匠宴会截止</td></tr>
+<tr><td>2026-12-02</td><td>崩铁</td><td>4.7版本结束(上半阿哈+赛维里安全部截止)</td></tr>
+<tr><td>2026-12-03</td><td>鸣潮</td><td>3.8上半莉莉+西格莉卡+仇远卡池截止 + 下半秧秧·玄翎+穗穗+绯雪开启</td></tr>
+<tr><td>2026-12-03</td><td>重返1999</td><td>4.2「亲爱的绿意之地」预告上线</td></tr>
+<tr><td>2026-12-09</td><td>NIKKE国服</td><td>1.5周年庆典版本GODDESS FALL结束(娜由塔卡池+主要活动截止)</td></tr>
+</tbody></table>
+<h2>📚 分游戏详情</h2>
+<div class='game-section'>
+<div class='game-header'><h3>原神</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>7.2「坏灭肇始之时」</div>
+<div class='summary'>7.2「坏灭肇始之时」11/4已上线，今日为7.2第17完整运行日。上半米提亚(5★雷·法器·新·星超导体系前台精通主C)+芙宁娜复刻+瓦列里(4★雷·单手剑·护盾辅助·新)Active(剩3天🟡,11/24 17:59截止,T+3预警)；下半兹白+莉奈娅复刻11/25-12/16(剩4天开启)；新区域「新基捷城」+魔神任务第七章第五/六幕(560原石)。版本主题活动全域镇卫·逆捍谬罚+压力方块+厉影定格录(均剩25天)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>7.2上半</td><td>米提亚(5★雷·法器·新·星超导体系前台精通主C), 芙宁娜(5★水·单手剑·复刻), 瓦</td><td>2026-11-04~2026-11-24</td><td>🟡剩3天</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>7.2下半</td><td>兹白(5★岩·单手剑·复刻), 莉奈娅(5★岩·弓·复刻)</td><td>2026-11-25~2026-12-16</td><td>剩4天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>全域镇卫·逆捍谬罚(版本主题活动)</td><td>原石+强化材料+自选四星角色</td><td>剩25天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>压力方块粉碎计划(休闲活动)</td><td>原石+养成材料</td><td>剩25天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>厉影定格录(拍照玩法)</td><td>原石+养成材料</td><td>剩25天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>崩坏：星穹铁道</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>4.7「此刻,将群星付之一笑」</div>
+<div class='summary'>4.7「此刻,将群星付之一笑」11/11已上线(今日第11天)!首位星神★阿哈(量子·欢愉·新·首位可抽取星神·贯穿全版本·升格欢愉命途·阿哈时刻·星神权能削减敌方生命上限)Active(剩11天,12/2 06:00截止)+上半银狼LV999/火花/爻光复刻;下半黄泉/丹恒·饮月/景元复刻(11/25-12/2,剩4天开启);登录送限定5星三选一+奇缘星魂系统+星轨专票×20;幻乐秀场(阿哈限定时装「群星乐透」,100星琼/抽,保底87抽,剩32天);活动绒绒号欢闹厨房+成名之路+货币战争S2。4.8联动绝区零(艾莲+Astra Yao)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>4.6下半</td><td>千冶·刃(5★火·虚无·复刻), 真珠(5★冰·欢愉·全程UP)</td><td>2026-10-21~2026-11-10</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>4.7上半</td><td>星神★阿哈(5★量子·欢愉·新·首位可抽取星神·贯穿全版本), 银狼LV999(复刻), </td><td>2026-11-11~2026-12-02</td><td>剩11天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>剧场版绒绒号:欢闹厨房(4.7版本活动)</td><td>星琼+养成材料</td><td>剩11天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>成名之路(战斗活动·4.7)</td><td>星琼+纪念奖章</td><td>剩11天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>货币战争S2(永久玩法更新)</td><td>全新赛季·画卷航行</td><td>剩999天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>幻乐秀场(星神阿哈时装抽取)</td><td>星神★阿哈限定时装「群星乐透」+背部幻月星轨+名片+聊天气泡</td><td>剩32天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>明日方舟：终末地</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>1.6「丹青渡」</div>
+<div class='summary'>1.6「丹青渡」CURRENT;下半明河+汤汤重构+战争回响·狂热赛季+烟火生缘均已于11/19 11:59截止→Ended;汉堡王联动11/5-12/4 Active(剩13天);Steam兑换码ENDFIELDSTEAM(至11/25,剩4天🟡)。</div>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>汉堡王联动</td><td>联动奖励</td><td>剩13天</td></tr>
+</tbody></table>
+<table><thead><tr><th>兑换码</th><th>奖励</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+<tr><td><code>ENDFIELDSTEAM</code></td><td>Steam上线纪念奖励</td><td><span class='badge badge-green'>Active</span></td><td>剩4天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>鸣潮</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>3.8「旧梦凋零的百合」</div>
+<div class='summary'>3.8「旧梦凋零的百合」11/12已上线(今日第10天)!上半莉莉(新5★衍射·佩枪·双形态甜梦/噩梦)+西格莉卡+仇远Active(11/12-12/21,剩30天);下半秧秧·玄翎+穗穗+绯雪11/26-12/21(剩5天开启);忆旅回响II自选复刻;第二索拉:未名之梦(Galgame·1200星声);昔梦赠礼7日签到(剩30天);全息战略·天傀劫煞11/19已开启→Active(剩31天);拉海洛方块·逆转11/19已开启→Active(剩12天);冥歌海墟第23期Active(剩2天🟡,11/23截止);梦野寻奇12/3+风之所向12/7;绯雪皮肤月沉霜(1980月相)+饰品灼樱。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>3.7下半</td><td>锁暝(5★导电·迅刀·新), 琳奈(5★复刻), 洛瑟菈(5★复刻)</td><td>2026-10-22~2026-11-11</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>3.8上半</td><td>莉莉(5★衍射·佩枪·新·聚怪奶妈·后台治疗增益·新联邦调香师·异能力「绮梦织香」), 西</td><td>2026-11-12~2026-12-21</td><td>剩30天</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>3.8下半</td><td>秧秧·玄翎(5·新形态), 穗穗(5·复刻), 绯雪(5·复刻·新皮肤月沉霜)</td><td>2026-11-26~2026-12-21</td><td>剩5天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>3.8全周期</td><td>椿(5·自选), 洛可可(5·自选), 布兰特(5·自选), 菲比(5·自选)</td><td>2026-11-12~2026-12-21</td><td>剩30天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>冥歌海墟(周期挑战)</td><td>800星声</td><td>🟡剩2天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>第二索拉:未名之梦(Galgame校园题材)</td><td>1200星声+调频仪+特级调谐器+活动羁旅印章+头像</td><td>剩30天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>昔梦赠礼(7日签到)</td><td>浮金波纹×5+唤声涡纹×5</td><td>剩30天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>全息战略·天傀劫煞</td><td>全新全息战略挑战</td><td>剩31天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>拉海洛方块·逆转(休闲活动)</td><td>400星声+特级密音筒+凝素高级物资箱</td><td>剩12天</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>梦野寻奇(战斗活动)</td><td>300星声+活动称号+特级调谐器</td><td>剩12天开启</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>风之所向(限时签到)</td><td>300星声+调频仪+特级调谐器+特级密音筒+贝币</td><td>剩16天开启</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>回音盈域(养成材料双倍)</td><td>模拟领域/凝素领域双倍奖励</td><td>剩5天开启</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>声弦涤荡II(声骸材料双倍·3.8轮)</td><td>无音清剿双倍奖励</td><td>剩23天开启</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>绝区零</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>3.3「重返天空的旅程」</div>
+<div class='summary'>3.3「重返天空的旅程」CURRENT(10/21-12/2);上半菲欧妮+维琳娜已于11/11截止→Ended;下半赛维里安(S级·风·强攻·新·自动闪避反击·连斩)+诺姆(S级·火·击破·复刻)Active(剩10天,12/1 14:59截止);怪奇诡屋+7日登录已Ended;3.4版本联动星铁知更鸟+卡芙卡确认;FES 11/27-29杭州(剩6天)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>上半</td><td>菲欧妮(S级·火·异常·新), 维琳娜(S级·复刻)</td><td>2026-10-21~2026-11-11</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>下半</td><td>赛维里安(S级·风·强攻·新), 诺姆(S级·复刻)</td><td>2026-11-11~2026-12-01</td><td>剩10天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>绝区零FES 2026</td><td>线下活动</td><td>剩6天开启</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>洛克王国：世界</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>S4赛季+重逢契约（CURRENT）</div>
+<div class='summary'>S4赛季+重逢契约CURRENT;「为相伴加冕」11/5-12/31 Active(剩40天);「重逢契约」(回归玩家专属)Active;仅监控《洛克王国：世界》，不监控洛克王国页游或其他手游。</div>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>为相伴加冕</td><td>同心相伴奖牌+稀有精灵卡牌</td><td>剩40天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>重逢契约(回归玩家专属)</td><td>回归见面礼+7日登录礼+命定再会+重逢手册</td><td>剩999天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>二重螺旋</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>行于破晓（CURRENT）</div>
+<div class='summary'>行于破晓版本10/20上线(今日第32天);黎瑟·浴火(雷属性·限定魔女主题)10/20-11/30 Active(剩9天);万华·牵丝织旧梦Active(剩9天);星耀巡游已于11/16截止→Ended;永恒梦魇(组队挑战)Active(剩1天🟡,11/22 17:00截止,T+1预警);帽匠的宴会(万圣节主题外观)Active(剩9天)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>上半</td><td>黎瑟·浴火(限定·雷属性·魔女主题形象·太刀与突击枪双精通·狙击射击型)</td><td>2026-10-20~2026-11-30</td><td>剩9天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>万华·牵丝织旧梦(黎瑟魔女外观)</td><td>黎瑟·浴火限定魔女主题形象</td><td>剩9天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>永恒梦魇(组队挑战)</td><td>组队挑战首领奖励</td><td>🟡明日截止</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>帽匠的宴会+无解谜题(新武器开放)</td><td>长弓帽匠的宴会+灾厄单手剑无解谜题</td><td>剩9天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>异环</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>1.5「致电,空想迷数」</div>
+<div class='summary'>1.5版本「致电,空想迷数」11/5已上线(今日第16天)!新角色曳尔沐(S级限定,11/5-11/26,剩5天)+Exe登场;真红+卡厄斯限时复刻;新主线「Meet Me in the Data Stream」+新异常领域Invalid Number;新载具试做性陆地霸者001+坦途;运通全城/征怪台等版本活动Active;拨号礼遇(新手7日福利)Active(剩5天)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>1.5上半</td><td>曳尔沐(S级限定·新)</td><td>2026-11-05~2026-11-26</td><td>剩5天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>运通全城(City Logistics)</td><td>版本活动奖励</td><td>剩999天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>征途坦荡(Full Tank Ahead)</td><td>新载具相关活动</td><td>剩999天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>Hunter's Crucible</td><td>版本活动奖励</td><td>剩999天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>拨号礼遇(累计掷骰)</td><td>曳尔沐时装花海追想+滑翔翼涂装出游浮标</td><td>剩5天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>蓝色星原：旅谣</h3><span class='badge badge-blue'>UPCOMING</span></div>
+<div class='game-version'>公测定档（UPCOMING）</div>
+<div class='summary'>公测定档2026年11月26日(剩5天)!旅迹测试已于10/7落幕;全球预约量超2500万;预约里程碑奖励:纯粹忆痕×20+角色「艾妮丝」+奇波「星彩·浮云」;WeGame兑换码LSXYWEGAME1126(11/26后-12/31有效,剩5天);蛮啾网络开发,星宠结伴幻想大世界RPG。</div>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>公测定档11月26日</td><td>预约里程碑最高20抽+角色艾妮丝+奇波星彩·浮云</td><td>剩5天开启</td></tr>
+</tbody></table>
+<table><thead><tr><th>兑换码</th><th>奖励</th><th>状态</th><th>剩余</th></tr></thead><tbody>
+<tr><td><code>LSXYWEGAME1126</code></td><td>WeGame公测启程补给站(星结卡×5+尤尼×8000)</td><td><span class='badge badge-blue'>Upcoming</span></td><td>未开启</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>重返未来1999</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>4.1「亚特兰蒂斯谋杀案」</div>
+<div class='summary'>4.1「亚特兰蒂斯谋杀案」CURRENT(版本周期11/5-12/10 04:59);佩施塔(6★星·上半11/5-11/26)Active(剩5天)+伊芙琳(6★兽·下半11/26-12/10)Upcoming(剩5天开启);大英图书馆联动「万页居所」(11/5-12/31)Active;轶事·阿莱夫「奇遇之夜」11/14已开启→Active(剩7天,至11/28 4:59,5星心相·贪欲奖励);湖的涟漪自选征集+8-bit街机秀+签到独一律×14;4.2「亲爱的绿意之地」12/3预告(剩12天)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>4.1上半</td><td>佩施塔(6★星·新·家庭教师/弩刀双修·星系生存辅助·洞知队核心)</td><td>2026-11-05~2026-11-26</td><td>剩5天</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>4.1下半</td><td>伊芙琳(6★兽·新·侦探少女)</td><td>2026-11-26~2026-12-10</td><td>剩5天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>大英图书馆联动「万页居所」(4.1)</td><td>门「自我之鉴」免费+联动外观+联动咒语</td><td>剩40天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>4.1亚特兰蒂斯谋杀案签到(独一律×14)</td><td>独一律×14(上篇7+下篇7)</td><td>剩19天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>湖的涟漪自选征集(4.1)</td><td>自选UP首个6星不歪</td><td>剩19天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>8-bit街机秀(幸存者游戏·4.1)</td><td>门主题衣着「自我之鉴」免费+共鸣晶匣</td><td>剩19天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>焦点闪回(4.1)</td><td>神思母本+独一律·湖的涟漪+恢奇帜</td><td>剩19天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>轶事·新上映:阿莱夫(4.1)</td><td>5星心相+贪欲</td><td>剩7天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>胜利女神：NIKKE（国际服）</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>MARIA-n 4周年更新（CURRENT）</div>
+<div class='summary'>4周年大型更新已于11/19 JST 04:59全部截止→Ended(Marian: Queen卡池+Cinderella/Grave/Nayuta卡池+MARIA-n Story II+Fading Affection+4周年更新本体)。Scarlet: Goddeath(SSR attacker·朝圣者·火力·突击步枪·贯通·暗物质剑)11/5-11/26 04:59 JST Active(剩5天);Marian: Queen-Last Affection婚纱gacha Active(至11/26 04:59 JST,剩5天);Cinderella Special免费时装Active(至12/3 04:59 JST,剩12天)。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>周年上半</td><td>Marian: Queen(SSR·attacker·朝圣者·火力·机枪·Burst II</td><td>2026-10-29~2026-11-19</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>周年上半</td><td>Cinderella(SSR·Defender·朝圣者), Grave(SSR·Suppo</td><td>2026-10-29~2026-11-19</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>周年中场</td><td>Scarlet: Goddeath(SSR·attacker·朝圣者·火力·突击步枪·贯通</td><td>2026-11-05~2026-11-26</td><td>剩5天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>周年</td><td>Marian: Queen - Last Affection(婚纱限定时装)</td><td>2026-11-05~2026-11-26</td><td>剩5天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>Cinderella Special(免费时装)</td><td>灰姑娘限定时装Glass Curtsy+主题曲Beautiful Me</td><td>剩12天</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>胜利女神：NIKKE（国服 / 新的希望）</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>GODDESS FALL 女神陨落（1.5周年庆典）</div>
+<div class='summary'>1.5周年庆典版本「GODDESS FALL 女神陨落」11/18上线(今日第4天)!新角色娜由塔(SSR·朝圣者·开拓者部队·冲锋枪·涅槃)PickUp Active(至12/9,剩18天);莉贝雷利奥11/25上线(Upcoming剩4天);主线第41-42章更新;1.5th Anniversary Party登录福利(SSR钟鸣+招募券);14日签到ROUTE OF QUEEN(自选宝箱);7日登录LIFE STYLE(SSR鲁玛妮,至12/2,剩11天);战线突破+战意同行限时活动;Rapi:Red Hood Special 11/25开启(Upcoming剩4天);累计超270抽。莉可丽丝联动已Ended。</div>
+<table><thead><tr><th>状态</th><th>阶段</th><th>角色</th><th>起止</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>联动上半</td><td>锦木千束(SSR·火力型·SMG·铁甲·反常)</td><td>2026-10-21~2026-11-17</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-gray'>Ended</span></td><td>联动下半</td><td>井上泷奈(SSR·辅助型·SR·铁甲·反常)</td><td>2026-10-28~2026-11-17</td><td>已截止</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>1.5周年上半</td><td>娜由塔(SSR·朝圣者·开拓者部队·冲锋枪·涅槃·悠游世间的超然僧侣·新角色)</td><td>2026-11-18~2026-12-09</td><td>剩18天</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>1.5周年下半</td><td>莉贝雷利奥(SSR·新角色·11/25上线)</td><td>2026-11-25~2026-12-09</td><td>剩4天</td></tr>
+</tbody></table>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>1.5周年庆典版本GODDESS FALL上线</td><td>新角色娜由塔+主线41-42章+累计超270抽</td><td>剩18天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>1.5th Anniversary Party登录福利</td><td>SSR妮姬钟鸣+高级招募券10+选择招募专用票券10+1.5周年礼物</td><td>剩18天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>14日签到ROUTE OF QUEEN</td><td>1.5周年纪念妮姬自选宝箱(钟鸣/白雪公主:纯真年代/长发公主:纯洁恩</td><td>剩18天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>7日登录LIFE STYLE</td><td>SSR妮姬鲁玛妮+招募券10+养成材料</td><td>剩11天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>战线突破限时活动</td><td>通关主线42章:招募券20+订制模组10</td><td>剩18天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>战意同行限时活动(多人组队)</td><td>珠宝+养成材料</td><td>剩18天</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>Rapi:Red Hood Special特别活动</td><td>拉毗:小红帽限定时装挚爱之红+主题曲Yes My Commander+</td><td>剩4天开启</td></tr>
+<tr><td><span class='badge badge-blue'>Upcoming</span></td><td>YES, MY COMMANDER特别活动</td><td>特别剧情活动</td><td>剩4天开启</td></tr>
+</tbody></table>
+</div>
+<div class='game-section'>
+<div class='game-header'><h3>燕云十六声</h3><span class='badge badge-green'>CURRENT</span></div>
+<div class='game-version'>长乐夜未央2.9.5A（CURRENT）</div>
+<div class='summary'>「长乐夜未央」版本10/23上线(今日第29天);11/6 2.9.5A版本更新:论剑切磋模式开放+戏乐精细度升级+华胥林(未央城新子区域)开放+藏锋志更新;未央城(海上奇境)开放;Keep联动已Ended;和鸣套装【岁星方朔】+版本纪念套装【渡无常】(258元);DLSS5已于11/5正式支持;长乐夜未央版本内容至11/27截止(剩6天);CPOPwave2026乌镇已Ended。</div>
+<table><thead><tr><th>状态</th><th>活动</th><th>奖励</th><th>剩余</th></tr></thead><tbody>
+<tr><td><span class='badge badge-green'>Active</span></td><td>长乐夜未央·未央城开放</td><td>4子区域/独立支线/2镇守/3侠迹/5野外首领+蜃楼竞宝大会</td><td>剩6天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>华胥林(未央城新子区域·11/6开放)</td><td>香气氤氲梦幻之地+全新野外首领</td><td>剩6天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>论剑切磋模式(11/6开放)</td><td>切磋模式+戏乐精细度升级</td><td>剩999天</td></tr>
+<tr><td><span class='badge badge-green'>Active</span></td><td>DLSS5正式支持(国内首款·11/5)</td><td>NVIDIA DLSS 5技术支持</td><td>剩999天</td></tr>
+</tbody></table>
+</div>
+</body>
+</html>
